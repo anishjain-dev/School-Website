@@ -125,7 +125,7 @@ const secondary = items.slice(1);
               <ImageFrame
                 image={item.cover ?? fixtureCover}
                 variant="card"
-                aspect="16 / 10"
+                aspect="3 / 4"
                 loading={i < 3 ? 'eager' : 'lazy'}
               />
             </div>
@@ -162,7 +162,7 @@ const secondary = items.slice(1);
         <ImageFrame
           image={featured.cover ?? fixtureCover}
           variant="hero"
-          aspect="4 / 3"
+          aspect="3 / 4"
           loading="eager"
         />
       </div>
@@ -526,7 +526,7 @@ const secondary = items.slice(1);
 .nh-card-image {
   overflow: hidden;
   flex-shrink: 0;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 3 / 4;
 }
 .nh-card-image :global(div),
 .nh-card-image :global(.frame),
