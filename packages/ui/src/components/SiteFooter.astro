@@ -33,7 +33,7 @@ const year = new Date().getFullYear();
       {social && social.length > 0 && (
         <ul class="social">
           {social.map((s) => (
-            <li><a href={s.url} rel="noopener">{s.label}</a></li>
+            <li><a href={s.url} rel="noopener noreferrer" target="_blank">{s.label}</a></li>
           ))}
         </ul>
       )}
