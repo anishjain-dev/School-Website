@@ -4,7 +4,7 @@ publishDate: 2026-07-28
 campus: falh
 description: The FALH Reading Guild celebrated a landmark this July — 10,000 books read collectively since the programme launched in 2024. The achievement was marked with a community reading event at the Vapi campus.
 cover:
-  id: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1200&h=600&fit=crop&q=80"
+  id: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&h=600&fit=crop&q=80"
   alt: "Children reading together at the FALH Reading Guild milestone celebration"
 draft: false
 ---

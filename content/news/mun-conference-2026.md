@@ -4,7 +4,7 @@ publishDate: 2026-08-03
 campus: fwgs
 description: Fountainhead Wockhardt Global School hosted the South Gujarat Model United Nations conference, welcoming over 300 delegates from 22 schools across the region.
 cover:
-  id: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&h=600&fit=crop&q=80"
+  id: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&h=600&fit=crop&q=80"
   alt: "Students debating at the South Gujarat MUN 2026 conference at FWGS"
 draft: false
 ---
