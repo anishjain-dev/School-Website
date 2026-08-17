@@ -190,32 +190,6 @@ const secondary = items.slice(1);
       </div>
     </a>
 
-    <!-- Secondary row -->
-    {secondary.length > 0 && (
-      <ul class="nh-ed-secondary" role="list">
-        {secondary.slice(0, 3).map((item) => (
-          <li>
-            <a href={item.path} class="nh-ed-sec-card">
-              <div class="nh-ed-sec-image">
-                <ImageFrame
-                  image={item.cover ?? fixtureCover}
-                  variant="card"
-                  aspect="3 / 2"
-                  loading="lazy"
-                />
-              </div>
-              <div class="nh-ed-sec-body">
-                <span class="nh-ed-sec-cat">
-                  {item.category ?? campusLabel(item.campus)}
-                </span>
-                <h4 class="nh-ed-sec-title">{item.title}</h4>
-                <span class="nh-ed-sec-date">{fmt.format(item.date)}</span>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
-    )}
   </section>
 )}
 
