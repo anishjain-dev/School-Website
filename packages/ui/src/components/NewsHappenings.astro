@@ -529,11 +529,18 @@ const secondary = items.slice(1);
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: var(--fh-space-6);
+  align-items: stretch;
+}
+
+.nh-cards-grid > li {
+  display: flex;
+  flex-direction: column;
 }
 
 .nh-card {
   display: flex;
   flex-direction: column;
+  flex: 1;
   background: var(--fh-color-surface);
   border-radius: var(--fh-radius-xl);
   overflow: hidden;
@@ -612,7 +619,6 @@ const secondary = items.slice(1);
   letter-spacing: var(--fh-tracking-tight);
   color: var(--fh-color-text);
   line-height: var(--fh-leading-snug);
-  flex: 1;
   margin: 0;
   transition: color var(--fh-duration-fast) var(--fh-ease-standard);
 }
@@ -633,7 +639,8 @@ const secondary = items.slice(1);
 
 .nh-card-cta {
   display: inline-block;
-  margin-top: var(--fh-space-2);
+  margin-top: auto;
+  padding-top: var(--fh-space-2);
   font-family: var(--fh-font-heading);
   font-size: var(--fh-text-xs);
   font-weight: var(--fh-weight-bold);

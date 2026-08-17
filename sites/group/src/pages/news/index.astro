@@ -1,9 +1,9 @@
 ---
 // Template 9a — News index (Tier B, Keystatic-fed).
+// Structure: editorial featured section (top) → cards grid (below). Sorted newest → oldest.
 import { getCollection } from 'astro:content';
 import PageChrome from '@fountainhead-web/ui/layouts/PageChrome.astro';
 import NewsHappenings from '@fountainhead-web/ui/components/NewsHappenings.astro';
-import NewsList from '@fountainhead-web/ui/components/NewsList.astro';
 import { getSiteContext } from '../../lib/matrix';
 
 const ctx = await getSiteContext();
@@ -35,14 +35,8 @@ const items = allNews
   <div class="container section">
     {items.length > 0 ? (
       <>
-        <div class="variant-label">Layout A — Split panel (school design)</div>
-        <NewsHappenings items={items} variant="split" />
-
-        <div class="variant-label">Layout B — Cards</div>
-        <NewsHappenings items={items} variant="cards" />
-
-        <div class="variant-label">Layout C — Editorial</div>
         <NewsHappenings items={items} variant="editorial" />
+        <NewsHappenings items={items} variant="cards" />
       </>
     ) : (
       <p class="empty">Nothing published yet — check back soon.</p>
@@ -56,17 +50,6 @@ const items = allNews
     display: flex;
     flex-direction: column;
     gap: var(--fh-space-16);
-  }
-  .variant-label {
-    font-family: var(--fh-font-heading);
-    font-size: var(--fh-text-xs);
-    font-weight: var(--fh-weight-bold);
-    letter-spacing: var(--fh-tracking-wider);
-    text-transform: uppercase;
-    color: var(--fh-color-text-subtle);
-    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
-    padding-bottom: var(--fh-space-3);
-    margin-bottom: calc(-1 * var(--fh-space-8));
   }
   .empty {
     color: var(--fh-color-text-muted);
