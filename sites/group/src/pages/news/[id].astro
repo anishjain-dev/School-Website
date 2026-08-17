@@ -29,13 +29,13 @@ const fmt = new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'long', ye
   <article class="container prose">
     {entry.data.cover && (
       <div class="cover-image">
-        <ImageFrame image={entry.data.cover} variant="hero" aspect="16 / 9" loading="eager" />
+        <ImageFrame image={entry.data.cover} variant="hero" aspect="3 / 4" loading="eager" />
       </div>
     )}
     {entry.data.description && (
       <p class="lede">{entry.data.description}</p>
     )}
-    <Content />
+    <div class="content"><Content /></div>
     <p class="back"><a href="/news/">← All news</a></p>
   </article>
 </PageChrome>
@@ -47,11 +47,19 @@ const fmt = new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'long', ye
     font-size: var(--fh-text-lg);
     line-height: var(--fh-leading-relaxed);
   }
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(36px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
   .cover-image {
     margin-bottom: var(--fh-space-8);
     border-radius: var(--fh-radius-xl);
     overflow: hidden;
+    animation: slide-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.05s;
   }
+
   .lede {
     font-size: var(--fh-text-xl);
     line-height: var(--fh-leading-relaxed);
@@ -60,6 +68,13 @@ const fmt = new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'long', ye
     margin-bottom: var(--fh-space-8);
     padding-bottom: var(--fh-space-8);
     border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+    animation: slide-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.18s;
+  }
+
+  .content {
+    animation: slide-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.28s;
   }
   .prose :global(p) {
     margin-bottom: var(--fh-space-5);
