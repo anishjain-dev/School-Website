@@ -1,0 +1,375 @@
+year: 2024
+campus: "kunkni"
+programme: "DP"
+cohortSize: 161
+generatedAt: "2026-07-28"
+source: "published from the Career Counselling app, which owns the placement record"
+placements:
+  - institution: "auro-university"
+    cluster: "business-administration-commerce"
+    count: 10
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    school: "Anil Surendra Modi School of Commerce"
+    cluster: "business-administration-commerce"
+    count: 10
+  - institution: "ashoka-university"
+    cluster: "finance"
+    count: 4
+  - institution: "flame-university"
+    cluster: "business-administration-commerce"
+    count: 4
+  - institution: "anant-national-university"
+    cluster: "arts-design-media"
+    count: 3
+  - institution: "atlas-skilltech-university"
+    cluster: "business-administration-commerce"
+    count: 3
+  - institution: "auro-university"
+    cluster: "hospitality-tourism"
+    count: 3
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    school: "Centre for International Studies"
+    cluster: "business-administration-commerce"
+    count: 3
+  - institution: "amity-university"
+    cluster: "business-administration-commerce"
+    count: 2
+  - institution: "bhagwan-mahavir-university"
+    cluster: "business-administration-commerce"
+    count: 2
+  - institution: "christ-university"
+    cluster: "business-administration-commerce"
+    count: 2
+  - institution: "mit-world-peace-university"
+    cluster: "business-administration-commerce"
+    count: 2
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    cluster: "business-administration-commerce"
+    count: 2
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    school: "Anil Surendra Modi School of Commerce"
+    cluster: "finance"
+    count: 2
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    school: "Pravin Dalal School of Entrepreneurship and Family Business Management"
+    cluster: "business-administration-commerce"
+    count: 2
+  - institution: "purdue-university"
+    cluster: "stem"
+    count: 2
+  - institution: "rutgers-university"
+    unit: "rutgers-university-new-brunswick"
+    cluster: "mass-media-journalism"
+    count: 2
+  - institution: "symbiosis-international-university"
+    cluster: "information-technology"
+    count: 2
+  - institution: "ahmedabad-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "atlas-skilltech-university"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "atlas-skilltech-university"
+    cluster: "mass-media-journalism"
+    count: 1
+  - institution: "atlas-skilltech-university"
+    school: "ISME - School of Management & Entrepreneurship"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "auro-university"
+    cluster: "information-technology"
+    count: 1
+  - institution: "austin-community-college"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "birla-pilani-digital"
+    cluster: "information-technology"
+    count: 1
+  - institution: "c-k-pithawala-college"
+    cluster: "information-technology"
+    count: 1
+  - institution: "california-state-university-campus-los-angeles"
+    cluster: "stem"
+    count: 1
+  - institution: "canadian-university-dubai"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "christ-university"
+    cluster: "mass-media-journalism"
+    count: 1
+  - institution: "christ-university"
+    cluster: "stem"
+    count: 1
+  - institution: "city-university-of-london"
+    cluster: "human-services"
+    count: 1
+  - institution: "cmkl-university"
+    cluster: "information-technology"
+    count: 1
+  - institution: "delft-university-of-technology"
+    cluster: "stem"
+    count: 1
+  - institution: "dy-patil-university"
+    cluster: "human-services"
+    count: 1
+  - institution: "embry-riddle-aeronautical-university"
+    cluster: "stem"
+    count: 1
+  - institution: "fashion-institute-of-technology"
+    cluster: "marketing"
+    count: 1
+  - institution: "flame-university"
+    cluster: "finance"
+    count: 1
+  - institution: "flame-university"
+    cluster: "information-technology"
+    count: 1
+  - institution: "george-brown-college"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "indiana-tech"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "istituto-marangoni"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "jai-hind-college"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "jain-university"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "jain-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "karnavati-university"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "karnavati-university"
+    cluster: "human-services"
+    count: 1
+  - institution: "krea-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "london-school-of-economics-and-political-science"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "london-school-of-economics-and-political-science"
+    cluster: "finance"
+    count: 1
+  - institution: "malini-kishor-sanghvi-college-of-commerce-and-economics"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "middlesex-university-london"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "middlesex-university-london"
+    unit: "middlesex-university-dubai"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    cluster: "stem"
+    count: 1
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    school: "NMIMS School of Hospitality Management"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    school: "Pravin Dalal School of Entrepreneurship & Family Business Management"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    school: "Pravin Dalal School of Entrepreurship and Family Business Management"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    school: "Sarla Anil Modi School of Economics"
+    cluster: "finance"
+    count: 1
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    school: "School of Branding and Advertising (SoBA)"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    school: "School of Branding and Advertising (SoBA)"
+    cluster: "marketing"
+    count: 1
+  - institution: "national-institute-of-fashion-technology"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "new-jersey-institute-of-technology"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "nirma-university"
+    cluster: "architecture-construction"
+    count: 1
+  - institution: "nirma-university"
+    cluster: "law"
+    count: 1
+  - institution: "northeastern-university"
+    cluster: "finance"
+    count: 1
+  - institution: "nottingham-trent-university"
+    cluster: "finance"
+    count: 1
+  - institution: "nuremberg-institute-of-technology"
+    cluster: "stem"
+    count: 1
+  - institution: "pandit-deendayal-energy-university-pdeu"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "pennsylvania-state-university"
+    cluster: "information-technology"
+    count: 1
+  - institution: "plaksha-university"
+    cluster: "information-technology"
+    count: 1
+  - institution: "pratt-institute"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "rangsit-university"
+    cluster: "stem"
+    count: 1
+  - institution: "robert-morris-university"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "rutgers-university"
+    unit: "rutgers-university-camden"
+    cluster: "finance"
+    count: 1
+  - institution: "rutgers-university"
+    unit: "rutgers-university-camden"
+    cluster: "human-services"
+    count: 1
+  - institution: "rutgers-university"
+    unit: "rutgers-university-new-brunswick"
+    cluster: "information-technology"
+    count: 1
+  - institution: "rutgers-university"
+    unit: "rutgers-university-new-brunswick"
+    cluster: "stem"
+    count: 1
+  - institution: "saint-peter-s-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "sarvajanik-college-of-engineering-and-technology"
+    cluster: "information-technology"
+    count: 1
+  - institution: "sarvajanik-college-of-engineering-and-technology"
+    cluster: "stem"
+    count: 1
+  - institution: "shiv-nadar-university"
+    cluster: "finance"
+    count: 1
+  - institution: "singapore-university-of-technology-and-design-sutd"
+    cluster: "stem"
+    count: 1
+  - institution: "sp-jain-school-of-global-management"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "st-george-s-university"
+    cluster: "health-sciences"
+    count: 1
+  - institution: "stanford-university"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "stony-brook-university"
+    cluster: "information-technology"
+    count: 1
+  - institution: "suny-university-at-buffalo"
+    cluster: "information-technology"
+    count: 1
+  - institution: "swinburne-university-of-technology"
+    cluster: "information-technology"
+    count: 1
+  - institution: "symbiosis-international-university"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "texas-a-and-m-university"
+    cluster: "stem"
+    count: 1
+  - institution: "university-at-albany-suny"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-at-albany-suny"
+    cluster: "finance"
+    count: 1
+  - institution: "university-of-alberta"
+    cluster: "information-technology"
+    count: 1
+  - institution: "university-of-british-columbia"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-of-cincinnati"
+    cluster: "finance"
+    count: 1
+  - institution: "university-of-east-london"
+    cluster: "marketing"
+    count: 1
+  - institution: "university-of-exeter"
+    cluster: "finance"
+    count: 1
+  - institution: "university-of-illinois-at-urbana-champaign"
+    cluster: "stem"
+    count: 1
+  - institution: "university-of-manchester"
+    cluster: "finance"
+    count: 1
+  - institution: "university-of-massachusetts"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-of-massachusetts"
+    cluster: "stem"
+    count: 1
+  - institution: "university-of-massachusetts"
+    unit: "university-of-massachusetts-boston"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-of-massachusetts"
+    unit: "university-of-massachusetts-boston"
+    cluster: "information-technology"
+    count: 1
+  - institution: "university-of-mumbai"
+    cluster: "information-technology"
+    count: 1
+  - institution: "university-of-rochester"
+    cluster: "finance"
+    count: 1
+  - institution: "university-of-sydney"
+    cluster: "finance"
+    count: 1
+  - institution: "university-of-toronto"
+    cluster: "information-technology"
+    count: 1
+  - institution: "university-of-toronto"
+    cluster: "stem"
+    count: 1
+  - institution: "university-of-warwick"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-of-waterloo"
+    cluster: "human-services"
+    count: 1
+  - institution: "university-of-waterloo"
+    cluster: "information-technology"
+    count: 1
+  - institution: "university-of-wollongong"
+    cluster: "marketing"
+    count: 1
+  - institution: "vanita-vishram-women-s-university"
+    cluster: "stem"
+    count: 1
+  - institution: "whistling-woods-international"
+    school: "Institute of Flim, Communication & Creative Arts"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "whistling-woods-international"
+    school: "Institute of Flim, Communication & Creative Arts"
+    cluster: "mass-media-journalism"
+    count: 1
+otherOutcomes:
+  - outcome: "family-business"
+    count: 2
+  - outcome: "gap-year"
+    count: 3

@@ -1,0 +1,39 @@
+---
+// DPDP notice at the point of collection (WA-22): purpose, retention
+// (WA-34), grievance contact. REQUIRED props — a form cannot render
+// without its notice.
+interface Props {
+  purpose: string;
+  retention: string;
+  noticeVersion: string;
+}
+const { purpose, retention, noticeVersion } = Astro.props;
+---
+
+<div class="notice">
+  <p>
+    <strong>How we use this information:</strong> {purpose} Held for {retention}, then deleted. Questions or
+    grievances: <a href="mailto:grievance@fountainheadschools.org">grievance@fountainheadschools.org</a>.
+  </p>
+  <p class="version">Privacy notice {noticeVersion}</p>
+</div>
+
+<style>
+  .notice {
+    border-left: var(--fh-space-1) solid var(--fh-color-info-border);
+    background: var(--fh-color-info-subtle);
+    color: var(--fh-color-info-subtle-fg);
+    border-radius: var(--fh-radius-md);
+    padding: var(--fh-space-4) var(--fh-space-5);
+    font-size: var(--fh-text-sm);
+    line-height: var(--fh-leading-normal);
+  }
+  .notice a {
+    color: inherit;
+  }
+  .version {
+    margin-top: var(--fh-space-2);
+    font-size: var(--fh-text-xs);
+    opacity: 0.75;
+  }
+</style>

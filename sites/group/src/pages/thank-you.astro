@@ -1,0 +1,38 @@
+---
+// PRG target for every form (static).
+import { getSiteContext } from '../lib/matrix';
+
+const ctx = await getSiteContext();
+import PageChrome from '@fountainhead-web/ui/layouts/PageChrome.astro';
+---
+
+<PageChrome
+  campus={null}
+  heading="Thank you — we have it"
+  pageTitle="Thank you — Fountainhead Schools"
+  description="Your submission has reached us."
+  canonical={new URL('/thank-you/', Astro.site)}
+  nav={ctx.navFor(null)}
+  social={ctx.socialFor(null)}
+  eyebrow="Received"
+  admissionsPath={ctx.admissionsPathFor(null)}
+>
+  <div class="container body">
+    <p>
+      Your submission is safely with us. Expect a call or email from the right team within two working days —
+      admissions for visits and enquiries, HR for applications.
+    </p>
+    <p><a href="/">← Back to the home page</a></p>
+  </div>
+</PageChrome>
+
+<style>
+  .body {
+    padding-block: var(--fh-space-12);
+    max-width: 60ch;
+    font-size: var(--fh-text-lg);
+    line-height: var(--fh-leading-relaxed);
+    display: grid;
+    gap: var(--fh-space-6);
+  }
+</style>

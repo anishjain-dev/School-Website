@@ -1,0 +1,57 @@
+---
+// The ONLY way images render. Real ids build Cloudflare Images delivery
+// URLs (media never lives in git — hard rule 1); ids beginning `fixture:`
+// render a token-coloured SVG placeholder so design works before real
+// photography exists.
+import type { ImageRef } from '@fountainhead-web/content-schema';
+
+interface Props {
+  image: ImageRef;
+  /** Cloudflare Images variant name */
+  variant?: 'thumb' | 'card' | 'hero' | 'public';
+  aspect?: string;
+  loading?: 'lazy' | 'eager';
+}
+const { image, variant = 'public', aspect = '3 / 2', loading = 'lazy' } = Astro.props;
+
+const isFixture = image.id.startsWith('fixture:');
+const isUrl = !isFixture && (image.id.startsWith('https://') || image.id.startsWith('http://') || image.id.startsWith('/'));
+const label = isFixture ? image.id.slice('fixture:'.length).replaceAll('-', ' ') : undefined;
+const accountHash = import.meta.env.PUBLIC_CF_IMAGES_HASH ?? 'ACCOUNT_HASH_PENDING';
+const src = isFixture ? undefined : isUrl ? image.id : `https://imagedelivery.net/${accountHash}/${image.id}/${variant}`;
+---
+
+{
+  isFixture ? (
+    <div class="frame fixture" style={`aspect-ratio: ${aspect}`} role={image.alt ? 'img' : undefined} aria-label={image.alt || undefined}>
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
+        <path d="M12 0c.6 6.4 5 10.8 12 12-7 1.2-11.4 5.6-12 12-.6-6.4-5-10.8-12-12C7 10.8 11.4 6.4 12 0Z" />
+      </svg>
+      <span>{label}</span>
+    </div>
+  ) : (
+    <img class="frame" style={`aspect-ratio: ${aspect}`} src={src} alt={image.alt} width={image.width} height={image.height} loading={loading} decoding="async" />
+  )
+}
+
+<style>
+  .frame {
+    width: 100%;
+    border-radius: var(--fh-radius-lg);
+    object-fit: cover;
+  }
+  .fixture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--fh-space-2);
+    background: var(--fh-color-primary-subtle);
+    color: var(--fh-color-primary-subtle-fg);
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-semibold);
+    letter-spacing: var(--fh-tracking-wide);
+    text-transform: uppercase;
+  }
+</style>

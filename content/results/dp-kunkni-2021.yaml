@@ -1,0 +1,32 @@
+programme: "DP"
+classOf: 2021
+sessionYear: 2021
+campus: "kunkni"
+cohortSize: 75
+schoolAverage: 34.59
+worldAverage: 33
+maxPossible: 45
+highestAchieved: 43
+awarded:
+  diploma: 63
+  course: 10
+distribution:
+  - label: "30 points & above"
+    count: 52
+    of: 63
+  - label: "36 points & above"
+    count: 28
+    of: 63
+  - label: "40 points & above"
+    count: 13
+    of: 63
+notable:
+  - label: "A grades in the Extended Essay"
+    count: 8
+    of: 75
+  - label: "A grades in Theory of Knowledge"
+    count: 8
+    of: 75
+source: "published from the IBDP Results system (Fountainhead School, Kunkni), the school's record of the IB session"
+generatedAt: "2026-07-28"
+provisional: false

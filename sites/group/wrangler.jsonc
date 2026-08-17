@@ -1,0 +1,38 @@
+{
+  // WA-5 (revised 2026-07-19): Cloudflare Workers with Static Assets,
+  // deployed by Workers Builds on push. One Worker: static site + form
+  // endpoints (WA-22) + CV serving (WA-39) + the WA-34 purge cron.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "fountainhead-web",
+  "main": "dist/_worker.js/index.js",
+  "compatibility_date": "2026-07-19",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "observability": {
+    "enabled": true
+  },
+  // WA-34/WA-40: daily purge at 03:00 IST (21:30 UTC).
+  "triggers": {
+    "crons": ["30 21 * * *"]
+  },
+  // Pooled path to the interim Postgres (WA-40; Railway per the accepted
+  // WA-40 deviation, sunset at .org cutover). env.DB wins over the
+  // DATABASE_URL secret in src/lib/env.ts; local dev uses the container.
+  "hyperdrive": [
+    {
+      "binding": "DB",
+      "id": "571fb89a70094e678b3ca62a6249f094",
+      "localConnectionString": "postgresql://fw:fw@localhost:15432/fw_interim"
+    }
+  ]
+  // Credential sitting (remaining):
+  //   - secrets: DATABASE_URL (fallback), TURNSTILE_SECRET,
+  //     DOC_SIGNING_KEY, IP_SALT, ALERT_EMAILS (provider pending)
+  //   - Cloudflare Access policy on /admin/* and /api/cv/*
+  //   - zone WAF rate rule on /api/* at .org cutover (WA-39 edge layer)
+}

@@ -1,0 +1,32 @@
+# Fountainhead Wockhardt Global School — Wockhardt JV, FWGS brand (WA-6).
+# Location corrected 2026-07-27 (VK): FWGS is in Chhatrapati Sambhajinagar,
+# Maharashtra — the seeded Surat/Gujarat values were wrong. jurisdiction
+# drives the WA-14 statutory block, so board, recognition authority and fee
+# committee all differ from the Gujarat campuses. See Part 3.
+slug: fwgs
+name: Fountainhead Wockhardt Global School
+shortName: FWGS
+descriptor: The Fountainhead × Wockhardt campus
+brand: fwgs
+jurisdiction: maharashtra
+# Address supplied by VK 2026-07-27, verbatim:
+#   "1, SEZ, Five star, E-1/NP, Shendra MIDC, Industrial Estate, Shendra,
+#    MIDC, Gangapur Jahagir, Kubhephal, Maharashtra 431154"
+# Split across line1/line2 below with the repeated "Shendra MIDC" collapsed
+# once. Kept verbatim here so nothing is lost if the split reads wrong —
+# comms to confirm the printed form before launch.
+address:
+  line1: 1, SEZ, Five Star, E-1/NP, Shendra MIDC Industrial Estate
+  line2: Shendra, Gangapur Jahagir, Kubhephal
+  city: Chhatrapati Sambhajinagar
+  state: Maharashtra
+  pincode: "431154"
+domains:
+  - fwgs.in
+inherit:
+  mode: all
+  # FHSD is authored at group level because it will expand (WA-48 addendum,
+  # 2026-07-27). FWGS does not offer it yet — delete this line when it does,
+  # and the page appears with no URL change.
+  exclude:
+    - academics/fhsd

@@ -1,0 +1,13 @@
+# Interim Tier C seed (WA-16/WA-40): calendar as YAML until CAL is live.
+# Shape mirrors Nucleus CalendarEntry so cutover is a copy, not a transform.
+campus: kunkni
+academicYear: "2026-27"
+entries:
+  - date: 2026-08-15
+    title: Independence Day
+    kind: holiday
+    appliesTo: both
+  - date: 2026-09-12
+    title: Open House
+    kind: event
+    appliesTo: both

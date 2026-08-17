@@ -1,0 +1,51 @@
+/* ==========================================================================
+   BRAND — FALH (Fountainhead Avadh Learning Hub, Vapi)
+   --------------------------------------------------------------------------
+   REAL VALUES from "FALH - Brand Manual.pdf" (Brand Guidelines 2025, 39pp,
+   ©CONTOURS; extracted 2026-07-20). FALH deliberately shares the
+   Fountainhead primaries — "the first chapter of the same philosophy, not
+   a separate brand" — and adds preschool secondaries (pink/peach/green).
+   VK (2026-07-20): the warm YELLOW hero stays — schools get deep blue,
+   preschools stay visibly distinct. Yellow remains dark-text-only.
+   Faces: Nunito-led per the manual; the web keeps the group Montserrat/
+   Nunito pairing (DK Nouveau Crayon is commercial — licence unresolved).
+   ========================================================================== */
+
+[data-brand="falh"] {
+  --fh-color-primary:        var(--fh-blue-600);
+  --fh-color-primary-hover:  var(--fh-blue-700);
+  --fh-color-primary-active: var(--fh-blue-800);
+
+  --fh-color-secondary:       var(--fh-red-600);
+  --fh-color-secondary-hover: var(--fh-red-700);
+
+  --fh-color-accent:    var(--fh-yellow-400);
+  --fh-color-accent-fg: var(--fh-neutral-900);
+
+  --fh-color-text-link: var(--fh-blue-700);
+  --fh-color-focus:     var(--fh-blue-600);
+  --fh-ring:            0 0 0 3px rgba(0, 91, 170, 0.35);
+
+  /* The preschool signature: warm hero, dark text (kept per VK) */
+  --fh-color-hero-bg: var(--fh-yellow-400);
+  --fh-color-hero-fg: var(--fh-neutral-900);
+  --fh-color-eyebrow: var(--fh-color-primary-text);
+
+  /* The hero background IS the accent here, so the primary CTA takes the
+     brand blue — otherwise it is a yellow button on a yellow field with no
+     visible boundary (WCAG 1.4.11). Blue is on-brand: FALH deliberately
+     shares the Fountainhead primaries. */
+  --fh-color-hero-cta-bg:    var(--fh-color-primary);
+  --fh-color-hero-cta-fg:    var(--fh-color-primary-fg);
+  --fh-color-hero-cta-hover: var(--fh-color-primary-hover);
+
+  /* Preschool secondaries (manual p.26–27) — decorative differentiators
+     for future FALH-specific surfaces (cards, catalogue chips, waves).
+     Hex is canonical per the manual (its RGB columns disagree slightly). */
+  --fh-falh-pink:        #F04C9A;
+  --fh-falh-pink-soft:   #EA7ABD;
+  --fh-falh-peach:       #F69673;
+  --fh-falh-peach-soft:  #F9B9AC;
+  --fh-falh-green:       #7FD39F;
+  --fh-falh-green-soft:  #BEE5C3;
+}

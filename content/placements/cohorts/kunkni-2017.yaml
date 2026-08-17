@@ -1,0 +1,100 @@
+year: 2017
+campus: "kunkni"
+programme: "DP"
+cohortSize: 40
+generatedAt: "2026-07-28"
+source: "published from the Career Counselling app, which owns the placement record"
+placements:
+  - institution: "auro-university"
+    cluster: "business-administration-commerce"
+    count: 5
+  - institution: "pandit-deendayal-energy-university-pdeu"
+    cluster: "business-administration-commerce"
+    count: 3
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    cluster: "business-administration-commerce"
+    count: 2
+  - institution: "university-of-british-columbia"
+    cluster: "human-services"
+    count: 2
+  - institution: "university-of-toronto"
+    cluster: "business-administration-commerce"
+    count: 2
+  - institution: "annapurna-international-school-of-film-and-media-aisfm"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "auro-university"
+    cluster: "hospitality-tourism"
+    count: 1
+  - institution: "cambrian-college"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "christ-university"
+    cluster: "human-services"
+    count: 1
+  - institution: "flame-university"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "h-r-college-of-commerce-and-economics"
+    cluster: "mass-media-journalism"
+    count: 1
+  - institution: "institute-of-hotel-management-aurangabad-ihm-a"
+    cluster: "hospitality-tourism"
+    count: 1
+  - institution: "jain-university"
+    cluster: "human-services"
+    count: 1
+  - institution: "johnson-and-wales-university"
+    cluster: "hospitality-tourism"
+    count: 1
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    cluster: "architecture-construction"
+    count: 1
+  - institution: "op-jindal-global-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "sheridan-college"
+    cluster: "architecture-construction"
+    count: 1
+  - institution: "simon-fraser-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "srishti-school-of-art-design-and-technology"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "swansea-university"
+    cluster: "health-sciences"
+    count: 1
+  - institution: "symbiosis-international-university"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "symbiosis-international-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-of-british-columbia"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-of-indianapolis"
+    cluster: "health-sciences"
+    count: 1
+  - institution: "university-of-toronto"
+    cluster: "information-technology"
+    count: 1
+  - institution: "university-of-toronto"
+    cluster: "mass-media-journalism"
+    count: 1
+  - institution: "university-of-warwick"
+    cluster: "government-public-administration"
+    count: 1
+  - institution: "veer-narmad-south-gujarat-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "veer-narmad-south-gujarat-university"
+    cluster: "human-services"
+    count: 1
+  - institution: "wharton-school-of-business-university-of-pennsylvania"
+    cluster: "finance"
+    count: 1
+otherOutcomes:
+  - outcome: "family-business"
+    count: 1

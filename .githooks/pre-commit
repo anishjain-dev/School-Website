@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Git dispatcher — MUST be named exactly "pre-commit", no extension.
+# Git ignores anything with a file extension.
+set -euo pipefail
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+bash "$DIR/scripts/block-binary-media.sh"
+bash "$DIR/scripts/block-brand-literals.sh"

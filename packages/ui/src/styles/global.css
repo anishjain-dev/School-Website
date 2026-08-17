@@ -1,0 +1,114 @@
+/* Shared base styles for every page (imported once by BaseLayout).
+   Tokens only — a colour literal here is a build failure. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--fh-color-bg);
+  color: var(--fh-color-text);
+  font-family: var(--fh-font-body);
+  font-size: var(--fh-text-base);
+  line-height: var(--fh-leading-normal);
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--fh-font-heading);
+  line-height: var(--fh-leading-tight);
+  margin: 0;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--fh-color-text-link);
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--fh-ring);
+  border-radius: var(--fh-radius-xs);
+}
+
+/* Skip link — first focusable element on every page (WCAG 2.4.1) */
+.skip-link {
+  position: absolute;
+  left: var(--fh-space-4);
+  top: var(--fh-space-4);
+  z-index: var(--fh-z-toast);
+  background: var(--fh-color-surface);
+  color: var(--fh-color-text);
+  padding: var(--fh-space-3) var(--fh-space-5);
+  border-radius: var(--fh-radius-md);
+  box-shadow: var(--fh-shadow-lg);
+  font-family: var(--fh-font-heading);
+  font-weight: var(--fh-weight-semibold);
+  text-decoration: none;
+  transform: translateY(calc(-100% - var(--fh-space-8)));
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
+/* Page-load reveal — the one orchestrated motion moment. CSS only,
+   applied via .reveal + inline animation-delay; fully disabled under
+   prefers-reduced-motion. */
+@keyframes fh-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal {
+  animation: fh-rise var(--fh-duration-slow) var(--fh-ease-emphasized) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Shared layout rhythm */
+.container {
+  max-width: var(--fh-container-max);
+  margin-inline: auto;
+  padding-inline: var(--fh-space-6);
+}
+
+/* Print: site chrome never prints */
+@media print {
+  .u-print-hidden {
+    display: none !important;
+  }
+}

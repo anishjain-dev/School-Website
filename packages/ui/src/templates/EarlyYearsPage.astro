@@ -1,0 +1,228 @@
+---
+// Template 15 — Early years (WA-47). The front door for a preschool campus.
+//
+// Structured like CampusHome, not ContentPage, for two reasons that are not
+// cosmetic:
+//   1. WA-27 requires EducationalOrganization markup on EVERY campus.
+//   2. The FALH brand's whole signature is `--fh-color-hero-bg: yellow-400`
+//      — VK, 2026-07-20: "schools get deep blue, preschools stay visibly
+//      distinct". Only <Hero> consumes that token, so a PageChrome-based
+//      page would set data-brand="falh" and still render blue.
+//
+// Deliberately simpler than FALH's programme catalogue (WA-35): preschools
+// carry no PYP/MYP/DP, so this is one page with a programme table.
+//
+// The progression pathway is the point of folding the preschools in — the
+// centres have always been connected to the schools and the old public
+// sites never said so. `continuesAt` is a campus slug set in _campus.yaml,
+// never inferred here: the pairing is geography, a content decision (WA-47).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader, { type NavItem } from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import CampusSchema from '../components/CampusSchema.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import CTABand from '../components/CTABand.astro';
+import Spark from '../components/Spark.astro';
+import { footerColumns } from '../lib/nav';
+import type { CampusConfig } from '@fountainhead-web/content-schema';
+
+export interface EarlyYearsProgramme {
+  name: string;
+  ageFrom: number;
+  ageTo: number;
+  duration: string;
+  days: string;
+}
+
+interface Props {
+  campus: CampusConfig;
+  heading: string;
+  lede?: string | undefined;
+  pageTitle: string;
+  description?: string | undefined;
+  canonical?: URL | string | undefined;
+  nav: NavItem[];
+  admissionsPath: string;
+  pageUrl: URL | string;
+  social?: { label: string; url: string }[] | undefined;
+  earlyYears?: { programmes: EarlyYearsProgramme[]; ratio?: string | undefined } | undefined;
+  /** Resolved from campus.continuesAt; absent until the pairing is set. */
+  continuesAt?: { name: string; path: string } | undefined;
+}
+const { campus, heading, lede, pageTitle, description, canonical, nav, admissionsPath, pageUrl, social, earlyYears, continuesAt } =
+  Astro.props;
+
+const programmes = earlyYears?.programmes ?? [];
+// Span across every programme, so the fact panel cannot drift from the table.
+const ageSpan = programmes.length
+  ? `${Math.min(...programmes.map((p) => p.ageFrom))}–${Math.max(...programmes.map((p) => p.ageTo))} yrs`
+  : undefined;
+---
+
+<BaseLayout brand={campus.brand} title={pageTitle} description={description} canonical={canonical}>
+  <CampusSchema slot="head-extra" campus={campus} url={pageUrl} />
+
+  <SiteHeader
+    slot="header"
+    siteName={campus.name}
+    shortName={campus.shortName}
+    homePath={`/${campus.slug}/`}
+    nav={nav}
+    enquirePath={admissionsPath}
+    phone={campus.phone}
+  />
+
+  <Hero
+    eyebrow={`${campus.shortName ?? campus.name} · ${campus.address.city}`}
+    title={heading}
+    lede={lede}
+    primaryCta={{ label: 'Enquire now', path: admissionsPath }}
+    secondaryCta={{ label: 'Where this leads', path: '#progression' }}
+    facts={[
+      { label: 'City', value: campus.address.city },
+      ...(ageSpan ? [{ label: 'Ages', value: ageSpan }] : []),
+      { label: 'Part of', value: 'Fountainhead Group' },
+    ]}
+    factsHeading="At a glance"
+  />
+
+  <article class="container prose">
+    <slot />
+  </article>
+
+  {programmes.length > 0 && (
+    <Section eyebrow="What we offer" heading="Programmes" id="programmes" tone="sunken">
+      {/* tabindex + role make the scroll container keyboard-reachable when it
+          overflows on a narrow viewport (WCAG 2.1.1). The a11y gate runs at
+          desktop width, where it never overflows, so this would not be caught. */}
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Programmes">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Programme</th>
+              <th scope="col">Age</th>
+              <th scope="col">Each day</th>
+              <th scope="col">Days</th>
+            </tr>
+          </thead>
+          <tbody>
+            {programmes.map((p) => (
+              <tr>
+                <th scope="row">{p.name}</th>
+                <td>{p.ageFrom}–{p.ageTo} yrs</td>
+                <td>{p.duration}</td>
+                <td>{p.days}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {earlyYears?.ratio && (
+        <p class="ratio"><Spark size={13} /> Adult-to-child ratio {earlyYears.ratio}</p>
+      )}
+    </Section>
+  )}
+
+  <Section eyebrow="What comes next" heading="Where this leads" id="progression">
+    {continuesAt ? (
+      <p class="lede">
+        Children here move on to <a href={continuesAt.path}>{continuesAt.name}</a> — the same group,
+        the same conviction about how children learn, and an IB continuum that runs from the
+        <a href="/academics/pyp/">Primary Years Programme</a> through to the Diploma.
+      </p>
+    ) : (
+      <p class="lede">
+        This is a Fountainhead early-years centre — part of the same group as our IB schools, not a
+        separate venture. Children move on into the IB continuum, beginning with the
+        <a href="/academics/pyp/">Primary Years Programme</a>.
+        <a href="/#campuses">See every campus</a>.
+      </p>
+    )}
+  </Section>
+
+  <CTABand
+    heading="Come and see a morning"
+    body="The honest way to judge an early-years centre is to watch one at work."
+    cta={{ label: 'Arrange a visit', path: admissionsPath }}
+  />
+
+  <SiteFooter
+    slot="footer"
+    siteName={campus.name}
+    social={social}
+    coBrand="Part of the Fountainhead Group"
+    address={`${campus.address.line1}, ${campus.address.city}`}
+    email={campus.email}
+    phone={campus.phone}
+    columns={[
+      ...footerColumns(nav, `/${campus.slug}/`),
+      {
+        heading: 'The group',
+        links: [
+          { label: 'Fountainhead Schools', path: '/' },
+          { label: 'Philosophy', path: '/philosophy/' },
+          { label: 'Academics', path: '/academics/' },
+        ],
+      },
+    ]}
+  />
+</BaseLayout>
+
+<style>
+  .prose {
+    padding-block: var(--fh-space-12);
+    max-width: calc(var(--fh-container-max) * 0.66);
+    font-size: var(--fh-text-lg);
+    line-height: var(--fh-leading-relaxed);
+  }
+  .prose :global(p) {
+    margin-bottom: var(--fh-space-5);
+  }
+  .prose :global(a) {
+    color: var(--fh-color-text-link);
+  }
+
+  .table-scroll {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    text-align: left;
+    padding: var(--fh-space-3) var(--fh-space-4);
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+  }
+  thead th {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-bold);
+    letter-spacing: var(--fh-tracking-wider);
+    text-transform: uppercase;
+    color: var(--fh-color-eyebrow);
+  }
+  tbody th {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    white-space: nowrap;
+  }
+  .ratio {
+    display: flex;
+    align-items: center;
+    gap: var(--fh-space-2);
+    margin-top: var(--fh-space-4);
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-text-muted);
+  }
+  .lede {
+    max-width: 60ch;
+    font-size: var(--fh-text-lg);
+    line-height: var(--fh-leading-relaxed);
+  }
+  .lede a {
+    color: var(--fh-color-text-link);
+  }
+</style>

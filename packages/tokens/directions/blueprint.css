@@ -1,0 +1,38 @@
+/* ==========================================================================
+   DESIGN-DIRECTION VARIANT C — "Blueprint"  (exploration only)
+   Dark, graphic, architectural: near-black field, blueprint grid texture,
+   yellow rule-lines as the signature, sharp corners, high-contrast type.
+   Composition on the variant page: dense grid, flat borders, no rounding.
+   Scoped under [data-direction="blueprint"]; never shipped on real routes.
+   ========================================================================== */
+
+[data-direction='blueprint'] {
+  color-scheme: dark;
+  --fh-color-bg: var(--fh-neutral-950);
+  --fh-color-surface: var(--fh-neutral-900);
+  --fh-color-surface-sunken: var(--fh-neutral-800);
+  --fh-color-border: var(--fh-neutral-700);
+  --fh-color-border-strong: var(--fh-neutral-600);
+
+  --fh-color-text: var(--fh-neutral-50);
+  --fh-color-text-muted: var(--fh-neutral-300);
+  --fh-color-text-link: var(--fh-yellow-300);
+
+  --fh-color-hero-bg: var(--fh-neutral-950);
+  --fh-color-hero-fg: var(--fh-neutral-0);
+  --fh-color-eyebrow: var(--fh-yellow-400);
+
+  --fh-color-primary: var(--fh-blue-500);
+  --fh-color-primary-hover: var(--fh-blue-400);
+  --fh-color-primary-subtle: var(--fh-blue-900);
+  --fh-color-primary-subtle-fg: var(--fh-blue-100);
+  --fh-color-primary-border: var(--fh-blue-700);
+  --fh-color-primary-text: var(--fh-blue-300);
+
+  --fh-color-accent: var(--fh-yellow-400);
+  --fh-color-accent-hover: var(--fh-yellow-300);
+  --fh-color-accent-fg: var(--fh-neutral-900);
+
+  --fh-color-footer-bg: var(--fh-neutral-900);
+  --fh-color-footer-fg: var(--fh-neutral-100);
+}

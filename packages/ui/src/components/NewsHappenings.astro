@@ -1,0 +1,942 @@
+---
+// News & Happenings module — three layout variants.
+//
+// variant="split"     Split-panel (reference screenshot). Left list + right
+//                     detail. JS island justified by WA-5: panel switching
+//                     cannot be static.
+// variant="cards"     Modern horizontal card grid. No client JS needed.
+// variant="editorial" Featured-story + compact secondary row. No client JS.
+//
+// WA-5:  client-side JS only for genuine interaction (split panel qualifies).
+// WA-18: images via Cloudflare Images / fixture placeholders — never inline.
+// Hard rule 2: no hex literals in CSS. All colours are design tokens.
+
+import type { ImageRef } from '@fountainhead-web/content-schema';
+import ImageFrame from './ImageFrame.astro';
+
+interface NewsItem {
+  title: string;
+  date: Date;
+  path: string;
+  campus: string;
+  cover?: ImageRef | undefined;
+  description?: string | undefined;
+  category?: string | undefined;
+}
+
+interface Props {
+  items: NewsItem[];
+  variant?: 'split' | 'cards' | 'editorial';
+}
+
+const { items, variant = 'split' } = Astro.props;
+
+const fmt = new Intl.DateTimeFormat('en-IN', {
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric',
+});
+
+function campusLabel(c: string) {
+  if (c === 'group') return 'Group-wide';
+  return c.charAt(0).toUpperCase() + c.slice(1);
+}
+
+const fixtureCover: ImageRef = { id: 'fixture:news', alt: '' };
+const featured = items[0];
+const secondary = items.slice(1);
+---
+
+<!-- ═══════════════════════════════════════════════════════
+     VARIANT: split
+     Reference screenshot — white card, left list, right detail.
+════════════════════════════════════════════════════════ -->
+{variant === 'split' && (
+  <div class="nh-split-shell">
+    <!-- Sidebar -->
+    <nav class="nh-split-sidebar" aria-label="News items">
+      <div class="nh-split-head">
+        <p class="nh-split-eyebrow">Fountainhead group</p>
+        <p class="nh-split-heading">News &amp; Happenings</p>
+      </div>
+      <ul class="nh-split-list" role="list">
+        {items.map((item, i) => (
+          <li>
+            <button
+              class:list={['nh-split-btn', { 'nh-split-btn--active': i === 0 }]}
+              data-idx={i}
+              type="button"
+              aria-selected={i === 0 ? 'true' : 'false'}
+            >
+              <span class="nh-split-btn-title">{item.title}</span>
+              <span class="nh-split-btn-meta">
+                {item.category ? item.category : campusLabel(item.campus)}
+                &ensp;·&ensp;{fmt.format(item.date)}
+              </span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- Detail panels — all SSR; JS toggles visibility -->
+    <div class="nh-split-panels">
+      {items.map((item, i) => (
+        <article
+          class:list={['nh-split-panel', { 'nh-split-panel--visible': i === 0 }]}
+          data-panel={i}
+          aria-hidden={i !== 0 ? 'true' : undefined}
+        >
+          <div class="nh-split-text">
+            <p class="nh-split-dateline">
+              {item.category ? item.category : campusLabel(item.campus)}&ensp;·&ensp;{fmt.format(item.date)}
+            </p>
+            <h2 class="nh-split-title">{item.title}</h2>
+            {item.description && (
+              <p class="nh-split-desc">{item.description}</p>
+            )}
+            <a href={item.path} class="nh-split-cta">Read full story →</a>
+          </div>
+          <div class="nh-split-image">
+            <ImageFrame
+              image={item.cover ?? fixtureCover}
+              variant="card"
+              aspect="4 / 3"
+              loading={i === 0 ? 'eager' : 'lazy'}
+            />
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+)}
+
+<!-- ═══════════════════════════════════════════════════════
+     VARIANT: cards
+     Modern horizontal card grid.
+════════════════════════════════════════════════════════ -->
+{variant === 'cards' && (
+  <section class="nh-cards-section">
+    <header class="nh-cards-header">
+      <p class="nh-cards-eyebrow">Fountainhead group</p>
+      <h2 class="nh-cards-heading">News &amp; Happenings</h2>
+    </header>
+    <ul class="nh-cards-grid" role="list">
+      {items.map((item, i) => (
+        <li>
+          <a href={item.path} class="nh-card">
+            <div class="nh-card-image">
+              <ImageFrame
+                image={item.cover ?? fixtureCover}
+                variant="card"
+                aspect="16 / 10"
+                loading={i < 3 ? 'eager' : 'lazy'}
+              />
+            </div>
+            <div class="nh-card-body">
+              <div class="nh-card-meta">
+                <span class="nh-card-cat">
+                  {item.category ?? campusLabel(item.campus)}
+                </span>
+                <span class="nh-card-sep" aria-hidden="true">·</span>
+                <span class="nh-card-date">{fmt.format(item.date)}</span>
+              </div>
+              <h3 class="nh-card-title">{item.title}</h3>
+              {item.description && (
+                <p class="nh-card-desc">{item.description}</p>
+              )}
+              <span class="nh-card-cta">Read more →</span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
+<!-- ═══════════════════════════════════════════════════════
+     VARIANT: editorial
+     Large featured story + compact secondary row.
+════════════════════════════════════════════════════════ -->
+{variant === 'editorial' && featured && (
+  <section class="nh-ed-section">
+    <header class="nh-ed-section-head">
+      <p class="nh-ed-eyebrow">Fountainhead group</p>
+      <h2 class="nh-ed-heading">News &amp; Happenings</h2>
+    </header>
+
+    <!-- Featured story -->
+    <a href={featured.path} class="nh-ed-feature">
+      <div class="nh-ed-feature-image">
+        <ImageFrame
+          image={featured.cover ?? fixtureCover}
+          variant="hero"
+          aspect="4 / 3"
+          loading="eager"
+        />
+      </div>
+      <div class="nh-ed-feature-content">
+        <div class="nh-ed-feature-meta">
+          <span class="nh-ed-feature-cat">
+            {featured.category ?? campusLabel(featured.campus)}
+          </span>
+          <span class="nh-ed-feature-date">{fmt.format(featured.date)}</span>
+        </div>
+        <h3 class="nh-ed-feature-title">{featured.title}</h3>
+        {featured.description && (
+          <p class="nh-ed-feature-desc">{featured.description}</p>
+        )}
+        <span class="nh-ed-feature-cta">Read full story →</span>
+      </div>
+    </a>
+
+    <!-- Secondary row -->
+    {secondary.length > 0 && (
+      <ul class="nh-ed-secondary" role="list">
+        {secondary.slice(0, 3).map((item) => (
+          <li>
+            <a href={item.path} class="nh-ed-sec-card">
+              <div class="nh-ed-sec-image">
+                <ImageFrame
+                  image={item.cover ?? fixtureCover}
+                  variant="card"
+                  aspect="3 / 2"
+                  loading="lazy"
+                />
+              </div>
+              <div class="nh-ed-sec-body">
+                <span class="nh-ed-sec-cat">
+                  {item.category ?? campusLabel(item.campus)}
+                </span>
+                <h4 class="nh-ed-sec-title">{item.title}</h4>
+                <span class="nh-ed-sec-date">{fmt.format(item.date)}</span>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+)}
+
+<!-- ── Client JS — split panel only (WA-5) ──────────────── -->
+{variant === 'split' && (
+  <script>
+    const list   = document.querySelector<HTMLElement>('.nh-split-list');
+    const btns   = document.querySelectorAll<HTMLButtonElement>('.nh-split-btn');
+    const panels = document.querySelectorAll<HTMLElement>('.nh-split-panel');
+
+    list?.addEventListener('click', (e) => {
+      const btn = (e.target as Element).closest<HTMLButtonElement>('.nh-split-btn');
+      if (!btn) return;
+      const idx = Number(btn.dataset.idx);
+
+      btns.forEach((b, i) => {
+        b.classList.toggle('nh-split-btn--active', i === idx);
+        b.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+      });
+
+      panels.forEach((p, i) => {
+        p.classList.toggle('nh-split-panel--visible', i === idx);
+        if (i === idx) p.removeAttribute('aria-hidden');
+        else p.setAttribute('aria-hidden', 'true');
+      });
+    });
+  </script>
+)}
+
+<style>
+/* ─────────────────────────────────────────────────────
+   VARIANT: split
+───────────────────────────────────────────────────── */
+.nh-split-shell {
+  display: grid;
+  grid-template-columns: 27% 1fr;
+  min-height: 560px;
+  border-radius: var(--fh-radius-2xl);
+  overflow: hidden;
+  box-shadow: var(--fh-shadow-xl);
+  background: var(--fh-color-surface);
+  border: var(--fh-border-width) solid var(--fh-color-border);
+}
+
+/* Sidebar */
+.nh-split-sidebar {
+  border-right: var(--fh-border-width) solid var(--fh-color-border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--fh-color-surface);
+}
+
+.nh-split-head {
+  padding: var(--fh-space-6) var(--fh-space-5) var(--fh-space-5);
+  border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+  flex-shrink: 0;
+}
+
+.nh-split-eyebrow {
+  font-family: var(--fh-font-heading);
+  font-size: var(--fh-text-xs);
+  font-weight: var(--fh-weight-bold);
+  letter-spacing: var(--fh-tracking-wider);
+  text-transform: uppercase;
+  color: var(--fh-color-eyebrow);
+  margin-bottom: var(--fh-space-1);
+}
+
+.nh-split-heading {
+  font-family: var(--fh-font-heading);
+  font-size: var(--fh-text-lg);
+  font-weight: var(--fh-weight-extrabold);
+  letter-spacing: var(--fh-tracking-tight);
+  color: var(--fh-color-text);
+  line-height: var(--fh-leading-snug);
+}
+
+.nh-split-list {
+  list-style: none;
+  overflow-y: auto;
+  flex: 1;
+  padding: var(--fh-space-2) 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--fh-color-border-strong) transparent;
+}
+.nh-split-list::-webkit-scrollbar { width: 3px; }
+.nh-split-list::-webkit-scrollbar-thumb {
+  background: var(--fh-color-border-strong);
+  border-radius: 2px;
+}
+
+.nh-split-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: var(--fh-space-4) var(--fh-space-5);
+  border-left: 3px solid transparent;
+  cursor: pointer;
+  transition:
+    background var(--fh-duration-fast) var(--fh-ease-standard),
+    border-color var(--fh-duration-fast) var(--fh-ease-standard);
+}
+.nh-split-btn:hover {
+  background: var(--fh-color-surface-sunken);
+}
+.nh-split-btn--active {
+  background: var(--fh-color-surface-sunken);
+  border-left-color: var(--fh-color-accent);
+}
+
+.nh-split-btn-title {
+  display: block;
+  font-family: var(--fh-font-heading);
+  font-size: var(--fh-text-sm);
+  font-weight: var(--fh-weight-semibold);
+  color: var(--fh-color-text-muted);
+  line-height: var(--fh-leading-snug);
+  margin-bottom: var(--fh-space-1);
+  transition: color var(--fh-duration-fast) var(--fh-ease-standard);
+}
+.nh-split-btn:hover .nh-split-btn-title,
+.nh-split-btn--active .nh-split-btn-title {
+  color: var(--fh-color-text);
+}
+
+.nh-split-btn-meta {
+  display: block;
+  font-family: var(--fh-font-heading);
+  font-size: 10px;
+  font-weight: var(--fh-weight-semibold);
+  letter-spacing: var(--fh-tracking-wide);
+  text-transform: uppercase;
+  color: var(--fh-color-text-subtle);
+}
+
+/* Panels */
+.nh-split-panels {
+  position: relative;
+  overflow: hidden;
+  background: var(--fh-color-surface);
+}
+
+.nh-split-panel {
+  display: none;
+  grid-template-columns: 46% 1fr;
+  height: 100%;
+}
+.nh-split-panel--visible {
+  display: grid;
+}
+
+.nh-split-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fh-space-3);
+  padding: var(--fh-space-7) var(--fh-space-6);
+  overflow-y: auto;
+  border-right: var(--fh-border-width) solid var(--fh-color-border);
+}
+
+.nh-split-badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: var(--fh-space-1) var(--fh-space-3);
+  background: var(--fh-color-accent);
+  color: var(--fh-color-accent-fg);
+  font-family: var(--fh-font-heading);
+  font-size: 9.5px;
+  font-weight: var(--fh-weight-bold);
+  letter-spacing: var(--fh-tracking-wider);
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.nh-split-title {
+  font-family: var(--fh-font-heading);
+  font-size: clamp(var(--fh-text-base), 1.3vw, var(--fh-text-xl));
+  font-weight: var(--fh-weight-extrabold);
+  letter-spacing: var(--fh-tracking-tight);
+  color: var(--fh-color-text);
+  line-height: var(--fh-leading-snug);
+  text-wrap: balance;
+  margin: 0;
+}
+
+.nh-split-desc {
+  font-size: var(--fh-text-sm);
+  line-height: var(--fh-leading-relaxed);
+  color: var(--fh-color-text-muted);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.nh-split-dateline {
+  font-family: var(--fh-font-heading);
+  font-size: var(--fh-text-xs);
+  font-weight: var(--fh-weight-semibold);
+  letter-spacing: var(--fh-tracking-wide);
+  text-transform: uppercase;
+  color: var(--fh-color-text-subtle);
+  margin: 0;
+}
+
+.nh-split-image {
+  overflow: hidden;
+  height: 100%;
+}
+.nh-split-image :global(div),
+.nh-split-image :global(.frame),
+.nh-split-image :global(.fixture) {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.nh-split-cta {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-top: auto;
+  height: var(--fh-control-height);
+  padding-inline: var(--fh-space-6);
+  background: var(--fh-color-primary);
+  color: var(--fh-color-primary-fg);
+  font-family: var(--fh-font-heading);
+  font-size: var(--fh-text-sm);
+  font-weight: var(--fh-weight-bold);
+  letter-spacing: var(--fh-tracking-wide);
+  text-transform: uppercase;
+  border-radius: var(--fh-radius-full);
+  text-decoration: none;
+  flex-shrink: 0;
+  transition:
+    background var(--fh-duration-base) var(--fh-ease-standard),
+    transform var(--fh-duration-base) var(--fh-ease-standard);
+}
+.nh-split-cta:hover {
+  background: var(--fh-color-primary-hover);
+  transform: translateY(-2px);
+}
+
+/* Split — mobile */
+@media (max-width: 768px) {
+  .nh-split-shell {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .nh-split-sidebar {
+    border-right: none;
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+    max-height: 220px;
+  }
+  .nh-split-panel {
+    grid-template-columns: 1fr;
+  }
+  .nh-split-text {
+    border-right: none;
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+    padding: var(--fh-space-5);
+  }
+  .nh-split-image {
+    min-height: 220px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────
+   VARIANT: cards
+───────────────────────────────────────────────────── */
+.nh-cards-section {}
+
+.nh-cards-header {
+  margin-bottom: var(--fh-space-8);
+}
+
+.nh-cards-eyebrow {
+  font-family: var(--fh-font-heading);
+  font-size: var(--fh-text-xs);
+  font-weight: var(--fh-weight-bold);
+  letter-spacing: var(--fh-tracking-wider);
+  text-transform: uppercase;
+  color: var(--fh-color-eyebrow);
+  display: flex;
+  align-items: center;
+  gap: var(--fh-space-2);
+  margin-bottom: var(--fh-space-2);
+}
+.nh-cards-eyebrow::before {
+  content: '';
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  background: var(--fh-color-secondary);
+}
+
+.nh-cards-heading {
+  font-family: var(--fh-font-heading);
+  font-size: clamp(var(--fh-text-2xl), 3vw, var(--fh-text-4xl));
+  font-weight: var(--fh-weight-extrabold);
+  letter-spacing: var(--fh-tracking-tight);
+  color: var(--fh-color-text);
+  line-height: var(--fh-leading-tight);
+}
+
+.nh-cards-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--fh-space-6);
+}
+
+.nh-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--fh-color-surface);
+  border-radius: var(--fh-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--fh-shadow-sm);
+  border: var(--fh-border-width) solid var(--fh-color-border);
+  border-top: 3px solid var(--fh-color-accent);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform var(--fh-duration-base) var(--fh-ease-standard),
+    box-shadow var(--fh-duration-base) var(--fh-ease-standard);
+}
+.nh-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--fh-shadow-lg);
+}
+
+.nh-card-image {
+  overflow: hidden;
+  flex-shrink: 0;
+  aspect-ratio: 16 / 10;
+}
+.nh-card-image :global(div),
+.nh-card-image :global(.frame),
+.nh-card-image :global(.fixture) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform var(--fh-duration-slow) var(--fh-ease-standard);
+}
+.nh-card:hover .nh-card-image :global(.frame),
+.nh-card:hover .nh-card-image :global(.fixture) {
+  transform: scale(1.04);
+}
+
+.nh-card-body {
+  padding: var(--fh-space-5) var(--fh-space-6) var(--fh-space-6);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: var(--fh-space-2);
+}
+
+.nh-card-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--fh-space-2);
+}
+
+.nh-card-cat {
+  font-family: var(--fh-font-heading);
+  font-size: 9.5px;
+  font-weight: var(--fh-weight-bold);
+  letter-spacing: var(--fh-tracking-wider);
+  text-transform: uppercase;
+  color: var(--fh-color-eyebrow);
+}
+
+.nh-card-sep {
+  color: var(--fh-color-border-strong);
+  font-size: var(--fh-text-xs);
+}
+
+.nh-card-date {
+  font-family: var(--fh-font-heading);
+  font-size: var(--fh-text-xs);
+  color: var(--fh-color-text-subtle);
+  letter-spacing: var(--fh-tracking-wide);
+}
+
+.nh-card-title {
+  font-family: var(--fh-font-heading);
+  font-size: var(--fh-text-base);
+  font-weight: var(--fh-weight-extrabold);
+  letter-spacing: var(--fh-tracking-tight);
+  color: var(--fh-color-text);
+  line-height: var(--fh-leading-snug);
+  flex: 1;
+  margin: 0;
+  transition: color var(--fh-duration-fast) var(--fh-ease-standard);
+}
+.nh-card:hover .nh-card-title {
+  color: var(--fh-color-primary-text);
+}
+
+.nh-card-desc {
+  font-size: var(--fh-text-sm);
+  color: var(--fh-color-text-muted);
+  line-height: var(--fh-leading-relaxed);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+}
+
+.nh-card-cta {
+  display: inline-block;
+  margin-top: var(--fh-space-2);
+  font-family: var(--fh-font-heading);
+  font-size: var(--fh-text-xs);
+  font-weight: var(--fh-weight-bold);
+  letter-spacing: var(--fh-tracking-wide);
+  text-transform: uppercase;
+  color: var(--fh-color-primary-text);
+  transition: gap var(--fh-duration-fast) var(--fh-ease-standard);
+}
+
+/* Cards — tablet */
+@media (max-width: 960px) {
+  .nh-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Cards — mobile */
+@media (max-width: 580px) {
+  .nh-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─────────────────────────────────────────────────────
+   VARIANT: editorial
+───────────────────────────────────────────────────── */
+.nh-ed-section {}
+
+.nh-ed-section-head {
+  margin-bottom: var(--fh-space-8);
+}
+
+.nh-ed-eyebrow {
+  font-family: var(--fh-font-heading);
+  font-size: var(--fh-text-xs);
+  font-weight: var(--fh-weight-bold);
+  letter-spacing: var(--fh-tracking-wider);
+  text-transform: uppercase;
+  color: var(--fh-color-eyebrow);
+  display: flex;
+  align-items: center;
+  gap: var(--fh-space-2);
+  margin-bottom: var(--fh-space-2);
+}
+.nh-ed-eyebrow::before {
+  content: '';
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  background: var(--fh-color-secondary);
+}
+
+.nh-ed-heading {
+  font-family: var(--fh-font-heading);
+  font-size: clamp(var(--fh-text-2xl), 3vw, var(--fh-text-4xl));
+  font-weight: var(--fh-weight-extrabold);
+  letter-spacing: var(--fh-tracking-tight);
+  color: var(--fh-color-text);
+  line-height: var(--fh-leading-tight);
+}
+
+/* Featured story */
+.nh-ed-feature {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--fh-space-8);
+  align-items: center;
+  background: var(--fh-color-surface);
+  border-radius: var(--fh-radius-2xl);
+  overflow: hidden;
+  box-shadow: var(--fh-shadow-lg);
+  border: var(--fh-border-width) solid var(--fh-color-border);
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: var(--fh-space-6);
+  transition:
+    transform var(--fh-duration-base) var(--fh-ease-standard),
+    box-shadow var(--fh-duration-base) var(--fh-ease-standard);
+}
+.nh-ed-feature:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--fh-shadow-xl);
+}
+
+.nh-ed-feature-image {
+  overflow: hidden;
+  align-self: stretch;
+}
+.nh-ed-feature-image :global(.frame),
+.nh-ed-feature-image :global(.fixture) {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform var(--fh-duration-slow) var(--fh-ease-standard);
+}
+.nh-ed-feature:hover .nh-ed-feature-image :global(.frame),
+.nh-ed-feature:hover .nh-ed-feature-image :global(.fixture) {
+  transform: scale(1.03);
+}
+
+.nh-ed-feature-content {
+  padding: var(--fh-space-8) var(--fh-space-8) var(--fh-space-8) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--fh-space-4);
+}
+
+.nh-ed-feature-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--fh-space-3);
+}
+
+.nh-ed-feature-cat {
+  display: inline-block;
+  padding: var(--fh-space-1) var(--fh-space-3);
+  background: var(--fh-color-accent);
+  color: var(--fh-color-accent-fg);
+  font-family: var(--fh-font-heading);
+  font-size: 9.5px;
+  font-weight: var(--fh-weight-bold);
+  letter-spacing: var(--fh-tracking-wider);
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.nh-ed-feature-date {
+  font-family: var(--fh-font-heading);
+  font-size: var(--fh-text-xs);
+  font-weight: var(--fh-weight-semibold);
+  letter-spacing: var(--fh-tracking-wide);
+  text-transform: uppercase;
+  color: var(--fh-color-text-subtle);
+}
+
+.nh-ed-feature-title {
+  font-family: var(--fh-font-heading);
+  font-size: clamp(var(--fh-text-xl), 2vw, var(--fh-text-3xl));
+  font-weight: var(--fh-weight-extrabold);
+  letter-spacing: var(--fh-tracking-tight);
+  color: var(--fh-color-text);
+  line-height: var(--fh-leading-snug);
+  text-wrap: balance;
+  margin: 0;
+  transition: color var(--fh-duration-fast) var(--fh-ease-standard);
+}
+.nh-ed-feature:hover .nh-ed-feature-title {
+  color: var(--fh-color-primary-text);
+}
+
+.nh-ed-feature-desc {
+  font-size: var(--fh-text-base);
+  color: var(--fh-color-text-muted);
+  line-height: var(--fh-leading-relaxed);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.nh-ed-feature-cta {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  height: var(--fh-control-height);
+  padding-inline: var(--fh-space-6);
+  background: var(--fh-color-primary);
+  color: var(--fh-color-primary-fg);
+  font-family: var(--fh-font-heading);
+  font-size: var(--fh-text-sm);
+  font-weight: var(--fh-weight-bold);
+  letter-spacing: var(--fh-tracking-wide);
+  text-transform: uppercase;
+  border-radius: var(--fh-radius-full);
+  transition:
+    background var(--fh-duration-base) var(--fh-ease-standard),
+    transform var(--fh-duration-base) var(--fh-ease-standard);
+}
+.nh-ed-feature:hover .nh-ed-feature-cta {
+  background: var(--fh-color-primary-hover);
+  transform: translateY(-2px);
+}
+
+/* Secondary row */
+.nh-ed-secondary {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--fh-space-4);
+}
+
+.nh-ed-sec-card {
+  display: flex;
+  gap: var(--fh-space-4);
+  align-items: flex-start;
+  background: var(--fh-color-surface);
+  border-radius: var(--fh-radius-lg);
+  border: var(--fh-border-width) solid var(--fh-color-border);
+  padding: var(--fh-space-4);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform var(--fh-duration-base) var(--fh-ease-standard),
+    box-shadow var(--fh-duration-base) var(--fh-ease-standard);
+}
+.nh-ed-sec-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--fh-shadow-md);
+}
+
+.nh-ed-sec-image {
+  flex-shrink: 0;
+  width: 90px;
+  overflow: hidden;
+  border-radius: var(--fh-radius-md);
+}
+.nh-ed-sec-image :global(.frame),
+.nh-ed-sec-image :global(.fixture) {
+  width: 90px;
+  border-radius: var(--fh-radius-md);
+  transition: transform var(--fh-duration-slow) var(--fh-ease-standard);
+}
+.nh-ed-sec-card:hover .nh-ed-sec-image :global(.frame),
+.nh-ed-sec-card:hover .nh-ed-sec-image :global(.fixture) {
+  transform: scale(1.05);
+}
+
+.nh-ed-sec-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fh-space-1);
+  flex: 1;
+  min-width: 0;
+}
+
+.nh-ed-sec-cat {
+  font-family: var(--fh-font-heading);
+  font-size: 9.5px;
+  font-weight: var(--fh-weight-bold);
+  letter-spacing: var(--fh-tracking-wider);
+  text-transform: uppercase;
+  color: var(--fh-color-eyebrow);
+}
+
+.nh-ed-sec-title {
+  font-family: var(--fh-font-heading);
+  font-size: var(--fh-text-sm);
+  font-weight: var(--fh-weight-extrabold);
+  letter-spacing: var(--fh-tracking-tight);
+  color: var(--fh-color-text);
+  line-height: var(--fh-leading-snug);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color var(--fh-duration-fast) var(--fh-ease-standard);
+}
+.nh-ed-sec-card:hover .nh-ed-sec-title {
+  color: var(--fh-color-primary-text);
+}
+
+.nh-ed-sec-date {
+  font-family: var(--fh-font-heading);
+  font-size: 10px;
+  color: var(--fh-color-text-subtle);
+  letter-spacing: var(--fh-tracking-wide);
+  text-transform: uppercase;
+}
+
+/* Editorial — tablet */
+@media (max-width: 900px) {
+  .nh-ed-feature {
+    grid-template-columns: 1fr;
+  }
+  .nh-ed-feature-image :global(.frame),
+  .nh-ed-feature-image :global(.fixture) {
+    min-height: 240px;
+    aspect-ratio: 16 / 7;
+  }
+  .nh-ed-feature-content {
+    padding: var(--fh-space-6);
+  }
+  .nh-ed-secondary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Editorial — mobile */
+@media (max-width: 580px) {
+  .nh-ed-secondary {
+    grid-template-columns: 1fr;
+  }
+  .nh-ed-sec-card {
+    flex-direction: column;
+  }
+  .nh-ed-sec-image,
+  .nh-ed-sec-image :global(.frame),
+  .nh-ed-sec-image :global(.fixture) {
+    width: 100%;
+  }
+}
+</style>

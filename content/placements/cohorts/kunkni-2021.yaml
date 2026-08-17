@@ -1,0 +1,180 @@
+year: 2021
+campus: "kunkni"
+programme: "DP"
+cohortSize: 75
+generatedAt: "2026-07-28"
+source: "published from the Career Counselling app, which owns the placement record"
+placements:
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    cluster: "business-administration-commerce"
+    count: 9
+  - institution: "auro-university"
+    cluster: "business-administration-commerce"
+    count: 5
+  - institution: "indiana-university-bloomington"
+    cluster: "business-administration-commerce"
+    count: 3
+  - institution: "auro-university"
+    cluster: "arts-design-media"
+    count: 2
+  - institution: "flame-university"
+    cluster: "arts-design-media"
+    count: 2
+  - institution: "pandit-deendayal-energy-university-pdeu"
+    cluster: "arts-design-media"
+    count: 2
+  - institution: "symbiosis-international-university"
+    cluster: "business-administration-commerce"
+    count: 2
+  - institution: "3is-international-institute-de-l-image-et-du-son"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "ahmedabad-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "amity-university"
+    cluster: "human-services"
+    count: 1
+  - institution: "arizona-state-university"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "babson-college"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "boston-university"
+    cluster: "information-technology"
+    count: 1
+  - institution: "brunel-university-london"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "california-state-university-northridge"
+    cluster: "stem"
+    count: 1
+  - institution: "duke-university"
+    cluster: "finance"
+    count: 1
+  - institution: "fairleigh-dickinson-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "flame-university"
+    cluster: "stem"
+    count: 1
+  - institution: "indian-institute-of-management-rohtak"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "jai-hind-college"
+    cluster: "human-services"
+    count: 1
+  - institution: "karnavati-university"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "kishinchand-chellaram-college"
+    cluster: "mass-media-journalism"
+    count: 1
+  - institution: "macquarie-university"
+    cluster: "human-services"
+    count: 1
+  - institution: "mount-holyoke-college"
+    cluster: "stem"
+    count: 1
+  - institution: "nanyang-technological-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    cluster: "finance"
+    count: 1
+  - institution: "national-institute-of-design"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "newcastle-university"
+    cluster: "health-sciences"
+    count: 1
+  - institution: "newcastle-university"
+    cluster: "information-technology"
+    count: 1
+  - institution: "northeastern-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "pandit-deendayal-energy-university-pdeu"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "paris-school-of-business"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "parul-university"
+    cluster: "stem"
+    count: 1
+  - institution: "pennsylvania-state-university"
+    cluster: "finance"
+    count: 1
+  - institution: "poddar-world-college"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "rutgers-university"
+    cluster: "government-public-administration"
+    count: 1
+  - institution: "ryerson-university"
+    cluster: "information-technology"
+    count: 1
+  - institution: "singapore-management-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "srm-university"
+    cluster: "health-sciences"
+    count: 1
+  - institution: "st-xaviers-college"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "symbiosis-international-university"
+    cluster: "human-services"
+    count: 1
+  - institution: "the-new-school-parsons-school-of-design"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "university-at-albany-suny"
+    cluster: "information-technology"
+    count: 1
+  - institution: "university-of-alabama-at-birmingham"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-of-british-columbia"
+    cluster: "information-technology"
+    count: 1
+  - institution: "university-of-british-columbia"
+    cluster: "stem"
+    count: 1
+  - institution: "university-of-california-davis"
+    cluster: "stem"
+    count: 1
+  - institution: "university-of-cambridge"
+    cluster: "law"
+    count: 1
+  - institution: "university-of-massachusetts"
+    cluster: "information-technology"
+    count: 1
+  - institution: "university-of-san-francisco"
+    cluster: "health-sciences"
+    count: 1
+  - institution: "university-of-south-carolina"
+    cluster: "sports"
+    count: 1
+  - institution: "university-of-texas-austin"
+    cluster: "finance"
+    count: 1
+  - institution: "university-of-toronto"
+    cluster: "information-technology"
+    count: 1
+  - institution: "university-of-warwick"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "vellore-institute-of-technology"
+    cluster: "information-technology"
+    count: 1
+  - institution: "wayman-aviation-academy"
+    cluster: "transportation-logistics"
+    count: 1
+  - institution: "whistling-woods-international"
+    school: "Institute of Flim, Communication & Creative Arts"
+    cluster: "arts-design-media"
+    count: 1
+otherOutcomes: []

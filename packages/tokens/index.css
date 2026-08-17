@@ -1,0 +1,9 @@
+/* Fountainhead Web design tokens — single import for consumers.
+   Order is load-bearing: primitives + semantic defaults first, then the
+   per-brand semantic re-maps ([data-brand] selects at render time; all
+   brand files ship — each is a few hundred bytes). WA-6. */
+@import "./base.css";
+@import "./brands/fountainhead.css";
+@import "./brands/fwgs.css";
+@import "./brands/falh.css";
+@import "./brands/fasv.css";

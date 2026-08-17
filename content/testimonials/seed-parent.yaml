@@ -1,0 +1,10 @@
+# Seed testimonial (Tier B). Real testimonials come from comms with the
+# named person's consent.
+#
+# `type` is required (WA-49). Parent and staff testimonials publish at
+# launch; student testimonials are held until SHP exists, and need a logged
+# consentRef even to parse — a student quote is a child's name and words.
+quote: Seed testimonial text demonstrating the collection shape.
+attribution: A Fountainhead Parent
+type: parent
+campus: group

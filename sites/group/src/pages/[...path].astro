@@ -1,0 +1,140 @@
+---
+// The campus × page matrix (WA-9): every Tier A page renders through this
+// route, dispatched to its template by frontmatter + campus context.
+import { render } from 'astro:content';
+import GroupHome from '@fountainhead-web/ui/templates/GroupHome.astro';
+import CampusHome from '@fountainhead-web/ui/templates/CampusHome.astro';
+import ContentPage from '@fountainhead-web/ui/templates/ContentPage.astro';
+import ProgrammePage from '@fountainhead-web/ui/templates/ProgrammePage.astro';
+import AdmissionsPage from '@fountainhead-web/ui/templates/AdmissionsPage.astro';
+import ContactPage from '@fountainhead-web/ui/templates/ContactPage.astro';
+import FasvLanding from '@fountainhead-web/ui/templates/FasvLanding.astro';
+import EarlyYearsPage from '@fountainhead-web/ui/templates/EarlyYearsPage.astro';
+import { buildRouteMatrix, type RouteProps } from '../lib/matrix';
+
+export async function getStaticPaths() {
+  return await buildRouteMatrix();
+}
+
+const props = Astro.props as RouteProps;
+const {
+  entry,
+  campus,
+  resolved,
+  nav,
+  sections,
+  campuses,
+  network,
+  news,
+  admissionsPath,
+  contactPath,
+  philosophy,
+  statutory,
+  continuesAt,
+  social,
+} = props;
+const { Content } = await render(entry);
+
+const canonical = new URL(resolved.canonicalPath, Astro.site);
+const pageUrl = new URL(resolved.path, Astro.site);
+const template = entry.data.template;
+const pageTitle = campus
+  ? resolved.id === 'index'
+    ? campus.name
+    : `${entry.data.title} — ${campus.name}`
+  : resolved.id === 'index'
+    ? 'Fountainhead Schools'
+    : `${entry.data.title} — Fountainhead Schools`;
+const eyebrow =
+  resolved.source === 'inherited'
+    ? 'Across the Fountainhead group'
+    : campus
+      ? (campus.shortName ?? campus.name)
+      : 'Fountainhead group';
+
+const chrome = {
+  campus,
+  heading: entry.data.title,
+  pageTitle,
+  description: entry.data.description,
+  canonical,
+  nav,
+  eyebrow,
+  admissionsPath,
+  social,
+};
+---
+
+{
+  template === 'home' && !campus ? (
+    <GroupHome
+      heading={entry.data.title}
+      lede={entry.data.description}
+      pageTitle={pageTitle}
+      description={entry.data.description}
+      canonical={canonical}
+      nav={nav}
+      campuses={campuses}
+      network={network}
+      social={social}
+      news={news}
+      philosophy={philosophy}
+    />
+  ) : template === 'home' && campus ? (
+    <CampusHome
+      campus={campus}
+      heading={entry.data.title}
+      lede={entry.data.description}
+      pageTitle={pageTitle}
+      description={entry.data.description}
+      canonical={canonical}
+      nav={nav}
+      sections={sections}
+      news={news}
+      admissionsPath={admissionsPath}
+      pageUrl={pageUrl}
+      social={social}
+    />
+  ) : template === 'landing' && campus ? (
+    <FasvLanding
+      campus={campus}
+      heading={entry.data.title}
+      lede={entry.data.description}
+      pageTitle={pageTitle}
+      description={entry.data.description}
+      canonical={canonical}
+      pageUrl={pageUrl}
+    />
+  ) : template === 'early-years' && campus ? (
+    <EarlyYearsPage
+      campus={campus}
+      heading={entry.data.title}
+      lede={entry.data.description}
+      pageTitle={pageTitle}
+      description={entry.data.description}
+      canonical={canonical}
+      nav={nav}
+      admissionsPath={admissionsPath}
+      pageUrl={pageUrl}
+      social={social}
+      earlyYears={entry.data.earlyYears}
+      continuesAt={continuesAt}
+    >
+      <Content />
+    </EarlyYearsPage>
+  ) : template === 'programme' ? (
+    <ProgrammePage {...chrome} facts={entry.data.facts}>
+      <Content />
+    </ProgrammePage>
+  ) : template === 'admissions' ? (
+    <AdmissionsPage {...chrome} faq={entry.data.faq} contactPath={contactPath}>
+      <Content />
+    </AdmissionsPage>
+  ) : template === 'contact' ? (
+    <ContactPage {...chrome} campuses={campuses} network={network} statutory={statutory} />
+  ) : (
+    <ContentPage {...chrome}>
+      <Content />
+    </ContentPage>
+  )
+}

@@ -1,0 +1,42 @@
+---
+// The grid DestinationCards sit in. One knob — the minimum column width — because a grid that
+// needs per-page media queries stops being one grid.
+export interface Props {
+  /**
+   * Minimum column width. `card` suits a full card, `standing` widens for the 140-character NIRF
+   * sentences, `chip` packs a long tail six-up.
+   */
+  density?: 'card' | 'standing' | 'chip';
+  class?: string | undefined;
+}
+const { density = 'card', class: className } = Astro.props;
+---
+
+<ul class:list={['pl-grid', `pl-grid--${density}`, className]}>
+  <slot />
+</ul>
+
+<style>
+  .pl-grid {
+    --pl-min: 16rem;
+    list-style: none;
+    margin: 0 0 var(--fh-space-8);
+    padding: 0;
+    display: grid;
+    gap: var(--fh-space-4);
+    align-items: stretch;              /* counts bottom-align across a row */
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--pl-min)), 1fr));
+  }
+  .pl-grid:last-child { margin-bottom: 0; }
+  .pl-grid--standing { --pl-min: 22rem; }
+  /* Chips size to their OWN content. Stretch is right for cards, but on a chip grid a single
+     100-character name (Würzburg-Schweinfurt spells its name twice) would drag its whole row to
+     five times the height of the chips beside it. */
+  .pl-grid--chip { --pl-min: 11rem; gap: var(--fh-space-2); align-items: start; }
+  @media (max-width: 30rem) { .pl-grid--chip { --pl-min: 9rem; } }
+
+  /* On a tinted field a card's hairline steps up so it keeps a visible edge. Set here because the
+     grid is what knows which field it is on. */
+  :global(.tone-tint) .pl-grid,
+  :global(.tone-cream) .pl-grid { --pl-line: var(--fh-color-border-strong); }
+</style>

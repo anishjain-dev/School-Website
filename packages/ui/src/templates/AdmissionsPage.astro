@@ -1,0 +1,118 @@
+---
+// Template 6 — Admissions/fees: process steps, prose (fees tables render
+// from markdown), native-details FAQ (zero JS), conversion band.
+import PageChrome from '../layouts/PageChrome.astro';
+import CTABand from '../components/CTABand.astro';
+import type { NavItem } from '../components/SiteHeader.astro';
+import type { CampusConfig } from '@fountainhead-web/content-schema';
+
+interface Props {
+  campus: CampusConfig | null;
+  heading: string;
+  pageTitle: string;
+  description?: string | undefined;
+  canonical?: URL | string | undefined;
+  nav: NavItem[];
+  eyebrow?: string | undefined;
+  admissionsPath: string;
+  faq?: { q: string; a: string }[] | undefined;
+  contactPath: string;
+}
+const { faq, contactPath, ...chrome } = Astro.props;
+---
+
+<PageChrome {...chrome}>
+  <article class="container prose">
+    <slot />
+  </article>
+
+  {faq && faq.length > 0 && (
+    <section class="container faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">Questions parents ask</h2>
+      {faq.map((item) => (
+        <details>
+          <summary>{item.q}</summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </section>
+  )}
+
+  <CTABand heading="Start with a conversation" body="Tell us about your child; we will take it from there." cta={{ label: 'Enquire now', path: contactPath }} />
+</PageChrome>
+
+<style>
+  .prose {
+    padding-block: var(--fh-space-12) var(--fh-space-8);
+    max-width: calc(var(--fh-container-max) * 0.66);
+    font-size: var(--fh-text-lg);
+    line-height: var(--fh-leading-relaxed);
+  }
+  .prose :global(h2) {
+    font-size: var(--fh-text-2xl);
+    margin: var(--fh-space-8) 0 var(--fh-space-4);
+  }
+  .prose :global(p) {
+    margin-bottom: var(--fh-space-5);
+  }
+  .prose :global(ol) {
+    margin: 0 0 var(--fh-space-6);
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+    display: grid;
+    gap: var(--fh-space-4);
+  }
+  .prose :global(ol > li) {
+    counter-increment: step;
+    display: grid;
+    grid-template-columns: var(--fh-space-12) 1fr;
+    gap: var(--fh-space-4);
+    align-items: baseline;
+  }
+  .prose :global(ol > li)::before {
+    content: counter(step, decimal-leading-zero);
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-extrabold);
+    font-size: var(--fh-text-2xl);
+    /* grey folio numeral — large-text AA (≥3:1) */
+    color: var(--fh-color-text-subtle);
+  }
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .prose :global(th),
+  .prose :global(td) {
+    text-align: left;
+    padding: var(--fh-space-3) var(--fh-space-4);
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+  }
+
+  .faq {
+    max-width: calc(var(--fh-container-max) * 0.66);
+    padding-bottom: var(--fh-space-8);
+  }
+  .faq h2 {
+    font-size: var(--fh-text-2xl);
+    margin-bottom: var(--fh-space-6);
+  }
+  details {
+    border-top: var(--fh-border-width) solid var(--fh-color-border);
+    padding-block: var(--fh-space-4);
+  }
+  summary {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    font-size: var(--fh-text-lg);
+    cursor: pointer;
+  }
+  summary:hover {
+    color: var(--fh-color-primary-text);
+  }
+  details p {
+    margin-top: var(--fh-space-3);
+    color: var(--fh-color-text-muted);
+    line-height: var(--fh-leading-relaxed);
+  }
+</style>

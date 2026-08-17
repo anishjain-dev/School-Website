@@ -1,0 +1,30 @@
+# Fountainhead Preschool Adajan — wholly owned. Preschool only: no
+# PYP/MYP/DP, so it takes the early-years template, not the school
+# structure (WA-47). Warm hero palette via brand: falh — the FALH token
+# file carries the preschool hero VK kept in the WA-6 correction of
+# 2026-07-20; the brand key is named for FALH, the palette is not.
+# inherit.mode listed with an empty include = own files only for now;
+# which group pages a preschool should inherit is a content-plan call.
+slug: adajan
+name: Fountainhead Preschool Adajan
+shortName: FP Adajan
+descriptor: Early years in Adajan, Surat
+brand: falh
+jurisdiction: gujarat
+address:
+  line1: 3, Madhuvilla Bungalow, Madhubha Park
+  line2: Adajan
+  city: Surat
+  state: Gujarat
+  pincode: "395007"
+phone: "+91 92270 18880"
+email: fpa.info@fountainheadpreschools.org
+# TODO (VK/marketing): the progression pairing is by geography (WA-47) and
+# is a content decision — set to 'kunkni' or 'malgama' once confirmed.
+# Left unset deliberately: the template falls back to the group continuum
+# rather than asserting a link nobody has verified.
+# continuesAt: kunkni
+domains: []
+inherit:
+  mode: listed
+  include: []

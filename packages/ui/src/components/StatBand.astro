@@ -1,0 +1,40 @@
+---
+// Horizontal proof strip — big Montserrat numbers, ruled separators.
+interface Props {
+  stats: { value: string; label: string }[];
+}
+const { stats } = Astro.props;
+---
+
+<div class="band" role="list">
+  {stats.map((s) => (
+    <div class="stat" role="listitem">
+      <p class="value">{s.value}</p>
+      <p class="label">{s.label}</p>
+    </div>
+  ))}
+</div>
+
+<style>
+  .band {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: var(--fh-space-8);
+  }
+  .stat {
+    border-left: var(--fh-border-width-2) solid var(--fh-color-accent);
+    padding-left: var(--fh-space-5);
+  }
+  .value {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-4xl);
+    font-weight: var(--fh-weight-extrabold);
+    color: var(--fh-color-primary);
+    line-height: var(--fh-leading-none);
+  }
+  .label {
+    margin-top: var(--fh-space-2);
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-text-muted);
+  }
+</style>

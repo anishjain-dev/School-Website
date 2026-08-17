@@ -1,0 +1,127 @@
+// Interim store (WA-40): the Postgres instance Payload needs in Phase 2,
+// brought forward. Two rule sets govern this file:
+//
+// 1. COPIED-VERBATIM MODELS — Lead, Requisition, Candidacy, ConsentRecord
+//    mirror C:\Dev\nucleus\prisma\schema.prisma column-for-column (same
+//    names, same types, same enum value sets) so 3.0 migration is a COPY,
+//    not a transform. The ONLY deltas: person-linked FKs are nullable —
+//    a public submission arrives before any Person exists; Nucleus mints
+//    the Person at migration and stamps the FK. Drift is checked
+//    mechanically by test/schema-drift.test.ts.
+//    Conventions carried: PascalCase singular tables, camelCase columns,
+//    TEXT ids app-minted (cuid2, never serial), TIMESTAMP(3) app-set
+//    (no now() defaults), enum-ish TEXT with documented value sets,
+//    no soft delete.
+//
+// 2. WEB-LOCAL MODELS (Web* prefix) — the submission envelope: web
+//    plumbing + Person-precursor fields. Stays behind at migration
+//    (purged +30 days after handover). CV bytes live HERE as bytea —
+//    ratified: R2 has no India region; residency (WA-40 cond. 1) wins.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ── COPIED VERBATIM FROM NUCLEUS (see header) ──────────────────────────
+
+model Lead {
+  id                       String    @id
+  childPersonId            String? // INTERIM-NULLABLE: stamped at 3.0 migration
+  parentName               String?
+  parentPhone              String
+  parentEmail              String?
+  childName                String
+  childDob                 DateTime  @db.Date
+  source                   String // web | walk_in | phone | referral | event — always 'web' here
+  stage                    String // new | contacted | qualified | lost | nurture-hold — always 'new' here
+  lostReason               String?
+  heldFromStage            String?
+  assignedOfficerPostingId String?
+  targetYear               String?
+  createdAt                DateTime
+  lastActivityAt           DateTime
+}
+
+model Requisition {
+  id                    String    @id
+  roleId                String
+  owningOrgUnitId       String
+  headcount             Int
+  employmentType        String // employee | contractor
+  intendedLegalEntityId String?
+  salaryBand            String?
+  status                String // draft | pending_approval | open | filled | closed
+  validFrom             DateTime? @db.Date
+  validTo               DateTime? @db.Date
+}
+
+model Candidacy {
+  id            String  @id
+  personId      String? // INTERIM-NULLABLE: stamped at 3.0 migration
+  requisitionId String? // INTERIM-NULLABLE: general applications carry no named opening
+  stage         String // applied | screening | interview | offer | accepted | hired | rejected | withdrawn | held
+  rejectStage   String?
+  rejectReason  String?
+  holdReason    String?
+}
+
+model ConsentRecord {
+  id              String   @id
+  subjectId       String? // INTERIM-NULLABLE: subject Person minted at migration
+  purpose         String // admissions-processing | recruitment-processing | recruitment-talent-pool (pending Nucleus ratification)
+  dataCategory    String
+  granted         Boolean
+  at              DateTime
+  grantedBy       String?
+  method          String?
+  fiduciaryEntity String?
+  packVersion     String?
+}
+
+// ── WEB-LOCAL ENVELOPE (never migrates; purged post-handover) ──────────
+
+model WebSubmission {
+  id               String    @id
+  kind             String // enquiry | careers | internship
+  receivedAt       DateTime
+  leadId           String?   @unique
+  candidacyId      String?   @unique
+  applicantName    String? // Person-precursor: → Person.name at migration
+  applicantEmail   String?
+  applicantPhone   String?
+  coverNote        String?
+  sourcePath       String
+  noticeVersion    String // DPDP privacy-notice version shown (WA-22)
+  turnstileOutcome String
+  ipHash           String? // salted hash — rate/abuse forensics only
+  status           String // received | migrated | purged
+  migratedAt       DateTime?
+  nucleusPersonId  String?
+}
+
+model WebDocument {
+  id               String    @id
+  submissionId     String    @unique
+  bytes            Bytes // CV payload — India-resident Postgres (ratified)
+  sha256           String
+  sizeBytes        Int
+  mimeDetected     String
+  originalFilename String
+  uploadedAt       DateTime
+  scanStatus       String // pending | clean | infected | failed — the fail-closed read gate (WA-39 layer 4)
+  scannedAt        DateTime?
+  retentionClass   String // 'cv-12mo'
+}
+
+model WebPurgeRun {
+  id          String   @id
+  ranAt       DateTime
+  rule        String
+  rowsDeleted Int
+  detail      Json?
+}

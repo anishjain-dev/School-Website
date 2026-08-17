@@ -1,0 +1,116 @@
+year: 2019
+campus: "kunkni"
+programme: "DP"
+cohortSize: 48
+generatedAt: "2026-07-28"
+source: "published from the Career Counselling app, which owns the placement record"
+placements:
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    cluster: "business-administration-commerce"
+    count: 3
+  - institution: "yorkville-university"
+    cluster: "business-administration-commerce"
+    count: 3
+  - institution: "atlas-skilltech-university"
+    cluster: "business-administration-commerce"
+    count: 2
+  - institution: "kishinchand-chellaram-college"
+    cluster: "business-administration-commerce"
+    count: 2
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    cluster: "finance"
+    count: 2
+  - institution: "pennsylvania-state-university"
+    cluster: "business-administration-commerce"
+    count: 2
+  - institution: "st-xaviers-college"
+    cluster: "human-services"
+    count: 2
+  - institution: "university-of-british-columbia"
+    cluster: "human-services"
+    count: 2
+  - institution: "university-of-toronto"
+    cluster: "information-technology"
+    count: 2
+  - institution: "usha-pravin-gandhi-college-of-management"
+    cluster: "law"
+    count: 2
+  - institution: "ara-institute-of-canterbury"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "arizona-state-university"
+    cluster: "health-sciences"
+    count: 1
+  - institution: "auro-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "auro-university"
+    cluster: "human-services"
+    count: 1
+  - institution: "boston-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "carleton-university"
+    cluster: "information-technology"
+    count: 1
+  - institution: "cork-institute-of-technology"
+    cluster: "information-technology"
+    count: 1
+  - institution: "gujarat-national-law-university"
+    cluster: "law"
+    count: 1
+  - institution: "houston-community-college"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "jain-university"
+    cluster: "health-sciences"
+    count: 1
+  - institution: "l-s-raheja-school-of-architecture"
+    cluster: "architecture-construction"
+    count: 1
+  - institution: "lost-stories-academy"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "loughborough-university"
+    cluster: "information-technology"
+    count: 1
+  - institution: "manipal-university"
+    cluster: "stem"
+    count: 1
+  - institution: "northeastern-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "pennsylvania-state-university"
+    cluster: "information-technology"
+    count: 1
+  - institution: "ryerson-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "san-diego-community-college"
+    cluster: "stem"
+    count: 1
+  - institution: "sarvajanik-college-of-engineering-and-technology"
+    cluster: "architecture-construction"
+    count: 1
+  - institution: "shri-vile-parle-kelavani-mandal-s-institute-of-international"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "symbiosis-international-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-of-british-columbia"
+    cluster: "stem"
+    count: 1
+  - institution: "university-of-creative-arts"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "university-of-toronto"
+    cluster: "government-public-administration"
+    count: 1
+  - institution: "university-of-toronto"
+    cluster: "stem"
+    count: 1
+  - institution: "usha-pravin-gandhi-college-of-management"
+    cluster: "business-administration-commerce"
+    count: 1
+otherOutcomes: []

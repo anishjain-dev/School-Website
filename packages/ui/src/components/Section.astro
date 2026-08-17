@@ -1,0 +1,88 @@
+---
+// Editorial section wrapper: eyebrow + spark + ruled heading, consistent
+// vertical rhythm. headingLevel keeps the outline honest (WCAG 1.3.1).
+import Spark from './Spark.astro';
+
+interface Props {
+  eyebrow?: string | undefined;
+  heading?: string | undefined;
+  headingLevel?: 2 | 3;
+  /** The section's FIELD. Alternating fields — not per-card decoration — are what give a long page
+   *  its rhythm and let one section read as a peak. `navy` inverts the whole type stack. */
+  tone?: 'default' | 'sunken' | 'tint' | 'cream' | 'navy';
+  id?: string | undefined;
+}
+const { eyebrow, heading, headingLevel = 2, tone = 'default', id } = Astro.props;
+const H = `h${headingLevel}` as 'h2' | 'h3';
+---
+
+<section class:list={['section', `tone-${tone}`]} id={id} aria-labelledby={heading && id ? `${id}-h` : undefined}>
+  <div class="container">
+    {heading && (
+      <header class="section-head">
+        {eyebrow && (
+          <p class="eyebrow">
+            <Spark size={12} />
+            {eyebrow}
+          </p>
+        )}
+        <H id={id ? `${id}-h` : undefined}>{heading}</H>
+      </header>
+    )}
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section {
+    padding-block: var(--fh-space-16);
+  }
+  .tone-sunken {
+    background: var(--fh-color-surface-sunken);
+  }
+  /* The two tinted fields. Cards sitting on these step their own hairline up to
+     --fh-color-border-strong (the consuming page owns that rule) so an edge stays visible. */
+  .tone-tint {
+    background: var(--fh-color-primary-subtle);
+  }
+  .tone-cream {
+    background: var(--fh-color-accent-subtle);
+  }
+  /* Navy inverts the type stack. The heading rule lightens too — the default border token is a
+     light grey that disappears here, which would silently drop the section's underline. */
+  .tone-navy {
+    background: var(--fh-color-hero-bg);
+    color: var(--fh-color-hero-fg);
+  }
+  .tone-navy .section-head {
+    border-bottom-color: var(--fh-color-primary-inverse);
+  }
+  .tone-navy .eyebrow {
+    color: var(--fh-color-hero-fg-muted);
+  }
+  .section-head {
+    margin-bottom: var(--fh-space-10);
+    padding-bottom: var(--fh-space-5);
+    border-bottom: var(--fh-border-width-2) solid var(--fh-color-border);
+    display: flex;
+    flex-direction: column;
+    gap: var(--fh-space-3);
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--fh-space-2);
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-bold);
+    letter-spacing: var(--fh-tracking-wider);
+    text-transform: uppercase;
+    color: var(--fh-color-eyebrow);
+  }
+  h2,
+  h3 {
+    font-size: var(--fh-text-3xl);
+    font-weight: var(--fh-weight-extrabold);
+    letter-spacing: var(--fh-tracking-tight);
+  }
+</style>

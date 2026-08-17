@@ -1,0 +1,193 @@
+---
+// Template 12 — Contact + enquiry form (WA-22). The form posts to the
+// interim-store endpoint (live in Stage 7); Turnstile slots in then.
+// Statutory block renders at the foot when a campus flips it on (WA-14 —
+// dormant today).
+import PageChrome from '../layouts/PageChrome.astro';
+import FormShell from '../components/form/FormShell.astro';
+import FormField from '../components/form/FormField.astro';
+import StatutoryBlock from '../components/StatutoryBlock.astro';
+import Spark from '../components/Spark.astro';
+import type { NavItem } from '../components/SiteHeader.astro';
+import type { CampusConfig } from '@fountainhead-web/content-schema';
+import type { z } from 'astro/zod';
+import type { statutorySchema } from '@fountainhead-web/content-schema';
+
+interface Props {
+  campus: CampusConfig | null;
+  heading: string;
+  pageTitle: string;
+  description?: string | undefined;
+  canonical?: URL | string | undefined;
+  nav: NavItem[];
+  eyebrow?: string | undefined;
+  admissionsPath: string;
+  campuses: { slug: string; name: string }[];
+  /** Positioning claim derived from launched campuses (WA-47) — never hardcoded. */
+  network: { campusCount: number; cities: string[]; citiesLabel: string };
+  statutory?: z.infer<typeof statutorySchema> | null | undefined;
+}
+const { campus, campuses, network, statutory, ...chrome } = Astro.props;
+
+// Marketing IA (2026-07-27): admissions, transport and the front office are
+// different desks. A campus with no `contacts` set renders none of this.
+const DESK_LABELS: Record<'admissions' | 'transport' | 'front-office', string> = {
+  admissions: 'Admissions',
+  transport: 'Transport',
+  'front-office': 'Front office',
+};
+---
+
+<PageChrome campus={campus} {...chrome}>
+  <div class="container layout">
+    <div class="details">
+      {campus ? (
+        <>
+        <address>
+          <p class="h"><Spark size={13} /> Visit us</p>
+          <p>{campus.address.line1}{campus.address.line2 ? `, ${campus.address.line2}` : ''}</p>
+          <p>{campus.address.city}, {campus.address.state} {campus.address.pincode}</p>
+          {campus.phone && <p><a href={`tel:${campus.phone.replace(/\s/g, '')}`}>{campus.phone}</a></p>}
+          {campus.email && <p><a href={`mailto:${campus.email}`}>{campus.email}</a></p>}
+          {campus.address.geo && (
+            <p class="directions">
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${campus.address.geo.lat},${campus.address.geo.lng}`}
+                rel="noopener"
+              >Get directions →</a>
+            </p>
+          )}
+        </address>
+
+        {campus.contacts?.length ? (
+          <div class="desks">
+            <p class="h"><Spark size={13} /> Who to ask</p>
+            <dl>
+              {campus.contacts.map((c) => (
+                <div class="desk">
+                  <dt>{DESK_LABELS[c.role]}</dt>
+                  <dd>
+                    {c.phone && <a href={`tel:${c.phone.replace(/\s/g, '')}`}>{c.phone}</a>}
+                    {c.email && <a href={`mailto:${c.email}`}>{c.email}</a>}
+                    {c.hours && <span class="hours">{c.hours}</span>}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        ) : null}
+        </>
+      ) : (
+        <address>
+          <p class="h"><Spark size={13} /> The Fountainhead group</p>
+          <p>Campuses across {network.citiesLabel} — each campus page carries its own address and contact.</p>
+        </address>
+      )}
+      <p class="note">
+        Prefer walking in? Book a visit through this form and see the campus on a working school day.
+      </p>
+    </div>
+
+    <FormShell
+      action="/api/enquiry/"
+      heading="Plan a visit"
+      purpose="We use these details to arrange your campus visit and follow up on admission for your child."
+      retention="24 months (or until admission concludes)"
+      submitLabel="Request a visit"
+    >
+      <FormField name="parentName" label="Parent name" required autocomplete="name" />
+      <FormField name="parentPhone" label="Phone" kind="tel" required autocomplete="tel" hint="We confirm visit slots on WhatsApp or call." />
+      <FormField name="parentEmail" label="Email" kind="email" autocomplete="email" />
+      <FormField name="childName" label="Child's name" required />
+      <FormField name="childDob" label="Child's date of birth" kind="date" required />
+      {!campus && (
+        <FormField
+          name="campus"
+          label="Which campus?"
+          kind="select"
+          required
+          options={campuses.map((c) => ({ label: c.name, value: c.slug }))}
+        />
+      )}
+      <FormField name="note" label="Anything we should know?" kind="textarea" />
+      {campus && <input type="hidden" name="campus" value={campus.slug} />}
+    </FormShell>
+  </div>
+
+  <div class="container">
+    <StatutoryBlock data={statutory} />
+  </div>
+</PageChrome>
+
+<style>
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(16rem, 0.8fr) minmax(0, 1.2fr);
+    gap: var(--fh-space-12);
+    padding-block: var(--fh-space-12);
+    align-items: start;
+  }
+  address {
+    font-style: normal;
+    display: grid;
+    gap: var(--fh-space-2);
+    font-size: var(--fh-text-lg);
+  }
+  .h {
+    display: flex;
+    align-items: center;
+    gap: var(--fh-space-2);
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    font-size: var(--fh-text-sm);
+    letter-spacing: var(--fh-tracking-wider);
+    text-transform: uppercase;
+    color: var(--fh-color-text-muted);
+    margin-bottom: var(--fh-space-2);
+  }
+  address a {
+    color: var(--fh-color-text-link);
+  }
+  .desks {
+    margin-top: var(--fh-space-8);
+  }
+  .desk {
+    padding-block: var(--fh-space-3);
+    border-top: var(--fh-border-width) solid var(--fh-color-border);
+  }
+  .desk dt {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-bold);
+    letter-spacing: var(--fh-tracking-wider);
+    text-transform: uppercase;
+    color: var(--fh-color-eyebrow);
+    margin-bottom: var(--fh-space-1);
+  }
+  .desk dd {
+    display: flex;
+    flex-direction: column;
+    gap: var(--fh-space-1);
+    margin: 0;
+    font-size: var(--fh-text-sm);
+  }
+  .desk .hours {
+    color: var(--fh-color-text-muted);
+  }
+  .directions {
+    margin-top: var(--fh-space-3);
+  }
+  .note {
+    margin-top: var(--fh-space-6);
+    padding-top: var(--fh-space-5);
+    border-top: var(--fh-border-width) solid var(--fh-color-border);
+    color: var(--fh-color-text-muted);
+    max-width: 36ch;
+    line-height: var(--fh-leading-relaxed);
+  }
+  @media (max-width: 860px) {
+    .layout {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

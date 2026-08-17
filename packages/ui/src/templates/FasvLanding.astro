@@ -1,0 +1,118 @@
+---
+// Template 14 — FASV interest-capture landing (WA-35): the campus's only
+// page until launch. Hero + why-register props + interest form feeding the
+// admissions pipeline (WA-31: build the feeder before the school exists) +
+// FALH cross-link (the feeder in the other direction).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import FormShell from '../components/form/FormShell.astro';
+import FormField from '../components/form/FormField.astro';
+import CampusSchema from '../components/CampusSchema.astro';
+import Spark from '../components/Spark.astro';
+import type { CampusConfig } from '@fountainhead-web/content-schema';
+
+interface Props {
+  campus: CampusConfig;
+  heading: string;
+  lede?: string | undefined;
+  pageTitle: string;
+  description?: string | undefined;
+  canonical?: URL | string | undefined;
+  pageUrl: URL | string;
+}
+const { campus, heading, lede, pageTitle, description, canonical, pageUrl } = Astro.props;
+---
+
+<BaseLayout brand={campus.brand} title={pageTitle} description={description} canonical={canonical}>
+  <CampusSchema slot="head-extra" campus={campus} url={pageUrl} />
+
+  <Hero
+    eyebrow={`${campus.shortName ?? campus.name} · ${campus.address.city} · opening ahead`}
+    title={heading}
+    lede={lede}
+    primaryCta={{ label: 'Register interest', path: '#interest' }}
+    secondaryCta={{ label: 'Meanwhile: FALH', path: '/falh/' }}
+  />
+
+  <Section eyebrow="Why register now" heading="Be first through the doors" id="why">
+    <ul class="why">
+      <li>
+        <Spark size={14} />
+        <p><strong>Priority in the founding cohort.</strong> Interest registered now is first in line when admissions open.</p>
+      </li>
+      <li>
+        <Spark size={14} />
+        <p><strong>The Fountainhead approach, in Vapi.</strong> The same IB continuum philosophy the group runs in Surat.</p>
+      </li>
+      <li>
+        <Spark size={14} />
+        <p><strong>Start at FALH today.</strong> Our Vapi learning hub already runs preschool and after-school programmes — the natural on-ramp.</p>
+      </li>
+    </ul>
+  </Section>
+
+  <Section eyebrow="Stay close" heading="Register your interest" id="interest" tone="sunken">
+    <div class="form-wrap">
+      <FormShell
+        action="/api/enquiry/"
+        purpose="We use these details to keep you informed about FASV and to contact you when admissions open."
+        retention="24 months"
+        submitLabel="Register interest"
+      >
+        <FormField name="parentName" label="Parent name" required autocomplete="name" />
+        <FormField name="parentPhone" label="Phone" kind="tel" required autocomplete="tel" />
+        <FormField name="parentEmail" label="Email" kind="email" autocomplete="email" />
+        <FormField name="childName" label="Child's name" required />
+        <FormField name="childDob" label="Child's date of birth" kind="date" required />
+        <input type="hidden" name="campus" value={campus.slug} />
+      </FormShell>
+    </div>
+  </Section>
+
+  <SiteFooter
+    slot="footer"
+    siteName={campus.name}
+    coBrand="A Fountainhead × Avadh venture"
+    address={`${campus.address.city}, ${campus.address.state}`}
+    columns={[
+      {
+        heading: 'The group',
+        links: [
+          { label: 'Fountainhead Schools', path: '/' },
+          { label: 'FALH — our Vapi hub', path: '/falh/' },
+          { label: 'Philosophy', path: '/philosophy/' },
+        ],
+      },
+    ]}
+  />
+</BaseLayout>
+
+<style>
+  .why {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--fh-space-8);
+  }
+  .why li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--fh-space-3);
+    align-items: start;
+  }
+  .why p {
+    line-height: var(--fh-leading-relaxed);
+    color: var(--fh-color-text-muted);
+  }
+  .why strong {
+    color: var(--fh-color-text);
+    font-family: var(--fh-font-heading);
+  }
+  .form-wrap {
+    max-width: 36rem;
+  }
+</style>

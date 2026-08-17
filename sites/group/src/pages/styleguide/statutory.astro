@@ -1,0 +1,74 @@
+---
+// Statutory-block proof (WA-14): the dormant real config renders NOTHING;
+// a populated sample shows what a future board affiliation switches on.
+import '@fountainhead-web/tokens/index.css';
+import '@fontsource/montserrat/700.css';
+import '@fontsource/nunito/400.css';
+import { getCollection } from 'astro:content';
+import StatutoryBlock from '@fountainhead-web/ui/components/StatutoryBlock.astro';
+import { statutorySchema } from '@fountainhead-web/content-schema';
+
+const real = (await getCollection('statutory')).find((s) => s.data.campus === 'kunkni')?.data ?? null;
+
+const sample = statutorySchema.parse({
+  campus: 'sample',
+  jurisdiction: 'gujarat',
+  enabled: true,
+  affiliation: { board: 'cbse', number: 'SAMPLE/12345', validTo: '2030-03-31' },
+  recognition: { authority: 'District Education Office, Surat', number: 'REC/SAMPLE/99' },
+  feeRegulation: { committee: 'Gujarat FRC', orderRef: 'FRC/SAMPLE/2029' },
+  safety: { fireNocValidTo: '2027-05-31' },
+  mandatoryDisclosureUrl: 'https://example.invalid/disclosure.pdf',
+});
+---
+
+<!doctype html>
+<html lang="en" data-brand="fountainhead">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Statutory block — styleguide</title>
+  </head>
+  <body>
+    <main>
+      <h1>Statutory block (WA-14)</h1>
+
+      <h2>1 — Real Kunkni config (dormant): renders nothing between the rules</h2>
+      <div class="proof"><StatutoryBlock data={real} /></div>
+
+      <h2>2 — Populated sample (a future CBSE affiliation)</h2>
+      <div class="proof"><StatutoryBlock data={sample} /></div>
+    </main>
+  </body>
+</html>
+
+<style>
+  body {
+    margin: 0;
+    background: var(--fh-color-bg);
+    color: var(--fh-color-text);
+    font-family: var(--fh-font-body);
+  }
+  main {
+    max-width: var(--fh-container-max);
+    margin-inline: auto;
+    padding: var(--fh-space-12) var(--fh-space-6);
+  }
+  h1 {
+    font-family: var(--fh-font-heading);
+    margin: 0 0 var(--fh-space-8);
+  }
+  h2 {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-lg);
+    color: var(--fh-color-text-muted);
+    margin: var(--fh-space-10) 0 var(--fh-space-3);
+  }
+  .proof {
+    border: var(--fh-border-width-2) dashed var(--fh-color-border-strong);
+    border-radius: var(--fh-radius-md);
+    padding: var(--fh-space-4);
+    min-height: var(--fh-space-8);
+  }
+</style>

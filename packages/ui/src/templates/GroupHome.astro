@@ -1,0 +1,146 @@
+---
+// Template 1 — Group home (prospectus-editorial direction).
+// Photo-free flagship: display typography, numbered campus index,
+// proof band, ruled news list, conversion band.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader, { type NavItem } from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import CampusCard from '../components/CampusCard.astro';
+import StatBand from '../components/StatBand.astro';
+import CTABand from '../components/CTABand.astro';
+import NewsList from '../components/NewsList.astro';
+import { footerColumns } from '../lib/nav';
+
+export interface CampusLite {
+  slug: string;
+  name: string;
+  city: string;
+  descriptor?: string | undefined;
+}
+export interface NetworkLite {
+  campusCount: number;
+  cities: string[];
+  citiesLabel: string;
+}
+interface Props {
+  heading: string;
+  lede?: string | undefined;
+  pageTitle: string;
+  description?: string | undefined;
+  canonical?: URL | string | undefined;
+  nav: NavItem[];
+  campuses: CampusLite[];
+  /** Positioning claim derived from launched campuses (WA-47) — never hardcoded. */
+  network: NetworkLite;
+  social?: { label: string; url: string }[] | undefined;
+  news: { title: string; date: Date; path: string; campus?: string | undefined }[];
+  philosophy?: { title: string; excerpt?: string | undefined; path: string } | undefined;
+}
+const { heading, lede, pageTitle, description, canonical, nav, campuses, network, social, news, philosophy } =
+  Astro.props;
+---
+
+<BaseLayout brand="fountainhead" title={pageTitle} description={description} canonical={canonical}>
+  <SiteHeader
+    slot="header"
+    siteName="Fountainhead Schools"
+    homePath="/"
+    nav={nav}
+    enquirePath="/admissions/"
+  />
+
+  <Hero
+    eyebrow={`An IB school group · ${network.campusCount} campuses across ${network.cities.length} cities`}
+    title={heading}
+    lede={lede}
+    primaryCta={{ label: 'Explore admissions', path: '/admissions/' }}
+    secondaryCta={{ label: 'Our philosophy', path: '/philosophy/' }}
+  />
+
+  <Section eyebrow="The group" heading="One conviction, every campus" id="proof">
+    <StatBand
+      stats={[
+        { value: String(network.campusCount), label: `Campuses across ${network.citiesLabel}` },
+        { value: 'IB', label: 'International Baccalaureate continuum' },
+        { value: '1', label: 'Shared philosophy of learning' },
+      ]}
+    />
+  </Section>
+
+  <Section eyebrow="Choose a campus" heading="Find your Fountainhead" id="campuses" tone="sunken">
+    <div class="campus-grid">
+      {campuses.map((c, i) => (
+        <CampusCard
+          index={i + 1}
+          name={c.name}
+          city={c.city}
+          path={`/${c.slug}/`}
+          descriptor={c.descriptor}
+        />
+      ))}
+    </div>
+  </Section>
+
+  {philosophy && (
+    <Section eyebrow="Why we teach this way" heading={philosophy.title} id="philosophy">
+      <div class="philo">
+        {philosophy.excerpt && <p class="philo-lede">{philosophy.excerpt}</p>}
+        <p><a class="text-cta" href={philosophy.path}>Read our philosophy →</a></p>
+      </div>
+    </Section>
+  )}
+
+  {news.length > 0 && (
+    <Section eyebrow="From our campuses" heading="News & happenings" id="news">
+      <NewsList items={news} />
+    </Section>
+  )}
+
+  <CTABand
+    heading="See a campus for yourself"
+    body="The best way to understand Fountainhead is to walk through it on a school day."
+    cta={{ label: 'Book a visit', path: '/admissions/' }}
+  />
+
+  <SiteFooter
+    slot="footer"
+    siteName="Fountainhead Schools"
+    social={social}
+    address={`${network.citiesLabel} · India`}
+    columns={[
+      ...footerColumns(nav, '/'),
+      {
+        heading: 'Campuses',
+        links: campuses.map((c) => ({ label: c.name, path: `/${c.slug}/` })),
+      },
+    ]}
+  />
+</BaseLayout>
+
+<style>
+  .campus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: var(--fh-space-6);
+  }
+  .philo {
+    max-width: 60ch;
+  }
+  .philo-lede {
+    font-size: var(--fh-text-xl);
+    line-height: var(--fh-leading-relaxed);
+    color: var(--fh-color-text-muted);
+    margin-bottom: var(--fh-space-6);
+  }
+  .text-cta {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    color: var(--fh-color-primary-text);
+    text-decoration: none;
+  }
+  .text-cta:hover {
+    text-decoration: underline;
+  }
+</style>

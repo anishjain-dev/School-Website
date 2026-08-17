@@ -1,0 +1,77 @@
+---
+// Template 9b — News article.
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import PageChrome from '@fountainhead-web/ui/layouts/PageChrome.astro';
+import ImageFrame from '@fountainhead-web/ui/components/ImageFrame.astro';
+import { getSiteContext } from '../../lib/matrix';
+
+export async function getStaticPaths() {
+  const news = await getCollection('news');
+  return news.filter((n) => !n.data.draft).map((n) => ({ params: { id: n.id }, props: { entry: n } }));
+}
+
+const { entry } = Astro.props as { entry: CollectionEntry<'news'> };
+const ctx = await getSiteContext();
+const { Content } = await render(entry);
+const fmt = new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<PageChrome
+  campus={null}
+  heading={entry.data.title}
+  pageTitle={`${entry.data.title} — Fountainhead Schools`}
+  canonical={new URL(`/news/${entry.id}/`, Astro.site)}
+  nav={ctx.navFor(null)}
+  social={ctx.socialFor(null)}
+  eyebrow={`${fmt.format(entry.data.publishDate)}${entry.data.campus !== 'group' ? ` · ${entry.data.campus}` : ''}`}
+  admissionsPath={ctx.admissionsPathFor(null)}
+>
+  <article class="container prose">
+    {entry.data.cover && (
+      <div class="cover-image">
+        <ImageFrame image={entry.data.cover} variant="hero" aspect="16 / 9" loading="eager" />
+      </div>
+    )}
+    {entry.data.description && (
+      <p class="lede">{entry.data.description}</p>
+    )}
+    <Content />
+    <p class="back"><a href="/news/">← All news</a></p>
+  </article>
+</PageChrome>
+
+<style>
+  .prose {
+    padding-block: var(--fh-space-12);
+    max-width: calc(var(--fh-container-max) * 0.6);
+    font-size: var(--fh-text-lg);
+    line-height: var(--fh-leading-relaxed);
+  }
+  .cover-image {
+    margin-bottom: var(--fh-space-8);
+    border-radius: var(--fh-radius-xl);
+    overflow: hidden;
+  }
+  .lede {
+    font-size: var(--fh-text-xl);
+    line-height: var(--fh-leading-relaxed);
+    color: var(--fh-color-text);
+    font-weight: var(--fh-weight-medium);
+    margin-bottom: var(--fh-space-8);
+    padding-bottom: var(--fh-space-8);
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+  }
+  .prose :global(p) {
+    margin-bottom: var(--fh-space-5);
+  }
+  .back {
+    margin-top: var(--fh-space-10);
+    padding-top: var(--fh-space-5);
+    border-top: var(--fh-border-width) solid var(--fh-color-border);
+  }
+  .back a {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    text-decoration: none;
+  }
+</style>

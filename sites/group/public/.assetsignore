@@ -1,0 +1,3 @@
+# The server bundle is code, not a public asset — never upload it to the
+# static store (wrangler serves it as the Worker itself).
+_worker.js

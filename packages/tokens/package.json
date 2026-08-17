@@ -1,0 +1,10 @@
+{
+  "name": "@fountainhead-web/tokens",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./index.css": "./index.css",
+    "./print.css": "./print.css",
+    "./directions/*.css": "./directions/*.css"
+  }
+}

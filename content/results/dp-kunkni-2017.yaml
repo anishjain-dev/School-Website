@@ -1,0 +1,21 @@
+programme: "DP"
+classOf: 2017
+sessionYear: 2017
+campus: "kunkni"
+cohortSize: 40
+schoolAverage: 33.9
+maxPossible: 45
+highestAchieved: 44
+awarded:
+  diploma: 31
+distribution:
+  - label: "30 points & above"
+    count: 26
+    of: 31
+  - label: "36 points & above"
+    count: 9
+    of: 31
+notable: []
+source: "published from the IBDP Results system (Fountainhead School, Kunkni), the school's record of the IB session"
+generatedAt: "2026-07-28"
+provisional: false

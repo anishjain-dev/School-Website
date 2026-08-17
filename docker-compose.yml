@@ -1,0 +1,30 @@
+# Local dev services for the interim store (WA-40).
+# Production Postgres is India-hosted (credential sitting); this is the
+# dev/test twin. ClamAV backs the scan poller (WA-39 layer 4).
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: fw
+      POSTGRES_PASSWORD: fw
+      POSTGRES_DB: fw_interim
+    ports:
+      # 15432 on the host — this machine's native Postgres instances (Nucleus dev)
+      # own 5432 and 5433.
+      - "15432:5432"
+    volumes:
+      - fw-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fw -d fw_interim"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  clamav:
+    image: clamav/clamav:stable
+    ports:
+      - "3310:3310"
+    profiles: ["scan"] # heavy (virus DB download) — start with: docker compose --profile scan up
+
+volumes:
+  fw-pgdata:

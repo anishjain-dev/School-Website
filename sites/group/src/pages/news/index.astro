@@ -1,0 +1,74 @@
+---
+// Template 9a — News index (Tier B, Keystatic-fed).
+import { getCollection } from 'astro:content';
+import PageChrome from '@fountainhead-web/ui/layouts/PageChrome.astro';
+import NewsHappenings from '@fountainhead-web/ui/components/NewsHappenings.astro';
+import NewsList from '@fountainhead-web/ui/components/NewsList.astro';
+import { getSiteContext } from '../../lib/matrix';
+
+const ctx = await getSiteContext();
+const allNews = await getCollection('news');
+const items = allNews
+  .filter((n) => !n.data.draft)
+  .map((n) => ({
+    title:       n.data.title,
+    date:        n.data.publishDate,
+    path:        `/news/${n.id}/`,
+    campus:      n.data.campus,
+    cover:       n.data.cover,
+    description: n.data.description,
+  }))
+  .sort((a, b) => b.date.getTime() - a.date.getTime());
+---
+
+<PageChrome
+  campus={null}
+  heading="News & happenings"
+  pageTitle="News — Fountainhead Schools"
+  description="Stories from across the Fountainhead campuses."
+  canonical={new URL('/news/', Astro.site)}
+  nav={ctx.navFor(null)}
+  social={ctx.socialFor(null)}
+  eyebrow="Fountainhead group"
+  admissionsPath={ctx.admissionsPathFor(null)}
+>
+  <div class="container section">
+    {items.length > 0 ? (
+      <>
+        <div class="variant-label">Layout A — Split panel (school design)</div>
+        <NewsHappenings items={items} variant="split" />
+
+        <div class="variant-label">Layout B — Cards</div>
+        <NewsHappenings items={items} variant="cards" />
+
+        <div class="variant-label">Layout C — Editorial</div>
+        <NewsHappenings items={items} variant="editorial" />
+      </>
+    ) : (
+      <p class="empty">Nothing published yet — check back soon.</p>
+    )}
+  </div>
+</PageChrome>
+
+<style>
+  .section {
+    padding-block: var(--fh-space-12);
+    display: flex;
+    flex-direction: column;
+    gap: var(--fh-space-16);
+  }
+  .variant-label {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-bold);
+    letter-spacing: var(--fh-tracking-wider);
+    text-transform: uppercase;
+    color: var(--fh-color-text-subtle);
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+    padding-bottom: var(--fh-space-3);
+    margin-bottom: calc(-1 * var(--fh-space-8));
+  }
+  .empty {
+    color: var(--fh-color-text-muted);
+  }
+</style>

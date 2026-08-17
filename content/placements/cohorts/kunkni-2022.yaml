@@ -1,0 +1,257 @@
+year: 2022
+campus: "kunkni"
+programme: "DP"
+cohortSize: 100
+generatedAt: "2026-07-28"
+source: "published from the Career Counselling app, which owns the placement record"
+placements:
+  - institution: "flame-university"
+    cluster: "business-administration-commerce"
+    count: 4
+  - institution: "atlas-skilltech-university"
+    cluster: "arts-design-media"
+    count: 3
+  - institution: "atlas-skilltech-university"
+    cluster: "business-administration-commerce"
+    count: 3
+  - institution: "auro-university"
+    cluster: "business-administration-commerce"
+    count: 3
+  - institution: "arizona-state-university"
+    cluster: "stem"
+    count: 2
+  - institution: "auro-university"
+    cluster: "information-technology"
+    count: 2
+  - institution: "ehl-hospitality-business-school"
+    cluster: "hospitality-tourism"
+    count: 2
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    cluster: "finance"
+    count: 2
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    cluster: "stem"
+    count: 2
+  - institution: "pes-university"
+    cluster: "arts-design-media"
+    count: 2
+  - institution: "school-of-visual-arts"
+    cluster: "arts-design-media"
+    count: 2
+  - institution: "st-lawrence-college"
+    cluster: "business-administration-commerce"
+    count: 2
+  - institution: "university-of-massachusetts"
+    cluster: "finance"
+    count: 2
+  - institution: "50-mm-production-house"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "arizona-state-university"
+    cluster: "finance"
+    count: 1
+  - institution: "ashoka-university"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "auburn-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "bennett-university"
+    cluster: "law"
+    count: 1
+  - institution: "california-state-university-northridge"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "case-western-reserve-university"
+    cluster: "finance"
+    count: 1
+  - institution: "christ-university"
+    cluster: "human-services"
+    count: 1
+  - institution: "culinary-institute-of-america"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "culinary-institute-of-america"
+    cluster: "hospitality-tourism"
+    count: 1
+  - institution: "eugene-lang-the-new-school-nyc"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "fashion-institute-of-design-and-merchandising"
+    cluster: "marketing"
+    count: 1
+  - institution: "fashion-institute-of-technology"
+    cluster: "marketing"
+    count: 1
+  - institution: "flame-university"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "fraser-international-college"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "georgia-state-university"
+    cluster: "stem"
+    count: 1
+  - institution: "hult-international-business-school"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "indian-diamond-institute"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "indiana-university-bloomington"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "kedge-business-school-campus-paris"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "los-angeles-college-of-music"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "manipal-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "michigan-state-university"
+    cluster: "health-sciences"
+    count: 1
+  - institution: "michigan-state-university"
+    cluster: "stem"
+    count: 1
+  - institution: "mit-world-peace-university"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "mit-world-peace-university"
+    cluster: "finance"
+    count: 1
+  - institution: "narsee-monjee-college-of-commerce-and-economics"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "narsee-monjee-college-of-commerce-and-economics"
+    cluster: "finance"
+    count: 1
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    school: "NMIMS"
+    cluster: "finance"
+    count: 1
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    unit: "narsee-monjee-institute-of-management-studies-nmims-navi-mum"
+    cluster: "finance"
+    count: 1
+  - institution: "national-university-of-singapore"
+    cluster: "information-technology"
+    count: 1
+  - institution: "new-york-film-academy"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "north-carolina-state-university"
+    cluster: "information-technology"
+    count: 1
+  - institution: "northeastern-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "oregon-state-university"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "otis-college-of-art-and-design"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "pandit-deendayal-energy-university-pdeu"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "pennsylvania-state-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "pennsylvania-state-university"
+    cluster: "finance"
+    count: 1
+  - institution: "plaksha-university"
+    cluster: "information-technology"
+    count: 1
+  - institution: "queen-mary-university"
+    cluster: "stem"
+    count: 1
+  - institution: "rochester-institute-of-technology"
+    cluster: "information-technology"
+    count: 1
+  - institution: "rochester-institute-of-technology"
+    cluster: "stem"
+    count: 1
+  - institution: "rutgers-university"
+    unit: "rutgers-university-new-brunswick"
+    cluster: "health-sciences"
+    count: 1
+  - institution: "rutgers-university"
+    unit: "rutgers-university-new-brunswick"
+    cluster: "information-technology"
+    count: 1
+  - institution: "sarah-lawrence-college"
+    cluster: "law"
+    count: 1
+  - institution: "sarvajanik-college-of-engineering-and-technology"
+    cluster: "architecture-construction"
+    count: 1
+  - institution: "shiv-nadar-university"
+    cluster: "finance"
+    count: 1
+  - institution: "simon-fraser-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "stony-brook-university"
+    cluster: "information-technology"
+    count: 1
+  - institution: "suresh-gyan-vihar-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "symbiosis-international-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "symbiosis-international-university"
+    cluster: "finance"
+    count: 1
+  - institution: "symbiosis-international-university"
+    cluster: "hospitality-tourism"
+    count: 1
+  - institution: "the-university-of-salford"
+    cluster: "architecture-construction"
+    count: 1
+  - institution: "university-of-alberta"
+    cluster: "information-technology"
+    count: 1
+  - institution: "university-of-birmingham"
+    cluster: "stem"
+    count: 1
+  - institution: "university-of-canada-west"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-of-cincinnati"
+    cluster: "stem"
+    count: 1
+  - institution: "university-of-illinios-chicago"
+    cluster: "information-technology"
+    count: 1
+  - institution: "university-of-illinois-at-urbana-champaign"
+    cluster: "stem"
+    count: 1
+  - institution: "university-of-sussex"
+    cluster: "government-public-administration"
+    count: 1
+  - institution: "university-of-toronto"
+    cluster: "architecture-construction"
+    count: 1
+  - institution: "university-of-toronto"
+    cluster: "information-technology"
+    count: 1
+  - institution: "university-of-warwick"
+    cluster: "finance"
+    count: 1
+  - institution: "university-of-waterloo"
+    cluster: "information-technology"
+    count: 1
+  - institution: "university-of-waterloo"
+    cluster: "stem"
+    count: 1
+otherOutcomes:
+  - outcome: "gap-year"
+    count: 1

@@ -1,0 +1,134 @@
+year: 2018
+campus: "kunkni"
+programme: "DP"
+cohortSize: 50
+generatedAt: "2026-07-28"
+source: "published from the Career Counselling app, which owns the placement record"
+placements:
+  - institution: "auro-university"
+    cluster: "business-administration-commerce"
+    count: 4
+  - institution: "atlas-skilltech-university"
+    cluster: "arts-design-media"
+    count: 2
+  - institution: "atlas-skilltech-university"
+    cluster: "business-administration-commerce"
+    count: 2
+  - institution: "auro-university"
+    cluster: "arts-design-media"
+    count: 2
+  - institution: "jai-hind-college"
+    cluster: "human-services"
+    count: 2
+  - institution: "shri-vile-parle-kelavani-mandal-s-institute-of-international"
+    cluster: "business-administration-commerce"
+    count: 2
+  - institution: "auro-university"
+    cluster: "hospitality-tourism"
+    count: 1
+  - institution: "brock-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "cdi-college"
+    cluster: "finance"
+    count: 1
+  - institution: "christ-university"
+    cluster: "human-services"
+    count: 1
+  - institution: "cmr-university"
+    cluster: "architecture-construction"
+    count: 1
+  - institution: "fx-school"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "georgian-college"
+    cluster: "hospitality-tourism"
+    count: 1
+  - institution: "h-r-college-of-commerce-and-economics"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "holger-jetter-german-international-from-auroville"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "iowa-state-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "iowa-state-university"
+    cluster: "stem"
+    count: 1
+  - institution: "jai-hind-college"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "jain-university"
+    cluster: "human-services"
+    count: 1
+  - institution: "kingston-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "kingston-university"
+    cluster: "stem"
+    count: 1
+  - institution: "manipal-university"
+    cluster: "hospitality-tourism"
+    count: 1
+  - institution: "metas-adventist-college"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "op-jindal-global-university"
+    cluster: "law"
+    count: 1
+  - institution: "pennsylvania-state-university"
+    cluster: "stem"
+    count: 1
+  - institution: "pratt-institute"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "purdue-university"
+    cluster: "stem"
+    count: 1
+  - institution: "rmit-university"
+    cluster: "information-technology"
+    count: 1
+  - institution: "rutgers-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "srm-university"
+    cluster: "health-sciences"
+    count: 1
+  - institution: "symbiosis-international-university"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "toulouse-business-school"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-of-massachusetts"
+    cluster: "information-technology"
+    count: 1
+  - institution: "university-of-massachusetts"
+    unit: "university-of-massachusetts-lowell"
+    cluster: "human-services"
+    count: 1
+  - institution: "university-of-saskatchewan"
+    cluster: "human-services"
+    count: 1
+  - institution: "university-of-toronto"
+    cluster: "government-public-administration"
+    count: 1
+  - institution: "university-of-warwick"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-of-westminster"
+    cluster: "architecture-construction"
+    count: 1
+  - institution: "usha-pravin-gandhi-college-of-management"
+    cluster: "mass-media-journalism"
+    count: 1
+  - institution: "whistling-woods-international"
+    cluster: "arts-design-media"
+    count: 1
+otherOutcomes:
+  - outcome: "family-business"
+    count: 1

@@ -1,0 +1,92 @@
+---
+// Template 5a — Policy index, grouped by category (WA-13 single source).
+import { getCollection } from 'astro:content';
+import PageChrome from '@fountainhead-web/ui/layouts/PageChrome.astro';
+import { getSiteContext } from '../../lib/matrix';
+
+const ctx = await getSiteContext();
+const policies = (await getCollection('policies')).filter((p) => p.data.status === 'active');
+const CATEGORY_LABELS: Record<string, string> = {
+  school: 'School policies',
+  academic: 'Academic policies',
+  health: 'Health policies',
+  other: 'Other policies',
+};
+const grouped = Object.entries(CATEGORY_LABELS)
+  .map(([key, label]) => ({
+    label,
+    items: policies.filter((p) => p.data.category === key).sort((a, b) => a.data.title.localeCompare(b.data.title)),
+  }))
+  .filter((g) => g.items.length > 0);
+const fmt = new Intl.DateTimeFormat('en-IN', { month: 'short', year: 'numeric' });
+---
+
+<PageChrome
+  campus={null}
+  heading="Policies"
+  pageTitle="Policies — Fountainhead Schools"
+  description="Every policy, current version, one place — the same document the school runs on."
+  canonical={new URL('/policies/', Astro.site)}
+  nav={ctx.navFor(null)}
+  social={ctx.socialFor(null)}
+  eyebrow="Single source (WA-13)"
+  admissionsPath={ctx.admissionsPathFor(null)}
+>
+  <div class="container list">
+    {grouped.map((g) => (
+      <section>
+        <h2>{g.label}</h2>
+        <ul>
+          {g.items.map((p) => (
+            <li>
+              <a href={`/policies/${p.id}/`}>{p.data.title}</a>
+              <span class="meta">v{p.data.version} · effective {fmt.format(p.data.effectiveDate)}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</PageChrome>
+
+<style>
+  .list {
+    padding-block: var(--fh-space-12);
+    max-width: calc(var(--fh-container-max) * 0.66);
+    display: grid;
+    gap: var(--fh-space-10);
+  }
+  h2 {
+    font-size: var(--fh-text-2xl);
+    margin-bottom: var(--fh-space-5);
+    padding-bottom: var(--fh-space-3);
+    border-bottom: var(--fh-border-width-2) solid var(--fh-color-border);
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--fh-space-3);
+  }
+  li {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--fh-space-6);
+    align-items: baseline;
+  }
+  li a {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-semibold);
+    text-decoration: none;
+  }
+  li a:hover {
+    text-decoration: underline;
+  }
+  .meta {
+    font-size: var(--fh-text-xs);
+    color: var(--fh-color-text-muted);
+    font-family: var(--fh-font-mono);
+    white-space: nowrap;
+  }
+</style>

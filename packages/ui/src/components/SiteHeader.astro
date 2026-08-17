@@ -1,0 +1,391 @@
+---
+// Campus-aware header. Utility strip carries the child-protection link
+// (WA-23 locked: elevated AND listed under Policies). Mobile nav is the
+// Popover API — zero JS; the browser manages button state.
+//
+// Two-level nav (WA-48) uses native <details name> — the exclusive
+// accordion, so opening one group closes its siblings without script.
+// Deliberately NOT a hover menu: hover-revealed submenus have to be
+// dismissible under WCAG 1.4.13, which WA-21 makes binding, and there is
+// no way to wire Escape without JS. A click-triggered disclosure sidesteps
+// 1.4.13 entirely and gets correct button semantics from <summary> free.
+import Spark from './Spark.astro';
+
+export interface NavItem {
+  label: string;
+  path: string;
+  current?: boolean;
+  children?: NavItem[];
+}
+
+interface Props {
+  siteName: string;
+  shortName?: string | undefined;
+  homePath: string;
+  nav: NavItem[];
+  enquirePath?: string | undefined;
+  phone?: string | undefined;
+}
+const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
+---
+
+<div class="utility u-print-hidden">
+  <div class="container utility-row">
+    <a href="/child-protection/">Child protection</a>
+    {phone && <a href={`tel:${phone.replace(/\s/g, '')}`}>{phone}</a>}
+  </div>
+</div>
+
+<header class="header u-print-hidden">
+  <div class="container header-row">
+    <a class="lockup" href={homePath}>
+      <Spark size={18} />
+      <span class="lockup-name">{siteName}</span>
+      {shortName && <span class="lockup-chip">{shortName}</span>}
+    </a>
+
+    <nav class="nav-desktop" aria-label="Primary">
+      {nav.map((item) =>
+        item.children?.length ? (
+          <details class="nav-group" name="primary-nav">
+            <summary>{item.label}</summary>
+            <div class="submenu">
+              <a href={item.path} aria-current={item.current ? 'page' : undefined}>
+                {item.label} overview
+              </a>
+              {item.children.map((child) => (
+                <a href={child.path} aria-current={child.current ? 'page' : undefined}>{child.label}</a>
+              ))}
+            </div>
+          </details>
+        ) : (
+          <a href={item.path} aria-current={item.current ? 'page' : undefined}>{item.label}</a>
+        ),
+      )}
+    </nav>
+
+    {enquirePath && <a class="enquire" href={enquirePath}>Enquire</a>}
+
+    <button class="nav-toggle" popovertarget="site-nav" aria-label="Menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+</header>
+
+<nav id="site-nav" class="nav-panel" popover aria-label="Primary, mobile">
+  {nav.map((item) =>
+    item.children?.length ? (
+      <details class="panel-group" name="mobile-nav">
+        <summary>{item.label}</summary>
+        <div class="panel-submenu">
+          <a href={item.path} aria-current={item.current ? 'page' : undefined}>
+            {item.label} overview
+          </a>
+          {item.children.map((child) => (
+            <a href={child.path} aria-current={child.current ? 'page' : undefined}>{child.label}</a>
+          ))}
+        </div>
+      </details>
+    ) : (
+      <a href={item.path} aria-current={item.current ? 'page' : undefined}>{item.label}</a>
+    ),
+  )}
+  {enquirePath && <a class="panel-enquire" href={enquirePath}>Enquire</a>}
+</nav>
+
+<style>
+  .utility {
+    background: var(--fh-color-footer-bg);
+    color: var(--fh-color-footer-fg);
+    font-size: var(--fh-text-xs);
+    font-family: var(--fh-font-heading);
+    letter-spacing: var(--fh-tracking-wide);
+  }
+  .utility-row {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--fh-space-6);
+    padding-block: var(--fh-space-2);
+  }
+  .utility a {
+    color: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .utility a:hover {
+    text-decoration: underline;
+  }
+
+  .header {
+    background: var(--fh-color-header-bg);
+    color: var(--fh-color-header-fg);
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+    position: sticky;
+    top: 0;
+    z-index: var(--fh-z-sticky);
+  }
+  .header-row {
+    display: flex;
+    align-items: center;
+    gap: var(--fh-space-8);
+    min-height: var(--fh-space-16);
+  }
+
+  .lockup {
+    display: flex;
+    align-items: center;
+    gap: var(--fh-space-2);
+    text-decoration: none;
+    color: inherit;
+    margin-right: auto;
+  }
+  .lockup-name {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-extrabold);
+    font-size: var(--fh-text-lg);
+    letter-spacing: var(--fh-tracking-tight);
+  }
+  .lockup-chip {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-bold);
+    letter-spacing: var(--fh-tracking-wider);
+    color: var(--fh-color-primary-subtle-fg);
+    background: var(--fh-color-primary-subtle);
+    border-radius: var(--fh-radius-full);
+    padding: var(--fh-space-1) var(--fh-space-3);
+  }
+
+  .nav-desktop {
+    display: flex;
+    gap: var(--fh-space-6);
+  }
+  .nav-desktop > a,
+  .nav-group > summary {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-sm);
+    font-weight: var(--fh-weight-semibold);
+    color: inherit;
+    text-decoration: none;
+    padding-block: var(--fh-space-2);
+    background: linear-gradient(currentColor, currentColor) no-repeat left bottom / 0 2px;
+    transition: background-size var(--fh-duration-base) var(--fh-ease-standard);
+  }
+  .nav-desktop > a:hover,
+  .nav-desktop > a[aria-current='page'] {
+    background-size: 100% 2px;
+  }
+
+  /* Two-level disclosure (WA-48). <details name> = exclusive accordion, so
+     opening one group closes its siblings with no script. */
+  .nav-group {
+    position: relative;
+  }
+  .nav-group > summary {
+    display: flex;
+    align-items: center;
+    gap: var(--fh-space-2);
+    cursor: pointer;
+    list-style: none;
+  }
+  .nav-group > summary::-webkit-details-marker {
+    display: none;
+  }
+  .nav-group > summary::after {
+    content: '';
+    width: 0.4em;
+    height: 0.4em;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-0.15em) rotate(45deg);
+    transition: transform var(--fh-duration-base) var(--fh-ease-standard);
+  }
+  .nav-group[open] > summary::after {
+    transform: translateY(0.1em) rotate(-135deg);
+  }
+  .nav-group > summary:hover,
+  .nav-group[open] > summary,
+  .nav-group:has(a[aria-current='page']) > summary {
+    background-size: 100% 2px;
+  }
+
+  .submenu {
+    position: absolute;
+    top: calc(100% + var(--fh-space-2));
+    left: 0;
+    min-width: 15rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--fh-space-1);
+    padding: var(--fh-space-2);
+    background: var(--fh-color-surface);
+    border: var(--fh-border-width) solid var(--fh-color-border);
+    border-radius: var(--fh-radius-lg);
+    box-shadow: var(--fh-shadow-xl);
+    z-index: var(--fh-z-dropdown);
+  }
+  .submenu a {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-sm);
+    font-weight: var(--fh-weight-semibold);
+    color: var(--fh-color-text);
+    text-decoration: none;
+    padding: var(--fh-space-2) var(--fh-space-3);
+    border-radius: var(--fh-radius-md);
+    white-space: nowrap;
+  }
+  .submenu a:hover,
+  .submenu a[aria-current='page'] {
+    background: var(--fh-color-surface-sunken);
+  }
+
+  .enquire {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-sm);
+    font-weight: var(--fh-weight-bold);
+    text-decoration: none;
+    color: var(--fh-color-accent-fg);
+    background: var(--fh-color-accent);
+    border-radius: var(--fh-radius-full);
+    padding: var(--fh-space-2) var(--fh-space-5);
+    transition: background var(--fh-duration-base) var(--fh-ease-standard);
+  }
+  .enquire:hover {
+    background: var(--fh-color-accent-hover);
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: 0;
+    padding: var(--fh-space-3);
+    cursor: pointer;
+  }
+  .nav-toggle .bar {
+    width: 22px;
+    height: 2px;
+    background: var(--fh-color-text);
+  }
+
+  .nav-panel {
+    inset: auto var(--fh-space-4) auto auto;
+    top: var(--fh-space-20);
+    min-width: 60vw;
+    /* Without a cap the panel grows past the viewport on a short screen —
+       expand a disclosure group on a landscape phone and the lower entries
+       render below the fold with no way to reach them. */
+    max-height: calc(100dvh - var(--fh-space-24));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border: var(--fh-border-width) solid var(--fh-color-border);
+    border-radius: var(--fh-radius-lg);
+    background: var(--fh-color-surface);
+    box-shadow: var(--fh-shadow-xl);
+    padding: var(--fh-space-4);
+    flex-direction: column;
+    gap: var(--fh-space-1);
+  }
+  .nav-panel:popover-open {
+    display: flex;
+  }
+  .nav-panel a {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-semibold);
+    color: var(--fh-color-text);
+    text-decoration: none;
+    padding: var(--fh-space-3) var(--fh-space-4);
+    border-radius: var(--fh-radius-md);
+  }
+  .nav-panel a:hover {
+    background: var(--fh-color-surface-sunken);
+  }
+  .panel-enquire {
+    color: var(--fh-color-accent-fg);
+    background: var(--fh-color-accent);
+    text-align: center;
+    margin-top: var(--fh-space-2);
+  }
+
+  /* Mobile second level — same disclosure, stacked and rule-indented. */
+  .panel-group > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--fh-space-3);
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-semibold);
+    color: var(--fh-color-text);
+    padding: var(--fh-space-3) var(--fh-space-4);
+    border-radius: var(--fh-radius-md);
+    cursor: pointer;
+    list-style: none;
+  }
+  .panel-group > summary::-webkit-details-marker {
+    display: none;
+  }
+  .panel-group > summary::after {
+    content: '';
+    width: 0.4em;
+    height: 0.4em;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-0.15em) rotate(45deg);
+    transition: transform var(--fh-duration-base) var(--fh-ease-standard);
+  }
+  .panel-group[open] > summary::after {
+    transform: translateY(0.1em) rotate(-135deg);
+  }
+  .panel-group > summary:hover {
+    background: var(--fh-color-surface-sunken);
+  }
+  .panel-submenu {
+    display: flex;
+    flex-direction: column;
+    margin-left: var(--fh-space-6);
+    padding-left: var(--fh-space-2);
+    border-left: var(--fh-border-width) solid var(--fh-color-border);
+  }
+  .panel-submenu a {
+    font-size: var(--fh-text-sm);
+  }
+
+  @media (max-width: 760px) {
+    .nav-desktop,
+    .enquire {
+      display: none;
+    }
+    .nav-toggle {
+      display: flex;
+    }
+  }
+
+  /* Popover unsupported (old WebView): show the toggle-less stacked nav */
+  @supports not selector(:popover-open) {
+    .nav-toggle {
+      display: none;
+    }
+    .nav-panel {
+      display: none;
+    }
+    @media (max-width: 760px) {
+      .nav-desktop {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--fh-space-4);
+        padding-block: var(--fh-space-2);
+      }
+      /* No popover, no room to float: drop the submenu into the flow so it
+         cannot overflow the viewport on a narrow screen. */
+      .nav-group {
+        width: 100%;
+      }
+      .submenu {
+        position: static;
+        min-width: 0;
+        box-shadow: none;
+      }
+    }
+  }
+</style>

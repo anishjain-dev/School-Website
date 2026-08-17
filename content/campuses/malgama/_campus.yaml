@@ -1,0 +1,21 @@
+# Fountainhead School Malgama — wholly owned, Fountainhead brand.
+slug: malgama
+name: Fountainhead School Malgama
+shortName: FSM
+descriptor: IB learning on the Malgama side of Surat
+brand: fountainhead
+jurisdiction: gujarat
+address:
+  line1: Malgama Campus
+  city: Surat
+  state: Gujarat
+  pincode: "395005"
+domains:
+  - fsmsurat.in
+inherit:
+  mode: all
+  # FHSD is authored at group level because it will expand (WA-48 addendum,
+  # 2026-07-27). Malgama does not offer it yet — delete this line when it
+  # does, and the page appears with no URL change.
+  exclude:
+    - academics/fhsd

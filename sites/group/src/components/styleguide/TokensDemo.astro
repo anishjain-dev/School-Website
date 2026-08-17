@@ -1,0 +1,277 @@
+---
+// Shared token specimen — rendered once per brand by the [brand]/tokens
+// page. This file contains ZERO brand-conditional markup: the surrounding
+// <html data-brand> attribute is the only thing that changes the render.
+// That is the DoD #3 proof, mechanically checked by check-brand-parity.mjs.
+
+const swatches = [
+  { name: 'bg', token: '--fh-color-bg' },
+  { name: 'surface', token: '--fh-color-surface' },
+  { name: 'surface-sunken', token: '--fh-color-surface-sunken' },
+  { name: 'border', token: '--fh-color-border' },
+  { name: 'primary', token: '--fh-color-primary' },
+  { name: 'primary-hover', token: '--fh-color-primary-hover' },
+  { name: 'primary-subtle', token: '--fh-color-primary-subtle' },
+  { name: 'secondary', token: '--fh-color-secondary' },
+  { name: 'secondary-subtle', token: '--fh-color-secondary-subtle' },
+  { name: 'accent', token: '--fh-color-accent' },
+  { name: 'accent-subtle', token: '--fh-color-accent-subtle' },
+  { name: 'hero-bg', token: '--fh-color-hero-bg' },
+  { name: 'footer-bg', token: '--fh-color-footer-bg' },
+  { name: 'success', token: '--fh-color-success' },
+  { name: 'warning', token: '--fh-color-warning' },
+  { name: 'danger', token: '--fh-color-danger' },
+  { name: 'info', token: '--fh-color-info' },
+];
+
+const typeScale = [
+  { name: 'text-5xl · heading anchor (42)', size: '--fh-text-5xl', font: '--fh-font-heading', weight: '--fh-weight-extrabold' },
+  { name: 'text-4xl (36)', size: '--fh-text-4xl', font: '--fh-font-heading', weight: '--fh-weight-bold' },
+  { name: 'text-3xl (30)', size: '--fh-text-3xl', font: '--fh-font-heading', weight: '--fh-weight-bold' },
+  { name: 'text-2xl (24)', size: '--fh-text-2xl', font: '--fh-font-heading', weight: '--fh-weight-semibold' },
+  { name: 'text-xl · subhead anchor (21)', size: '--fh-text-xl', font: '--fh-font-heading', weight: '--fh-weight-medium' },
+  { name: 'text-base body (16)', size: '--fh-text-base', font: '--fh-font-body', weight: '--fh-weight-regular' },
+  { name: 'text-sm · body anchor (14)', size: '--fh-text-sm', font: '--fh-font-body', weight: '--fh-weight-regular' },
+];
+
+const radii = ['--fh-radius-xs', '--fh-radius-sm', '--fh-radius-md', '--fh-radius-lg', '--fh-radius-xl', '--fh-radius-2xl'];
+const shadows = ['--fh-shadow-xs', '--fh-shadow-sm', '--fh-shadow-md', '--fh-shadow-lg', '--fh-shadow-xl'];
+---
+
+<section class="hero">
+  <p class="eyebrow">Design tokens</p>
+  <h1>The quick brown fox jumps over the lazy dog</h1>
+  <p class="hero-sub">
+    Montserrat headings, Nunito body. Every colour on this page is a semantic
+    token — switch the brand in the nav and nothing but the token values moves.
+  </p>
+</section>
+
+<section aria-labelledby="sw-h">
+  <h2 id="sw-h">Semantic colours</h2>
+  <ul class="swatches">
+    {
+      swatches.map((s) => (
+        <li>
+          <span class="chip" style={`background: var(${s.token})`} />
+          <code>{s.name}</code>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<section aria-labelledby="type-h">
+  <h2 id="type-h">Type scale</h2>
+  {
+    typeScale.map((t) => (
+      <p
+        class="type-sample"
+        style={`font-size: var(${t.size}); font-family: var(${t.font}); font-weight: var(${t.weight})`}
+      >
+        {t.name}
+      </p>
+    ))
+  }
+</section>
+
+<section aria-labelledby="act-h">
+  <h2 id="act-h">Actions & links</h2>
+  <div class="row">
+    <a class="btn btn-primary" href="#act-h">Primary action</a>
+    <a class="btn btn-secondary" href="#act-h">Secondary action</a>
+    <a class="btn btn-accent" href="#act-h">Accent action</a>
+    <a class="btn btn-ghost" href="#act-h">Ghost action</a>
+    <a class="plain-link" href="#act-h">An inline text link</a>
+  </div>
+</section>
+
+<section aria-labelledby="form-h">
+  <h2 id="form-h">Form field</h2>
+  <div class="field">
+    <label for="demo-input">Parent name</label>
+    <input id="demo-input" type="text" placeholder="As on the admission form" />
+    <p class="hint">Focus me to see the brand focus ring.</p>
+  </div>
+</section>
+
+<section aria-labelledby="state-h">
+  <h2 id="state-h">System states (identical on every brand)</h2>
+  <p class="alert alert-success">Success — application received.</p>
+  <p class="alert alert-warning">Warning — admissions close on Friday.</p>
+  <p class="alert alert-danger">Danger — this form could not be submitted.</p>
+  <p class="alert alert-info">Info — campus visit slots open at 9am.</p>
+</section>
+
+<section aria-labelledby="shape-h">
+  <h2 id="shape-h">Radius & elevation</h2>
+  <div class="row">
+    {radii.map((r) => <span class="shape" style={`border-radius: var(${r})`}>{r.replace('--fh-radius-', '')}</span>)}
+  </div>
+  <div class="row">
+    {shadows.map((s) => <span class="shape lifted" style={`box-shadow: var(${s})`}>{s.replace('--fh-shadow-', '')}</span>)}
+  </div>
+</section>
+
+<style>
+  section {
+    max-width: var(--fh-container-max);
+    margin-inline: auto;
+    padding: var(--fh-space-8) var(--fh-space-6);
+  }
+  h2 {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-2xl);
+    color: var(--fh-color-text);
+    margin: 0 0 var(--fh-space-5);
+  }
+
+  .hero {
+    background: var(--fh-color-hero-bg);
+    color: var(--fh-color-hero-fg);
+    max-width: none;
+    padding-block: var(--fh-space-12);
+  }
+  .hero > * {
+    max-width: var(--fh-container-max);
+    margin-inline: auto;
+  }
+  .eyebrow {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-sm);
+    font-weight: var(--fh-weight-semibold);
+    letter-spacing: var(--fh-tracking-wider);
+    text-transform: uppercase;
+    margin: 0 0 var(--fh-space-3);
+    opacity: 0.85;
+  }
+  .hero h1 {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-5xl);
+    font-weight: var(--fh-weight-extrabold);
+    line-height: var(--fh-leading-tight);
+    margin: 0 0 var(--fh-space-4);
+  }
+  .hero-sub {
+    font-size: var(--fh-text-lg);
+    line-height: var(--fh-leading-relaxed);
+    margin: 0;
+    max-width: 60ch;
+  }
+
+  .swatches {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+    gap: var(--fh-space-4);
+  }
+  .chip {
+    display: block;
+    height: var(--fh-space-12);
+    border-radius: var(--fh-radius-md);
+    border: var(--fh-border-width) solid var(--fh-color-border);
+  }
+  .swatches code {
+    font-family: var(--fh-font-mono);
+    font-size: var(--fh-text-xs);
+    color: var(--fh-color-text-muted);
+  }
+
+  .type-sample {
+    margin: 0 0 var(--fh-space-3);
+    color: var(--fh-color-text);
+    line-height: var(--fh-leading-snug);
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--fh-space-4);
+    align-items: center;
+    margin-bottom: var(--fh-space-5);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    height: var(--fh-control-height);
+    padding-inline: var(--fh-control-pad-x);
+    border-radius: var(--fh-control-radius);
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-control-font);
+    font-weight: var(--fh-weight-semibold);
+    text-decoration: none;
+    transition: background var(--fh-duration-base) var(--fh-ease-standard);
+  }
+  .btn:focus-visible,
+  .plain-link:focus-visible,
+  input:focus-visible {
+    outline: none;
+    box-shadow: var(--fh-ring);
+  }
+  .btn-primary { background: var(--fh-color-primary); color: var(--fh-color-primary-fg); }
+  .btn-primary:hover { background: var(--fh-color-primary-hover); }
+  .btn-secondary { background: var(--fh-color-secondary); color: var(--fh-color-secondary-fg); }
+  .btn-secondary:hover { background: var(--fh-color-secondary-hover); }
+  .btn-accent { background: var(--fh-color-accent); color: var(--fh-color-accent-fg); }
+  .btn-accent:hover { background: var(--fh-color-accent-hover); }
+  .btn-ghost {
+    border: var(--fh-border-width) solid var(--fh-color-border-strong);
+    color: var(--fh-color-primary-text);
+    background: var(--fh-color-surface);
+  }
+  .btn-ghost:hover { background: var(--fh-color-surface-sunken); }
+  .plain-link { color: var(--fh-color-text-link); }
+
+  .field label {
+    display: block;
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-sm);
+    font-weight: var(--fh-weight-semibold);
+    color: var(--fh-color-text);
+    margin-bottom: var(--fh-space-2);
+  }
+  .field input {
+    width: min(100%, 24rem);
+    height: var(--fh-control-height);
+    padding-inline: var(--fh-control-pad-x);
+    font-family: var(--fh-font-body);
+    font-size: var(--fh-control-font);
+    color: var(--fh-color-text);
+    background: var(--fh-color-field-bg);
+    border: var(--fh-border-width) solid var(--fh-color-field-border);
+    border-radius: var(--fh-control-radius);
+  }
+  .field input::placeholder { color: var(--fh-color-field-placeholder); }
+  .hint {
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-text-muted);
+    margin: var(--fh-space-2) 0 0;
+  }
+
+  .alert {
+    padding: var(--fh-space-4);
+    border-radius: var(--fh-radius-md);
+    border: var(--fh-border-width) solid;
+    margin: 0 0 var(--fh-space-3);
+  }
+  .alert-success { background: var(--fh-color-success-subtle); color: var(--fh-color-success-subtle-fg); border-color: var(--fh-color-success-border); }
+  .alert-warning { background: var(--fh-color-warning-subtle); color: var(--fh-color-warning-subtle-fg); border-color: var(--fh-color-warning-border); }
+  .alert-danger { background: var(--fh-color-danger-subtle); color: var(--fh-color-danger-subtle-fg); border-color: var(--fh-color-danger-border); }
+  .alert-info { background: var(--fh-color-info-subtle); color: var(--fh-color-info-subtle-fg); border-color: var(--fh-color-info-border); }
+
+  .shape {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--fh-space-20);
+    height: var(--fh-space-16);
+    background: var(--fh-color-surface);
+    border: var(--fh-border-width) solid var(--fh-color-border);
+    font-family: var(--fh-font-mono);
+    font-size: var(--fh-text-xs);
+    color: var(--fh-color-text-muted);
+  }
+  .shape.lifted { border: 0; }
+</style>

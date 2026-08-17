@@ -1,0 +1,149 @@
+---
+// Template 11b — Programme detail (WA-35): fact panel, batch table,
+// audience-matched conversion (preschool → FASV pipeline; after-school →
+// enrol interest).
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import PageChrome from '@fountainhead-web/ui/layouts/PageChrome.astro';
+import Badge from '@fountainhead-web/ui/components/Badge.astro';
+import CTABand from '@fountainhead-web/ui/components/CTABand.astro';
+import { getSiteContext } from '../../../lib/matrix';
+
+export async function getStaticPaths() {
+  const programmes = await getCollection('programmes');
+  return programmes.filter((p) => !p.data.draft).map((p) => ({ params: { id: p.id }, props: { entry: p } }));
+}
+
+const { entry } = Astro.props as { entry: CollectionEntry<'programmes'> };
+const ctx = await getSiteContext();
+const campus = ctx.campusDataFor('falh')!;
+const { Content } = await render(entry);
+const d = entry.data;
+const isPreschool = d.audience === 'preschool';
+const tone = d.enrolmentStatus === 'open' ? 'success' : d.enrolmentStatus === 'waitlist' ? 'warning' : 'neutral';
+---
+
+<PageChrome
+  campus={campus}
+  heading={d.title}
+  pageTitle={`${d.title} — ${campus.name}`}
+  canonical={new URL(`/falh/programmes/${entry.id}/`, Astro.site)}
+  nav={ctx.navFor('falh')}
+  social={ctx.socialFor('falh')}
+  eyebrow={isPreschool ? 'Preschool programme' : 'After-school programme'}
+  admissionsPath={ctx.admissionsPathFor('falh')}
+>
+  <div class="container layout">
+    <aside class="facts" aria-label="Programme facts">
+      <p class="status"><Badge tone={tone}>{d.enrolmentStatus}</Badge></p>
+      <dl>
+        <div><dt>Ages</dt><dd>{d.ageBand.min}–{d.ageBand.max}</dd></div>
+        {d.sessionCount && <div><dt>Sessions</dt><dd>{d.sessionCount}</dd></div>}
+        {d.fees && <div><dt>Fees</dt><dd>₹{d.fees.amount.toLocaleString('en-IN')} / {d.fees.period}</dd></div>}
+      </dl>
+      {d.batches.length > 0 && (
+        <table>
+          <caption>Batches</caption>
+          <thead><tr><th scope="col">Days</th><th scope="col">Time</th></tr></thead>
+          <tbody>
+            {d.batches.map((b) => (
+              <tr><td>{b.days}</td><td>{b.time}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </aside>
+    <article class="prose">
+      <Content />
+    </article>
+  </div>
+
+  <CTABand
+    heading={isPreschool ? 'Begin the Fountainhead journey' : 'Save a seat in this batch'}
+    body={isPreschool ? 'Preschool at FALH flows naturally into FASV, the IB school taking shape in Vapi.' : 'Batches are small on purpose. Tell us your child is coming.'}
+    cta={{ label: 'Enquire now', path: ctx.contactPathFor('falh') }}
+  />
+</PageChrome>
+
+<style>
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(15rem, 19rem) minmax(0, 1fr);
+    gap: var(--fh-space-12);
+    padding-block: var(--fh-space-12);
+    align-items: start;
+  }
+  .facts {
+    position: sticky;
+    top: var(--fh-space-24);
+    background: var(--fh-color-surface);
+    border: var(--fh-border-width) solid var(--fh-color-border);
+    border-top: var(--fh-space-1) solid var(--fh-color-accent);
+    border-radius: var(--fh-radius-lg);
+    padding: var(--fh-space-6);
+    display: grid;
+    gap: var(--fh-space-5);
+  }
+  .status {
+    margin: 0;
+  }
+  dl {
+    margin: 0;
+    display: grid;
+    gap: var(--fh-space-4);
+  }
+  dt {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-semibold);
+    letter-spacing: var(--fh-tracking-wide);
+    text-transform: uppercase;
+    color: var(--fh-color-text-muted);
+  }
+  dd {
+    margin: var(--fh-space-1) 0 0;
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    font-size: var(--fh-text-lg);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  caption {
+    text-align: left;
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-semibold);
+    letter-spacing: var(--fh-tracking-wide);
+    text-transform: uppercase;
+    color: var(--fh-color-text-muted);
+    margin-bottom: var(--fh-space-2);
+  }
+  th,
+  td {
+    text-align: left;
+    padding: var(--fh-space-2) var(--fh-space-3);
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+    font-size: var(--fh-text-sm);
+  }
+  th {
+    font-family: var(--fh-font-heading);
+    color: var(--fh-color-text-muted);
+  }
+  .prose {
+    font-size: var(--fh-text-lg);
+    line-height: var(--fh-leading-relaxed);
+    max-width: 60ch;
+  }
+  .prose :global(p) {
+    margin-bottom: var(--fh-space-5);
+  }
+  @media (max-width: 860px) {
+    .layout {
+      grid-template-columns: 1fr;
+    }
+    .facts {
+      position: static;
+    }
+  }
+</style>

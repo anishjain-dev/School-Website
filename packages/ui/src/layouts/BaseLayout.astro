@@ -1,0 +1,47 @@
+---
+// The one page shell (WA-6): sets <html data-brand> — the entire brand
+// switch — loads tokens + fonts + global styles, and owns the skip link.
+// Zero client JS by design (WA-1); islands must justify themselves.
+import '@fountainhead-web/tokens/index.css';
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/500.css';
+import '@fontsource/montserrat/600.css';
+import '@fontsource/montserrat/700.css';
+import '@fontsource/montserrat/800.css';
+import '@fontsource/nunito/400.css';
+import '@fontsource/nunito/600.css';
+import '@fontsource/nunito/700.css';
+import '../styles/global.css';
+import type { Brand } from '@fountainhead-web/content-schema';
+
+interface Props {
+  brand: Brand;
+  title: string;
+  description?: string | undefined;
+  canonical?: URL | string | undefined;
+  /** Pre-launch default: noindex until .org cutover */
+  noindex?: boolean;
+}
+const { brand, title, description, canonical, noindex = true } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-brand={brand}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    {canonical && <link rel="canonical" href={canonical} />}
+    <slot name="head-extra" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot name="header" />
+    <main id="main">
+      <slot />
+    </main>
+    <slot name="footer" />
+  </body>
+</html>

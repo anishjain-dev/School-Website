@@ -1,0 +1,28 @@
+/* ==========================================================================
+   BRAND — Fountainhead (FSK Kunkni, FSM Malgama, and the group commons)
+   --------------------------------------------------------------------------
+   The :root defaults in base.css ARE this brand; this file restates the
+   brand-facing slots explicitly so every brand has one symmetric theme file
+   (WA-6) and a future re-skin edits values, never structure.
+   Anchors: Blue #005BAA · Red #B8292F · Yellow #F2C418 (dark text only).
+   ========================================================================== */
+
+[data-brand="fountainhead"] {
+  --fh-color-primary:        var(--fh-blue-600);
+  --fh-color-primary-hover:  var(--fh-blue-700);
+  --fh-color-primary-active: var(--fh-blue-800);
+
+  --fh-color-secondary:       var(--fh-red-600);
+  --fh-color-secondary-hover: var(--fh-red-700);
+
+  --fh-color-accent:    var(--fh-yellow-400);
+  --fh-color-accent-fg: var(--fh-neutral-900);
+
+  --fh-color-text-link: var(--fh-blue-700);
+  --fh-color-focus:     var(--fh-blue-600);
+  --fh-ring:            0 0 0 3px rgba(0, 91, 170, 0.35);
+
+  --fh-color-hero-bg: var(--fh-blue-800);
+  --fh-color-hero-fg: var(--fh-neutral-0);
+  --fh-color-eyebrow: var(--fh-color-secondary-text);
+}

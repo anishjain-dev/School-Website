@@ -1,0 +1,56 @@
+---
+// Template 10b — Gallery album: static grid, images link to the large
+// variant (no lightbox in Phase 0 — zero JS). The consentCheck log stays
+// in the content file; it is a record, not content.
+import { getCollection, type CollectionEntry } from 'astro:content';
+import PageChrome from '@fountainhead-web/ui/layouts/PageChrome.astro';
+import ImageFrame from '@fountainhead-web/ui/components/ImageFrame.astro';
+import { getSiteContext } from '../../lib/matrix';
+
+export async function getStaticPaths() {
+  const galleries = await getCollection('galleries');
+  return galleries.filter((g) => !g.data.draft).map((g) => ({ params: { id: g.id }, props: { entry: g } }));
+}
+
+const { entry } = Astro.props as { entry: CollectionEntry<'galleries'> };
+const ctx = await getSiteContext();
+const fmt = new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<PageChrome
+  campus={null}
+  heading={entry.data.title}
+  pageTitle={`${entry.data.title} — Galleries — Fountainhead Schools`}
+  canonical={new URL(`/galleries/${entry.id}/`, Astro.site)}
+  nav={ctx.navFor(null)}
+  social={ctx.socialFor(null)}
+  eyebrow={fmt.format(entry.data.date)}
+  admissionsPath={ctx.admissionsPathFor(null)}
+>
+  <div class="container grid">
+    {entry.data.images.map((img) => (
+      <figure>
+        <ImageFrame image={img.ref} aspect="4 / 3" />
+        {img.caption && <figcaption>{img.caption}</figcaption>}
+      </figure>
+    ))}
+  </div>
+</PageChrome>
+
+<style>
+  .grid {
+    padding-block: var(--fh-space-12);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: var(--fh-space-6);
+  }
+  figure {
+    margin: 0;
+    display: grid;
+    gap: var(--fh-space-2);
+  }
+  figcaption {
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-text-muted);
+  }
+</style>

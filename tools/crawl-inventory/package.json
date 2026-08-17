@@ -1,0 +1,9 @@
+{
+  "name": "@fountainhead-web/crawl-inventory",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "cheerio": "^1"
+  }
+}

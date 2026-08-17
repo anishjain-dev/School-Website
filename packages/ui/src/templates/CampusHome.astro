@@ -1,0 +1,163 @@
+---
+// Template 2 — Campus home. Same editorial language as the group home,
+// campus-branded via data-brand, with the overlapping facts card and an
+// auto-derived "explore this campus" index (from the resolved route
+// matrix — nav can never drift from real pages). JSON-LD per WA-27.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader, { type NavItem } from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import CTABand from '../components/CTABand.astro';
+import NewsList from '../components/NewsList.astro';
+import CampusSchema from '../components/CampusSchema.astro';
+import { footerColumns } from '../lib/nav';
+import type { CampusConfig } from '@fountainhead-web/content-schema';
+
+interface Props {
+  campus: CampusConfig;
+  heading: string;
+  lede?: string | undefined;
+  pageTitle: string;
+  description?: string | undefined;
+  canonical?: URL | string | undefined;
+  nav: NavItem[];
+  sections: { label: string; path: string; note: string }[];
+  news: { title: string; date: Date; path: string; campus?: string | undefined }[];
+  admissionsPath: string;
+  pageUrl: URL | string;
+  social?: { label: string; url: string }[] | undefined;
+}
+const { campus, heading, lede, pageTitle, description, canonical, nav, sections, news, admissionsPath, pageUrl, social } =
+  Astro.props;
+---
+
+<BaseLayout brand={campus.brand} title={pageTitle} description={description} canonical={canonical}>
+  <CampusSchema slot="head-extra" campus={campus} url={pageUrl} />
+
+  <SiteHeader
+    slot="header"
+    siteName={campus.name}
+    shortName={campus.shortName}
+    homePath={`/${campus.slug}/`}
+    nav={nav}
+    enquirePath={admissionsPath}
+    phone={campus.phone}
+  />
+
+  <Hero
+    eyebrow={`${campus.shortName ?? campus.name} · ${campus.address.city}`}
+    title={heading}
+    lede={lede}
+    primaryCta={{ label: 'Enquire now', path: admissionsPath }}
+    secondaryCta={{ label: 'Our philosophy', path: nav.find((n) => n.path.includes('philosophy'))?.path ?? '/philosophy/' }}
+    facts={[
+      { label: 'City', value: campus.address.city },
+      { label: 'Curriculum', value: 'IB continuum' },
+      { label: 'Part of', value: 'Fountainhead Group' },
+    ]}
+    factsHeading="At a glance"
+  />
+
+  {sections.length > 0 && (
+    <Section eyebrow="Explore this campus" heading="Everything a parent asks first" id="explore">
+      <ul class="explore">
+        {sections.map((s, i) => (
+          <li>
+            <a href={s.path}>
+              <span class="nn" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <span class="lbl">{s.label}</span>
+              <span class="note">{s.note}</span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </Section>
+  )}
+
+  {news.length > 0 && (
+    <Section eyebrow="Latest" heading="News & happenings" id="news" tone="sunken">
+      <NewsList items={news} />
+    </Section>
+  )}
+
+  <CTABand
+    heading="Walk the campus with us"
+    body="Book a visit on a working school day — see classrooms as they actually are."
+    cta={{ label: 'Book a visit', path: admissionsPath }}
+  />
+
+  <SiteFooter
+    slot="footer"
+    siteName={campus.name}
+    social={social}
+    coBrand={campus.brand === 'fwgs' ? 'A Fountainhead × Wockhardt school' : campus.brand === 'falh' || campus.brand === 'fasv' ? 'A Fountainhead × Avadh venture' : 'Part of the Fountainhead Group'}
+    address={`${campus.address.line1}, ${campus.address.city}`}
+    email={campus.email}
+    phone={campus.phone}
+    columns={[
+      ...footerColumns(nav, `/${campus.slug}/`),
+      {
+        heading: 'The group',
+        links: [
+          { label: 'Fountainhead Schools', path: '/' },
+          { label: 'Philosophy', path: '/philosophy/' },
+          { label: 'Careers', path: '/careers/' },
+        ],
+      },
+    ]}
+  />
+</BaseLayout>
+
+<style>
+  .explore {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .explore li {
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+  }
+  .explore a {
+    display: grid;
+    grid-template-columns: 4rem 1fr auto auto;
+    align-items: baseline;
+    gap: var(--fh-space-6);
+    padding-block: var(--fh-space-6);
+    text-decoration: none;
+    color: var(--fh-color-text);
+  }
+  .nn {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-2xl);
+    font-weight: var(--fh-weight-extrabold);
+    /* grey folio numeral — large-text AA (≥3:1) */
+    color: var(--fh-color-text-subtle);
+  }
+  .lbl {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xl);
+    font-weight: var(--fh-weight-bold);
+    transition: color var(--fh-duration-fast) var(--fh-ease-standard);
+  }
+  .explore a:hover .lbl {
+    color: var(--fh-color-primary-text);
+  }
+  .note {
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-text-muted);
+  }
+  .arrow {
+    color: var(--fh-color-primary-text);
+    font-size: var(--fh-text-xl);
+  }
+  @media (max-width: 640px) {
+    .explore a {
+      grid-template-columns: 3rem 1fr auto;
+    }
+    .note {
+      display: none;
+    }
+  }
+</style>

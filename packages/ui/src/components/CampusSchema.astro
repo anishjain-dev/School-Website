@@ -1,0 +1,32 @@
+---
+// EducationalOrganization JSON-LD (WA-27) fed from _campus.yaml. The
+// script tag is non-executing (type=application/ld+json) — allowlisted by
+// the zero-JS gate.
+import type { CampusConfig } from '@fountainhead-web/content-schema';
+
+interface Props {
+  campus: CampusConfig;
+  url: URL | string;
+}
+const { campus, url } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'EducationalOrganization',
+  name: campus.name,
+  url: String(url),
+  parentOrganization: { '@type': 'Organization', name: 'Fountainhead Group', url: 'https://fountainheadschools.org/' },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: [campus.address.line1, campus.address.line2].filter(Boolean).join(', '),
+    addressLocality: campus.address.city,
+    addressRegion: campus.address.state,
+    postalCode: campus.address.pincode,
+    addressCountry: 'IN',
+  },
+  ...(campus.email ? { email: campus.email } : {}),
+  ...(campus.phone ? { telephone: campus.phone } : {}),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />

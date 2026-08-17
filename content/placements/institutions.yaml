@@ -1,0 +1,3964 @@
+generatedAt: "2026-07-28"
+source: published from the Career Counselling app, which owns this reference (WA-43)
+institutions:
+  - id: "3is-international-institute-de-l-image-et-du-son"
+    name: "3is - International Institute De L'image Et Du Son"
+    country: "France"
+    continent: "Europe"
+    city: "Élancourt"
+    state: "Paris"
+    website: "https://3is-education.fr/"
+    coordinates:
+      lat: 48.7938017
+      lng: 1.9790794
+    units: []
+    aliases:
+      - "3is - International Institute De L'image Et Du Son"
+  - id: "50-mm-production-house"
+    name: "50 mm Production house"
+    country: "India"
+    continent: "Asia"
+    city: "Surat"
+    state: "Gujarat"
+    website: "http://www.50mm.co.in/"
+    coordinates:
+      lat: 21.1459494
+      lng: 72.7732159999999
+    units: []
+    aliases:
+      - "50 mm Production house"
+  - id: "aiims-delhi"
+    name: "AIIMS Delhi"
+    country: "India"
+    continent: "Asia"
+    city: "New Delhi"
+    website: "https://www.aiims.edu"
+    coordinates:
+      lat: 28.564771
+      lng: 77.209983
+    units: []
+    aliases: []
+  - id: "atlas-skilltech-university"
+    name: "ATLAS SkillTech University"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "https://atlasuniversity.edu.in/"
+    coordinates:
+      lat: 19.0705795
+      lng: 72.8764211
+    units: []
+    aliases:
+      - "ATLAS SkillTech University"
+      - "ATLAS SkillTech University - ISDI"
+      - "ATLAS SkillTech University - ISME School of Management & Entrepreneurship"
+      - "ATLAS SkillTech University — ISDI"
+      - "ATLAS SkillTech University — ISME"
+      - "ATLAS Skilltech University - ISDI"
+      - "ATLAS | ISDI School of Design & Innovation"
+      - "ATLAS | ISME - School of Management & Entrepreneurship"
+      - "ATLAS | ISME School of Management & Entrepreneurship"
+      - "Atlas SkillTech University"
+      - "ISDI School of Design & Innovation (Mumbai)"
+      - "ISDI, Parsons"
+      - "Indian School of Management & Entrepreneurship"
+      - "Indian School of Management & Entreprenureship (ISME)"
+  - id: "ahmedabad-university"
+    name: "Ahmedabad University"
+    country: "India"
+    continent: "Asia"
+    city: "Ahmedabad"
+    state: "Gujarat"
+    website: "https://ahduni.edu.in/?utm_source=gmb&utm_medium=gmb-listing&utm_campaign=gmb-ahmedabad-university"
+    coordinates:
+      lat: 23.038204
+      lng: 72.55443
+    units: []
+    aliases:
+      - "Ahmedabad University"
+  - id: "american-university-washington-d-c"
+    name: "American University Washington D.C."
+    country: "USA"
+    continent: "North America"
+    city: "Washington"
+    state: "DC"
+    website: "https://www.american.edu/"
+    coordinates:
+      lat: 38.936049
+      lng: -77.0887664999999
+    units: []
+    aliases:
+      - "American University Washington D.C."
+  - id: "american-university-of-dubai"
+    name: "American University of Dubai"
+    country: "United Arab Emirates"
+    continent: "Asia"
+    city: "Dubai"
+    state: "Dubai"
+    website: "https://www.aud.edu/"
+    coordinates:
+      lat: 25.0907125
+      lng: 55.1571469999999
+    units: []
+    aliases:
+      - "American University of Dubai"
+  - id: "amity-university"
+    name: "Amity University"
+    country: "India"
+    continent: "Asia"
+    city: "Noida"
+    state: "Uttar Pradesh"
+    website: "https://www.amity.edu/"
+    coordinates:
+      lat: 28.543322
+      lng: 77.3351588
+    units: []
+    aliases:
+      - "Amity University"
+  - id: "anant-national-university"
+    name: "Anant National University"
+    country: "India"
+    continent: "Asia"
+    city: "Ahmedabad"
+    state: "Gujarat"
+    website: "http://www.anu.edu.in/?utm_source=GMBlisting&utm_medium=organic"
+    coordinates:
+      lat: 23.0288163
+      lng: 72.4272659
+    units: []
+    aliases:
+      - "Anant National University"
+  - id: "anil-surendra-modi-school-of-commerce"
+    name: "Anil Surendra Modi School of Commerce"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "http://commerce.nmims.edu/"
+    coordinates:
+      lat: 19.1027964
+      lng: 72.8360632
+    units: []
+    aliases:
+      - "Anil Surendra Modi School of Commerce"
+  - id: "annapurna-international-school-of-film-and-media-aisfm"
+    name: "Annapurna International School of Film & Media (AISFM)"
+    country: "India"
+    continent: "Asia"
+    city: "Hyderabad"
+    state: "Andhra Pradesh"
+    website: "http://www.aisfm.edu.in/"
+    coordinates:
+      lat: 17.4267904
+      lng: 78.4235918
+    units: []
+    aliases:
+      - "Annapurna International School of Film & Media (AISFM)"
+  - id: "ara-institute-of-canterbury"
+    name: "Ara Institute of Canterbury"
+    country: "New Zealand"
+    continent: "Oceania"
+    city: "Central City"
+    state: "Christchurch"
+    website: "https://www.ara.ac.nz/"
+    coordinates:
+      lat: -43.538171
+      lng: 172.643687
+    units: []
+    aliases:
+      - "Ara Institute of Canterbury"
+  - id: "arizona-state-university"
+    name: "Arizona State University"
+    country: "USA"
+    continent: "North America"
+    city: "Tempe"
+    state: "Arizona"
+    website: "https://www.asu.edu/"
+    coordinates:
+      lat: 33.418294
+      lng: -111.9311925
+    units: []
+    aliases:
+      - "Arizona State University"
+  - id: "ashoka-university"
+    name: "Ashoka University"
+    country: "India"
+    continent: "Asia"
+    city: "Sonipat"
+    state: "Haryana"
+    website: "https://www.ashoka.edu.in"
+    coordinates:
+      lat: 28.941032
+      lng: 77.098957
+    units: []
+    aliases:
+      - "Ashoka University"
+  - id: "auburn-university"
+    name: "Auburn University"
+    country: "USA"
+    continent: "North America"
+    city: "Aurburn"
+    state: "Alabama"
+    website: "http://www.auburn.edu/"
+    coordinates:
+      lat: 32.5909562
+      lng: -85.4929784999999
+    units: []
+    aliases:
+      - "Auburn University"
+  - id: "auro-university"
+    name: "Auro University"
+    country: "India"
+    continent: "Asia"
+    city: "Surat"
+    state: "Gujarat"
+    website: "https://www.aurouniversity.edu.in/"
+    coordinates:
+      lat: 21.1775891
+      lng: 72.7357148999999
+    units: []
+    aliases:
+      - "AURO University"
+      - "Auro University"
+      - "Auro university"
+  - id: "austin-community-college"
+    name: "Austin Community College"
+    country: "USA"
+    continent: "North America"
+    city: "Austin"
+    state: "Texas"
+    website: "https://www.austincc.edu/"
+    coordinates:
+      lat: 30.3257315
+      lng: -97.7137480999999
+    units: []
+    aliases:
+      - "Austin Community College"
+  - id: "azim-premji-university"
+    name: "Azim Premji University"
+    country: "India"
+    continent: "Asia"
+    city: "Bengaluru"
+    website: "https://azimpremjiuniversity.edu.in"
+    coordinates:
+      lat: 12.845443
+      lng: 77.775964
+    units: []
+    aliases: []
+  - id: "b-h-m-s-business-and-hotel-management-school"
+    name: "B.H.M.S. Business & Hotel Management School"
+    country: "Switzerland"
+    continent: "Europe"
+    city: "Lucerne"
+    state: "Lucerne"
+    website: "https://www.bhms.ch/"
+    coordinates:
+      lat: 47.0520785
+      lng: 8.2983887
+    units: []
+    aliases:
+      - "B.H.M.S. Business & Hotel Management School"
+  - id: "bits-pilani"
+    name: "BITS Pilani"
+    country: "India"
+    continent: "Asia"
+    city: "Pilani"
+    website: "https://www.bits-pilani.ac.in"
+    coordinates:
+      lat: 28.363889
+      lng: 75.587008
+    units: []
+    aliases: []
+  - id: "bml-munjal-university-bmu"
+    name: "BML Munjal University (BMU)"
+    country: "India"
+    continent: "Asia"
+    city: "Gurgaon"
+    state: "Haryana"
+    website: "https://www.bmu.edu.in/"
+    coordinates:
+      lat: 28.247779
+      lng: 76.813849
+    units: []
+    aliases:
+      - "BML Munjal University (BMU)"
+  - id: "babaria-institute-of-technology"
+    name: "Babaria Institute of Technology"
+    country: "India"
+    continent: "Asia"
+    city: "Varnama"
+    state: "Gujarat"
+    website: "http://bitseducampus.org/"
+    coordinates:
+      lat: 22.1879067
+      lng: 73.1879192999999
+    units: []
+    aliases:
+      - "Babaria Institute of Technology"
+  - id: "babson-college"
+    name: "Babson College"
+    country: "USA"
+    continent: "North America"
+    city: "Wellesley"
+    state: "Massachusetts"
+    website: "https://www.babson.edu/"
+    coordinates:
+      lat: 42.2990302
+      lng: -71.2623405
+    units: []
+    aliases:
+      - "Babson College"
+  - id: "bennett-university"
+    name: "Bennett University"
+    country: "India"
+    continent: "Asia"
+    city: "Greater Noida"
+    state: "Uttar Pradesh"
+    website: "https://www.bennett.edu.in/"
+    coordinates:
+      lat: 28.450631
+      lng: 77.58296
+    units: []
+    aliases:
+      - "Bennett University"
+  - id: "bhagwan-mahavir-university"
+    name: "Bhagwan Mahavir University"
+    country: "India"
+    continent: "Asia"
+    city: "Surat"
+    state: "Gujarat"
+    website: "http://www.bmusurat.ac.in/"
+    coordinates:
+      lat: 21.1397199
+      lng: 72.7714958999999
+    units: []
+    aliases:
+      - "Bhagwan Mahavir University"
+  - id: "binghamtom-university"
+    name: "Binghamtom University"
+    country: "USA"
+    continent: "North America"
+    city: "Binghamton"
+    state: "New York"
+    website: "http://binghamton.edu/"
+    coordinates:
+      lat: 42.0874939
+      lng: -75.9658688999999
+    units: []
+    aliases:
+      - "Binghamtom University"
+  - id: "birla-pilani-digital"
+    name: "Birla Pilani Digital"
+    country: "India"
+    continent: "Asia"
+    city: "Pilani"
+    state: "Rajasthan"
+    website: "http://www.bits-pilani.ac.in/"
+    coordinates:
+      lat: 28.3591259
+      lng: 75.5881637999999
+    units: []
+    aliases:
+      - "Birla Pilani Digital"
+  - id: "boston-college"
+    name: "Boston College"
+    country: "USA"
+    continent: "North America"
+    city: "Boston"
+    state: "Boston"
+    website: "https://www.bc.edu/"
+    coordinates:
+      lat: 42.3361277
+      lng: -71.16926
+    units: []
+    aliases:
+      - "Boston College"
+  - id: "boston-university"
+    name: "Boston University"
+    country: "USA"
+    continent: "North America"
+    city: "Boston"
+    state: "Massachusetts"
+    website: "http://www.bu.edu/"
+    logo: "/logos/boston-university.jpg"
+    coordinates:
+      lat: 42.3476181
+      lng: -71.1002881
+    units: []
+    aliases:
+      - "Boston University"
+  - id: "britts-imperial-university-college-uae"
+    name: "Britts Imperial University College, UAE"
+    country: "United Arab Emirates"
+    continent: "Asia"
+    city: "Al Nahda - Sharjah"
+    state: "Dubai"
+    website: "https://brittsimperial.com/"
+    units: []
+    aliases:
+      - "Britts Imperial University College, UAE"
+  - id: "brock-university"
+    name: "Brock University"
+    country: "Canada"
+    continent: "North America"
+    city: "St. Catharines"
+    state: "Ontario"
+    website: "https://brocku.ca/"
+    coordinates:
+      lat: 43.119052
+      lng: -79.248541
+    units: []
+    aliases:
+      - "Brock University"
+  - id: "brunel-university-london"
+    name: "Brunel University London"
+    country: "UK"
+    continent: "Europe"
+    city: "Uxbridge"
+    state: "London"
+    website: "http://www.brunel.ac.uk/"
+    coordinates:
+      lat: 51.5319223
+      lng: -0.466417
+    units: []
+    aliases:
+      - "Brunel University London"
+      - "Brunel University London Pathway College"
+  - id: "c-k-pithawala-college"
+    name: "C.K.Pithawala College"
+    country: "India"
+    continent: "Asia"
+    city: "Surat"
+    state: "Gujarat"
+    website: "http://www.ckpcmc.org/"
+    coordinates:
+      lat: 21.1337625
+      lng: 72.7182344
+    units: []
+    aliases:
+      - "C K Pithawala"
+      - "C.K.Pithawala College"
+  - id: "cdi-college"
+    name: "CDI College"
+    country: "Canada"
+    continent: "North America"
+    city: "Montreal"
+    state: "Quebec"
+    website: "https://www.collegecdi.ca/"
+    coordinates:
+      lat: 45.514447
+      lng: -73.558898
+    units: []
+    aliases:
+      - "CDI College"
+  - id: "cmc-vellore"
+    name: "CMC Vellore"
+    country: "India"
+    continent: "Asia"
+    city: "Vellore"
+    website: "https://www.cmch-vellore.edu"
+    coordinates:
+      lat: 12.924928
+      lng: 79.135948
+    units: []
+    aliases: []
+  - id: "cmkl-university"
+    name: "CMKL University"
+    country: "Thailand"
+    continent: "Asia"
+    city: "Lat Krabang"
+    state: "Bangkok"
+    website: "https://www.cmkl.ac.th/"
+    coordinates:
+      lat: 13.7266108
+      lng: 100.7792542
+    units: []
+    aliases:
+      - "CMKL University"
+  - id: "cmr-university"
+    name: "CMR University"
+    country: "India"
+    continent: "Asia"
+    city: "Bengaluru"
+    state: "Karnataka"
+    website: "http://www.cmr.edu.in/"
+    coordinates:
+      lat: 26.7673124
+      lng: 75.8513206
+    units: []
+    aliases:
+      - "CMR University"
+  - id: "california-state-university-campus-los-angeles"
+    name: "California State University, Campus: Los Angeles"
+    country: "USA"
+    continent: "North America"
+    city: "Los Angeles"
+    state: "California"
+    website: "http://www.calstatela.edu/"
+    coordinates:
+      lat: 34.0663796
+      lng: -118.1684782
+    units: []
+    aliases:
+      - "California State University, Campus: Los Angeles"
+  - id: "california-state-university-northridge"
+    name: "California State University, Northridge"
+    country: "USA"
+    continent: "North America"
+    city: "Northridge"
+    state: "California"
+    website: "https://w2.csun.edu/"
+    coordinates:
+      lat: 34.2401018
+      lng: -118.5293265
+    units: []
+    aliases:
+      - "California State University, Northridge"
+  - id: "cambrian-college"
+    name: "Cambrian College"
+    country: "Canada"
+    continent: "North America"
+    city: "Sudbury"
+    state: "Ontario"
+    website: "http://cambriancollege.ca/"
+    coordinates:
+      lat: 46.529755
+      lng: -80.940889
+    units: []
+    aliases:
+      - "Cambrian College"
+  - id: "canadian-university-dubai"
+    name: "Canadian University Dubai"
+    country: "United Arab Emirates"
+    continent: "Asia"
+    city: "Dubai"
+    state: "Dubai"
+    website: "https://www.cud.ac.ae/?utm_source=Organic_channel&utm_campaign=Google_my_Business"
+    coordinates:
+      lat: 25.207499
+      lng: 55.264387
+    units: []
+    aliases:
+      - "Canadian University Dubai"
+  - id: "carleton-university"
+    name: "Carleton University"
+    country: "Canada"
+    continent: "North America"
+    city: "Ottawa"
+    state: "Ontario"
+    website: "https://carleton.ca/"
+    coordinates:
+      lat: 45.3874739
+      lng: -75.6959847999999
+    units: []
+    aliases:
+      - "Carleton University"
+  - id: "case-western-reserve-university"
+    name: "Case Western Reserve University"
+    country: "USA"
+    continent: "North America"
+    city: "Cleveland"
+    state: "Ohio"
+    website: "https://case.edu/"
+    coordinates:
+      lat: 41.504795
+      lng: -81.6082471
+    units: []
+    aliases:
+      - "Case Western Reserve University"
+  - id: "christ-university"
+    name: "Christ University"
+    country: "India"
+    continent: "Asia"
+    city: "Bengaluru"
+    state: "Karnataka"
+    website: "https://christuniversity.in/"
+    coordinates:
+      lat: 12.9324375
+      lng: 77.6134344
+    units: []
+    aliases:
+      - "Christ University"
+      - "Christ University - Central Campus"
+  - id: "city-university-of-london"
+    name: "City, University of London"
+    country: "UK"
+    continent: "Europe"
+    city: "London"
+    state: "England"
+    website: "https://www.city.ac.uk/?utm_source=GMB&utm_medium=Referral&utm_term=Google%20My%20Business%20Profile"
+    coordinates:
+      lat: 51.5271264
+      lng: -0.1029302
+    units: []
+    aliases:
+      - "City, University of London"
+  - id: "collin-college"
+    name: "Collin College"
+    country: "USA"
+    continent: "North America"
+    city: "McKinney"
+    state: "Texas"
+    website: "https://www.collin.edu/"
+    coordinates:
+      lat: 33.217822
+      lng: -96.641763
+    units: []
+    aliases:
+      - "Collin College"
+  - id: "cork-institute-of-technology"
+    name: "Cork Institute of technology"
+    country: "Ireland"
+    continent: "Europe"
+    city: "Bishopstown"
+    state: "Cork"
+    website: "https://www.cit.ie/index.cfm"
+    coordinates:
+      lat: 51.885629
+      lng: -8.537107
+    units: []
+    aliases:
+      - "Cork Institute of technology"
+  - id: "coventry-university"
+    name: "Coventry University"
+    country: "UK"
+    continent: "Europe"
+    city: "Coventry"
+    state: "Coventry"
+    website: "https://www.coventry.ac.uk/?utm_source=organic&utm_medium=gbp"
+    coordinates:
+      lat: 52.4090824
+      lng: -1.5062873
+    units: []
+    aliases:
+      - "Coventry University"
+  - id: "culinary-institute-of-america"
+    name: "Culinary Institute of America"
+    country: "USA"
+    continent: "North America"
+    city: "Hyde Park"
+    state: "New York"
+    website: "https://www.ciachef.edu/?utm_source=gmb&utm_medium=organic"
+    coordinates:
+      lat: 41.7457259
+      lng: -73.9327674
+    units: []
+    aliases:
+      - "Culinary Institute of America"
+      - "The Culinary Institute of America"
+  - id: "d-r-patel-and-r-b-patel-commerce-college"
+    name: "D R Patel & R B Patel Commerce College"
+    country: "India"
+    continent: "Asia"
+    city: "Surat"
+    state: "Gujarat"
+    website: "http://www.navnirmanmandal.in/DRB/about_bcom.php"
+    coordinates:
+      lat: 21.1702401
+      lng: 72.8310607
+    units: []
+    aliases:
+      - "D R Patel & R B Patel Commerce College"
+  - id: "dy-patil-university"
+    name: "DY Patil University"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "https://dypatil.edu/"
+    coordinates:
+      lat: 19.0423934
+      lng: 73.0265071
+    units: []
+    aliases:
+      - "DY Patil University"
+  - id: "delft-university-of-technology"
+    name: "Delft University of Technology"
+    country: "Netherlands"
+    continent: "Europe"
+    city: "Delft"
+    state: "South Holland"
+    website: "https://www.tudelft.nl/"
+    logo: "/logos/delft-university-of-technology.svg"
+    coordinates:
+      lat: 52.0019499
+      lng: 4.3755538
+    units: []
+    aliases:
+      - "Delft University of Technology"
+  - id: "drexel-university"
+    name: "Drexel University"
+    country: "USA"
+    continent: "North America"
+    city: "Philadelphia"
+    state: "Pennsylvania"
+    website: "https://drexel.edu/"
+    logo: "/logos/drexel-university.png"
+    coordinates:
+      lat: 39.9540928
+      lng: -75.1868606
+    units: []
+    aliases:
+      - "Drexel University"
+  - id: "duke-university"
+    name: "Duke University"
+    country: "USA"
+    continent: "North America"
+    city: "Durham"
+    state: "North Carolina"
+    website: "https://duke.edu/"
+    logo: "/logos/duke-university.svg"
+    coordinates:
+      lat: 35.9992263
+      lng: -78.9472088999999
+    units: []
+    aliases:
+      - "Duke University"
+  - id: "durham-university"
+    name: "Durham University"
+    country: "UK"
+    continent: "Europe"
+    city: "Durham"
+    state: "Durham"
+    website: "https://www.dur.ac.uk/"
+    coordinates:
+      lat: 54.7687854
+      lng: -1.571698
+    units: []
+    aliases:
+      - "Durham University"
+  - id: "ehl-hospitality-business-school"
+    name: "EHL Hospitality Business School"
+    country: "Switzerland"
+    continent: "Europe"
+    city: "Lausanne"
+    state: "Lausanne"
+    website: "https://www.ehl.edu/"
+    coordinates:
+      lat: 46.5606543
+      lng: 6.6830984
+    units: []
+    aliases:
+      - "EHL Hospitality Business School"
+  - id: "ecole-intuit-lab"
+    name: "Ecole intuit.lab"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "https://ecole-intuit-lab.co.in/"
+    coordinates:
+      lat: 19.015333
+      lng: 72.825194
+    units: []
+    aliases:
+      - "Ecole intuit.lab"
+  - id: "embry-riddle-aeronautical-university"
+    name: "Embry–Riddle Aeronautical University"
+    country: "USA"
+    continent: "North America"
+    city: "Daytona Beach"
+    state: "Florida"
+    website: "https://daytonabeach.erau.edu/"
+    coordinates:
+      lat: 29.1928628
+      lng: -81.0529210999999
+    units: []
+    aliases:
+      - "Embry–Riddle Aeronautical University"
+  - id: "emory-university"
+    name: "Emory University"
+    country: "USA"
+    continent: "North America"
+    city: "Atlanta"
+    state: "Georgia"
+    website: "https://www.emory.edu/home/index.html"
+    coordinates:
+      lat: 33.7894903
+      lng: -84.3267716
+    units: []
+    aliases:
+      - "Emory University"
+  - id: "eugene-lang-the-new-school-nyc"
+    name: "Eugene Lang, The New School, NYC"
+    country: "USA"
+    continent: "North America"
+    city: "New York"
+    state: "New York"
+    website: "http://www.newschool.edu/lang"
+    coordinates:
+      lat: 40.7352467
+      lng: -73.9974879999999
+    units: []
+    aliases:
+      - "Eugene Lang, The New School, NYC"
+  - id: "eye-q-films"
+    name: "Eye-Q Films"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "https://www.eyeqfilmsindia.com/"
+    units: []
+    aliases:
+      - "Eye-Q Films"
+  - id: "flame-university"
+    name: "FLAME University"
+    country: "India"
+    continent: "Asia"
+    city: "Pune"
+    state: "Maharashtra"
+    website: "https://www.flame.edu.in"
+    coordinates:
+      lat: 18.5233078
+      lng: 73.7317384
+    units: []
+    aliases:
+      - "FLAME University"
+      - "Flame University"
+  - id: "fx-school"
+    name: "FX School"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "http://www.fxschool.in/"
+    coordinates:
+      lat: 19.1404874
+      lng: 72.833367
+    units: []
+    aliases:
+      - "FX School"
+  - id: "fairleigh-dickinson-university"
+    name: "Fairleigh Dickinson University"
+    country: "Canada"
+    continent: "North America"
+    city: "Vancouver"
+    state: "British Columbia"
+    website: "https://www.fdu.edu/"
+    coordinates:
+      lat: 49.277571
+      lng: -123.115357
+    units: []
+    aliases:
+      - "Fairleigh Dickinson University"
+  - id: "fashion-institute-of-design-and-merchandising"
+    name: "Fashion Institute of Design and Merchandising"
+    country: "USA"
+    continent: "North America"
+    city: "Los Angeles"
+    state: "California"
+    website: "https://fidm.edu/"
+    coordinates:
+      lat: 34.0441696
+      lng: -118.2598489
+    units: []
+    aliases:
+      - "Fashion Institute of Design and Merchandising"
+  - id: "fashion-institute-of-technology"
+    name: "Fashion Institute of Technology"
+    country: "USA"
+    continent: "North America"
+    city: "New York"
+    state: "New York"
+    website: "https://www.fitnyc.edu/"
+    logo: "/logos/fashion-institute-of-technology.png"
+    coordinates:
+      lat: 40.7468373
+      lng: -73.9949014
+    units: []
+    aliases:
+      - "Fashion Institute of Technology"
+      - "Fashion Institute of technology"
+  - id: "finrich-advisors"
+    name: "FinRich Advisors"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "http://finrich.in/"
+    coordinates:
+      lat: 19.0144995
+      lng: 72.8618577
+    units: []
+    aliases:
+      - "FinRich Advisors"
+  - id: "florida-flight-training-center"
+    name: "Florida Flight Training Center"
+    country: "USA"
+    continent: "North America"
+    city: "Venice"
+    state: "Florida"
+    website: "https://www.fftc.info/"
+    coordinates:
+      lat: 27.0784254
+      lng: -82.4416087
+    units: []
+    aliases:
+      - "Florida Flight Training Center"
+  - id: "foothill-de-anza-community-college"
+    name: "Foothill-De Anza Community College"
+    country: "USA"
+    continent: "North America"
+    city: "Los Altos Hills"
+    state: "California"
+    website: "http://www.fhda.edu/"
+    coordinates:
+      lat: 37.36151
+      lng: -122.128601
+    units: []
+    aliases:
+      - "Foothill-De Anza Community College"
+  - id: "fordham-university"
+    name: "Fordham University"
+    country: "USA"
+    continent: "North America"
+    city: "Bronx"
+    state: "Pennsylvania"
+    website: "https://www.fordham.edu/"
+    coordinates:
+      lat: 40.8621792
+      lng: -73.88601
+    units:
+      - id: "fordham-university-gabelli-school-of-business"
+        name: "Fordham University- Gabelli School of Business"
+        country: "USA"
+        city: "New York"
+        state: "New York"
+        coordinates:
+          lat: 40.7713630999999
+          lng: -73.9845285999999
+    aliases:
+      - "Fordham University"
+  - id: "fraser-international-college"
+    name: "Fraser International College"
+    country: "Canada"
+    continent: "North America"
+    city: "Burnaby"
+    state: "British Columbia"
+    website: "https://www.fraseric.ca/"
+    coordinates:
+      lat: 49.2739042
+      lng: -122.9121536
+    units: []
+    aliases:
+      - "Fraser International College"
+  - id: "george-brown-college"
+    name: "George Brown College"
+    country: "Canada"
+    continent: "North America"
+    city: "Toronto"
+    state: "Ontario"
+    website: "https://www.georgebrown.ca/about/campuses-locations/casa-loma"
+    coordinates:
+      lat: 43.6757108
+      lng: -79.4107835
+    units: []
+    aliases:
+      - "George Brown College"
+  - id: "georgia-state-university"
+    name: "Georgia State University"
+    country: "USA"
+    continent: "North America"
+    city: "Atlanta"
+    state: "Georgia"
+    website: "https://www.gsu.edu/"
+    coordinates:
+      lat: 33.7499384
+      lng: -84.3999718
+    units: []
+    aliases:
+      - "Georgia State University"
+      - "Georgia state university"
+  - id: "georgian-college"
+    name: "Georgian College"
+    country: "Canada"
+    continent: "North America"
+    city: "Barrie"
+    state: "Ontario"
+    website: "https://www.georgiancollege.ca/"
+    coordinates:
+      lat: 44.41223
+      lng: -79.668268
+    units: []
+    aliases:
+      - "Georgian College"
+  - id: "golden-gate-university"
+    name: "Golden Gate University"
+    country: "USA"
+    continent: "North America"
+    city: "San Francisco"
+    state: "California"
+    website: "https://my.ggu.edu/"
+    coordinates:
+      lat: 37.7890737
+      lng: -122.3987215
+    units: []
+    aliases:
+      - "Golden Gate University"
+  - id: "gujarat-national-law-university"
+    name: "Gujarat National Law University"
+    country: "India"
+    continent: "Asia"
+    city: "Gandhinagar"
+    state: "Gujarat"
+    website: "http://www.gnlu.ac.in/"
+    coordinates:
+      lat: 23.1599582
+      lng: 72.6362194
+    units: []
+    aliases:
+      - "Gujarat National Law University"
+      - "Gujarat National Law University (GNLU)"
+  - id: "h-r-college-of-commerce-and-economics"
+    name: "H.R. College of Commerce and Economics"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "http://www.hrcollege.edu/"
+    coordinates:
+      lat: 18.929777
+      lng: 72.826835
+    units: []
+    aliases:
+      - "H.R. College of Commerce and Economics"
+  - id: "hult-international-business-school"
+    name: "HULT International business School"
+    country: "USA"
+    continent: "North America"
+    city: "Massachusetts"
+    state: "Boston"
+    website: "https://www.hult.edu/campuses/boston/"
+    coordinates:
+      lat: 42.3699656
+      lng: -71.0704935
+    units: []
+    aliases:
+      - "HULT International business School"
+  - id: "hanze-university-of-applied-sciences"
+    name: "Hanze University of Applied Sciences"
+    country: "Netherlands"
+    continent: "Europe"
+    city: "Groningen"
+    state: "Groningen"
+    website: "http://www.hanze.nl/"
+    coordinates:
+      lat: 53.2391218
+      lng: 6.53145849999999
+    units: []
+    aliases:
+      - "Hanze University of Applied Sciences"
+  - id: "heriot-watt-university-dubai-campus"
+    name: "Heriot-Watt University (Dubai Campus)"
+    country: "United Arab Emirates"
+    continent: "Asia"
+    city: "Dubai"
+    state: "Dubai"
+    website: "http://www.hw.ac.uk/dubai"
+    coordinates:
+      lat: 25.1040726
+      lng: 55.163109
+    units: []
+    aliases:
+      - "Heriot-Watt University"
+      - "Heriot-Watt University (Dubai Campus)"
+  - id: "hindu-college-university-of-delhi"
+    name: "Hindu College (University of Delhi)"
+    country: "India"
+    continent: "Asia"
+    city: "New Delhi"
+    website: "https://hinducollege.ac.in"
+    coordinates:
+      lat: 28.6847
+      lng: 77.210369
+    units: []
+    aliases: []
+  - id: "holger-jetter-german-international-from-auroville"
+    name: "Holger Jetter - German International from Auroville"
+    country: "India"
+    continent: "Asia"
+    city: "Auroville"
+    state: "Chennai"
+    website: "https://auroville.org/"
+    units: []
+    aliases:
+      - "Holger Jetter - German International from Auroville"
+  - id: "houston-community-college"
+    name: "Houston Community College"
+    country: "USA"
+    continent: "North America"
+    city: "Houston United States"
+    state: "Texas"
+    website: "https://www.hccs.edu/"
+    units: []
+    aliases:
+      - "Houston Community college"
+      - "Houston community college"
+  - id: "iit-bombay"
+    name: "IIT Bombay"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "https://www.iitb.ac.in"
+    coordinates:
+      lat: 19.1333838
+      lng: 72.9126444
+    units: []
+    aliases: []
+  - id: "iit-delhi"
+    name: "IIT Delhi"
+    country: "India"
+    continent: "Asia"
+    city: "New Delhi"
+    website: "https://home.iitd.ac.in"
+    coordinates:
+      lat: 28.544999
+      lng: 77.190685
+    units: []
+    aliases: []
+  - id: "isgj-international-school-of-gems-and-jewellery"
+    name: "ISGJ - International School of Gems & Jewellery"
+    country: "India"
+    continent: "Asia"
+    city: "Surat"
+    state: "Gujarat"
+    website: "http://www.isgj.org/"
+    coordinates:
+      lat: 21.1702659
+      lng: 72.794601
+    units: []
+    aliases:
+      - "ISGJ - International School of Gems & Jewellery"
+  - id: "indian-diamond-institute"
+    name: "Indian Diamond Institute"
+    country: "India"
+    continent: "Asia"
+    city: "Surat"
+    state: "Gujarat"
+    website: "http://www.diamondinstitute.net/"
+    coordinates:
+      lat: 21.2096562
+      lng: 72.8397423
+    units: []
+    aliases:
+      - "Indian Diamond Institute"
+  - id: "indian-institute-of-management-rohtak"
+    name: "Indian Institute of Management Rohtak"
+    country: "India"
+    continent: "Asia"
+    city: "Rohtak"
+    state: "Haryana"
+    website: "https://www.iimrohtak.ac.in/"
+    coordinates:
+      lat: 28.8531874999999
+      lng: 76.5422031
+    units: []
+    aliases:
+      - "Indian Institute of Management Rohtak"
+  - id: "indiana-tech"
+    name: "Indiana Tech"
+    country: "USA"
+    continent: "North America"
+    city: "Washington"
+    state: "Indiana"
+    website: "https://www.indianatech.edu/"
+    coordinates:
+      lat: 41.0786566
+      lng: -85.1172425
+    units: []
+    aliases:
+      - "Indiana Tech"
+  - id: "indiana-university-bloomington"
+    name: "Indiana University Bloomington"
+    country: "USA"
+    continent: "North America"
+    city: "Bllomington"
+    state: "Indiana"
+    website: "https://bloomington.iu.edu/index.html"
+    coordinates:
+      lat: 39.16609
+      lng: -86.5265478
+    units: []
+    aliases:
+      - "Indiana University Bloomington"
+  - id: "institute-of-actuarial-and-quantitative-studies"
+    name: "Institute of Actuarial and Quantitative Studies"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "https://iaqs.in/"
+    coordinates:
+      lat: 19.168625
+      lng: 72.845632
+    units: []
+    aliases:
+      - "Institute of Actuarial and Quantitative Studies"
+  - id: "institute-of-hotel-management-aurangabad-ihm-a"
+    name: "Institute of Hotel Management-Aurangabad (IHM-A)"
+    country: "India"
+    continent: "Asia"
+    city: "Aurangabad"
+    state: "Maharashtra"
+    website: "http://www.ihmaurangabad.ac.in/"
+    coordinates:
+      lat: 19.9064971
+      lng: 75.3448708
+    units: []
+    aliases:
+      - "Institute of Hotel Management-Aurangabad (IHM-A)"
+  - id: "iowa-state-university"
+    name: "Iowa State University"
+    country: "USA"
+    continent: "North America"
+    city: "Ames"
+    state: "IA"
+    website: "https://www.iastate.edu/"
+    coordinates:
+      lat: 42.0288663
+      lng: -93.6480306999999
+    units: []
+    aliases:
+      - "Iowa State University"
+  - id: "istituto-marangoni"
+    name: "Istituto Marangoni"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "https://www.istitutomarangoni.com/en/schools/mumbai-training-centre"
+    coordinates:
+      lat: 18.9885292
+      lng: 72.8133776
+    units: []
+    aliases:
+      - "Istituto Marangoni"
+  - id: "jd-institute-of-fashion-technology"
+    name: "JD Institute of Fashion Technology"
+    country: "India"
+    continent: "Asia"
+    city: "Surat"
+    state: "Gujarat"
+    website: "https://www.jdinstitute.com/"
+    coordinates:
+      lat: 15.5084466
+      lng: 73.8389657
+    units: []
+    aliases:
+      - "JD Institute of Fashion Technology"
+  - id: "jai-hind-college"
+    name: "Jai Hind College"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "http://www.jaihindcollege.com/"
+    coordinates:
+      lat: 18.9342612
+      lng: 72.8254779
+    units: []
+    aliases:
+      - "Jai Hind College"
+  - id: "jain-university"
+    name: "Jain University"
+    country: "India"
+    continent: "Asia"
+    city: "Bengaluru"
+    state: "Karnataka"
+    website: "https://www.jainuniversity.ac.in/"
+    coordinates:
+      lat: 12.918174
+      lng: 77.59179
+    units: []
+    aliases:
+      - "Jain College"
+      - "Jain University"
+  - id: "johnson-and-wales-university"
+    name: "Johnson & Wales University"
+    country: "USA"
+    continent: "North America"
+    city: "Providence"
+    state: "Rhode Island"
+    website: "https://www.jwu.edu/"
+    coordinates:
+      lat: 41.820624
+      lng: -71.412805
+    units: []
+    aliases:
+      - "Johnson & Wales University"
+  - id: "kedge-business-school-campus-paris"
+    name: "KEDGE Business School - Campus Paris"
+    country: "France"
+    continent: "Europe"
+    city: "The French capital"
+    state: "Paris"
+    website: "https://kedge.edu/l-ecole/les-campus/campus-permanents/paris"
+    coordinates:
+      lat: 48.8318872
+      lng: 2.3887065
+    units: []
+    aliases:
+      - "KEDGE Business School - Campus Paris"
+  - id: "karnavati-university"
+    name: "Karnavati University"
+    country: "India"
+    continent: "Asia"
+    city: "Gandhinagar"
+    state: "Gujarat"
+    website: "https://karnavatiuniversity.edu.in/?utm_source=googlemybusiness&utm_medium=organic&utm_campaign=Google%20My%20Business"
+    coordinates:
+      lat: 23.1694259
+      lng: 72.5786438
+    units: []
+    aliases:
+      - "Karnavati University"
+      - "Unitedworld Institute Of Design (UID)"
+  - id: "kingston-university"
+    name: "Kingston University"
+    country: "UK"
+    continent: "Europe"
+    city: "Surrey"
+    state: "Kingston"
+    website: "https://www.kingston.ac.uk/"
+    coordinates:
+      lat: 51.403287
+      lng: -0.303559
+    units: []
+    aliases:
+      - "Kingston University"
+  - id: "kishinchand-chellaram-college"
+    name: "Kishinchand Chellaram College"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "https://www.kccollege.edu.in/"
+    coordinates:
+      lat: 18.9297764
+      lng: 72.8267853
+    units: []
+    aliases:
+      - "Kishinchand Chellaram College"
+  - id: "krea-university"
+    name: "Krea University"
+    country: "India"
+    continent: "Asia"
+    city: "Sri City"
+    state: "Andhra Pradesh"
+    website: "https://krea.edu.in"
+    coordinates:
+      lat: 13.5509646
+      lng: 80.0015888
+    units: []
+    aliases:
+      - "Krea University"
+  - id: "l-s-raheja-school-of-architecture"
+    name: "L. S. Raheja School of Architecture"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "https://lsrsa.edu.in/"
+    coordinates:
+      lat: 19.0586669
+      lng: 72.8444805
+    units: []
+    aliases:
+      - "L. S. Raheja School of Architecture"
+  - id: "lala-lajpat-rai-college-of-commerce-and-economics"
+    name: "Lala Lajpat Rai College of Commerce and Economics"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "http://www.lalacollege.edu.in/"
+    coordinates:
+      lat: 18.9780761
+      lng: 72.8113639
+    units: []
+    aliases:
+      - "Lala Lajpat Rai College of Commerce and Economics"
+  - id: "let-s-enterprise"
+    name: "Let's Enterprise"
+    country: "India"
+    continent: "Asia"
+    city: "Pune"
+    state: "Maharashtra"
+    website: "https://www.letsenterprise.in/ugmed/"
+    coordinates:
+      lat: 18.5420382
+      lng: 73.8378805999999
+    units: []
+    aliases:
+      - "Let's Enterprise"
+  - id: "london-school-of-economics-and-political-science"
+    name: "London School of Economics and Political Science"
+    country: "UK"
+    continent: "Europe"
+    city: "London"
+    state: "England"
+    website: "https://www.lse.ac.uk/"
+    logo: "/logos/london-school-of-economics-and-political-science.png"
+    coordinates:
+      lat: 51.5136857
+      lng: -0.1167011
+    units: []
+    aliases:
+      - "London School of Economics and Political Science"
+  - id: "los-angeles-college-of-music"
+    name: "Los Angeles College of Music"
+    country: "USA"
+    continent: "North America"
+    city: "Los Angeles"
+    state: "California"
+    website: "https://lacm.edu/"
+    logo: "/logos/los-angeles-college-of-music.png"
+    coordinates:
+      lat: 34.1403478
+      lng: -118.150074
+    units: []
+    aliases:
+      - "Los Angeles College of Music"
+  - id: "lost-stories-academy"
+    name: "Lost Stories Academy"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "https://loststoriesacademy.com/"
+    coordinates:
+      lat: 19.0521856
+      lng: 72.8915861
+    units: []
+    aliases:
+      - "Lost Stories Academy"
+  - id: "loughborough-university"
+    name: "Loughborough University"
+    country: "UK"
+    continent: "Europe"
+    city: "Loughborough"
+    state: "Leicestershire"
+    website: "https://www.lboro.ac.uk/"
+    coordinates:
+      lat: 52.7679306
+      lng: -1.2227527
+    units: []
+    aliases:
+      - "Loughborough University"
+      - "Loughborough university"
+  - id: "loyola-marymount-university"
+    name: "Loyola Marymount University"
+    country: "USA"
+    continent: "North America"
+    city: "Los Angeles"
+    state: "California"
+    website: "https://www.lmu.edu/?utm_source=google&utm_medium=organic&utm_campaign=gmb"
+    coordinates:
+      lat: 33.966854
+      lng: -118.42251
+    units: []
+    aliases:
+      - "Loyola Marymount University"
+  - id: "mit"
+    name: "MIT"
+    country: "USA"
+    continent: "North America"
+    city: "Cambridge, MA"
+    website: "https://www.mit.edu"
+    coordinates:
+      lat: 42.359327
+      lng: -71.092675
+    units: []
+    aliases: []
+  - id: "mit-art-design-and-technology-university"
+    name: "MIT Art, Design & Technology University"
+    country: "India"
+    continent: "Asia"
+    city: "Loni Kalbhor"
+    state: "Mahrashtra"
+    website: "https://mituniversity.ac.in/"
+    coordinates:
+      lat: 18.4900649
+      lng: 74.0254569
+    units: []
+    aliases:
+      - "MIT Art, Design & Technology University"
+  - id: "mit-world-peace-university"
+    name: "MIT World Peace University"
+    country: "India"
+    continent: "Asia"
+    city: "Pune"
+    state: "Maharashtra"
+    website: "https://mitwpu.edu.in/"
+    coordinates:
+      lat: 18.5076536
+      lng: 73.8198312
+    units: []
+    aliases:
+      - "MIT World Peace University"
+      - "MIT World Peace University (MIT-WPU)"
+  - id: "macquarie-university"
+    name: "Macquarie University"
+    country: "Australia"
+    continent: "Oceania"
+    city: "New South Wales"
+    state: "Melbourne"
+    website: "https://www.mq.edu.au/?utm_source=google&utm_medium=localseo&utm_campaign=localplaces"
+    coordinates:
+      lat: -33.7781934
+      lng: 151.1070649
+    units: []
+    aliases:
+      - "Macquarie University"
+  - id: "maharaja-sayajirao-university"
+    name: "Maharaja Sayajirao University"
+    country: "India"
+    continent: "Asia"
+    city: "Vadodara"
+    state: "Gujarat"
+    website: "https://msubaroda.ac.in/"
+    coordinates:
+      lat: 22.311162
+      lng: 73.185555
+    units: []
+    aliases:
+      - "Maharaja Sayajirao University"
+  - id: "malini-kishor-sanghvi-college-of-commerce-and-economics"
+    name: "Malini Kishor Sanghvi College of Commerce and Economics"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "https://mkscollege.edu.in/"
+    coordinates:
+      lat: 19.117725
+      lng: 72.8259725
+    units: []
+    aliases:
+      - "Malini Kishor Sanghvi College of Commerce and Economics"
+  - id: "manipal-university"
+    name: "Manipal University"
+    country: "India"
+    continent: "Asia"
+    city: "Manipal"
+    state: "Karnataka"
+    website: "https://manipal.edu/mu.html"
+    coordinates:
+      lat: 13.3524164
+      lng: 74.7871727
+    units: []
+    aliases:
+      - "Manipal University"
+  - id: "master-s-union"
+    name: "Master's Union"
+    country: "India"
+    continent: "Asia"
+    city: "Gurgaon"
+    state: "Haryana"
+    website: "http://www.mastersunion.org/"
+    coordinates:
+      lat: 28.5056634
+      lng: 77.0888228
+    units: []
+    aliases:
+      - "Master's Union"
+  - id: "media-design-school"
+    name: "Media Design School"
+    country: "New Zealand"
+    continent: "Oceania"
+    city: "Auckland"
+    state: "Auckland"
+    website: "https://www.mediadesignschool.com/"
+    coordinates:
+      lat: -36.8422298
+      lng: 174.757009
+    units: []
+    aliases:
+      - "Media Design School"
+  - id: "mesa-school-of-business"
+    name: "Mesa School of Business"
+    country: "India"
+    continent: "Asia"
+    city: "Bengaluru"
+    state: "Karnataka"
+    website: "https://www.mesaschool.co/"
+    coordinates:
+      lat: 12.8871338
+      lng: 77.5973159999999
+    units: []
+    aliases:
+      - "Mesa School of Business"
+  - id: "metas-adventist-college"
+    name: "Metas Adventist College"
+    country: "India"
+    continent: "Asia"
+    city: "Surat"
+    state: "Gujarat"
+    website: "http://www.metasofsda.in/College/index.php?id=33"
+    coordinates:
+      lat: 21.1817476
+      lng: 72.8076497
+    units: []
+    aliases:
+      - "Metas Adventist College"
+  - id: "michigan-state-university"
+    name: "Michigan State University"
+    country: "USA"
+    continent: "North America"
+    city: "East Lansing"
+    state: "Michigan"
+    website: "https://msu.edu/"
+    logo: "/logos/michigan-state-university.png"
+    coordinates:
+      lat: 42.7296593
+      lng: -84.4815364
+    units: []
+    aliases:
+      - "Michigan State University"
+  - id: "middlesex-community-college"
+    name: "Middlesex Community College"
+    country: "USA"
+    continent: "North America"
+    city: "Massachusetts"
+    state: "New Jersey"
+    website: "http://www.middlesex.mass.edu/"
+    coordinates:
+      lat: 42.5198104
+      lng: -71.2698805
+    units: []
+    aliases:
+      - "Middlesex Community College"
+  - id: "middlesex-university-london"
+    name: "Middlesex University London"
+    country: "UK"
+    continent: "Europe"
+    city: "London"
+    state: "England"
+    website: "https://www.mdx.ac.uk/"
+    coordinates:
+      lat: 51.5892499
+      lng: -0.2280419
+    units:
+      - id: "middlesex-university-dubai"
+        name: "Middlesex University Dubai"
+        country: "United Arab Emirates"
+        city: "Knowledge Park"
+        state: "Dubai"
+        coordinates:
+          lat: 25.2738613
+          lng: 55.3769633
+    aliases:
+      - "Middlesex University London"
+  - id: "mithibai-college"
+    name: "Mithibai College"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "http://mithibai.ac.in/"
+    coordinates:
+      lat: 19.102883
+      lng: 72.837421
+    units: []
+    aliases:
+      - "Mithibai College"
+  - id: "mount-carmel-college"
+    name: "Mount Carmel College"
+    country: "India"
+    continent: "Asia"
+    city: "Bengaluru"
+    state: "Karnataka"
+    website: "https://mccblr.edu.in/"
+    coordinates:
+      lat: 12.9943074
+      lng: 77.5890278999999
+    units: []
+    aliases:
+      - "Mount Carmel College"
+  - id: "mount-holyoke-college"
+    name: "Mount Holyoke College"
+    country: "USA"
+    continent: "North America"
+    city: "South Hadley"
+    state: "Massachusetts"
+    website: "https://www.mtholyoke.edu/"
+    coordinates:
+      lat: 42.2556522
+      lng: -72.5730494
+    units: []
+    aliases:
+      - "Mount Holyoke College"
+  - id: "nalsar-hyderabad"
+    name: "NALSAR Hyderabad"
+    country: "India"
+    continent: "Asia"
+    city: "Hyderabad"
+    website: "https://www.nalsar.ac.in"
+    coordinates:
+      lat: 17.604467
+      lng: 78.547103
+    units: []
+    aliases: []
+  - id: "nit-tiruchirappalli"
+    name: "NIT Tiruchirappalli"
+    country: "India"
+    continent: "Asia"
+    city: "Tiruchirappalli"
+    website: "https://www.nitt.edu"
+    coordinates:
+      lat: 10.762693
+      lng: 78.815515
+    units: []
+    aliases: []
+  - id: "nlsiu-bangalore"
+    name: "NLSIU Bangalore"
+    country: "India"
+    continent: "Asia"
+    city: "Bengaluru"
+    website: "https://www.nls.ac.in"
+    coordinates:
+      lat: 12.954011
+      lng: 77.516648
+    units: []
+    aliases: []
+  - id: "nus-singapore"
+    name: "NUS Singapore"
+    country: "Singapore"
+    continent: "Asia"
+    city: "Singapore"
+    website: "https://www.nus.edu.sg"
+    coordinates:
+      lat: 1.295881
+      lng: 103.776784
+    units: []
+    aliases: []
+  - id: "nanyang-technological-university"
+    name: "Nanyang Technological University"
+    country: "Singapore"
+    continent: "Asia"
+    city: "Jurong West"
+    state: "Jurong West"
+    website: "https://www.ntu.edu.sg/index"
+    coordinates:
+      lat: 1.34415
+      lng: 103.6800792
+    units: []
+    aliases:
+      - "Nanyang Technological University"
+  - id: "narsee-monjee-college-of-commerce-and-economics"
+    name: "Narsee Monjee College of Commerce and Economics"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "https://nmcollege.in/"
+    coordinates:
+      lat: 19.1077678
+      lng: 72.8362054999999
+    units: []
+    aliases:
+      - "Narsee Monjee College of Commerce and Economics"
+  - id: "narsee-monjee-institute-of-management-studies-nmims"
+    name: "Narsee Monjee Institute of Management Studies (NMIMS)"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "http://www.nmims.edu/"
+    coordinates:
+      lat: 19.103219
+      lng: 72.8365851
+    units:
+      - id: "narsee-monjee-institute-of-management-studies-nmims-navi-mum"
+        name: "Narsee Monjee Institute of Management Studies (NMIMS) — Navi Mumbai"
+        country: "India"
+        city: "Mumbai"
+        state: "Maharashtra"
+        coordinates:
+          lat: 19.067333
+          lng: 73.0814779999999
+    aliases:
+      - "Anil Surendra Modi School of Commerce | NMIMS"
+      - "NMIMS - Anil Surendra Modi School of Commerce"
+      - "NMIMS - Mukesh Patel School of Technology Management & Engineering"
+      - "NMIMS - Pravin Dalal School of Entrepreneurship and Family Business Management"
+      - "NMIMS - School of Mathematics, Applied Statistics & Analytics"
+      - "NMIMS - School of Mathematics, Applied Statistics & Analytics (NSOMASA)"
+      - "NMIMS Balwant Sheth School of Architecture"
+      - "NMIMS Deemed-to-be-University"
+      - "NMIMS Navi Mumbai"
+      - "NMIMS School of Branding & Advertising"
+      - "NMIMS School of Branding adn Advertising"
+      - "NMIMS | Anil Surendra Modi School of Commerce"
+      - "NMIMS | Anil Surendra modi shcool of commerce"
+      - "NMIMS | Center for Distance Learning and Online Education"
+      - "NMIMS | Centre for International Studies"
+      - "NMIMS | Jyoti Dalal School of Liberal Arts"
+      - "NMIMS | NMIMS School of Hospitality Management"
+      - "NMIMS | Pravin Dalal School of Entrepreneurship & Family Business Management"
+      - "NMIMS | Pravin Dalal School of Entrepreneurship and Family Business Management"
+      - "NMIMS | Pravin Dalal School of Entrepreurship and Family Business Management"
+      - "NMIMS | Sarla Anil Modi School of Economics"
+      - "NMIMS | School of Branding & Advertising"
+      - "NMIMS | School of Branding and Advertising"
+      - "NMIMS | School of Branding and Advertising (SoBA)"
+      - "NMIMS-Balwant Sheth School of Architecture"
+      - "Narsee Monjee Institute of Management Studies"
+      - "Narsee Monjee Institute of Management Studies (Anil Surendra Modi School Of Commerce)"
+      - "Narsee Monjee Institute of Management Studies (NMIMS) — Anil Surendra Modi School of Commerce"
+      - "Narsee Monjee Institute of Management Studies (NMIMS) — Balwant Sheth School of Architecture"
+      - "Narsee Monjee Institute of Management Studies (NMIMS) — Centre for International Studies"
+      - "Narsee Monjee Institute of Management Studies (NMIMS) — Jyoti Dalal School of Liberal Arts"
+      - "Narsee Monjee Institute of Management Studies (NMIMS) — Kirit P. Mehta School of Law"
+      - "Narsee Monjee Institute of Management Studies (NMIMS) — Mukesh Patel School of Technology Management & Engineering"
+      - "Narsee Monjee Institute of Management Studies (NMIMS) — Mumbai"
+      - "Narsee Monjee Institute of Management Studies (NMIMS) — Pravin Dalal School of Entrepreneurship & Family Business"
+      - "Narsee Monjee Institute of Management Studies (NMIMS) — Sarla Anil Modi School of Economics"
+      - "Narsee Monjee Institute of Management Studies (NMIMS) — School of Mathematics, Applied Statistics & Analytics"
+      - "Narsee Monjee Institute of Management Studies, Mumbai"
+      - "Narsee Monji Institute of Management Studies"
+      - "Pravin Dalal School of Entrepreneurship and Family Business Management | NMIMS"
+      - "SVKM's NMIMS Kirit P. Mehta School of Law"
+      - "⁠NMIMS| Pravin Dalal school of Entrepreneurship and Family Business Management"
+  - id: "national-institute-of-design"
+    name: "National Institute of Design"
+    country: "India"
+    continent: "Asia"
+    city: "Ahmedabad"
+    state: "Gujarat"
+    website: "https://www.nid.edu/home"
+    coordinates:
+      lat: 23.0128398
+      lng: 72.5710137
+    units: []
+    aliases:
+      - "National Institute of Design"
+  - id: "national-institute-of-fashion-technology"
+    name: "National Institute of Fashion Technology"
+    country: "India"
+    continent: "Asia"
+    city: "Hauz Khas"
+    state: "Delhi"
+    website: "http://niftadmissions.in/"
+    logo: "/logos/national-institute-of-fashion-technology.png"
+    coordinates:
+      lat: 28.5547438
+      lng: 77.2102965
+    units: []
+    aliases:
+      - "National Institute of Fashion Technology"
+  - id: "national-university-of-singapore"
+    name: "National University of Singapore"
+    country: "Singapore"
+    continent: "Asia"
+    city: "Lower Kent Ridge Road"
+    state: "Lower Kent Ridge Road"
+    website: "http://www.nus.edu.sg/"
+    coordinates:
+      lat: 1.2934297
+      lng: 103.784535
+    units: []
+    aliases:
+      - "National University of Singapore"
+  - id: "new-jersey-institute-of-technology"
+    name: "New Jersey Institute of Technology"
+    country: "USA"
+    continent: "North America"
+    city: "Newark"
+    state: "New Jersey"
+    website: "http://www.njit.edu/"
+    coordinates:
+      lat: 40.7428189
+      lng: -74.1770705
+    units: []
+    aliases:
+      - "New Jersey Institute of Technology"
+  - id: "new-york-film-academy"
+    name: "New York Film Academy"
+    country: "USA"
+    continent: "North America"
+    city: "New York"
+    state: "New York"
+    website: "https://www.nyfa.edu/"
+    logo: "/logos/new-york-film-academy.png"
+    coordinates:
+      lat: 40.7051588
+      lng: -74.0159855
+    units: []
+    aliases:
+      - "New York Film Academy"
+  - id: "new-york-institute-of-technology"
+    name: "New York Institute of Technology"
+    country: "USA"
+    continent: "North America"
+    city: "New York"
+    state: "New York"
+    website: "https://www.nyit.edu/"
+    coordinates:
+      lat: 40.7696147
+      lng: -73.982399
+    units: []
+    aliases:
+      - "New York Institute of Technology"
+  - id: "new-york-university"
+    name: "New York University"
+    country: "USA"
+    continent: "North America"
+    city: "Washington Square East"
+    state: "New York"
+    website: "https://www.nyu.edu/"
+    coordinates:
+      lat: 40.7250632
+      lng: -73.9976946
+    units: []
+    aliases:
+      - "New York University"
+  - id: "newcastle-university"
+    name: "Newcastle University"
+    country: "UK"
+    continent: "Europe"
+    city: "Newcastle"
+    state: "England"
+    website: "https://www.ncl.ac.uk/"
+    coordinates:
+      lat: 54.98032
+      lng: -1.6157133
+    units: []
+    aliases:
+      - "Newcastle University"
+  - id: "niagara-college"
+    name: "Niagara College"
+    country: "Canada"
+    continent: "North America"
+    city: "Welland"
+    state: "Ontario"
+    website: "https://www.niagaracollege.ca/"
+    coordinates:
+      lat: 43.0157056
+      lng: -79.2633783
+    units: []
+    aliases:
+      - "Niagara College"
+  - id: "nirma-university"
+    name: "Nirma University"
+    country: "India"
+    continent: "Asia"
+    city: "Ahmedabad"
+    state: "Gujarat"
+    website: "https://nirmauni.ac.in/"
+    coordinates:
+      lat: 23.1018344
+      lng: 72.5326797
+    units: []
+    aliases:
+      - "Nirma University"
+      - "Nirma University - Institute of Technology"
+      - "Nirma University — Institute of Law"
+      - "Nirma University — Institute of Technology"
+      - "Nirma University, Institute Of Law"
+  - id: "north-carolina-state-university"
+    name: "North Carolina State University"
+    country: "USA"
+    continent: "North America"
+    city: "Raleigh"
+    state: "North Carolina"
+    website: "https://www.ncsu.edu/"
+    coordinates:
+      lat: 35.7850545
+      lng: -78.6819448999999
+    units: []
+    aliases:
+      - "North Carolina State University"
+  - id: "northeastern-university"
+    name: "Northeastern University"
+    country: "USA"
+    continent: "North America"
+    city: "Boston"
+    state: "Massachusetts"
+    website: "https://www.northeastern.edu/"
+    coordinates:
+      lat: 42.3394629
+      lng: -71.0885286
+    units: []
+    aliases:
+      - "Northeastern University"
+  - id: "nottingham-trent-university"
+    name: "Nottingham Trent University"
+    country: "UK"
+    continent: "Europe"
+    city: "Nottingham"
+    state: "England"
+    website: "https://www.ntu.ac.uk/"
+    coordinates:
+      lat: 52.958136
+      lng: -1.1542331
+    units: []
+    aliases:
+      - "Nottingham Trent University"
+  - id: "nuremberg-institute-of-technology"
+    name: "Nuremberg Institute of Technology"
+    country: "Germany"
+    continent: "Europe"
+    city: "Keßlerplatz"
+    state: "Nurnberg"
+    website: "https://www.th-nuernberg.de/"
+    coordinates:
+      lat: 49.4528291
+      lng: 11.0933465
+    units: []
+    aliases:
+      - "Nuremberg Institute of Technology"
+  - id: "op-jindal-global-university"
+    name: "OP Jindal Global University"
+    country: "India"
+    continent: "Asia"
+    city: "Sonipat"
+    state: "Haryana"
+    website: "https://www.jgu.edu.in"
+    coordinates:
+      lat: 28.9377895
+      lng: 77.053055
+    units: []
+    aliases:
+      - "Jindal Global Law School"
+      - "Jindal School of International Affairs"
+      - "O. P. Jindal Global University"
+  - id: "oth-regensburg"
+    name: "OTH regensburg"
+    country: "Germany"
+    continent: "Europe"
+    city: "Regensburg"
+    state: "Regensburg"
+    website: "http://www.oth-regensburg.de/"
+    coordinates:
+      lat: 49.003347
+      lng: 12.095634
+    units: []
+    aliases:
+      - "OTH regensburg"
+  - id: "oregon-state-university"
+    name: "Oregon State University"
+    country: "USA"
+    continent: "North America"
+    city: "Corvallis"
+    state: "Oregon"
+    website: "https://oregonstate.edu/"
+    coordinates:
+      lat: 44.5642722
+      lng: -123.2785942
+    units: []
+    aliases:
+      - "Oregon State University"
+  - id: "otis-college-of-art-and-design"
+    name: "Otis College of Art and Design"
+    country: "USA"
+    continent: "North America"
+    city: "Los Angeles"
+    state: "California"
+    website: "http://www.otis.edu/"
+    coordinates:
+      lat: 33.9565585
+      lng: -118.41636
+    units: []
+    aliases:
+      - "Otis College of Art and Design"
+  - id: "p-p-savani-university"
+    name: "P P Savani University"
+    country: "India"
+    continent: "Asia"
+    city: "Dhamdod"
+    state: "Gujarat"
+    website: "http://www.ppsu.ac.in/"
+    coordinates:
+      lat: 21.5252485
+      lng: 73.0164984
+    units: []
+    aliases:
+      - "P P Savani University"
+  - id: "pes-university"
+    name: "PES University"
+    country: "India"
+    continent: "Asia"
+    city: "Bengaluru"
+    state: "Karnataka"
+    website: "http://pes.edu/"
+    coordinates:
+      lat: 12.9319636
+      lng: 77.5375794
+    units: []
+    aliases:
+      - "PES University"
+  - id: "psb-academy"
+    name: "PSB Academy"
+    country: "Singapore"
+    continent: "Asia"
+    city: "Jalan Bukit Ho Swee"
+    state: "Jalan Bukit Ho Swee"
+    website: "http://www.psb-academy.edu.sg/"
+    coordinates:
+      lat: 1.2870465
+      lng: 103.8268771
+    units: []
+    aliases:
+      - "PSB Academy"
+  - id: "pace-university"
+    name: "Pace University"
+    country: "USA"
+    continent: "North America"
+    city: "Westchester"
+    state: "New York"
+    website: "https://www.pace.edu/"
+    coordinates:
+      lat: 40.710974
+      lng: -74.0047486
+    units: []
+    aliases:
+      - "Pace University"
+  - id: "pandit-deendayal-energy-university-pdeu"
+    name: "Pandit Deendayal Energy University (PDEU)"
+    country: "India"
+    continent: "Asia"
+    city: "Gandhinagar"
+    state: "Gujarat"
+    website: "http://www.pdpu.ac.in/"
+    coordinates:
+      lat: 23.1563332
+      lng: 72.6655210999999
+    units: []
+    aliases:
+      - "Pandit Deendayal Energy University"
+      - "Pandit Deendayal Energy University (PDEU)"
+      - "Pandit Deendayal Energy University- PDEU"
+      - "Pandit Deendayal Energy University- PDEU (Formerly PDPU)"
+      - "Pandit Deendayal Petroleum University"
+  - id: "paris-school-of-business"
+    name: "Paris School Of Business"
+    country: "France"
+    continent: "Europe"
+    city: "Centre Commercial Oslo"
+    state: "Paris"
+    website: "https://www.psbedu.paris/"
+    coordinates:
+      lat: 48.8256546
+      lng: 2.3670108
+    units: []
+    aliases:
+      - "Paris School Of Business"
+  - id: "parul-university"
+    name: "Parul University"
+    country: "India"
+    continent: "Asia"
+    city: "Vadodara"
+    state: "Gujarat"
+    website: "https://paruluniversity.ac.in/"
+    coordinates:
+      lat: 22.2829356
+      lng: 73.3631329
+    units: []
+    aliases:
+      - "Parul University"
+  - id: "pearl-academy"
+    name: "Pearl Academy"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "https://pearlacademy.com/"
+    coordinates:
+      lat: 19.108137
+      lng: 72.880533
+    units: []
+    aliases:
+      - "Pearl Academy"
+  - id: "pennsylvania-state-university"
+    name: "Pennsylvania State University"
+    country: "USA"
+    continent: "North America"
+    city: "Erie"
+    state: "Pennsylvania"
+    website: "http://behrend.psu.edu/"
+    coordinates:
+      lat: 42.11915
+      lng: -79.9874940999999
+    units:
+      - id: "pennsylvania-state-university-berks"
+        name: "Pennsylvania State University — Berks"
+        country: "USA"
+        city: "Reading"
+        state: "Pennsylvania"
+        coordinates:
+          lat: 40.3587371
+          lng: -75.9709977999999
+      - id: "pennsylvania-state-university-scranton"
+        name: "Pennsylvania State University — Scranton"
+        country: "USA"
+        city: "Dunmore"
+        state: "Pennsylvania"
+        coordinates:
+          lat: 41.440173
+          lng: -75.621349
+      - id: "pennsylvania-state-university-university-park"
+        name: "Pennsylvania State University — University Park"
+        country: "USA"
+        city: "University Park"
+        state: "Pennsylvania"
+        coordinates:
+          lat: 40.796487
+          lng: -77.8628564
+    aliases:
+      - "Penn State Berks"
+      - "Penn State Erie, The Behrend College"
+      - "Penn State Scranton"
+      - "Pennsylvania State University"
+      - "Pennsylvania State University - Smeal College of Business"
+      - "Pennsylvania State University — Erie — The Behrend College"
+      - "Pennsylvania State University — Smeal College of Business"
+      - "Pennsylvania State University, Park"
+      - "Pennsylvania State University, Univ Park Campus"
+  - id: "pepperdine-university"
+    name: "Pepperdine University"
+    country: "USA"
+    continent: "North America"
+    city: "California"
+    state: "California"
+    website: "https://www.pepperdine.edu/"
+    coordinates:
+      lat: 34.0348729
+      lng: -118.7035868
+    units: []
+    aliases:
+      - "Pepperdine University"
+  - id: "plaksha-university"
+    name: "Plaksha University"
+    country: "India"
+    continent: "Asia"
+    city: "Sahibzada Ajit Singh Nagar"
+    state: "Punjab"
+    website: "https://plaksha.edu.in/"
+    logo: "/logos/plaksha-university.jpg"
+    coordinates:
+      lat: 30.6289746
+      lng: 76.7114493
+    units: []
+    aliases:
+      - "Plaksha University"
+  - id: "podar-world-college"
+    name: "Podar World College"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "http://www.podarworldcollege.org/"
+    coordinates:
+      lat: 19.100523
+      lng: 72.827401
+    units: []
+    aliases:
+      - "Podar World College"
+  - id: "poddar-world-college"
+    name: "Poddar World College"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "https://www.podarworldcollege.org/"
+    coordinates:
+      lat: 19.100596
+      lng: 72.8275788999999
+    units: []
+    aliases:
+      - "Poddar World College"
+  - id: "pratt-institute"
+    name: "Pratt Institute"
+    country: "USA"
+    continent: "North America"
+    city: "Brooklyn"
+    state: "New York"
+    website: "https://www.pratt.edu/"
+    coordinates:
+      lat: 40.691225
+      lng: -73.963453
+    units: []
+    aliases:
+      - "Pratt Institute"
+  - id: "purdue-university"
+    name: "Purdue University"
+    country: "USA"
+    continent: "North America"
+    city: "West Lafayette"
+    state: "Indiana"
+    website: "https://www.purdue.edu/"
+    coordinates:
+      lat: 40.4237
+      lng: -86.9212
+    units: []
+    aliases:
+      - "Purdue University"
+  - id: "queen-mary-university"
+    name: "Queen Mary University"
+    country: "UK"
+    continent: "Europe"
+    city: "London"
+    state: "England"
+    website: "https://www.qmul.ac.uk/"
+    coordinates:
+      lat: 51.5240671
+      lng: -0.0403745
+    units: []
+    aliases:
+      - "Queen Mary University"
+  - id: "r-a-podar-college-of-commerce-and-economics"
+    name: "R A Podar College Of Commerce & Economics"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "http://www.rapodar.ac.in/"
+    units: []
+    aliases:
+      - "R A Podar College Of Commerce & Economics"
+  - id: "rmit-university"
+    name: "RMIT University"
+    country: "Australia"
+    continent: "Oceania"
+    city: "Melbourne"
+    state: "Victoria"
+    website: "https://www.rmit.edu.au/"
+    coordinates:
+      lat: -37.8076138
+      lng: 144.9637513
+    units: []
+    aliases:
+      - "RMIT University"
+  - id: "rangsit-university"
+    name: "Rangsit University"
+    country: "Thailand"
+    continent: "Asia"
+    city: "Lak Hok"
+    state: "Pathum Thani 12000"
+    website: "https://www.rsu.ac.th/"
+    coordinates:
+      lat: 13.9679939
+      lng: 100.5853539
+    units: []
+    aliases:
+      - "Rangsit University"
+  - id: "robert-morris-university"
+    name: "Robert Morris University"
+    country: "USA"
+    continent: "North America"
+    city: "Coraopolis"
+    state: "Pennsylvania"
+    website: "http://www.rmu.edu/"
+    coordinates:
+      lat: 40.5223974
+      lng: -80.2107588
+    units: []
+    aliases:
+      - "Robert Morris University"
+  - id: "rochester-institute-of-technology"
+    name: "Rochester Institute of Technology"
+    country: "USA"
+    continent: "North America"
+    city: "Rochester"
+    state: "New York"
+    website: "http://www.rit.edu/"
+    coordinates:
+      lat: 43.0839247
+      lng: -77.6746139
+    units: []
+    aliases:
+      - "Rochester Institute of Technology"
+  - id: "rutgers-university"
+    name: "Rutgers University"
+    country: "USA"
+    continent: "North America"
+    city: "Newark"
+    state: "New Jersey"
+    website: "https://www.newark.rutgers.edu/"
+    coordinates:
+      lat: 40.7390311
+      lng: -74.1754677
+    units:
+      - id: "rutgers-university-camden"
+        name: "Rutgers University — Camden"
+        country: "USA"
+        city: "Camden"
+        state: "New Jersey"
+        coordinates:
+          lat: 39.9475608
+          lng: -75.1231792999999
+      - id: "rutgers-university-new-brunswick"
+        name: "Rutgers University — New Brunswick"
+        country: "USA"
+        city: "New Brunswick"
+        state: "New Jersey"
+        coordinates:
+          lat: 40.4790389
+          lng: -74.4248349
+    aliases:
+      - "Rutgers University (Camden)"
+      - "Rutgers University — Newark"
+      - "Rutgers University, Brunswick"
+      - "Rutgers University, Newark"
+      - "Rutgers University–New Brunswick"
+      - "Rutgers University–Newark"
+  - id: "ryerson-university"
+    name: "Ryerson University"
+    country: "Canada"
+    continent: "North America"
+    city: "Toronto"
+    state: "Ontario"
+    website: "https://www.ryerson.ca/"
+    coordinates:
+      lat: 43.6582985999999
+      lng: -79.3807846
+    units: []
+    aliases:
+      - "Ryerson University"
+  - id: "s-p-jain-institute-of-management-and-research"
+    name: "S.P. Jain Institute of Management & Research"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "https://www.spjimr.org/"
+    coordinates:
+      lat: 19.1249326
+      lng: 72.8360953
+    units: []
+    aliases:
+      - "S.P. Jain Institute of Management & Research"
+  - id: "scaler-institute-of-technology"
+    name: "SCALER Institute of Technology"
+    country: "India"
+    continent: "Asia"
+    city: "Banglore"
+    state: "Karnataka"
+    website: "https://www.scaler.com/school-of-technology/"
+    coordinates:
+      lat: 12.8433395
+      lng: 77.6704142
+    units: []
+    aliases:
+      - "SCALER Institute of Technology"
+  - id: "sp-jain-school-of-global-management"
+    name: "SP Jain School of Global Management"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "https://www.spjain.org/"
+    coordinates:
+      lat: 19.0816834
+      lng: 72.8863468999999
+    units: []
+    aliases:
+      - "SP Jain School of Global Management"
+  - id: "srh-berlin-university-of-applied-sciences"
+    name: "SRH Berlin University of Applied Sciences"
+    country: "Germany"
+    continent: "Europe"
+    city: "Berlin"
+    state: "Berlin"
+    website: "https://www.srh-university.de/"
+    coordinates:
+      lat: 52.4745524
+      lng: 13.4574865
+    units: []
+    aliases:
+      - "SRH Berlin University of Applied Sciences"
+  - id: "srm-institute-of-science-and-technology"
+    name: "SRM Institute of Science and Technology"
+    country: "India"
+    continent: "Asia"
+    city: "Chennai"
+    state: "Tamil Nadu"
+    website: "http://www.srmuniv.ac.in/"
+    coordinates:
+      lat: 12.8231047
+      lng: 80.0452801
+    units: []
+    aliases:
+      - "SRM Institute of Science and Technology"
+  - id: "srm-university"
+    name: "SRM University"
+    country: "India"
+    continent: "Asia"
+    city: "Chennai"
+    state: "Tamil Nadu"
+    website: "http://www.srmuniv.ac.in/"
+    coordinates:
+      lat: 12.8231446
+      lng: 80.045802
+    units: []
+    aliases:
+      - "SRM University"
+  - id: "suny-university-at-buffalo"
+    name: "SUNY University at Buffalo"
+    country: "USA"
+    continent: "North America"
+    city: "Getzville"
+    state: "New York"
+    website: "https://www.buffalo.edu/"
+    coordinates:
+      lat: 43.0010172
+      lng: -78.7877479
+    units: []
+    aliases:
+      - "SUNY University at Buffalo"
+  - id: "svkm-s-mithibai-college-of-arts"
+    name: "SVKM's Mithibai College of Arts"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "http://mithibai.ac.in/"
+    coordinates:
+      lat: 19.1160623
+      lng: 72.8297766
+    units: []
+    aliases:
+      - "SVKM's Mithibai College of Arts"
+  - id: "saint-peter-s-university"
+    name: "Saint Peter's University"
+    country: "USA"
+    continent: "North America"
+    city: "Jersey"
+    state: "New Jersey"
+    website: "http://www.saintpeters.edu/"
+    coordinates:
+      lat: 40.7269492
+      lng: -74.0700325999999
+    units: []
+    aliases:
+      - "Saint Peter's University"
+  - id: "san-diego-community-college"
+    name: "San Diego Community College"
+    country: "USA"
+    continent: "North America"
+    city: "San Diego"
+    state: "California"
+    website: "https://www.sdccd.edu/"
+    coordinates:
+      lat: 32.7761723
+      lng: -117.1206559
+    units: []
+    aliases:
+      - "San Diego Community College"
+  - id: "sarah-lawrence-college"
+    name: "Sarah Lawrence College"
+    country: "USA"
+    continent: "North America"
+    city: "Bronxville"
+    state: "New York"
+    website: "http://www.sarahlawrence.edu/"
+    coordinates:
+      lat: 40.9342586
+      lng: -73.8468915
+    units: []
+    aliases:
+      - "Sarah Lawrence College"
+  - id: "sarvajanik-college-of-engineering-and-technology"
+    name: "Sarvajanik College of Engineering & Technology"
+    country: "India"
+    continent: "Asia"
+    city: "Surat"
+    state: "Gujarat"
+    website: "http://scet.ac.in/"
+    coordinates:
+      lat: 21.1821465
+      lng: 72.8087597999999
+    units: []
+    aliases:
+      - "Sarvajanik College of Engineering & Technology"
+      - "Sarvajanik College of Engineering & Technology (SCET)"
+      - "Sarvajanik College of Engineering and Technology"
+  - id: "savannah-college-of-art-and-design"
+    name: "Savannah College of Art & Design"
+    country: "USA"
+    continent: "North America"
+    city: "Savannah"
+    state: "Georgia"
+    website: "https://www.scad.edu/"
+    logo: "/logos/savannah-college-of-art-and-design.png"
+    coordinates:
+      lat: 32.0729937
+      lng: -81.0940406
+    units: []
+    aliases:
+      - "Savannah College of Art & Design"
+  - id: "school-of-visual-arts"
+    name: "School of Visual Arts"
+    country: "USA"
+    continent: "North America"
+    city: "New York"
+    state: "New York"
+    website: "https://sva.edu/"
+    coordinates:
+      lat: 40.7387398
+      lng: -73.9822277999999
+    units: []
+    aliases:
+      - "School of Visual Arts"
+  - id: "sheridan-college"
+    name: "Sheridan College"
+    country: "Canada"
+    continent: "North America"
+    city: "Oakville"
+    state: "Ontario"
+    website: "https://www.sheridancollege.ca/"
+    coordinates:
+      lat: 43.4689298
+      lng: -79.6999246
+    units: []
+    aliases:
+      - "Sheridan College"
+  - id: "shiv-nadar-university"
+    name: "Shiv Nadar University"
+    country: "India"
+    continent: "Asia"
+    city: "Greater Noida"
+    state: "UP"
+    website: "https://www.snu.edu.in/home"
+    coordinates:
+      lat: 28.5525772
+      lng: 77.55481
+    units: []
+    aliases:
+      - "Shiv Nadar University"
+  - id: "shree-shree-university-orissa"
+    name: "Shree Shree University,Orissa"
+    country: "India"
+    continent: "Asia"
+    city: "Cuttactk"
+    state: "Orissa"
+    website: "http://srisriuniversity.edu.in/"
+    coordinates:
+      lat: 20.4532721
+      lng: 85.7974291
+    units: []
+    aliases:
+      - "Shree Shree University,Orissa"
+  - id: "shri-vile-parle-kelavani-mandal-s-institute-of-international"
+    name: "Shri Vile Parle Kelavani Mandal's Institute of International Studies"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "http://iis.svkm.ac.in/"
+    coordinates:
+      lat: 19.1026623
+      lng: 72.8376389
+    units: []
+    aliases:
+      - "Shri Vile Parle Kelavani Mandal's Institute of International Studies"
+  - id: "simon-fraser-university"
+    name: "Simon Fraser University"
+    country: "Canada"
+    continent: "North America"
+    city: "Burnbay"
+    state: "VC"
+    website: "https://www.sfu.ca/"
+    coordinates:
+      lat: 49.277443
+      lng: -122.918599
+    units: []
+    aliases:
+      - "Simon Fraser University"
+  - id: "singapore-management-university"
+    name: "Singapore Management University"
+    country: "Singapore"
+    continent: "Asia"
+    city: "Bras Basah"
+    state: "Bras Basah"
+    website: "https://www.smu.edu.sg/"
+    coordinates:
+      lat: 1.2968307
+      lng: 103.8521961
+    units: []
+    aliases:
+      - "Singapore Management University"
+  - id: "singapore-university-of-technology-and-design-sutd"
+    name: "Singapore University of Technology and Design (SUTD)"
+    country: "Singapore"
+    continent: "Asia"
+    city: "Urban"
+    state: "Urban"
+    website: "https://www.sutd.edu.sg/"
+    coordinates:
+      lat: 1.34085
+      lng: 103.9624851
+    units: []
+    aliases:
+      - "Singapore University of Technology and Design (SUTD)"
+  - id: "sophia-college"
+    name: "Sophia College"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "https://www.sophiacollegemumbai.com/"
+    coordinates:
+      lat: 18.9724257
+      lng: 72.8052484
+    units: []
+    aliases:
+      - "Sophia College"
+      - "Sophiya College for Women"
+  - id: "srishti-school-of-art-design-and-technology"
+    name: "Srishti School of Art Design and Technology"
+    country: "India"
+    continent: "Asia"
+    city: "Bengaluru"
+    state: "Karnataka"
+    website: "http://srishti.ac.in/"
+    coordinates:
+      lat: 13.1074923
+      lng: 77.5760543999999
+    units: []
+    aliases:
+      - "Srishti School of Art Design and Technology"
+  - id: "st-george-s-university"
+    name: "St. George's University"
+    country: "Grenada"
+    continent: "North America"
+    city: "True Blue"
+    state: "West Indies"
+    website: "https://www.sgu.edu/?utm_source=google&utm_medium=organic&utm_campaign=gmb-website"
+    coordinates:
+      lat: 12.1165
+      lng: -61.6789999999999
+    units: []
+    aliases:
+      - "St. George's University"
+  - id: "st-lawrence-college"
+    name: "St. Lawrence College"
+    country: "USA"
+    continent: "North America"
+    city: "St. Lawrence"
+    state: "New York"
+    website: "http://www.stlawu.edu/"
+    coordinates:
+      lat: 44.5898024
+      lng: -75.1613345
+    units: []
+    aliases:
+      - "St. Lawrence College"
+  - id: "st-stephen-s-college-university-of-delhi"
+    name: "St. Stephen's College (University of Delhi)"
+    country: "India"
+    continent: "Asia"
+    city: "New Delhi"
+    website: "https://www.ststephens.edu"
+    coordinates:
+      lat: 28.685835
+      lng: 77.211543
+    units: []
+    aliases: []
+  - id: "st-xaviers-college"
+    name: "St. Xaviers College"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "http://xaviers.edu/main/"
+    coordinates:
+      lat: 18.9430258
+      lng: 72.8315023
+    units: []
+    aliases:
+      - "St. Xaviers College"
+  - id: "stanford-university"
+    name: "Stanford University"
+    country: "USA"
+    continent: "North America"
+    city: "Stanford, CA"
+    state: "California"
+    website: "https://www.stanford.edu"
+    logo: "/logos/stanford-university.png"
+    coordinates:
+      lat: 37.4281388
+      lng: -122.1700815
+    units: []
+    aliases:
+      - "Stanford University"
+  - id: "stevens-institute-of-technology"
+    name: "Stevens Institute of Technology"
+    country: "USA"
+    continent: "North America"
+    city: "Hoboken"
+    state: "New Jersey"
+    website: "https://www.stevens.edu/"
+    coordinates:
+      lat: 40.7446229
+      lng: -74.0253994999999
+    units: []
+    aliases:
+      - "Stevens Institute of Technology"
+  - id: "stony-brook-university"
+    name: "Stony Brook University"
+    country: "USA"
+    continent: "North America"
+    city: "Stony Brook"
+    state: "New York"
+    website: "https://www.stonybrook.edu/"
+    coordinates:
+      lat: 40.9155336
+      lng: -73.1227708
+    units: []
+    aliases:
+      - "Stony Brook University"
+  - id: "suresh-gyan-vihar-university"
+    name: "Suresh Gyan Vihar University"
+    country: "India"
+    continent: "Asia"
+    city: "Jaipur"
+    state: "Rajasthan"
+    website: "https://www.sgvu.edu.in/"
+    coordinates:
+      lat: 26.8104467
+      lng: 75.8669066
+    units: []
+    aliases:
+      - "Suresh Gyan Vihar University"
+  - id: "swansea-university"
+    name: "Swansea University"
+    country: "UK"
+    continent: "Europe"
+    city: "Wales"
+    state: "Wales"
+    website: "http://www.swansea.ac.uk/"
+    coordinates:
+      lat: 51.6106075
+      lng: -3.9763939
+    units: []
+    aliases:
+      - "Swansea University"
+  - id: "swinburne-university-of-technology"
+    name: "Swinburne University of Technology"
+    country: "Australia"
+    continent: "Oceania"
+    city: "Melbourne"
+    state: "Melbourne"
+    website: "http://www.swinburne.edu.au/"
+    coordinates:
+      lat: -37.8216292
+      lng: 145.0390703
+    units: []
+    aliases:
+      - "Swinburne University of Technology"
+  - id: "symbiosis-international-university"
+    name: "Symbiosis International University"
+    country: "India"
+    continent: "Asia"
+    city: "Pune"
+    state: "Maharashtra"
+    website: "https://www.siu.edu.in/"
+    coordinates:
+      lat: 18.5318742
+      lng: 73.7329834
+    units: []
+    aliases:
+      - "Symbiosis Centre for Management Studies"
+      - "Symbiosis Institute of Computer Studies and Research"
+      - "Symbiosis International (Deemed University)"
+      - "Symbiosis International University"
+      - "Symbiosis International University — Symbiosis Centre for Management Studies"
+      - "Symbiosis International University — Symbiosis Institute of Computer Studies & Research"
+      - "Symbiosis International University — Symbiosis Law School, Pune"
+      - "Symbiosis International University — Symbiosis School of Culinary Arts"
+      - "Symbiosis International University — Symbiosis School of Economics"
+      - "Symbiosis International University — Symbiosis School of Liberal Arts"
+      - "Symbiosis International University — Symbiosis School of Sports Sciences"
+      - "Symbiosis International University — Symbiosis Skills & Professional University"
+      - "Symbiosis Law School"
+      - "Symbiosis School for Liberal Arts"
+      - "Symbiosis School of Culinary Arts"
+      - "Symbiosis School of Economics"
+      - "Symbiosis School of Liberal Arts"
+      - "Symbiosis School of Sports Sciences"
+      - "Symbiosis Skills and Professions University"
+      - "Symbiosis University"
+      - "Symbiosis University - School of Liberal Arts"
+  - id: "tag-the-audio-guys"
+    name: "TAG (The Audio Guys)"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "http://tagmumbai.com/"
+    coordinates:
+      lat: 19.1324991
+      lng: 72.833698
+    units: []
+    aliases:
+      - "TAG (The Audio Guys)"
+  - id: "tu-delft"
+    name: "TU Delft"
+    country: "Netherlands"
+    continent: "Europe"
+    city: "Delft"
+    website: "https://www.tudelft.nl"
+    coordinates:
+      lat: 52.001931
+      lng: 4.372985
+    units: []
+    aliases: []
+  - id: "technical-university-of-applied-sciences-w-rzburg-schweinfur"
+    name: "Technical University of Applied Sciences Würzburg-Schweinfurt (Technische Hochschule Würzburg-Schweinfurt)"
+    country: "Germany"
+    continent: "Europe"
+    city: "Würzburg"
+    state: "Bavaria"
+    website: "https://www.thws.de/"
+    coordinates:
+      lat: 49.7876504
+      lng: 9.9327437
+    units: []
+    aliases:
+      - "Technical University of Applied Sciences Würzburg-Schweinfurt (Technische Hochschule Würzburg-Schweinfurt)"
+  - id: "texas-a-and-m-university"
+    name: "Texas A&M University"
+    country: "USA"
+    continent: "North America"
+    city: "Dallas"
+    state: "Texas"
+    website: "https://www.tamu.edu/"
+    coordinates:
+      lat: 30.6187029
+      lng: -96.3364684
+    units: []
+    aliases:
+      - "Texas A&M University"
+  - id: "the-new-school-parsons-school-of-design"
+    name: "The New School - Parsons School of Design"
+    country: "USA"
+    continent: "North America"
+    city: "New York Cit"
+    state: "New York"
+    website: "https://www.newschool.edu/parsons/"
+    coordinates:
+      lat: 40.7352741
+      lng: -73.9945527
+    units: []
+    aliases:
+      - "The New School - Parsons School of Design"
+  - id: "the-ohio-state-university"
+    name: "The Ohio State University"
+    country: "USA"
+    continent: "North America"
+    city: "Columbus"
+    state: "Ohio"
+    website: "https://www.osu.edu/"
+    coordinates:
+      lat: 40.006103
+      lng: -83.016536
+    units: []
+    aliases:
+      - "Ohio State University"
+      - "The Ohio State University"
+  - id: "the-university-of-auckland"
+    name: "The University of Auckland"
+    country: "New Zealand"
+    continent: "Oceania"
+    city: "Auckland"
+    state: "Auckland"
+    website: "https://www.auckland.ac.nz/en.html"
+    coordinates:
+      lat: -36.8519533
+      lng: 174.7689525
+    units: []
+    aliases:
+      - "The University of Auckland"
+  - id: "the-university-of-hong-kong-hku"
+    name: "The University of Hong Kong (HKU)"
+    country: "China"
+    continent: "Asia"
+    city: "Hong Kong"
+    state: "Hong Kong"
+    website: "https://www.hku.hk/"
+    coordinates:
+      lat: 22.2679201
+      lng: 114.1290719
+    units: []
+    aliases:
+      - "The University of Hong Kong (HKU)"
+  - id: "the-university-of-salford"
+    name: "The University of Salford"
+    country: "UK"
+    continent: "Europe"
+    city: "Greater Manchester"
+    state: "England"
+    website: "https://www.salford.ac.uk/"
+    coordinates:
+      lat: 53.4833656
+      lng: -2.2708929
+    units: []
+    aliases:
+      - "The University of Salford"
+  - id: "the-university-of-texas-arlington"
+    name: "The University of Texas, Arlington"
+    country: "USA"
+    continent: "North America"
+    city: "Arlington"
+    state: "Texas"
+    website: "https://www.uta.edu/default"
+    coordinates:
+      lat: 32.7292117
+      lng: -97.1151970999999
+    units: []
+    aliases:
+      - "The University of Texas, Arlington"
+  - id: "tilburg-university"
+    name: "Tilburg University"
+    country: "Netherlands"
+    continent: "Europe"
+    city: "North Brabant"
+    state: "Tilburg"
+    website: "https://www.tilburguniversity.edu/"
+    coordinates:
+      lat: 51.5902811
+      lng: 4.999656
+    units: []
+    aliases:
+      - "Tilburg University"
+  - id: "toronto-metropolitan-university"
+    name: "Toronto Metropolitan University"
+    country: "Canada"
+    continent: "North America"
+    city: "Toronto"
+    state: "Ontorio"
+    website: "https://www.torontomu.ca/"
+    coordinates:
+      lat: 43.6582985999999
+      lng: -79.3807846
+    units: []
+    aliases:
+      - "Toronto Metropolitan University"
+  - id: "toronto-school-of-management"
+    name: "Toronto School of Management"
+    country: "Canada"
+    continent: "North America"
+    city: "Toronto"
+    state: "Ontorio"
+    website: "https://www.torontosom.ca/"
+    coordinates:
+      lat: 43.6613981
+      lng: -79.3841735
+    units: []
+    aliases:
+      - "Toronto School of Management"
+  - id: "toulouse-business-school"
+    name: "Toulouse Business School"
+    country: "France"
+    continent: "Europe"
+    city: "Toulouse"
+    state: "France"
+    website: "https://www.tbs-education.fr/en"
+    coordinates:
+      lat: 43.609716
+      lng: 1.431909
+    units: []
+    aliases:
+      - "Toulouse Business School"
+  - id: "trinity-college-dublin"
+    name: "Trinity College Dublin"
+    country: "Ireland"
+    continent: "Europe"
+    website: "https://www.tcd.ie/"
+    coordinates:
+      lat: 53.344053
+      lng: -6.256064
+    units: []
+    aliases: []
+  - id: "turku-university-of-applied-sciences"
+    name: "Turku University of Applied Sciences"
+    country: "Finland"
+    continent: "Europe"
+    city: "Kupittaa"
+    state: "Turku"
+    website: "http://www.turkuamk.fi/"
+    coordinates:
+      lat: 60.4493963
+      lng: 22.2957456
+    units: []
+    aliases:
+      - "Turku University of Applied Sciences"
+  - id: "uc-berkeley"
+    name: "UC Berkeley"
+    country: "USA"
+    continent: "North America"
+    city: "Berkeley, CA"
+    website: "https://www.berkeley.edu"
+    coordinates:
+      lat: 37.870752
+      lng: -122.258537
+    units: []
+    aliases: []
+  - id: "ucl"
+    name: "UCL"
+    country: "UK"
+    continent: "Europe"
+    city: "London"
+    state: "London"
+    website: "https://www.ucl.ac.uk"
+    coordinates:
+      lat: 51.524582
+      lng: -0.133559
+    units: []
+    aliases:
+      - "University College Londan (UCL)"
+  - id: "university-of-birmingham"
+    name: "University Of Birmingham"
+    country: "UK"
+    continent: "Europe"
+    city: "Edgbaston"
+    state: "Birmingham"
+    website: "https://www.birmingham.ac.uk/index.aspx"
+    coordinates:
+      lat: 52.4862429999999
+      lng: -1.890401
+    units: []
+    aliases:
+      - "University Of Birmingham"
+  - id: "university-at-albany-suny"
+    name: "University at Albany (SUNY)"
+    country: "USA"
+    continent: "North America"
+    city: "Albany"
+    state: "New York"
+    website: "https://www.albany.edu/"
+    coordinates:
+      lat: 42.689933
+      lng: -73.8299828999999
+    units: []
+    aliases:
+      - "University at Albany (SUNY)"
+  - id: "university-at-buffalo"
+    name: "University at Buffalo"
+    country: "USA"
+    continent: "North America"
+    city: "Buffalo"
+    state: "New York"
+    website: "https://www.buffalo.edu/"
+    coordinates:
+      lat: 43.0009502
+      lng: -78.7897285
+    units: []
+    aliases:
+      - "University at Buffalo"
+  - id: "university-of-alabama-at-birmingham"
+    name: "University of Alabama at Birmingham"
+    country: "USA"
+    continent: "North America"
+    city: "Birmingham"
+    state: "Alabama"
+    website: "https://www.uab.edu/home/"
+    coordinates:
+      lat: 33.5039475
+      lng: -86.8028329999999
+    units: []
+    aliases:
+      - "University of Alabama at Birmingham"
+  - id: "university-of-alberta"
+    name: "University of Alberta"
+    country: "Canada"
+    continent: "North America"
+    city: "Edmonton"
+    state: "Alberta"
+    website: "https://www.ualberta.ca/index.html"
+    coordinates:
+      lat: 53.5209841
+      lng: -113.4995487
+    units: []
+    aliases:
+      - "University of Alberta"
+  - id: "university-of-british-columbia"
+    name: "University of British Columbia"
+    country: "Canada"
+    continent: "North America"
+    city: "Vancouver"
+    state: "BC"
+    website: "https://www.ubc.ca"
+    logo: "/logos/university-of-british-columbia.svg"
+    coordinates:
+      lat: 49.2613169
+      lng: -123.2537147
+    units:
+      - id: "university-of-british-columbia-okanagan"
+        name: "University of British Columbia — Okanagan"
+        country: "Canada"
+        city: "Kelowna"
+        state: "British Columbia"
+        coordinates:
+          lat: 49.9387517
+          lng: -119.3947484
+    aliases:
+      - "The University of British Columbia"
+      - "The University of British Columbia Okanagan Campus"
+      - "University of British Columbia"
+  - id: "university-of-california-davis"
+    name: "University of California Davis"
+    country: "USA"
+    continent: "North America"
+    city: "Davis"
+    state: "California"
+    website: "https://www.ucdavis.edu/"
+    coordinates:
+      lat: 38.5339853
+      lng: -121.7649259
+    units: []
+    aliases:
+      - "University of California Davis"
+  - id: "university-of-california-irvine"
+    name: "University of California Irvine"
+    country: "USA"
+    continent: "North America"
+    city: "Irvine"
+    state: "California"
+    website: "https://uci.edu/"
+    logo: "/logos/university-of-california-irvine.jpg"
+    coordinates:
+      lat: 33.6471239
+      lng: -117.8421325
+    units: []
+    aliases:
+      - "University of California Irvine"
+  - id: "university-of-california-los-angeles-ucla-college-of-letters"
+    name: "University of California, Los Angeles, UCLA College of Letters and Science"
+    country: "USA"
+    continent: "North America"
+    city: "Los Angeles"
+    state: "California"
+    website: "http://www.ucla.edu/"
+    logo: "/logos/university-of-california-los-angeles-ucla-college-of-letters.svg"
+    coordinates:
+      lat: 39.9809442
+      lng: -75.1578372
+    units: []
+    aliases:
+      - "University of California, Los Angeles, UCLA College of Letters and Science"
+  - id: "university-of-california-san-diego"
+    name: "University of California, San Diego"
+    country: "USA"
+    continent: "North America"
+    city: "San Diego"
+    state: "California"
+    website: "http://www.ucsd.edu/"
+    logo: "/logos/university-of-california-san-diego.jpg"
+    coordinates:
+      lat: 32.8798977
+      lng: -117.2363369
+    units: []
+    aliases:
+      - "University of California San Diego"
+      - "University of California, San Diego"
+  - id: "university-of-cambridge"
+    name: "University of Cambridge"
+    country: "UK"
+    continent: "Europe"
+    city: "Cambridge"
+    state: "England"
+    website: "https://www.cam.ac.uk"
+    logo: "/logos/university-of-cambridge.png"
+    coordinates:
+      lat: 52.2052355999999
+      lng: 0.11705
+    units: []
+    aliases:
+      - "University of Cambridge"
+  - id: "university-of-canada-west"
+    name: "University of Canada West"
+    country: "Canada"
+    continent: "North America"
+    city: "Vancouver"
+    state: "British Columbia."
+    website: "https://ucanwest.ca/"
+    coordinates:
+      lat: 49.2842383
+      lng: -123.1144201
+    units: []
+    aliases:
+      - "University of Canada West"
+  - id: "university-of-cincinnati"
+    name: "University of Cincinnati"
+    country: "USA"
+    continent: "North America"
+    city: "Cincinnati"
+    state: "Ohio"
+    website: "https://www.uc.edu/"
+    coordinates:
+      lat: 39.1329219
+      lng: -84.5149503999999
+    units: []
+    aliases:
+      - "University of Cincinnati"
+  - id: "university-of-connecticut"
+    name: "University of Connecticut"
+    country: "USA"
+    continent: "North America"
+    city: "Storrs"
+    state: "Connecticut"
+    website: "https://uconn.edu/"
+    coordinates:
+      lat: 41.8088667
+      lng: -72.2499066
+    units: []
+    aliases:
+      - "University of Connecticut"
+  - id: "university-of-creative-arts"
+    name: "University of Creative Arts"
+    country: "UK"
+    continent: "Europe"
+    city: "Farham"
+    state: "Surrey"
+    website: "https://www.uca.ac.uk/"
+    coordinates:
+      lat: 51.2150350999999
+      lng: -0.805282899999999
+    units: []
+    aliases:
+      - "University of Creative Arts"
+  - id: "university-of-delaware"
+    name: "University of Delaware"
+    country: "USA"
+    continent: "North America"
+    city: "Newark"
+    state: "Delaware"
+    website: "http://www.udel.edu/"
+    coordinates:
+      lat: 39.6673566
+      lng: -75.7502313999999
+    units: []
+    aliases:
+      - "University of Delaware"
+  - id: "university-of-east-london"
+    name: "University of East London"
+    country: "UK"
+    continent: "Europe"
+    city: "London"
+    state: "England"
+    website: "https://www.uel.ac.uk/"
+    coordinates:
+      lat: 51.507574
+      lng: 0.064636
+    units: []
+    aliases:
+      - "University of East London"
+  - id: "university-of-edinburgh"
+    name: "University of Edinburgh"
+    country: "UK"
+    continent: "Europe"
+    city: "Edinburgh"
+    website: "https://www.ed.ac.uk"
+    coordinates:
+      lat: 55.948712
+      lng: -3.184757
+    units: []
+    aliases: []
+  - id: "university-of-essex"
+    name: "University of Essex"
+    country: "UK"
+    continent: "Europe"
+    city: "Colchester"
+    state: "Colchester"
+    website: "https://www.essex.ac.uk/"
+    coordinates:
+      lat: 51.8767102
+      lng: 0.9532472
+    units: []
+    aliases:
+      - "University of Essex"
+  - id: "university-of-exeter"
+    name: "University of Exeter"
+    country: "UK"
+    continent: "Europe"
+    city: "Exeter"
+    state: "England"
+    website: "https://www.exeter.ac.uk/"
+    coordinates:
+      lat: 50.7358377
+      lng: -3.5336183
+    units: []
+    aliases:
+      - "University of Exeter"
+  - id: "university-of-hertfordshire"
+    name: "University of Hertfordshire"
+    country: "UK"
+    continent: "Europe"
+    city: "Hatfield"
+    state: "England"
+    website: "https://www.herts.ac.uk/"
+    coordinates:
+      lat: 54.5841237
+      lng: -5.9365702
+    units: []
+    aliases:
+      - "University of Hertfordshire"
+  - id: "university-of-illinios-chicago"
+    name: "University of Illinios Chicago"
+    country: "USA"
+    continent: "North America"
+    city: "Illinois"
+    state: "Chicago"
+    website: "https://www.uic.edu/"
+    coordinates:
+      lat: 41.8747124
+      lng: -87.6577514
+    units: []
+    aliases:
+      - "University of Illinios Chicago"
+  - id: "university-of-illinois-at-urbana-champaign"
+    name: "University of Illinois at Urbana-Champaign"
+    country: "USA"
+    continent: "North America"
+    city: "Champaign"
+    state: "Illinois"
+    website: "http://illinois.edu/"
+    coordinates:
+      lat: 40.1164204
+      lng: -88.2433829
+    units: []
+    aliases:
+      - "University of Illinois at Urbana-Champaign"
+  - id: "university-of-indianapolis"
+    name: "University of Indianapolis"
+    country: "USA"
+    continent: "North America"
+    city: "Indianapolis"
+    state: "Indiana"
+    website: "http://www.uindy.edu/"
+    coordinates:
+      lat: 39.709623
+      lng: -86.1364602
+    units: []
+    aliases:
+      - "University of Indianapolis"
+  - id: "university-of-leeds"
+    name: "University of Leeds"
+    country: "UK"
+    continent: "Europe"
+    city: "Leeds"
+    state: "Leeds"
+    website: "https://www.leeds.ac.uk/"
+    coordinates:
+      lat: 53.8079585
+      lng: -1.5533293
+    units: []
+    aliases:
+      - "University of Leeds"
+  - id: "university-of-manchester"
+    name: "University of Manchester"
+    country: "UK"
+    continent: "Europe"
+    city: "Manchester"
+    state: "Manchester"
+    website: "http://www.manchester.ac.uk/"
+    logo: "/logos/university-of-manchester.png"
+    coordinates:
+      lat: 53.4640773
+      lng: -2.2314852
+    units: []
+    aliases:
+      - "The University of Manchester"
+      - "University of Manchester"
+  - id: "university-of-mannitoba-winnepig"
+    name: "University of Mannitoba, Winnepig"
+    country: "Canada"
+    continent: "North America"
+    city: "Mannitoba"
+    state: "Winnipeg"
+    website: "https://umanitoba.ca/"
+    coordinates:
+      lat: 49.8093942
+      lng: -97.1344793
+    units: []
+    aliases:
+      - "University of Mannitoba, Winnepig"
+  - id: "university-of-massachusetts"
+    name: "University of Massachusetts"
+    country: "USA"
+    continent: "North America"
+    city: "Amherst"
+    state: "Massachusetts"
+    website: "http://www.umass.edu/"
+    logo: "/logos/university-of-massachusetts.jpg"
+    coordinates:
+      lat: 42.3859596
+      lng: -72.5267064
+    units:
+      - id: "university-of-massachusetts-boston"
+        name: "University of Massachusetts — Boston"
+        country: "USA"
+        city: "Bostan"
+        state: "Massachusetts"
+        coordinates:
+          lat: 42.3145469
+          lng: -71.0403647999999
+      - id: "university-of-massachusetts-lowell"
+        name: "University of Massachusetts — Lowell"
+        country: "USA"
+        city: "Lowell"
+        state: "Massachusetts"
+        coordinates:
+          lat: 42.647799
+          lng: -71.330615
+    aliases:
+      - "University of Massachusetts Amherst"
+      - "University of Massachusetts Boston"
+      - "University of Massachusetts Lowell"
+      - "University of Massachusetts — Amherst"
+      - "University of Massachusetts, Amherst"
+      - "University of Massachusetts, Boston"
+  - id: "university-of-melbourne"
+    name: "University of Melbourne"
+    country: "Australia"
+    continent: "Oceania"
+    city: "Melbourne"
+    website: "https://www.unimelb.edu.au"
+    coordinates:
+      lat: -37.7963
+      lng: 144.9614
+    units: []
+    aliases: []
+  - id: "university-of-mumbai"
+    name: "University of Mumbai"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "http://mu.ac.in/portal/"
+    coordinates:
+      lat: 19.0759837
+      lng: 72.8776559
+    units: []
+    aliases:
+      - "Mumbai University"
+      - "University of Mumbai"
+  - id: "university-of-new-south-wales-unsw"
+    name: "University of New South Wales (UNSW)"
+    country: "Australia"
+    continent: "Oceania"
+    city: "Kensington"
+    state: "New South Wales"
+    website: "https://www.unsw.edu.au/"
+    coordinates:
+      lat: -33.917347
+      lng: 151.2312675
+    units: []
+    aliases:
+      - "University of New South Wales (UNSW)"
+  - id: "university-of-nottingham"
+    name: "University of Nottingham"
+    country: "UK"
+    continent: "Europe"
+    city: "Nottingham"
+    state: "Nottingham"
+    website: "https://www.nottingham.ac.uk/?utm_source=GMB&utm_medium=organic&utm_campaign=MainUP"
+    logo: "/logos/university-of-nottingham.jpg"
+    coordinates:
+      lat: 52.9403729
+      lng: -1.1896665
+    units: []
+    aliases:
+      - "University of Nottingham"
+  - id: "university-of-oxford"
+    name: "University of Oxford"
+    country: "UK"
+    continent: "Europe"
+    city: "Oxford"
+    website: "https://www.ox.ac.uk"
+    coordinates:
+      lat: 51.756622
+      lng: -1.258507
+    units: []
+    aliases: []
+  - id: "university-of-passau"
+    name: "University of Passau"
+    country: "Germany"
+    continent: "Europe"
+    city: "Passau"
+    state: "Bavaria"
+    website: "http://www.uni-passau.de/"
+    coordinates:
+      lat: 48.5668333
+      lng: 13.4496957
+    units: []
+    aliases:
+      - "University of Passau"
+  - id: "university-of-rochester"
+    name: "University of Rochester"
+    country: "USA"
+    continent: "North America"
+    city: "Rochester"
+    state: "New York"
+    website: "http://www.rochester.edu/"
+    coordinates:
+      lat: 43.1295933
+      lng: -77.6292697
+    units: []
+    aliases:
+      - "University of Rochester"
+  - id: "university-of-san-francisco"
+    name: "University of San Francisco"
+    country: "USA"
+    continent: "North America"
+    city: "San Francisco"
+    state: "California"
+    website: "https://www.usfca.edu/"
+    coordinates:
+      lat: 37.7752675
+      lng: -122.4517109
+    units: []
+    aliases:
+      - "University of San Francisco"
+  - id: "university-of-saskatchewan"
+    name: "University of Saskatchewan"
+    country: "Canada"
+    continent: "North America"
+    city: "Saskatoon"
+    state: "Saskatchewan"
+    website: "https://www.usask.ca/"
+    coordinates:
+      lat: 52.13007
+      lng: -106.632552
+    units: []
+    aliases:
+      - "University of Saskatchewan"
+  - id: "university-of-south-carolina"
+    name: "University of South Carolina"
+    country: "USA"
+    continent: "North America"
+    city: "Columbia"
+    state: "South Carolina"
+    website: "https://sc.edu/"
+    coordinates:
+      lat: 33.9963052
+      lng: -81.027157
+    units: []
+    aliases:
+      - "University of South Carolina"
+  - id: "university-of-sussex"
+    name: "University of Sussex"
+    country: "UK"
+    continent: "Europe"
+    city: "Brighton"
+    state: "England"
+    website: "https://www.sussex.ac.uk/"
+    coordinates:
+      lat: 50.8642508
+      lng: -0.0869485
+    units: []
+    aliases:
+      - "University of Sussex"
+  - id: "university-of-sydney"
+    name: "University of Sydney"
+    country: "Australia"
+    continent: "Oceania"
+    city: "Camperdown"
+    state: "Sydney"
+    website: "https://www.sydney.edu.au/"
+    coordinates:
+      lat: -33.8877902
+      lng: 151.1888159
+    units: []
+    aliases:
+      - "University of Sydney"
+  - id: "university-of-texas-at-dallas"
+    name: "University of Texas At Dallas"
+    country: "USA"
+    continent: "North America"
+    city: "Richardson"
+    state: "Texas"
+    website: "https://www.utdallas.edu/"
+    coordinates:
+      lat: 32.9816522
+      lng: -96.7526611
+    units: []
+    aliases:
+      - "University of Texas At Dallas"
+  - id: "university-of-texas-at-san-antonio-utsa"
+    name: "University of Texas at San Antonio (UTSA)"
+    country: "USA"
+    continent: "North America"
+    city: "San Antonio"
+    state: "Texas"
+    website: "https://www.utsa.edu/"
+    coordinates:
+      lat: 29.5830733
+      lng: -98.6198778999999
+    units: []
+    aliases:
+      - "University of Texas at San Antonio (UTSA)"
+  - id: "university-of-texas-austin"
+    name: "University of Texas, Austin"
+    country: "USA"
+    continent: "North America"
+    city: "Austin"
+    state: "Texas"
+    website: "https://www.utexas.edu/"
+    coordinates:
+      lat: 30.2835151
+      lng: -97.7348804999999
+    units: []
+    aliases:
+      - "University of Texas, Austin"
+  - id: "university-of-toronto"
+    name: "University of Toronto"
+    country: "Canada"
+    continent: "North America"
+    city: "Toronto"
+    state: "Ontario"
+    website: "https://www.utoronto.ca"
+    coordinates:
+      lat: 43.660849
+      lng: -79.3954943
+    units:
+      - id: "university-of-toronto-mississauga"
+        name: "University of Toronto — Mississauga"
+        country: "Canada"
+        city: "Toronto"
+        state: "Ontario"
+        coordinates:
+          lat: 43.5890452
+          lng: -79.6441198
+    aliases:
+      - "University of Toronto"
+      - "University of Toronto - St. George Campus"
+      - "University of Toronto Mississauga"
+      - "University of Toronto — St. George (Downtown)"
+      - "University of Toronto- Mississauga"
+  - id: "university-of-virginia"
+    name: "University of Virginia"
+    country: "USA"
+    units: []
+    aliases: []
+  - id: "university-of-warwick"
+    name: "University of Warwick"
+    country: "UK"
+    continent: "Europe"
+    city: "Coventry"
+    state: "Coventry"
+    website: "https://warwick.ac.uk/"
+    coordinates:
+      lat: 52.3800625
+      lng: -1.5616976
+    units: []
+    aliases:
+      - "University of Warwick"
+  - id: "university-of-waterloo"
+    name: "University of Waterloo"
+    country: "Canada"
+    continent: "North America"
+    city: "Waterloo"
+    state: "Ontario"
+    website: "https://uwaterloo.ca/"
+    coordinates:
+      lat: 43.4729791
+      lng: -80.5401026999999
+    units: []
+    aliases:
+      - "University Of Waterloo"
+      - "University of Waterloo"
+  - id: "university-of-westminster"
+    name: "University of Westminster"
+    country: "UK"
+    continent: "Europe"
+    city: "Westminster"
+    state: "London"
+    website: "https://www.westminster.ac.uk/"
+    coordinates:
+      lat: 51.5168455
+      lng: -0.1428238
+    units: []
+    aliases:
+      - "University of Westminster"
+  - id: "university-of-winnipeg"
+    name: "University of Winnipeg"
+    country: "Canada"
+    continent: "North America"
+    city: "Mannitoba"
+    state: "Winnipeg"
+    website: "http://www.uwinnipeg.ca/"
+    coordinates:
+      lat: 49.8908837
+      lng: -97.1533561999999
+    units: []
+    aliases:
+      - "University of Winnipeg"
+  - id: "university-of-wollongong"
+    name: "University of Wollongong"
+    country: "United Arab Emirates"
+    continent: "Asia"
+    city: "Dubai Knowledge Park"
+    state: "Dubai"
+    website: "https://www.uowdubai.ac.ae/?utm_source=google&utm_medium=organic&utm_campaign=Google_My_Business"
+    coordinates:
+      lat: 25.1013375
+      lng: 55.1625156
+    units: []
+    aliases:
+      - "University of Wollongong"
+  - id: "usha-pravin-gandhi-college-of-management"
+    name: "Usha Pravin Gandhi College of Management"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "http://upgcm.ac.in/"
+    coordinates:
+      lat: 19.10313
+      lng: 72.837385
+    units: []
+    aliases:
+      - "Usha Pravin Gandhi College of Management"
+  - id: "vit-vellore"
+    name: "VIT Vellore"
+    country: "India"
+    continent: "Asia"
+    city: "Vellore"
+    website: "https://vit.ac.in"
+    coordinates:
+      lat: 12.969472
+      lng: 79.158314
+    units: []
+    aliases: []
+  - id: "vanita-vishram-women-s-university"
+    name: "Vanita Vishram Women's University"
+    country: "India"
+    continent: "Asia"
+    city: "Surat"
+    state: "Gujarat"
+    website: "http://vvwusurat.ac.in/"
+    coordinates:
+      lat: 21.1843111
+      lng: 72.810112
+    units: []
+    aliases:
+      - "Vanita Vishram Women's University"
+  - id: "veer-narmad-south-gujarat-university"
+    name: "Veer Narmad South Gujarat University"
+    country: "India"
+    continent: "Asia"
+    city: "Surat"
+    state: "Gujarat"
+    website: "http://www.vnsgu.ac.in/"
+    coordinates:
+      lat: 21.1535246
+      lng: 72.7831882999999
+    units: []
+    aliases:
+      - "Veer Narmad South Gujarat University"
+      - "Veer Narmad South Gujarat University (External)"
+      - "Veer Narmad South Gujarat University (External) International School of Gems & Jewellery"
+  - id: "vellore-institute-of-technology"
+    name: "Vellore Institute of Technology"
+    country: "India"
+    continent: "Asia"
+    city: "Bhopal"
+    state: "Madhya Pradesh"
+    website: "https://vitbhopal.ac.in/"
+    coordinates:
+      lat: 23.2609008
+      lng: 77.3877133
+    units: []
+    aliases:
+      - "Vellore Institute of Technology"
+  - id: "wayman-aviation-academy"
+    name: "Wayman Aviation Academy"
+    country: "USA"
+    continent: "North America"
+    city: "Pembroke Pines"
+    state: "Florida"
+    website: "https://wayman.edu/"
+    coordinates:
+      lat: 25.9954223
+      lng: -80.2376207
+    units: []
+    aliases:
+      - "Wayman Aviation Academy"
+  - id: "wharton-school-of-business-university-of-pennsylvania"
+    name: "Wharton School of Business, University of Pennsylvania"
+    country: "USA"
+    continent: "North America"
+    city: "Philadelphia"
+    state: "Philadelphia"
+    website: "https://wharton.upenn.edu"
+    coordinates:
+      lat: 39.9512686
+      lng: -75.1978860999999
+    units: []
+    aliases:
+      - "Wharton School of Business, University of Pennsylvania"
+  - id: "wheaton-college"
+    name: "Wheaton College"
+    country: "USA"
+    continent: "North America"
+    city: "Wheaton"
+    state: "Illinois"
+    website: "http://www.wheaton.edu/"
+    coordinates:
+      lat: 41.8685009
+      lng: -88.099578
+    units: []
+    aliases:
+      - "Wheaton College"
+  - id: "whistling-woods-international"
+    name: "Whistling Woods International"
+    country: "India"
+    continent: "Asia"
+    city: "Mumbai"
+    state: "Maharashtra"
+    website: "https://www.whistlingwoods.net/"
+    coordinates:
+      lat: 19.1594039
+      lng: 72.8884698
+    units: []
+    aliases:
+      - "Whistling Wood"
+      - "Whistling Woods International"
+      - "Whistling Woods International | Institute of Flim, Communication & Creative Arts"
+  - id: "wilson-college"
+    name: "Wilson College"
+    country: "India"
+    continent: "Asia"
+    city: "Surat"
+    state: "Gujarat"
+    website: "https://www.wilsoncollege.edu/"
+    coordinates:
+      lat: 21.1702401
+      lng: 72.8310607
+    units: []
+    aliases:
+      - "Wilson College"
+  - id: "york-university"
+    name: "York University"
+    country: "Canada"
+    continent: "North America"
+    city: "Toronto"
+    state: "Ontario"
+    website: "http://www.yorku.ca/index.html"
+    logo: "/logos/york-university.png"
+    coordinates:
+      lat: 43.7742707
+      lng: -79.4931323
+    units: []
+    aliases:
+      - "York University"
+  - id: "yorkville-university"
+    name: "Yorkville University"
+    country: "Canada"
+    continent: "North America"
+    city: "Fredericton"
+    state: "New Brunswick"
+    website: "https://www.yorkvilleu.ca/"
+    coordinates:
+      lat: 45.946888
+      lng: -66.694055
+    units: []
+    aliases:
+      - "Yorkville University"

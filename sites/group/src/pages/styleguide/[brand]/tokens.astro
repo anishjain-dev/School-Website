@@ -1,0 +1,75 @@
+---
+// Styleguide: /styleguide/<brand>/tokens/ — one page per brand, all four
+// rendering the identical TokensDemo component. The <html data-brand>
+// attribute is the entire difference (DoD #3; parity proven by
+// scripts/check-brand-parity.mjs). Dev/review surface — noindex, and
+// gated out before .org cutover.
+import '@fountainhead-web/tokens/index.css';
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/500.css';
+import '@fontsource/montserrat/600.css';
+import '@fontsource/montserrat/700.css';
+import '@fontsource/montserrat/800.css';
+import '@fontsource/nunito/400.css';
+import '@fontsource/nunito/600.css';
+import '@fontsource/nunito/700.css';
+import TokensDemo from '../../../components/styleguide/TokensDemo.astro';
+import { BRANDS, BRAND_LABELS, type Brand } from '../../../lib/brands';
+
+export function getStaticPaths() {
+  return BRANDS.map((brand) => ({ params: { brand } }));
+}
+
+const brand = Astro.params.brand as Brand;
+const label = BRAND_LABELS[brand];
+---
+
+<!doctype html>
+<html lang="en" data-brand={brand}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>{label} tokens — styleguide</title>
+  </head>
+  <body>
+    <nav aria-label="Brand switcher">
+      <span>Brand:</span>
+      {BRANDS.map((b) => <a href={`/styleguide/${b}/tokens/`}>{BRAND_LABELS[b]}</a>)}
+    </nav>
+    <main>
+      <TokensDemo />
+    </main>
+  </body>
+</html>
+
+<style>
+  body {
+    margin: 0;
+    background: var(--fh-color-bg);
+    font-family: var(--fh-font-body);
+    font-size: var(--fh-text-base);
+  }
+  nav {
+    display: flex;
+    gap: var(--fh-space-4);
+    align-items: center;
+    padding: var(--fh-space-3) var(--fh-space-6);
+    background: var(--fh-color-header-bg);
+    color: var(--fh-color-header-fg);
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-sm);
+  }
+  nav a {
+    color: var(--fh-color-text-link);
+    text-decoration: none;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  nav a:focus-visible {
+    outline: none;
+    box-shadow: var(--fh-ring);
+  }
+</style>

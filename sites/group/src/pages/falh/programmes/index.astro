@@ -1,0 +1,99 @@
+---
+// Template 11a — FALH programme catalogue index (WA-35). Two audiences,
+// two sections, two conversion paths: preschool feeds FASV; after-school
+// serves families whose children attend other schools.
+import { getCollection } from 'astro:content';
+import PageChrome from '@fountainhead-web/ui/layouts/PageChrome.astro';
+import ProgrammeCard from '@fountainhead-web/ui/components/ProgrammeCard.astro';
+import { getSiteContext } from '../../../lib/matrix';
+
+const ctx = await getSiteContext();
+const campus = ctx.campusDataFor('falh')!;
+const programmes = (await getCollection('programmes')).filter((p) => !p.data.draft);
+const preschool = programmes.filter((p) => p.data.audience === 'preschool');
+const afterSchool = programmes.filter((p) => p.data.audience === 'after-school');
+---
+
+<PageChrome
+  campus={campus}
+  heading="Programmes"
+  pageTitle={`Programmes — ${campus.name}`}
+  description="Preschool mornings and after-school explorations — reading, robotics and more, open to children from every school in Vapi."
+  canonical={new URL('/falh/programmes/', Astro.site)}
+  nav={ctx.navFor('falh')}
+  social={ctx.socialFor('falh')}
+  eyebrow={campus.shortName ?? campus.name}
+  admissionsPath={ctx.admissionsPathFor('falh')}
+>
+  <div class="container catalogue">
+    {preschool.length > 0 && (
+      <section aria-labelledby="pre-h">
+        <div class="aud-head">
+          <h2 id="pre-h">Preschool</h2>
+        <p>Mornings that begin a Fountainhead journey — and the natural on-ramp to <a href="/fasv/">FASV, our IB school taking shape in Vapi</a>.</p>
+        </div>
+        <div class="grid">
+          {preschool.map((p) => (
+            <ProgrammeCard
+              title={p.data.title}
+              path={`/falh/programmes/${p.id}/`}
+              ageBand={p.data.ageBand}
+              batches={p.data.batches}
+              sessionCount={p.data.sessionCount}
+              enrolmentStatus={p.data.enrolmentStatus}
+            />
+          ))}
+        </div>
+      </section>
+    )}
+
+    {afterSchool.length > 0 && (
+      <section aria-labelledby="after-h">
+        <div class="aud-head">
+          <h2 id="after-h">After-school</h2>
+          <p>Open to children from <strong>every</strong> school — join for the programme, stay for the way we teach it.</p>
+        </div>
+        <div class="grid">
+          {afterSchool.map((p) => (
+            <ProgrammeCard
+              title={p.data.title}
+              path={`/falh/programmes/${p.id}/`}
+              ageBand={p.data.ageBand}
+              batches={p.data.batches}
+              sessionCount={p.data.sessionCount}
+              enrolmentStatus={p.data.enrolmentStatus}
+            />
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</PageChrome>
+
+<style>
+  .catalogue {
+    padding-block: var(--fh-space-12);
+    display: grid;
+    gap: var(--fh-space-16);
+  }
+  .aud-head {
+    margin-bottom: var(--fh-space-8);
+    padding-bottom: var(--fh-space-4);
+    border-bottom: var(--fh-border-width-2) solid var(--fh-color-border);
+    max-width: 60ch;
+  }
+  h2 {
+    font-size: var(--fh-text-3xl);
+    font-weight: var(--fh-weight-extrabold);
+    margin-bottom: var(--fh-space-2);
+  }
+  .aud-head p {
+    color: var(--fh-color-text-muted);
+    line-height: var(--fh-leading-relaxed);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: var(--fh-space-6);
+  }
+</style>

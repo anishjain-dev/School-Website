@@ -1,0 +1,27 @@
+# Fountainhead Preschool Vesu — wholly owned. Formerly "The Village Early
+# Learning Centre"; renamed, records exist, so thevillageelc.in 301s in
+# like any other campus domain (WA-10 extension, 2026-07-27).
+# Preschool only: no PYP/MYP/DP, so it takes the early-years template
+# (WA-47). Warm hero palette via brand: falh.
+slug: vesu
+name: Fountainhead Preschool Vesu
+shortName: FP Vesu
+descriptor: Early years in Vesu, Surat
+brand: falh
+jurisdiction: gujarat
+address:
+  line1: 40-41-42, Behind T.M. Patel School
+  line2: Vesu
+  city: Surat
+  state: Gujarat
+  pincode: "395007"
+phone: "+91 98241 19636"
+email: fpv.info@fountainheadpreschools.org
+# TODO (VK/marketing): see adajan — progression pairing is by geography
+# (WA-47) and needs confirming before it is asserted.
+# continuesAt: malgama
+domains:
+  - thevillageelc.in
+inherit:
+  mode: listed
+  include: []

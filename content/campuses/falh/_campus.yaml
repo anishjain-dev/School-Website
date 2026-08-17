@@ -1,0 +1,20 @@
+# Fountainhead Avadh Learning Hub — Avadh JV. Preschool PLUS after-school
+# centre (WA-31): programme catalogue, not the school page structure
+# (WA-35). inherit.mode listed = only explicitly included group pages;
+# the include list is a content-plan decision, seeded empty.
+slug: falh
+name: Fountainhead Avadh Learning Hub
+shortName: FALH
+descriptor: Preschool + after-school hub in Vapi
+brand: falh
+jurisdiction: gujarat
+address:
+  line1: FALH Centre
+  city: Vapi
+  state: Gujarat
+  pincode: "396191"
+domains:
+  - falh.in
+inherit:
+  mode: listed
+  include: []

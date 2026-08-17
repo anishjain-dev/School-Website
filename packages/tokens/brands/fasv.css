@@ -1,0 +1,33 @@
+/* ==========================================================================
+   BRAND — FASV (Fountainhead Avadh School Vapi — not yet launched;
+   /fasv/ ships as a single interest-capture landing page, WA-35)
+   --------------------------------------------------------------------------
+   REAL VALUES from "FASV - Brand Manual.pdf" (Brand Guidelines 2025, 37pp,
+   ©CONTOURS; page-by-page visual read 2026-07-20). The manual specifies
+   THE FOUNTAINHEAD PRIMARY PALETTE verbatim — #005BAA / #B8292F / #F2C418
+   with the standard tints — and Montserrat (primary) + Nunito (secondary).
+   FASV is a school: it takes the standard deep-blue school treatment
+   (VK 2026-07-20: preschools stay distinct, schools share the look).
+   Avadh identity is carried by the logo (yellow-tipped triangle), not by
+   palette deviation.
+   ========================================================================== */
+
+[data-brand="fasv"] {
+  --fh-color-primary:        var(--fh-blue-600);
+  --fh-color-primary-hover:  var(--fh-blue-700);
+  --fh-color-primary-active: var(--fh-blue-800);
+
+  --fh-color-secondary:       var(--fh-red-600);
+  --fh-color-secondary-hover: var(--fh-red-700);
+
+  --fh-color-accent:    var(--fh-yellow-400);
+  --fh-color-accent-fg: var(--fh-neutral-900);
+
+  --fh-color-text-link: var(--fh-blue-700);
+  --fh-color-focus:     var(--fh-blue-600);
+  --fh-ring:            0 0 0 3px rgba(0, 91, 170, 0.35);
+
+  --fh-color-hero-bg: var(--fh-blue-800);
+  --fh-color-hero-fg: var(--fh-neutral-0);
+  --fh-color-eyebrow: var(--fh-color-secondary-text);
+}

@@ -1,0 +1,135 @@
+---
+// Template 7 — Staff directory (interim Tier C, WA-15/WA-40: markdown now,
+// SD-DIR loader swap later — this page must not change when that happens).
+// No photo on file (or consent off) renders initials, never a placeholder
+// face.
+import { getCollection, type CollectionEntry } from 'astro:content';
+import PageChrome from '@fountainhead-web/ui/layouts/PageChrome.astro';
+import ImageFrame from '@fountainhead-web/ui/components/ImageFrame.astro';
+import { getSiteContext } from '../../lib/matrix';
+
+export async function getStaticPaths() {
+  const ctx = await getSiteContext();
+  const staff = await getCollection('staff');
+  const campusesWithStaff = [...new Set(staff.map((s) => s.data.campus))];
+  return campusesWithStaff
+    .filter((slug) => ctx.campusDataFor(slug))
+    .map((slug) => ({
+      params: { campus: slug },
+      props: { members: staff.filter((s) => s.data.campus === slug) },
+    }));
+}
+
+const { members } = Astro.props as { members: CollectionEntry<'staff'>[] };
+const ctx = await getSiteContext();
+const slug = Astro.params.campus!;
+const campus = ctx.campusDataFor(slug)!;
+
+const initials = (name: string) =>
+  name
+    .split(/\s+/)
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join('')
+    .toUpperCase();
+
+const byDept = [...new Set(members.map((m) => m.data.department ?? 'Team'))].map((dept) => ({
+  dept,
+  people: members
+    .filter((m) => (m.data.department ?? 'Team') === dept)
+    .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99) || a.data.name.localeCompare(b.data.name)),
+}));
+---
+
+<PageChrome
+  campus={campus}
+  heading="Our people"
+  pageTitle={`Our people — ${campus.name}`}
+  description={`The educators and teams of ${campus.name}.`}
+  canonical={new URL(`/${slug}/staff/`, Astro.site)}
+  nav={ctx.navFor(slug)}
+  social={ctx.socialFor(slug)}
+  eyebrow={campus.shortName ?? campus.name}
+  admissionsPath={ctx.admissionsPathFor(slug)}
+>
+  <div class="container list">
+    {byDept.map((d) => (
+      <section>
+        <h2>{d.dept}</h2>
+        <ul>
+          {d.people.map((m) => (
+            <li>
+              {m.data.photo ? (
+                <ImageFrame image={m.data.photo} aspect="1 / 1" variant="thumb" />
+              ) : (
+                <span class="avatar" aria-hidden="true">{initials(m.data.name)}</span>
+              )}
+              <div>
+                <p class="name">{m.data.name}</p>
+                <p class="role">{m.data.designation}</p>
+                {m.data.qualifications && <p class="qual">{m.data.qualifications}</p>}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</PageChrome>
+
+<style>
+  .list {
+    padding-block: var(--fh-space-12);
+    display: grid;
+    gap: var(--fh-space-10);
+  }
+  h2 {
+    font-size: var(--fh-text-2xl);
+    margin-bottom: var(--fh-space-6);
+    padding-bottom: var(--fh-space-3);
+    border-bottom: var(--fh-border-width-2) solid var(--fh-color-border);
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: var(--fh-space-6);
+  }
+  li {
+    display: grid;
+    grid-template-columns: var(--fh-space-16) 1fr;
+    gap: var(--fh-space-4);
+    align-items: center;
+    background: var(--fh-color-surface);
+    border: var(--fh-border-width) solid var(--fh-color-border);
+    border-radius: var(--fh-radius-lg);
+    padding: var(--fh-space-5);
+  }
+  .avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--fh-space-16);
+    height: var(--fh-space-16);
+    border-radius: var(--fh-radius-full);
+    background: var(--fh-color-primary-subtle);
+    color: var(--fh-color-primary-subtle-fg);
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-extrabold);
+  }
+  .name {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+  }
+  .role {
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-text-muted);
+  }
+  .qual {
+    font-size: var(--fh-text-xs);
+    /* text-subtle is 4.49:1 on white — a hair under AA; muted passes */
+    color: var(--fh-color-text-muted);
+  }
+</style>

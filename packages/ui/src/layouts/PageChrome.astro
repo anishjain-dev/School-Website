@@ -1,0 +1,94 @@
+---
+// Full page chrome (header + page-head + footer) for every non-home
+// template. ContentPage adds prose; specialised templates put whatever
+// they need in the default slot.
+import BaseLayout from './BaseLayout.astro';
+import SiteHeader, { type NavItem } from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import Spark from '../components/Spark.astro';
+import { footerColumns } from '../lib/nav';
+import type { CampusConfig } from '@fountainhead-web/content-schema';
+
+interface Props {
+  campus: CampusConfig | null;
+  heading: string;
+  pageTitle: string;
+  description?: string | undefined;
+  canonical?: URL | string | undefined;
+  nav: NavItem[];
+  eyebrow?: string | undefined;
+  admissionsPath: string;
+  social?: { label: string; url: string }[] | undefined;
+}
+const { campus, heading, pageTitle, description, canonical, nav, eyebrow, admissionsPath, social } = Astro.props;
+const siteName = campus?.name ?? 'Fountainhead Schools';
+const homePath = campus ? `/${campus.slug}/` : '/';
+---
+
+<BaseLayout brand={campus?.brand ?? 'fountainhead'} title={pageTitle} description={description} canonical={canonical}>
+  <slot name="head-extra" slot="head-extra" />
+  <SiteHeader
+    slot="header"
+    siteName={siteName}
+    shortName={campus?.shortName}
+    homePath={homePath}
+    nav={nav}
+    enquirePath={admissionsPath}
+    phone={campus?.phone}
+  />
+
+  <header class="page-head u-print-hidden">
+    <div class="container">
+      {eyebrow && (
+        <p class="eyebrow">
+          <Spark size={12} />
+          {eyebrow}
+        </p>
+      )}
+      <h1>{heading}</h1>
+      {description && <p class="lede">{description}</p>}
+      <slot name="head-meta" />
+    </div>
+  </header>
+
+  <slot />
+
+  <SiteFooter
+    slot="footer"
+    siteName={siteName}
+    social={social}
+    columns={footerColumns(nav, homePath)}
+  />
+</BaseLayout>
+
+<style>
+  .page-head {
+    background: var(--fh-color-surface-sunken);
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+    padding-block: var(--fh-space-16) var(--fh-space-10);
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--fh-space-2);
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-bold);
+    letter-spacing: var(--fh-tracking-wider);
+    text-transform: uppercase;
+    color: var(--fh-color-eyebrow);
+    margin-bottom: var(--fh-space-4);
+  }
+  h1 {
+    font-size: clamp(var(--fh-text-4xl), 4.5vw, var(--fh-text-5xl));
+    font-weight: var(--fh-weight-extrabold);
+    letter-spacing: var(--fh-tracking-tight);
+    max-width: 22ch;
+  }
+  .lede {
+    margin-top: var(--fh-space-4);
+    font-size: var(--fh-text-lg);
+    color: var(--fh-color-text-muted);
+    max-width: 56ch;
+  }
+</style>

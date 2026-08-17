@@ -1,0 +1,102 @@
+---
+// Read-only submissions list (ratified addition — leads must be visible
+// before Nucleus 3.0). PRODUCTION GATE: Cloudflare Access policy on
+// /admin/* (Google SSO, staff allowlist) — configured at the credential
+// sitting; this page holds no auth of its own by design (WA-7: no second
+// credential set). CV links carry 15-minute signed tokens.
+import { connect, type Sql } from '@fountainhead-web/interim-store';
+import { signCvToken } from '@fountainhead-web/form-security';
+import { runtimeEnv, dbUrl } from '../../lib/env';
+
+export const prerender = false;
+
+const env = runtimeEnv(Astro);
+let sql: Sql | null = null;
+let rows: {
+  id: string;
+  kind: string;
+  receivedAt: Date;
+  applicantName: string | null;
+  applicantPhone: string | null;
+  applicantEmail: string | null;
+  campus: string | null;
+  docId: string | null;
+  scanStatus: string | null;
+}[] = [];
+let error: string | null = null;
+
+try {
+  sql = connect(dbUrl(env));
+  rows = (await sql`
+    SELECT s."id", s."kind", s."receivedAt", s."applicantName", s."applicantPhone", s."applicantEmail",
+           l."targetYear" AS "campus", d."id" AS "docId", d."scanStatus"
+    FROM "WebSubmission" s
+    LEFT JOIN "Lead" l ON l."id" = s."leadId"
+    LEFT JOIN "WebDocument" d ON d."submissionId" = s."id"
+    WHERE s."status" = 'received'
+    ORDER BY s."receivedAt" DESC
+    LIMIT 200`) as typeof rows;
+} catch (e) {
+  error = String(e);
+} finally {
+  await sql?.end();
+}
+
+const key = env.DOC_SIGNING_KEY ?? 'dev-signing-key';
+const cvLinks = new Map<string, string>();
+for (const r of rows) {
+  if (r.docId && r.scanStatus === 'clean') {
+    cvLinks.set(r.docId, `/api/cv/${r.docId}?token=${await signCvToken(key, r.docId, Date.now() + 15 * 60_000)}`);
+  }
+}
+const fmt = new Intl.DateTimeFormat('en-IN', { dateStyle: 'medium', timeStyle: 'short' });
+---
+
+<!doctype html>
+<html lang="en" data-brand="fountainhead">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Submissions — internal</title>
+  </head>
+  <body>
+    <main>
+      <h1>Submissions <span>({rows.length} open · newest first · behind Cloudflare Access in production)</span></h1>
+      {error && <p class="err">Store unreachable: {error}</p>}
+      <table>
+        <thead>
+          <tr><th>Received</th><th>Kind</th><th>Name</th><th>Contact</th><th>Campus/Year</th><th>CV</th></tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr>
+              <td>{fmt.format(new Date(r.receivedAt))}</td>
+              <td>{r.kind}</td>
+              <td>{r.applicantName}</td>
+              <td>{r.applicantPhone} {r.applicantEmail ? ` · ${r.applicantEmail}` : ''}</td>
+              <td>{r.campus ?? '—'}</td>
+              <td>
+                {r.docId
+                  ? cvLinks.has(r.docId)
+                    ? <a href={cvLinks.get(r.docId)}>download</a>
+                    : `(${r.scanStatus})`
+                  : '—'}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>
+
+<style>
+  body { margin: 0; font-family: system-ui, sans-serif; padding: 2rem; }
+  h1 { font-size: 1.4rem; }
+  h1 span { font-size: 0.85rem; font-weight: 400; opacity: 0.6; }
+  .err { border: 2px solid; padding: 0.6rem; }
+  table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+  th, td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid; font-size: 0.9rem; }
+  th { opacity: 0.6; text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.05em; }
+</style>

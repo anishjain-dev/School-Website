@@ -1,0 +1,9 @@
+{
+  "name": "@fountainhead-web/placements-normalise",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "xlsx": "^0.18"
+  }
+}

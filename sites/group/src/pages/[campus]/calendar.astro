@@ -1,0 +1,106 @@
+---
+// Template 8 — Calendar (interim Tier C, WA-16/WA-40: YAML now, CAL loader
+// swap later). Month-grouped list with real <time> elements; kinds use the
+// Nucleus CalendarEntry vocabulary.
+import { getCollection, type CollectionEntry } from 'astro:content';
+import PageChrome from '@fountainhead-web/ui/layouts/PageChrome.astro';
+import Badge from '@fountainhead-web/ui/components/Badge.astro';
+import { getSiteContext } from '../../lib/matrix';
+
+export async function getStaticPaths() {
+  const ctx = await getSiteContext();
+  const calendars = await getCollection('calendar');
+  return calendars
+    .filter((c) => ctx.campusDataFor(c.data.campus))
+    .map((c) => ({ params: { campus: c.data.campus }, props: { calendar: c } }));
+}
+
+const { calendar } = Astro.props as { calendar: CollectionEntry<'calendar'> };
+const ctx = await getSiteContext();
+const slug = calendar.data.campus;
+const campus = ctx.campusDataFor(slug)!;
+
+const KIND_TONE: Record<string, 'success' | 'warning' | 'danger' | 'info' | 'neutral'> = {
+  holiday: 'success',
+  exam: 'warning',
+  event: 'info',
+  ptm: 'info',
+  trip: 'info',
+  instructional: 'neutral',
+  'non-instructional': 'neutral',
+  'weekly-off': 'neutral',
+};
+
+const monthFmt = new Intl.DateTimeFormat('en-IN', { month: 'long', year: 'numeric' });
+const dayFmt = new Intl.DateTimeFormat('en-IN', { weekday: 'short', day: 'numeric' });
+const sorted = [...calendar.data.entries].sort((a, b) => a.date.getTime() - b.date.getTime());
+const byMonth = [...new Set(sorted.map((e) => monthFmt.format(e.date)))].map((month) => ({
+  month,
+  entries: sorted.filter((e) => monthFmt.format(e.date) === month),
+}));
+---
+
+<PageChrome
+  campus={campus}
+  heading={`Calendar ${calendar.data.academicYear}`}
+  pageTitle={`Calendar — ${campus.name}`}
+  description={`Term dates, holidays and events at ${campus.name}.`}
+  canonical={new URL(`/${slug}/calendar/`, Astro.site)}
+  nav={ctx.navFor(slug)}
+  social={ctx.socialFor(slug)}
+  eyebrow={campus.shortName ?? campus.name}
+  admissionsPath={ctx.admissionsPathFor(slug)}
+>
+  <div class="container list">
+    {byMonth.map((m) => (
+      <section>
+        <h2>{m.month}</h2>
+        <ul>
+          {m.entries.map((e) => (
+            <li>
+              <time datetime={e.date.toISOString().slice(0, 10)}>{dayFmt.format(e.date)}</time>
+              <span class="title">{e.title}</span>
+              <Badge tone={KIND_TONE[e.kind] ?? 'neutral'}>{e.kind}</Badge>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</PageChrome>
+
+<style>
+  .list {
+    padding-block: var(--fh-space-12);
+    max-width: calc(var(--fh-container-max) * 0.66);
+    display: grid;
+    gap: var(--fh-space-10);
+  }
+  h2 {
+    font-size: var(--fh-text-2xl);
+    margin-bottom: var(--fh-space-5);
+    padding-bottom: var(--fh-space-3);
+    border-bottom: var(--fh-border-width-2) solid var(--fh-color-border);
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: grid;
+    grid-template-columns: 7rem 1fr auto;
+    gap: var(--fh-space-6);
+    align-items: center;
+    padding-block: var(--fh-space-4);
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+  }
+  time {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    color: var(--fh-color-primary-text);
+  }
+  .title {
+    font-size: var(--fh-text-lg);
+  }
+</style>

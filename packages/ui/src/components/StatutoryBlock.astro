@@ -1,0 +1,106 @@
+---
+// Statutory disclosures (WA-14): structured fields, jurisdiction-tagged,
+// rendered identically on every campus so compliance is auditable in one
+// view — and rendering NOTHING while dormant (enabled: false, or the
+// group's IB-only present). The logic is a pure function so dormancy is
+// unit-testable.
+import type { z } from 'astro/zod';
+import type { statutorySchema } from '@fountainhead-web/content-schema';
+
+type Statutory = z.infer<typeof statutorySchema>;
+
+export function shouldRenderStatutory(data: Statutory | null | undefined): boolean {
+  return !!data && data.enabled === true;
+}
+
+interface Props {
+  data: Statutory | null | undefined;
+}
+const { data } = Astro.props;
+const render = shouldRenderStatutory(data);
+const fmt = (d: Date | undefined) =>
+  d ? new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }).format(d) : undefined;
+---
+
+{
+  render && data && (
+    <section class="statutory" aria-labelledby="statutory-h">
+      <h2 id="statutory-h">Statutory disclosures</h2>
+      <dl>
+        {data.affiliation && (
+          <div>
+            <dt>Board affiliation</dt>
+            <dd>
+              {data.affiliation.board.toUpperCase()}
+              {data.affiliation.number ? ` · ${data.affiliation.number}` : ''}
+              {data.affiliation.validTo ? ` · valid to ${fmt(data.affiliation.validTo)}` : ''}
+            </dd>
+          </div>
+        )}
+        {data.recognition && (
+          <div>
+            <dt>Recognition</dt>
+            <dd>
+              {data.recognition.authority}
+              {data.recognition.number ? ` · ${data.recognition.number}` : ''}
+            </dd>
+          </div>
+        )}
+        {data.feeRegulation && (
+          <div>
+            <dt>Fee regulation</dt>
+            <dd>
+              {data.feeRegulation.committee}
+              {data.feeRegulation.orderRef ? ` · ${data.feeRegulation.orderRef}` : ''}
+            </dd>
+          </div>
+        )}
+        {data.safety?.fireNocValidTo && (
+          <div>
+            <dt>Fire NOC</dt>
+            <dd>valid to {fmt(data.safety.fireNocValidTo)}</dd>
+          </div>
+        )}
+        {data.mandatoryDisclosureUrl && (
+          <div>
+            <dt>Mandatory disclosure</dt>
+            <dd>
+              <a href={data.mandatoryDisclosureUrl}>View document</a>
+            </dd>
+          </div>
+        )}
+      </dl>
+    </section>
+  )
+}
+
+<style>
+  .statutory {
+    border-top: var(--fh-border-width-2) solid var(--fh-color-border);
+    padding-top: var(--fh-space-8);
+    margin-top: var(--fh-space-12);
+  }
+  h2 {
+    font-size: var(--fh-text-xl);
+    font-weight: var(--fh-weight-bold);
+    margin-bottom: var(--fh-space-5);
+  }
+  dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--fh-space-5);
+  }
+  dt {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-semibold);
+    letter-spacing: var(--fh-tracking-wide);
+    text-transform: uppercase;
+    color: var(--fh-color-text-muted);
+  }
+  dd {
+    margin: var(--fh-space-1) 0 0;
+    font-weight: var(--fh-weight-semibold);
+  }
+</style>

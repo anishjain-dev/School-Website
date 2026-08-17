@@ -1,0 +1,6 @@
+# Statutory block (WA-14) — DORMANT. Schema exists from day one; nothing
+# renders while enabled is false and the group is IB-only. A future board
+# affiliation flips fields on per campus — configuration, not a rebuild.
+campus: kunkni
+jurisdiction: gujarat
+enabled: false

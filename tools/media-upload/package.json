@@ -1,0 +1,9 @@
+{
+  "name": "@fountainhead-web/media-upload",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "fh-media": "./cli.mjs"
+  }
+}

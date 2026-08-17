@@ -1,0 +1,83 @@
+---
+// One field, fully wired: visible label, hint/error via aria-describedby,
+// server-rendered error slot (works over a no-JS POST round trip).
+interface Props {
+  name: string;
+  label: string;
+  kind?: 'text' | 'email' | 'tel' | 'date' | 'textarea' | 'select';
+  required?: boolean;
+  hint?: string | undefined;
+  error?: string | undefined;
+  options?: { label: string; value: string }[] | undefined;
+  autocomplete?: string | undefined;
+  value?: string | undefined;
+}
+const { name, label, kind = 'text', required = false, hint, error, options, autocomplete, value } = Astro.props;
+const id = `f-${name}`;
+const describedBy = [hint && `${id}-hint`, error && `${id}-err`].filter(Boolean).join(' ') || undefined;
+---
+
+<div class="field">
+  <label for={id}>
+    {label}
+    {required && <span class="req" aria-hidden="true">*</span>}
+  </label>
+  {hint && <p class="hint" id={`${id}-hint`}>{hint}</p>}
+  {
+    kind === 'textarea' ? (
+      <textarea id={id} name={name} rows="4" required={required} aria-describedby={describedBy} aria-invalid={error ? 'true' : undefined}>{value}</textarea>
+    ) : kind === 'select' ? (
+      <select id={id} name={name} required={required} aria-describedby={describedBy} aria-invalid={error ? 'true' : undefined}>
+        <option value="">Please choose…</option>
+        {(options ?? []).map((o) => (
+          <option value={o.value} selected={o.value === value}>{o.label}</option>
+        ))}
+      </select>
+    ) : (
+      <input id={id} name={name} type={kind} required={required} autocomplete={autocomplete} value={value} aria-describedby={describedBy} aria-invalid={error ? 'true' : undefined} />
+    )
+  }
+  {error && <p class="error" id={`${id}-err`}>{error}</p>}
+</div>
+
+<style>
+  .field {
+    display: grid;
+    gap: var(--fh-space-2);
+  }
+  label {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-sm);
+    font-weight: var(--fh-weight-semibold);
+  }
+  .req {
+    color: var(--fh-color-danger-text);
+  }
+  .hint {
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-text-muted);
+  }
+  input,
+  select,
+  textarea {
+    font-family: var(--fh-font-body);
+    font-size: var(--fh-control-font);
+    color: var(--fh-color-text);
+    background: var(--fh-color-field-bg);
+    border: var(--fh-border-width) solid var(--fh-color-field-border);
+    border-radius: var(--fh-control-radius);
+    padding: var(--fh-space-3) var(--fh-control-pad-x);
+    width: 100%;
+  }
+  input::placeholder {
+    color: var(--fh-color-field-placeholder);
+  }
+  [aria-invalid='true'] {
+    border-color: var(--fh-color-danger);
+  }
+  .error {
+    font-size: var(--fh-text-sm);
+    font-weight: var(--fh-weight-semibold);
+    color: var(--fh-color-danger-text);
+  }
+</style>

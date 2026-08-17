@@ -1,0 +1,17 @@
+# Fountainhead School Kunkni — wholly owned, Fountainhead brand.
+slug: kunkni
+name: Fountainhead School Kunkni
+shortName: FSK
+descriptor: The flagship IB continuum campus
+brand: fountainhead
+jurisdiction: gujarat
+address:
+  line1: Kunkni Campus
+  city: Surat
+  state: Gujarat
+  pincode: "395007"
+domains:
+  - fsksurat.in
+inherit:
+  mode: all
+  exclude: []

@@ -1,0 +1,43 @@
+{
+  "name": "@fountainhead-web/group",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "check": "astro check",
+    "preview": "astro preview",
+    "test": "vitest run",
+    "report": "tsx scripts/inheritance-report.ts",
+    "keystatic": "cross-env KEYSTATIC=1 astro dev"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^12.6.13",
+    "@fontsource/montserrat": "^5",
+    "@fontsource/nunito": "^5",
+    "@fountainhead-web/content-schema": "workspace:*",
+    "@fountainhead-web/form-security": "workspace:*",
+    "@fountainhead-web/interim-store": "workspace:*",
+    "@fountainhead-web/tokens": "workspace:*",
+    "@fountainhead-web/ui": "workspace:*",
+    "astro": "^5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9",
+    "@astrojs/markdoc": "^0.15",
+    "@astrojs/react": "^4",
+    "@keystatic/astro": "^5",
+    "@keystatic/core": "^0.5",
+    "@types/node": "^26.1.1",
+    "cross-env": "^10",
+    "gray-matter": "^4",
+    "react": "^19",
+    "react-dom": "^19",
+    "tsx": "^4",
+    "typescript": "^5",
+    "vitest": "^3",
+    "wrangler": "^4.112.0",
+    "yaml": "^2"
+  }
+}

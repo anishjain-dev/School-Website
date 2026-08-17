@@ -1,0 +1,98 @@
+---
+// Template 4 — Programme page (PYP/MYP/DP/BTEC): fact panel + prose + CTA.
+import PageChrome from '../layouts/PageChrome.astro';
+import CTABand from '../components/CTABand.astro';
+import type { NavItem } from '../components/SiteHeader.astro';
+import type { CampusConfig } from '@fountainhead-web/content-schema';
+
+interface Props {
+  campus: CampusConfig | null;
+  heading: string;
+  pageTitle: string;
+  description?: string | undefined;
+  canonical?: URL | string | undefined;
+  nav: NavItem[];
+  eyebrow?: string | undefined;
+  admissionsPath: string;
+  facts?: { label: string; value: string }[] | undefined;
+}
+const { facts, admissionsPath, ...chrome } = Astro.props;
+---
+
+<PageChrome {...chrome} admissionsPath={admissionsPath}>
+  <div class="container layout">
+    {facts && facts.length > 0 && (
+      <aside class="facts" aria-label="Programme facts">
+        <dl>
+          {facts.map((f) => (
+            <div>
+              <dt>{f.label}</dt>
+              <dd>{f.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </aside>
+    )}
+    <article class="prose">
+      <slot />
+    </article>
+  </div>
+  <CTABand heading="See this programme in action" body="Visit on a school day and watch the learning happen." cta={{ label: 'Book a visit', path: admissionsPath }} />
+</PageChrome>
+
+<style>
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr);
+    gap: var(--fh-space-12);
+    padding-block: var(--fh-space-12);
+    align-items: start;
+  }
+  .facts {
+    position: sticky;
+    top: var(--fh-space-24);
+    background: var(--fh-color-primary-subtle);
+    border-radius: var(--fh-radius-lg);
+    padding: var(--fh-space-6);
+  }
+  dl {
+    margin: 0;
+    display: grid;
+    gap: var(--fh-space-4);
+  }
+  dt {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-semibold);
+    letter-spacing: var(--fh-tracking-wide);
+    text-transform: uppercase;
+    color: var(--fh-color-primary-subtle-fg);
+    opacity: 0.8;
+  }
+  dd {
+    margin: var(--fh-space-1) 0 0;
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    color: var(--fh-color-primary-subtle-fg);
+  }
+  .prose {
+    font-size: var(--fh-text-lg);
+    line-height: var(--fh-leading-relaxed);
+    max-width: 62ch;
+  }
+  .prose :global(h2) {
+    font-size: var(--fh-text-2xl);
+    margin: var(--fh-space-8) 0 var(--fh-space-4);
+  }
+  .prose :global(p) {
+    margin-bottom: var(--fh-space-5);
+  }
+  @media (max-width: 860px) {
+    .layout {
+      grid-template-columns: 1fr;
+    }
+    .facts {
+      position: static;
+    }
+  }
+</style>

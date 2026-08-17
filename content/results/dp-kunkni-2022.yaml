@@ -1,0 +1,32 @@
+programme: "DP"
+classOf: 2022
+sessionYear: 2022
+campus: "kunkni"
+cohortSize: 99
+schoolAverage: 33.68
+worldAverage: 32
+maxPossible: 45
+highestAchieved: 44
+awarded:
+  diploma: 87
+  course: 7
+distribution:
+  - label: "30 points & above"
+    count: 66
+    of: 87
+  - label: "36 points & above"
+    count: 27
+    of: 87
+  - label: "40 points & above"
+    count: 13
+    of: 87
+notable:
+  - label: "A grades in the Extended Essay"
+    count: 12
+    of: 99
+  - label: "A grades in Theory of Knowledge"
+    count: 6
+    of: 99
+source: "published from the IBDP Results system (Fountainhead School, Kunkni), the school's record of the IB session"
+generatedAt: "2026-07-28"
+provisional: false

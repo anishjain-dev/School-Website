@@ -1,0 +1,112 @@
+---
+// Template 5b — Policy page (WA-13): self-identifying document header
+// (version, effective date, owner) on web AND print; print CSS is the
+// single styling source for the PDF export (tools/policy-export).
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import '@fountainhead-web/tokens/print.css';
+import PageChrome from '@fountainhead-web/ui/layouts/PageChrome.astro';
+import { getSiteContext } from '../../lib/matrix';
+
+export async function getStaticPaths() {
+  const policies = await getCollection('policies');
+  return policies.map((p) => ({ params: { id: p.id }, props: { entry: p } }));
+}
+
+const { entry } = Astro.props as { entry: CollectionEntry<'policies'> };
+const ctx = await getSiteContext();
+const { Content } = await render(entry);
+const fmt = new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<PageChrome
+  campus={null}
+  heading={entry.data.title}
+  pageTitle={`${entry.data.title} — Policies — Fountainhead Schools`}
+  description={entry.data.summary}
+  canonical={new URL(`/policies/${entry.id}/`, Astro.site)}
+  nav={ctx.navFor(null)}
+  social={ctx.socialFor(null)}
+  eyebrow="Policy"
+  admissionsPath={ctx.admissionsPathFor(null)}
+>
+  <article class="container doc">
+    <div class="doc-meta">
+      <p class="doc-title">{entry.data.title}</p>
+      <dl>
+        <div><dt>Version</dt><dd>{entry.data.version}</dd></div>
+        <div><dt>Effective</dt><dd>{fmt.format(entry.data.effectiveDate)}</dd></div>
+        <div><dt>Owner</dt><dd>{entry.data.owner}</dd></div>
+        {entry.data.reviewDue && <div><dt>Review due</dt><dd>{fmt.format(entry.data.reviewDue)}</dd></div>}
+      </dl>
+      <p class="print-hint u-print-hidden">To keep a copy: print this page — the print layout is the official document format.</p>
+    </div>
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</PageChrome>
+
+<style>
+  .doc {
+    padding-block: var(--fh-space-12);
+    max-width: calc(var(--fh-container-max) * 0.66);
+  }
+  .doc-meta {
+    border: var(--fh-border-width) solid var(--fh-color-border);
+    border-top: var(--fh-space-1) solid var(--fh-color-primary);
+    border-radius: var(--fh-radius-md);
+    padding: var(--fh-space-6);
+    margin-bottom: var(--fh-space-10);
+  }
+  .doc-title {
+    display: none; /* web shows the page-head h1; print shows this instead */
+  }
+  dl {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--fh-space-8);
+  }
+  dt {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-semibold);
+    letter-spacing: var(--fh-tracking-wide);
+    text-transform: uppercase;
+    color: var(--fh-color-text-muted);
+  }
+  dd {
+    margin: var(--fh-space-1) 0 0;
+    font-weight: var(--fh-weight-bold);
+    font-family: var(--fh-font-heading);
+  }
+  .print-hint {
+    margin-top: var(--fh-space-5);
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-text-muted);
+  }
+  .prose {
+    font-size: var(--fh-text-lg);
+    line-height: var(--fh-leading-relaxed);
+  }
+  .prose :global(h2) {
+    font-size: var(--fh-text-2xl);
+    margin: var(--fh-space-8) 0 var(--fh-space-4);
+  }
+  .prose :global(p) {
+    margin-bottom: var(--fh-space-5);
+  }
+
+  @media print {
+    .doc-title {
+      display: block;
+      font-family: var(--fh-font-heading);
+      font-size: var(--fh-text-3xl);
+      font-weight: var(--fh-weight-extrabold);
+      margin-bottom: var(--fh-space-4);
+    }
+    .doc-meta {
+      border-radius: 0;
+    }
+  }
+</style>

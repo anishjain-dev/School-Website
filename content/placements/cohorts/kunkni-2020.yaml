@@ -1,0 +1,116 @@
+year: 2020
+campus: "kunkni"
+programme: "DP"
+cohortSize: 55
+generatedAt: "2026-07-28"
+source: "published from the Career Counselling app, which owns the placement record"
+placements:
+  - institution: "auro-university"
+    cluster: "business-administration-commerce"
+    count: 8
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    cluster: "business-administration-commerce"
+    count: 7
+  - institution: "auro-university"
+    cluster: "arts-design-media"
+    count: 2
+  - institution: "auro-university"
+    cluster: "human-services"
+    count: 2
+  - institution: "jai-hind-college"
+    cluster: "business-administration-commerce"
+    count: 2
+  - institution: "metas-adventist-college"
+    cluster: "business-administration-commerce"
+    count: 2
+  - institution: "pandit-deendayal-energy-university-pdeu"
+    cluster: "human-services"
+    count: 2
+  - institution: "symbiosis-international-university"
+    cluster: "business-administration-commerce"
+    count: 2
+  - institution: "ahmedabad-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "bennett-university"
+    cluster: "mass-media-journalism"
+    count: 1
+  - institution: "bml-munjal-university-bmu"
+    cluster: "law"
+    count: 1
+  - institution: "collin-college"
+    cluster: "health-sciences"
+    count: 1
+  - institution: "ecole-intuit-lab"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "finrich-advisors"
+    cluster: "finance"
+    count: 1
+  - institution: "flame-university"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "institute-of-hotel-management-aurangabad-ihm-a"
+    cluster: "hospitality-tourism"
+    count: 1
+  - institution: "maharaja-sayajirao-university"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "mithibai-college"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "mount-carmel-college"
+    cluster: "human-services"
+    count: 1
+  - institution: "narsee-monjee-institute-of-management-studies-nmims"
+    cluster: "law"
+    count: 1
+  - institution: "new-york-film-academy"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "niagara-college"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "nirma-university"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "op-jindal-global-university"
+    cluster: "law"
+    count: 1
+  - institution: "ryerson-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "symbiosis-international-university"
+    cluster: "finance"
+    count: 1
+  - institution: "the-ohio-state-university"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "the-university-of-texas-arlington"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-of-british-columbia"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-of-california-irvine"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-of-mumbai"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-of-texas-austin"
+    cluster: "stem"
+    count: 1
+  - institution: "university-of-waterloo"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "usha-pravin-gandhi-college-of-management"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "wilson-college"
+    cluster: "human-services"
+    count: 1
+  - institution: "york-university"
+    cluster: "business-administration-commerce"
+    count: 1
+otherOutcomes: []

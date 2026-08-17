@@ -1,0 +1,27 @@
+programme: "DP"
+classOf: 2026
+sessionYear: 2026
+campus: "fwgs"
+cohortSize: 45
+pooledFrom: 2023
+pooledTo: 2026
+schoolAverage: 30.37
+worldAverage: 30.55
+maxPossible: 45
+highestAchieved: 36
+awarded:
+  diploma: 19
+distribution:
+  - label: "30 points & above"
+    count: 12
+    of: 19
+notable:
+  - label: "A grades in the Extended Essay"
+    count: 5
+    of: 45
+  - label: "A grades in Theory of Knowledge"
+    count: 5
+    of: 45
+source: "published from the IBDP Results system (Fountainhead World Global School), pooling the 4 sessions 2023-2026; individual cohorts are too small to publish separately"
+generatedAt: "2026-07-28"
+provisional: false

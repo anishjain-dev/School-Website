@@ -1,0 +1,26 @@
+programme: "DP"
+classOf: 2020
+sessionYear: 2020
+campus: "kunkni"
+cohortSize: 55
+schoolAverage: 33.16
+worldAverage: 31.3
+maxPossible: 45
+highestAchieved: 41
+awarded:
+  diploma: 38
+  course: 16
+distribution:
+  - label: "30 points & above"
+    count: 28
+    of: 38
+  - label: "36 points & above"
+    count: 15
+    of: 38
+  - label: "40 points & above"
+    count: 5
+    of: 38
+notable: []
+source: "published from the IBDP Results system (Fountainhead School, Kunkni), the school's record of the IB session"
+generatedAt: "2026-07-28"
+provisional: false

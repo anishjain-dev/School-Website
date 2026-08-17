@@ -1,0 +1,20 @@
+# Fountainhead Avadh School Vapi — Avadh JV, NOT YET LAUNCHED.
+# /fasv/ is a single interest-capture landing page (WA-35);
+# inherit.mode none = own files only.
+slug: fasv
+name: Fountainhead Avadh School Vapi
+shortName: FASV
+descriptor: An IB school taking shape in Vapi
+# Not counted in the network positioning claim until it opens (WA-47).
+launched: false
+brand: fasv
+jurisdiction: gujarat
+address:
+  line1: FASV (upcoming)
+  city: Vapi
+  state: Gujarat
+  pincode: "396191"
+domains:
+  - fasv.in
+inherit:
+  mode: none

@@ -1,0 +1,70 @@
+---
+// Template 10a — Gallery index (WA-38: CMS holds only no-identifiable-child
+// imagery; the WA-41 consent log lives in the entry, never rendered).
+import { getCollection } from 'astro:content';
+import PageChrome from '@fountainhead-web/ui/layouts/PageChrome.astro';
+import ImageFrame from '@fountainhead-web/ui/components/ImageFrame.astro';
+import { getSiteContext } from '../../lib/matrix';
+
+const ctx = await getSiteContext();
+const albums = (await getCollection('galleries'))
+  .filter((g) => !g.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const fmt = new Intl.DateTimeFormat('en-IN', { month: 'long', year: 'numeric' });
+---
+
+<PageChrome
+  campus={null}
+  heading="Galleries"
+  pageTitle="Galleries — Fountainhead Schools"
+  description="Campus scenes and school moments."
+  canonical={new URL('/galleries/', Astro.site)}
+  nav={ctx.navFor(null)}
+  social={ctx.socialFor(null)}
+  eyebrow="Fountainhead group"
+  admissionsPath={ctx.admissionsPathFor(null)}
+>
+  <div class="container grid">
+    {albums.length > 0 ? (
+      albums.map((g) => (
+        <a class="album" href={`/galleries/${g.id}/`}>
+          {g.data.images[0] && <ImageFrame image={g.data.images[0].ref} aspect="4 / 3" />}
+          <span class="title">{g.data.title}</span>
+          <span class="meta">{fmt.format(g.data.date)} · {g.data.images.length} photos</span>
+        </a>
+      ))
+    ) : (
+      <p class="empty">No published galleries yet.</p>
+    )}
+  </div>
+</PageChrome>
+
+<style>
+  .grid {
+    padding-block: var(--fh-space-12);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: var(--fh-space-8);
+  }
+  .album {
+    display: grid;
+    gap: var(--fh-space-2);
+    text-decoration: none;
+    color: var(--fh-color-text);
+  }
+  .title {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    font-size: var(--fh-text-lg);
+  }
+  .album:hover .title {
+    color: var(--fh-color-primary-text);
+  }
+  .meta {
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-text-muted);
+  }
+  .empty {
+    color: var(--fh-color-text-muted);
+  }
+</style>

@@ -1,0 +1,94 @@
+year: 2016
+campus: "kunkni"
+programme: "DP"
+cohortSize: 37
+generatedAt: "2026-07-28"
+source: "published from the Career Counselling app, which owns the placement record"
+placements:
+  - institution: "auro-university"
+    cluster: "business-administration-commerce"
+    count: 8
+  - institution: "pandit-deendayal-energy-university-pdeu"
+    cluster: "business-administration-commerce"
+    count: 3
+  - institution: "american-university-washington-d-c"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "babaria-institute-of-technology"
+    cluster: "stem"
+    count: 1
+  - institution: "brunel-university-london"
+    cluster: "health-sciences"
+    count: 1
+  - institution: "d-r-patel-and-r-b-patel-commerce-college"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "eye-q-films"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "iowa-state-university"
+    cluster: "information-technology"
+    count: 1
+  - institution: "jd-institute-of-fashion-technology"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "lala-lajpat-rai-college-of-commerce-and-economics"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "metas-adventist-college"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "pearl-academy"
+    cluster: "arts-design-media"
+    count: 1
+  - institution: "pennsylvania-state-university"
+    cluster: "information-technology"
+    count: 1
+  - institution: "pennsylvania-state-university"
+    cluster: "mass-media-journalism"
+    count: 1
+  - institution: "pennsylvania-state-university"
+    cluster: "stem"
+    count: 1
+  - institution: "psb-academy"
+    cluster: "mass-media-journalism"
+    count: 1
+  - institution: "sarvajanik-college-of-engineering-and-technology"
+    cluster: "stem"
+    count: 1
+  - institution: "shree-shree-university-orissa"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "sophia-college"
+    cluster: "human-services"
+    count: 1
+  - institution: "srm-institute-of-science-and-technology"
+    cluster: "information-technology"
+    count: 1
+  - institution: "university-of-california-los-angeles-ucla-college-of-letters"
+    cluster: "government-public-administration"
+    count: 1
+  - institution: "university-of-manchester"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-of-mumbai"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-of-toronto"
+    cluster: "business-administration-commerce"
+    count: 1
+  - institution: "university-of-toronto"
+    unit: "university-of-toronto-mississauga"
+    cluster: "health-sciences"
+    count: 1
+  - institution: "university-of-toronto"
+    unit: "university-of-toronto-mississauga"
+    cluster: "human-services"
+    count: 1
+  - institution: "university-of-warwick"
+    cluster: "finance"
+    count: 1
+  - institution: "university-of-warwick"
+    cluster: "human-services"
+    count: 1
+otherOutcomes: []

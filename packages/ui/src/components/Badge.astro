@@ -1,0 +1,46 @@
+---
+// Status chip. Colour never carries the meaning alone — the text does.
+interface Props {
+  tone?: 'success' | 'warning' | 'danger' | 'info' | 'neutral';
+}
+const { tone = 'neutral' } = Astro.props;
+---
+
+<span class:list={['badge', `tone-${tone}`]}><slot /></span>
+
+<style>
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-bold);
+    letter-spacing: var(--fh-tracking-wide);
+    text-transform: uppercase;
+    border-radius: var(--fh-radius-full);
+    padding: var(--fh-space-1) var(--fh-space-3);
+    border: var(--fh-border-width) solid var(--fh-color-border);
+    background: var(--fh-color-surface-sunken);
+    color: var(--fh-color-text-muted);
+  }
+  .tone-success {
+    background: var(--fh-color-success-subtle);
+    color: var(--fh-color-success-subtle-fg);
+    border-color: var(--fh-color-success-border);
+  }
+  .tone-warning {
+    background: var(--fh-color-warning-subtle);
+    color: var(--fh-color-warning-subtle-fg);
+    border-color: var(--fh-color-warning-border);
+  }
+  .tone-danger {
+    background: var(--fh-color-danger-subtle);
+    color: var(--fh-color-danger-subtle-fg);
+    border-color: var(--fh-color-danger-border);
+  }
+  .tone-info {
+    background: var(--fh-color-info-subtle);
+    color: var(--fh-color-info-subtle-fg);
+    border-color: var(--fh-color-info-border);
+  }
+</style>

@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+.wrangler/
+
+# Derived artifacts (inheritance report, policy exports, etc.)
+artifacts/
+
+# Legacy-extraction working trees — media never enters git (CLAUDE.md hard rule 1)
+tools/extract-legacy/media/
+tools/extract-legacy/out/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Test / coverage
+coverage/
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Legacy placements workbook — carries names, FSK IDs, photo URLs and grades.
+# Normalised from OUTSIDE the repo (WA-43); never committed (hard rule 1).
+*.xlsx

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Git dispatcher — MUST be named exactly "pre-push", no extension.
+set -euo pipefail
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+bash "$DIR/scripts/block-push-to-main.sh" "$@"
+
+# Activated Stage 1 — pnpm check/lint/build now exist.
+bash "$DIR/scripts/pre-push-checks.sh"

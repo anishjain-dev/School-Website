@@ -1,0 +1,45 @@
+programme: "MYP"
+classOf: 2027
+sessionYear: 2025
+campus: "kunkni"
+cohortSize: 157
+schoolAverage: 45.68
+worldAverage: 37.71
+maxPossible: 56
+highestAchieved: 55
+distribution:
+  - label: "40 points & above"
+    count: 128
+    of: 157
+  - label: "45 points & above"
+    count: 96
+    of: 157
+  - label: "50 points & above"
+    count: 42
+    of: 157
+  - label: "53 points"
+    count: 7
+  - label: "54 points"
+    count: 7
+  - label: "55 points"
+    count: 1
+notable:
+  - label: "Perfect 7s — Mathematics"
+    count: 88
+  - label: "Perfect 7s — Integrated Sciences"
+    count: 58
+  - label: "Perfect 7s — Interdisciplinary Unit"
+    count: 48
+  - label: "Perfect 7s — Personal Project"
+    count: 43
+  - label: "Perfect 7s — Integrated Humanities"
+    count: 37
+  - label: "Perfect 7s — Language & Literature (English)"
+    count: 14
+  - label: "Perfect 7s — Arts, Design & PHE"
+    count: 9
+  - label: "Perfect 7s — Language Acquisition (Hindi)"
+    count: 6
+source: "transcribed from the published IB MYP Class of 2027 result cards"
+generatedAt: "2026-07-27"
+provisional: true

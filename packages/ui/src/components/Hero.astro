@@ -1,0 +1,215 @@
+---
+// The flagship hero: asymmetric two-column composition on the brand hero
+// field — display headline left, an overlapping "facts" card right that
+// breaks the hero's bottom edge (print-sticker feel). Dot-grain texture
+// via CSS only; angled bottom cut; staggered load reveal. Photo-free by
+// design — it must look finished before real photography exists.
+import Spark from './Spark.astro';
+
+interface Props {
+  eyebrow?: string | undefined;
+  title: string;
+  lede?: string | undefined;
+  primaryCta?: { label: string; path: string } | undefined;
+  secondaryCta?: { label: string; path: string } | undefined;
+  /** Renders the overlapping facts card when provided */
+  facts?: { label: string; value: string }[] | undefined;
+  factsHeading?: string | undefined;
+}
+const { eyebrow, title, lede, primaryCta, secondaryCta, facts, factsHeading } = Astro.props;
+---
+
+<section class:list={['hero', { 'has-facts': !!facts?.length }]}>
+  <div class="container grid">
+    <div class="copy">
+      {eyebrow && (
+        <p class="eyebrow reveal" style="animation-delay: 60ms">
+          <Spark size={13} />
+          {eyebrow}
+        </p>
+      )}
+      <h1 class="reveal" style="animation-delay: 140ms">{title}</h1>
+      {lede && <p class="lede reveal" style="animation-delay: 220ms">{lede}</p>}
+      {(primaryCta || secondaryCta) && (
+        <div class="ctas reveal" style="animation-delay: 300ms">
+          {primaryCta && <a class="cta-primary" href={primaryCta.path}>{primaryCta.label}</a>}
+          {secondaryCta && <a class="cta-ghost" href={secondaryCta.path}>{secondaryCta.label}</a>}
+        </div>
+      )}
+    </div>
+
+    {facts && facts.length > 0 && (
+      <aside class="facts reveal" style="animation-delay: 380ms" aria-label={factsHeading ?? 'At a glance'}>
+        {factsHeading && <p class="facts-h">{factsHeading}</p>}
+        <dl>
+          {facts.map((f) => (
+            <div class="fact">
+              <dt>{f.label}</dt>
+              <dd>{f.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </aside>
+    )}
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    background: var(--fh-color-hero-bg);
+    color: var(--fh-color-hero-fg);
+    padding-block: var(--fh-space-20) var(--fh-space-24);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--fh-space-10)), 0 100%);
+    overflow: hidden;
+  }
+  /* dot-grain texture, right-weighted */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 0 45%;
+    background-image: radial-gradient(currentColor 1px, transparent 1.5px);
+    background-size: 22px 22px;
+    opacity: 0.09;
+    pointer-events: none;
+  }
+
+  .grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: var(--fh-space-12);
+    align-items: center;
+  }
+  .hero:not(.has-facts) .grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 56rem;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--fh-space-2);
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-sm);
+    font-weight: var(--fh-weight-semibold);
+    letter-spacing: var(--fh-tracking-wider);
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin-bottom: var(--fh-space-5);
+  }
+
+  h1 {
+    font-size: clamp(var(--fh-text-4xl), 5.2vw, var(--fh-text-6xl));
+    font-weight: var(--fh-weight-extrabold);
+    letter-spacing: var(--fh-tracking-tight);
+    max-width: 18ch;
+  }
+
+  .lede {
+    font-size: var(--fh-text-lg);
+    line-height: var(--fh-leading-relaxed);
+    max-width: 52ch;
+    margin-top: var(--fh-space-5);
+    opacity: 0.92;
+  }
+
+  .ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--fh-space-4);
+    margin-top: var(--fh-space-8);
+  }
+  .cta-primary,
+  .cta-ghost {
+    display: inline-flex;
+    align-items: center;
+    height: var(--fh-control-height-lg);
+    padding-inline: var(--fh-space-6);
+    border-radius: var(--fh-radius-full);
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    font-size: var(--fh-text-sm);
+    text-decoration: none;
+    transition: transform var(--fh-duration-base) var(--fh-ease-standard),
+      background var(--fh-duration-base) var(--fh-ease-standard);
+  }
+  .cta-primary {
+    background: var(--fh-color-hero-cta-bg);
+    color: var(--fh-color-hero-cta-fg);
+  }
+  .cta-primary:hover {
+    background: var(--fh-color-hero-cta-hover);
+    transform: translateY(-2px);
+  }
+  .cta-ghost {
+    color: inherit;
+    border: var(--fh-border-width-2) solid currentColor;
+  }
+  .cta-ghost:hover {
+    transform: translateY(-2px);
+  }
+
+  .facts {
+    background: var(--fh-color-surface);
+    color: var(--fh-color-text);
+    border-radius: var(--fh-radius-lg);
+    box-shadow: var(--fh-shadow-xl);
+    padding: var(--fh-space-8);
+    rotate: -1deg;
+    margin-bottom: calc(-1 * var(--fh-space-20));
+    border-top: var(--fh-space-1) solid var(--fh-color-accent);
+  }
+  .facts-h {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-bold);
+    letter-spacing: var(--fh-tracking-wider);
+    text-transform: uppercase;
+    color: var(--fh-color-text-muted);
+    margin-bottom: var(--fh-space-5);
+  }
+  dl {
+    margin: 0;
+    display: grid;
+    gap: var(--fh-space-4);
+  }
+  .fact {
+    display: grid;
+    gap: var(--fh-space-1);
+    padding-bottom: var(--fh-space-4);
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+  }
+  .fact:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  dt {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-semibold);
+    letter-spacing: var(--fh-tracking-wide);
+    text-transform: uppercase;
+    color: var(--fh-color-text-muted);
+  }
+  dd {
+    margin: 0;
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    font-size: var(--fh-text-lg);
+  }
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .facts {
+      rotate: 0deg;
+      margin-bottom: 0;
+    }
+    .hero.has-facts {
+      padding-bottom: var(--fh-space-16);
+    }
+  }
+</style>

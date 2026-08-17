@@ -1,0 +1,197 @@
+---
+// DIRECTION B — "Morning Assembly": warm paper & ink, light hero, calm
+// centred composition, red-forward with blue actions. Same content as the
+// real group home; exploration only.
+import '@fountainhead-web/tokens/index.css';
+import '@fountainhead-web/tokens/directions/morning.css';
+import '@fontsource/montserrat/600.css';
+import '@fontsource/montserrat/700.css';
+import '@fontsource/montserrat/800.css';
+import '@fontsource/nunito/400.css';
+import '@fontsource/nunito/700.css';
+import { getCollection } from 'astro:content';
+
+const campuses = (await getCollection('campuses')).map((c) => c.data).sort((a, b) => a.slug.localeCompare(b.slug));
+---
+
+<!doctype html>
+<html lang="en" data-brand="fountainhead" data-direction="morning">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Direction B — Morning Assembly</title>
+  </head>
+  <body>
+    <p class="switcher">
+      Direction B — Morning Assembly · <a href="/">view A</a> · <a href="/styleguide/directions/blueprint/">view C</a> ·
+      <a href="/styleguide/directions/">about</a>
+    </p>
+
+    <section class="hero">
+      <p class="eyebrow">An IB school group · Surat &amp; Vapi</p>
+      <h1>Schools built around how children actually learn</h1>
+      <p class="lede">
+        Five campuses across Surat and Vapi, one conviction — children flourish when curiosity leads and the IB
+        continuum gives it direction.
+      </p>
+      <div class="ctas">
+        <a class="cta" href="#campuses">Explore admissions</a>
+        <a class="cta-quiet" href="#campuses">Our philosophy</a>
+      </div>
+    </section>
+
+    <section class="campuses" id="campuses">
+      <h2>Find your Fountainhead</h2>
+      <div class="grid">
+        {
+          campuses.map((c) => (
+            <article class="card">
+              <h3>{c.name}</h3>
+              <p class="city">{c.address.city}</p>
+              {c.descriptor && <p class="desc">{c.descriptor}</p>}
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="band">
+      <h2>See a campus for yourself</h2>
+      <a class="cta" href="#campuses">Book a visit</a>
+    </section>
+  </body>
+</html>
+
+<style>
+  body {
+    margin: 0;
+    background: var(--fh-color-bg);
+    color: var(--fh-color-text);
+    font-family: var(--fh-font-body);
+    text-align: center;
+  }
+  .switcher {
+    margin: 0;
+    padding: var(--fh-space-3);
+    background: var(--fh-color-surface);
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+    font-size: var(--fh-text-sm);
+    font-family: var(--fh-font-heading);
+  }
+  .switcher a {
+    color: var(--fh-color-text-link);
+  }
+
+  .hero {
+    padding: var(--fh-space-24) var(--fh-space-6) var(--fh-space-20);
+    background: var(--fh-color-hero-bg);
+    color: var(--fh-color-hero-fg);
+  }
+  .eyebrow {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    font-size: var(--fh-text-sm);
+    letter-spacing: var(--fh-tracking-wider);
+    text-transform: uppercase;
+    color: var(--fh-color-eyebrow);
+    margin: 0 0 var(--fh-space-5);
+  }
+  h1 {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-extrabold);
+    font-size: clamp(var(--fh-text-4xl), 5vw, var(--fh-text-6xl));
+    line-height: var(--fh-leading-tight);
+    max-width: 20ch;
+    margin: 0 auto;
+  }
+  .lede {
+    max-width: 52ch;
+    margin: var(--fh-space-6) auto 0;
+    font-size: var(--fh-text-lg);
+    line-height: var(--fh-leading-relaxed);
+    color: var(--fh-color-text-muted);
+  }
+  .ctas {
+    display: flex;
+    justify-content: center;
+    gap: var(--fh-space-4);
+    margin-top: var(--fh-space-8);
+    flex-wrap: wrap;
+  }
+  .cta,
+  .cta-quiet {
+    display: inline-flex;
+    align-items: center;
+    height: var(--fh-control-height-lg);
+    padding-inline: var(--fh-space-8);
+    border-radius: var(--fh-radius-full);
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    text-decoration: none;
+  }
+  .cta {
+    background: var(--fh-color-accent);
+    color: var(--fh-color-accent-fg);
+    box-shadow: var(--fh-shadow-md);
+  }
+  .cta-quiet {
+    color: var(--fh-color-primary-text);
+    border: var(--fh-border-width-2) solid var(--fh-color-primary-border);
+    background: var(--fh-color-surface);
+  }
+
+  .campuses {
+    padding: var(--fh-space-20) var(--fh-space-6);
+    max-width: var(--fh-container-max);
+    margin-inline: auto;
+  }
+  h2 {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-extrabold);
+    font-size: var(--fh-text-3xl);
+    margin: 0 0 var(--fh-space-10);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: var(--fh-space-6);
+  }
+  .card {
+    background: var(--fh-color-surface);
+    border-radius: var(--fh-radius-2xl);
+    box-shadow: var(--fh-shadow-sm);
+    padding: var(--fh-space-8);
+    transition: box-shadow var(--fh-duration-base) var(--fh-ease-standard);
+  }
+  .card:hover {
+    box-shadow: var(--fh-shadow-lg);
+  }
+  .card h3 {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-lg);
+    margin: 0 0 var(--fh-space-2);
+  }
+  .city {
+    font-size: var(--fh-text-xs);
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    letter-spacing: var(--fh-tracking-wider);
+    text-transform: uppercase;
+    color: var(--fh-color-eyebrow);
+    margin: 0 0 var(--fh-space-3);
+  }
+  .desc {
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-text-muted);
+    margin: 0;
+  }
+
+  .band {
+    background: var(--fh-color-surface-sunken);
+    padding: var(--fh-space-16) var(--fh-space-6);
+  }
+  .band h2 {
+    margin-bottom: var(--fh-space-6);
+  }
+</style>

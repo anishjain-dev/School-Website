@@ -1,0 +1,33 @@
+/* ==========================================================================
+   DESIGN-DIRECTION VARIANT B — "Morning Assembly"  (exploration only)
+   Warm, luminous, paper-and-ink: cream field, ink typography on a LIGHT
+   hero, red-forward accents, generous radii, soft shadows. Composition on
+   the variant page: centred, rounded, no angled cuts.
+   Scoped under [data-direction="morning"]; never shipped on real routes.
+   ========================================================================== */
+
+[data-direction='morning'] {
+  --fh-color-bg: var(--fh-yellow-50);
+  --fh-color-surface: var(--fh-neutral-0);
+  --fh-color-surface-sunken: var(--fh-yellow-100);
+  --fh-color-border: var(--fh-yellow-200);
+
+  --fh-color-hero-bg: var(--fh-yellow-50);
+  --fh-color-hero-fg: var(--fh-neutral-900);
+  --fh-color-eyebrow: var(--fh-red-600);
+
+  --fh-color-primary: var(--fh-red-600);
+  --fh-color-primary-hover: var(--fh-red-700);
+  --fh-color-primary-subtle: var(--fh-red-50);
+  --fh-color-primary-subtle-fg: var(--fh-red-800);
+  --fh-color-primary-border: var(--fh-red-200);
+  --fh-color-primary-text: var(--fh-red-700);
+
+  --fh-color-accent: var(--fh-blue-600);
+  --fh-color-accent-hover: var(--fh-blue-700);
+  --fh-color-accent-fg: var(--fh-neutral-0);
+
+  --fh-color-text-link: var(--fh-red-700);
+  --fh-color-footer-bg: var(--fh-neutral-900);
+  --fh-color-footer-fg: var(--fh-yellow-50);
+}

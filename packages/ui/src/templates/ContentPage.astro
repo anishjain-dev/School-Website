@@ -1,0 +1,77 @@
+---
+// Template 3 — Standard content page: chrome + editorial prose.
+import PageChrome from '../layouts/PageChrome.astro';
+import type { NavItem } from '../components/SiteHeader.astro';
+import type { CampusConfig } from '@fountainhead-web/content-schema';
+
+interface Props {
+  campus: CampusConfig | null;
+  heading: string;
+  pageTitle: string;
+  description?: string | undefined;
+  canonical?: URL | string | undefined;
+  nav: NavItem[];
+  eyebrow?: string | undefined;
+  admissionsPath: string;
+}
+---
+
+<PageChrome {...Astro.props}>
+  <article class="container prose">
+    <slot />
+  </article>
+</PageChrome>
+
+<style>
+  .prose {
+    padding-block: var(--fh-space-12);
+    max-width: calc(var(--fh-container-max) * 0.66);
+    font-size: var(--fh-text-lg);
+    line-height: var(--fh-leading-relaxed);
+  }
+  .prose :global(h2) {
+    font-size: var(--fh-text-2xl);
+    font-weight: var(--fh-weight-bold);
+    margin: var(--fh-space-10) 0 var(--fh-space-4);
+    padding-top: var(--fh-space-5);
+    border-top: var(--fh-border-width-2) solid var(--fh-color-border);
+  }
+  .prose :global(p) {
+    margin-bottom: var(--fh-space-5);
+  }
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin: 0 0 var(--fh-space-5);
+    padding-left: var(--fh-space-6);
+  }
+  .prose :global(a) {
+    color: var(--fh-color-text-link);
+  }
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--fh-space-6);
+  }
+  .prose :global(th),
+  .prose :global(td) {
+    text-align: left;
+    padding: var(--fh-space-3) var(--fh-space-4);
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+    font-size: var(--fh-text-base);
+  }
+  .prose :global(th) {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-sm);
+    letter-spacing: var(--fh-tracking-wide);
+    text-transform: uppercase;
+    color: var(--fh-color-text-muted);
+  }
+  .prose :global(blockquote) {
+    margin: var(--fh-space-8) 0;
+    padding-left: var(--fh-space-6);
+    border-left: var(--fh-space-1) solid var(--fh-color-accent);
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xl);
+    color: var(--fh-color-text-muted);
+  }
+</style>

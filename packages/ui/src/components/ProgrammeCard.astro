@@ -1,0 +1,91 @@
+---
+// FALH catalogue card (WA-35). Age band + timings + status chip; the
+// audience drives which section of the index it appears in — the card
+// itself is audience-agnostic.
+import Badge from './Badge.astro';
+
+interface Props {
+  title: string;
+  path: string;
+  ageBand: { min: number; max: number };
+  batches: { days: string; time: string }[];
+  sessionCount?: number | undefined;
+  enrolmentStatus: 'open' | 'waitlist' | 'closed';
+}
+const { title, path, ageBand, batches, sessionCount, enrolmentStatus } = Astro.props;
+const tone = enrolmentStatus === 'open' ? 'success' : enrolmentStatus === 'waitlist' ? 'warning' : 'neutral';
+---
+
+<article class="card">
+  <div class="top">
+    <h3><a href={path}>{title}</a></h3>
+    <Badge tone={tone}>{enrolmentStatus}</Badge>
+  </div>
+  <p class="ages">Ages {ageBand.min}–{ageBand.max}</p>
+  <ul class="batches">
+    {batches.map((b) => <li>{b.days} · {b.time}</li>)}
+    {sessionCount && <li>{sessionCount} sessions</li>}
+  </ul>
+  <p class="go" aria-hidden="true">Details →</p>
+</article>
+
+<style>
+  .card {
+    position: relative;
+    background: var(--fh-color-surface);
+    border: var(--fh-border-width) solid var(--fh-color-border);
+    border-radius: var(--fh-radius-lg);
+    padding: var(--fh-space-6);
+    display: grid;
+    gap: var(--fh-space-3);
+    transition: transform var(--fh-duration-base) var(--fh-ease-standard),
+      box-shadow var(--fh-duration-base) var(--fh-ease-standard);
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--fh-shadow-md);
+  }
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: var(--fh-space-4);
+  }
+  h3 {
+    font-size: var(--fh-text-lg);
+    font-weight: var(--fh-weight-bold);
+  }
+  h3 a {
+    color: var(--fh-color-text);
+    text-decoration: none;
+  }
+  h3 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+  .ages {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-bold);
+    letter-spacing: var(--fh-tracking-wider);
+    text-transform: uppercase;
+    color: var(--fh-color-eyebrow);
+  }
+  .batches {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--fh-space-1);
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-text-muted);
+  }
+  .go {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-sm);
+    font-weight: var(--fh-weight-bold);
+    color: var(--fh-color-primary-text);
+  }
+</style>

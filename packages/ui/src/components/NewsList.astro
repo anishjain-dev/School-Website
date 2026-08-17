@@ -1,0 +1,68 @@
+---
+// Editorial news list — dateline + ruled rows, no images required.
+interface Props {
+  items: { title: string; date: Date; path: string; campus?: string | undefined }[];
+}
+const { items } = Astro.props;
+const fmt = new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+---
+
+<ul class="news">
+  {items.map((n) => (
+    <li>
+      <a href={n.path}>
+        <span class="date">{fmt.format(n.date)}{n.campus && n.campus !== 'group' ? ` · ${n.campus}` : ''}</span>
+        <span class="title">{n.title}</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .news {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+  }
+  a {
+    display: grid;
+    grid-template-columns: 11rem 1fr auto;
+    align-items: baseline;
+    gap: var(--fh-space-6);
+    padding-block: var(--fh-space-5);
+    text-decoration: none;
+    color: var(--fh-color-text);
+  }
+  .date {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-semibold);
+    letter-spacing: var(--fh-tracking-wide);
+    text-transform: uppercase;
+    color: var(--fh-color-text-muted);
+  }
+  .title {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-lg);
+    font-weight: var(--fh-weight-bold);
+    transition: color var(--fh-duration-fast) var(--fh-ease-standard);
+  }
+  a:hover .title {
+    color: var(--fh-color-primary-text);
+  }
+  .arrow {
+    color: var(--fh-color-primary-text);
+  }
+  @media (max-width: 640px) {
+    a {
+      grid-template-columns: 1fr auto;
+    }
+    .date {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

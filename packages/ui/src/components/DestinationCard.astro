@@ -1,0 +1,243 @@
+---
+// One destination, as a card. THE only card on the placements surface (2026-07-30).
+//
+// Extracted from placements/index.astro when the page split into an argument plus three drill-down
+// trees. Carrying its own styles is the point: an axis page then costs markup rather than design,
+// and there is exactly one place where a card's anatomy can change.
+//
+// THE THREE LAWS it enforces (see placements/index.astro for the full statement):
+//   1. Hue is GEOGRAPHY, set only by `geo`, which only ever comes from the shared geoOf().
+//   2. The edge carries the colour; the COUNT STAYS INK, at a size fixed by the card's size and
+//      never by its own value — so "1" cannot look like a failure beside "88".
+//   3. Impact comes from the section's field, never from decorating the card.
+export interface Props {
+  name: string;
+  /** Rendered as the meta line. Omit on a card that has no geography (an outcome, not a place). */
+  country?: string | undefined;
+  count: number;
+  /** The unit word. "students" by default; an outcome card says what the outcome was. */
+  unit?: string | undefined;
+  geo: 'in' | 'out' | 'none';
+  /** Site-relative path into public/logos/. 22 of 271 destinations have one. */
+  logo?: string | undefined;
+  /** WA-50: a campus split out from its parent MUST say whose it is. Never optional in practice. */
+  partOf?: { name: string } | undefined;
+  /** WA-51 course detail, rendered in the sunken foot. Never a place. */
+  units?: { name: string; count: number }[] | undefined;
+  /** Editorial standing sentence (India sections only). */
+  standing?: string | undefined;
+  /** The yellow pill — recurrence. Yellow is a FILL with dark text, never an edge. */
+  flag?: string | undefined;
+  /** When set the whole card becomes a link to the destination's own page. */
+  href?: string | undefined;
+  /** `chip` is the compact two-column form for a long tail. No third size, ever. */
+  size?: 'card' | 'chip';
+}
+
+const {
+  name, country, count, unit = count === 1 ? 'student' : 'students', geo,
+  logo, partOf, units, standing, flag, href, size = 'card',
+} = Astro.props;
+
+const isChip = size === 'chip';
+---
+
+<li
+  class:list={['pl-card', isChip && 'pl-card--sm', !isChip && logo && 'has-seal', href && 'pl-card--link']}
+  data-geo={geo}
+>
+  {!isChip && logo && (
+    <img class="pl-card__seal" src={logo} alt="" loading="lazy" decoding="async" width="36" height="36" />
+  )}
+
+  <p class="pl-card__name">
+    {href ? <a href={href}>{name}</a> : name}
+  </p>
+
+  {(country || partOf) && (
+    <p class="pl-card__meta">
+      {country}
+      {partOf && <em class="pl-card__partof">a campus of {partOf.name}</em>}
+    </p>
+  )}
+
+  {!isChip && standing && <p class="pl-card__standing">{standing}</p>}
+  {!isChip && flag && <p class="pl-card__flag"><span>{flag}</span></p>}
+
+  <p class="pl-card__count"><strong>{count}</strong><small>{unit}</small></p>
+
+  {units && units.length > 0 && (
+    <p class="pl-card__foot">Courses: {units.map((u) => `${u.name} ${u.count}`).join(' · ')}</p>
+  )}
+</li>
+
+<style>
+  /* ── LAW 1. The only rules that assign a hue. ─────────────────────────────────────────────── */
+  [data-geo='in']   { --acc: var(--fh-color-primary);    --acc-soft: var(--fh-color-primary-border); }
+  [data-geo='out']  { --acc: var(--fh-color-secondary);  --acc-soft: var(--fh-color-secondary-border); }
+  [data-geo='none'] { --acc: var(--fh-color-text-muted); --acc-soft: var(--fh-color-border-strong); }
+
+  .pl-card {
+    --pl-num: var(--fh-text-3xl);
+    position: relative;                 /* the seal's containing block */
+    display: flex;
+    flex-direction: column;
+    gap: var(--fh-space-2);
+    padding: var(--fh-space-5);
+    background: var(--fh-color-surface);
+    color: var(--fh-color-text);
+    border: var(--fh-border-width) solid var(--pl-line, var(--fh-color-border));
+    /* Beacon's accent-top device, 4px to match the site's own idiom (CampusCard, Hero .facts). */
+    border-block-start: var(--fh-space-1) solid var(--acc);
+    border-radius: var(--fh-radius-lg);
+    box-shadow: var(--fh-shadow-sm);
+    /* 534 cards over an A4 run meet page boundaries repeatedly. */
+    break-inside: avoid;
+  }
+
+  /* SEAL — absolutely positioned, so a card with a logo and one without have byte-identical text
+     layout. 22 of 271 have one; nothing is reserved for the 249 that do not, so none can look
+     empty. No monogram fallback: inventing a mark an institution does not own would put 249
+     fabrications beside 22 real crests. */
+  .pl-card__seal {
+    position: absolute;
+    inset-block-start: var(--fh-space-5);
+    inset-inline-end: var(--fh-space-5);
+    inline-size: 2.25rem;
+    block-size: 2.25rem;
+    object-fit: contain;
+    padding: var(--fh-space-px);
+    border-radius: var(--fh-radius-xs);
+    /* Deliberately never themed — an institution's mark is drawn for a light ground. */
+    background: var(--fh-color-media-plate);
+  }
+  .has-seal .pl-card__name,
+  .has-seal .pl-card__meta,
+  .has-seal .pl-card__standing { padding-inline-end: calc(2.25rem + var(--fh-space-3)); }
+
+  .pl-card__name {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    font-size: var(--fh-text-base);
+    line-height: var(--fh-leading-snug);
+    letter-spacing: var(--fh-tracking-tight);
+    text-wrap: balance;
+  }
+  .pl-card__meta { font-size: var(--fh-text-sm); color: var(--fh-color-text-muted); }
+  /* WA-50: never truncated, never behind a hover, never optional. */
+  .pl-card__partof { display: block; font-style: normal; font-size: var(--fh-text-xs); }
+
+  .pl-card__standing {
+    font-size: var(--fh-text-sm);
+    line-height: var(--fh-leading-normal);
+    color: var(--fh-color-text-muted);
+  }
+  .pl-card__standing:empty { display: none; }
+
+  /* Yellow is a FILL with dark text — never an edge: accent on white is 1.66:1, accent-fg on
+     accent is 10.33:1. */
+  .pl-card__flag { align-self: flex-start; }
+  .pl-card__flag > span {
+    display: inline-block;
+    padding: var(--fh-space-px) var(--fh-space-2);
+    border: var(--fh-border-width) solid var(--fh-color-accent-active);
+    border-radius: var(--fh-radius-full);
+    background: var(--fh-color-accent);
+    color: var(--fh-color-accent-fg);
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-bold);
+    letter-spacing: var(--fh-tracking-wide);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* LAW 2. margin-block-start:auto is the ragged-content solver: a 3-line standing sentence and a
+     1-line one produce equal-height cards with their numerals on the same baseline. */
+  .pl-card__count {
+    margin-block-start: auto;
+    padding-block-start: var(--fh-space-3);
+    display: flex;
+    align-items: baseline;
+    gap: var(--fh-space-2);
+  }
+  .pl-card__count strong {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-extrabold);
+    font-size: var(--pl-num);          /* by SIZE, never by value */
+    line-height: var(--fh-leading-none);
+    letter-spacing: var(--fh-tracking-tight);
+    font-variant-numeric: tabular-nums;
+    color: var(--fh-color-text);       /* ink. never var(--acc). */
+  }
+  .pl-card__count small {
+    font-family: var(--fh-font-body);
+    font-size: var(--fh-text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--fh-tracking-wider);
+    color: var(--fh-color-text-muted);
+  }
+
+  /* WA-51: a school is part of the COURSE, never a place. The sunken band separates it from
+     `country` typographically, at zero colour cost. */
+  .pl-card__foot {
+    margin: var(--fh-space-2) calc(-1 * var(--fh-space-5)) calc(-1 * var(--fh-space-5));
+    padding: var(--fh-space-3) var(--fh-space-5);
+    border-block-start: var(--fh-border-width) solid var(--fh-color-border);
+    background: var(--fh-color-surface-sunken);
+    border-end-start-radius: calc(var(--fh-radius-lg) - var(--fh-border-width));
+    border-end-end-radius: calc(var(--fh-radius-lg) - var(--fh-border-width));
+    font-size: var(--fh-text-xs);
+    line-height: var(--fh-leading-normal);
+    color: var(--fh-color-text-muted);
+  }
+
+  /* ── The chip: same card, keel rotated 90°, the optional parts hidden. ─────────────────────── */
+  .pl-card--sm {
+    --pl-num: var(--fh-text-base);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: 0 var(--fh-space-2);
+    padding: var(--fh-space-2) var(--fh-space-3);
+    border-block-start: var(--fh-border-width) solid var(--pl-line, var(--fh-color-border));
+    border-inline-start: var(--fh-border-width-2) solid var(--acc-soft);
+    border-radius: var(--fh-radius-md);
+    box-shadow: none;                  /* hundreds of shadows is grey mush */
+  }
+  .pl-card--sm .pl-card__name {
+    grid-column: 1;
+    font-family: var(--fh-font-body);
+    font-size: var(--fh-text-sm);
+    font-weight: var(--fh-weight-semibold);
+  }
+  .pl-card--sm .pl-card__meta  { grid-column: 1; font-size: var(--fh-text-xs); }
+  .pl-card--sm .pl-card__count { grid-column: 2; grid-row: 1 / span 2; align-self: center; margin: 0; padding: 0; }
+  .pl-card--sm .pl-card__count strong { font-weight: var(--fh-weight-bold); }
+  /* Redundant beside the digit, but kept for out-of-order screen-reader navigation. */
+  .pl-card--sm .pl-card__count small {
+    position: absolute; inline-size: 1px; block-size: 1px;
+    overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+  }
+  .pl-card--sm .pl-card__foot {
+    grid-column: 1 / -1;
+    margin: var(--fh-space-2) calc(-1 * var(--fh-space-3)) calc(-1 * var(--fh-space-3));
+    padding: var(--fh-space-2) var(--fh-space-3);
+    border-end-start-radius: calc(var(--fh-radius-md) - var(--fh-border-width));
+    border-end-end-radius: calc(var(--fh-radius-md) - var(--fh-border-width));
+  }
+
+  /* ── Linked cards. The hover lift is an AFFORDANCE CLAIM, so it appears only where the card
+        genuinely goes somewhere — which, since the drill-down exists, is most of them. The whole
+        card is the hit area via the name's ::after overlay, so the target is a card and not a
+        14px line of text. ──────────────────────────────────────────────────────────────────── */
+  .pl-card--link { transition: box-shadow 150ms ease, transform 150ms ease; }
+  .pl-card--link:hover { transform: translateY(-2px); box-shadow: var(--fh-shadow-md); }
+  .pl-card--link:has(a:focus-visible) { outline: var(--fh-border-width-2) solid var(--acc); outline-offset: 2px; }
+  .pl-card__name a { color: inherit; text-decoration: none; }
+  .pl-card__name a::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
+  .pl-card__name a:focus-visible { outline: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .pl-card--link { transition: none; }
+    .pl-card--link:hover { transform: none; }
+  }
+</style>

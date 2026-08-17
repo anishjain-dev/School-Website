@@ -1,0 +1,183 @@
+---
+// DIRECTION C — "Blueprint": dark architectural grid, yellow rule-lines,
+// sharp corners, dense editorial. Same content as the real group home;
+// exploration only.
+import '@fountainhead-web/tokens/index.css';
+import '@fountainhead-web/tokens/directions/blueprint.css';
+import '@fontsource/montserrat/600.css';
+import '@fontsource/montserrat/800.css';
+import '@fontsource/nunito/400.css';
+import { getCollection } from 'astro:content';
+
+const campuses = (await getCollection('campuses')).map((c) => c.data).sort((a, b) => a.slug.localeCompare(b.slug));
+---
+
+<!doctype html>
+<html lang="en" data-brand="fountainhead" data-direction="blueprint">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Direction C — Blueprint</title>
+  </head>
+  <body>
+    <p class="switcher">
+      Direction C — Blueprint · <a href="/">view A</a> · <a href="/styleguide/directions/morning/">view B</a> ·
+      <a href="/styleguide/directions/">about</a>
+    </p>
+
+    <section class="hero">
+      <p class="eyebrow">An IB school group — Surat &amp; Vapi</p>
+      <h1>Schools built around<br />how children<br />actually learn</h1>
+      <p class="lede">
+        Five campuses. One conviction: children flourish when curiosity leads and the IB continuum gives it direction.
+      </p>
+      <a class="cta" href="#campuses">Explore admissions ↗</a>
+    </section>
+
+    <section class="campuses" id="campuses">
+      <h2><span>Index /</span> Campuses</h2>
+      <ol>
+        {
+          campuses.map((c) => (
+            <li>
+              <span class="name">{c.name}</span>
+              <span class="meta">{c.address.city}{c.descriptor ? ` — ${c.descriptor}` : ''}</span>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+  </body>
+</html>
+
+<style>
+  body {
+    margin: 0;
+    background: var(--fh-color-bg);
+    color: var(--fh-color-text);
+    font-family: var(--fh-font-body);
+    /* blueprint grid */
+    background-image: linear-gradient(var(--fh-color-surface) 1px, transparent 1px),
+      linear-gradient(90deg, var(--fh-color-surface) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .switcher {
+    margin: 0;
+    padding: var(--fh-space-3) var(--fh-space-6);
+    background: var(--fh-color-surface);
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+    font-size: var(--fh-text-sm);
+    font-family: var(--fh-font-heading);
+  }
+  .switcher a {
+    color: var(--fh-color-text-link);
+  }
+
+  .hero {
+    max-width: var(--fh-container-max);
+    margin-inline: auto;
+    padding: var(--fh-space-24) var(--fh-space-6) var(--fh-space-20);
+  }
+  .eyebrow {
+    font-family: var(--fh-font-mono);
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-eyebrow);
+    border-top: var(--fh-border-width-2) solid var(--fh-color-accent);
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+    display: inline-block;
+    padding: var(--fh-space-2) 0;
+    margin: 0 0 var(--fh-space-8);
+    text-transform: uppercase;
+    letter-spacing: var(--fh-tracking-wider);
+  }
+  h1 {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-extrabold);
+    font-size: clamp(var(--fh-text-5xl), 7vw, var(--fh-text-6xl));
+    line-height: var(--fh-leading-none);
+    text-transform: uppercase;
+    letter-spacing: var(--fh-tracking-tight);
+    margin: 0;
+  }
+  .lede {
+    max-width: 48ch;
+    margin: var(--fh-space-8) 0 0;
+    font-size: var(--fh-text-lg);
+    color: var(--fh-color-text-muted);
+    border-left: var(--fh-border-width-2) solid var(--fh-color-accent);
+    padding-left: var(--fh-space-5);
+  }
+  .cta {
+    display: inline-block;
+    margin-top: var(--fh-space-10);
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-extrabold);
+    font-size: var(--fh-text-xl);
+    color: var(--fh-color-accent);
+    text-decoration: none;
+    border-bottom: var(--fh-border-width-2) solid var(--fh-color-accent);
+    padding-bottom: var(--fh-space-2);
+  }
+  .cta:hover {
+    color: var(--fh-color-accent-hover);
+  }
+
+  .campuses {
+    max-width: var(--fh-container-max);
+    margin-inline: auto;
+    padding: 0 var(--fh-space-6) var(--fh-space-24);
+  }
+  h2 {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-extrabold);
+    font-size: var(--fh-text-2xl);
+    text-transform: uppercase;
+    margin: 0 0 var(--fh-space-6);
+  }
+  h2 span {
+    color: var(--fh-color-eyebrow);
+    font-family: var(--fh-font-mono);
+    font-weight: var(--fh-weight-regular);
+  }
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: campus;
+  }
+  li {
+    counter-increment: campus;
+    display: grid;
+    grid-template-columns: 4rem 1fr auto;
+    align-items: baseline;
+    gap: var(--fh-space-6);
+    padding: var(--fh-space-5) 0;
+    border-top: var(--fh-border-width) solid var(--fh-color-border);
+  }
+  li::before {
+    content: counter(campus, decimal-leading-zero);
+    font-family: var(--fh-font-mono);
+    color: var(--fh-color-eyebrow);
+  }
+  li:hover {
+    background: var(--fh-color-surface);
+  }
+  .name {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-extrabold);
+    font-size: var(--fh-text-xl);
+  }
+  .meta {
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-text-muted);
+  }
+  @media (max-width: 640px) {
+    li {
+      grid-template-columns: 3rem 1fr;
+    }
+    .meta {
+      grid-column: 2;
+    }
+  }
+</style>

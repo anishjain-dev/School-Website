@@ -1,0 +1,16 @@
+---
+// The ONE sanctioned client-side island (WA-39): Cloudflare Turnstile.
+// check-zero-js allowlists exactly this script source; server-side
+// siteverify in the endpoints is the real check. Defaults to the visible
+// test sitekey until the real key lands (credential sitting).
+const sitekey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '1x00000000000000000000AA';
+---
+
+<div class="cf-turnstile" data-sitekey={sitekey}></div>
+<script is:inline defer src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
+
+<style>
+  .cf-turnstile {
+    min-height: 65px;
+  }
+</style>

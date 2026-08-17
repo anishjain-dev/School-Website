@@ -1,0 +1,69 @@
+---
+// Full-width conversion band on the hero field, spark-textured corner.
+import Spark from './Spark.astro';
+
+interface Props {
+  heading: string;
+  body?: string | undefined;
+  cta: { label: string; path: string };
+}
+const { heading, body, cta } = Astro.props;
+---
+
+<section class="band">
+  <div class="container row">
+    <div>
+      <h2><Spark size={20} /> {heading}</h2>
+      {body && <p>{body}</p>}
+    </div>
+    <a class="cta" href={cta.path}>{cta.label}</a>
+  </div>
+</section>
+
+<style>
+  .band {
+    background: var(--fh-color-hero-bg);
+    color: var(--fh-color-hero-fg);
+    clip-path: polygon(0 var(--fh-space-6), 100% 0, 100% 100%, 0 100%);
+    padding-block: var(--fh-space-16) var(--fh-space-12);
+    margin-top: var(--fh-space-16);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--fh-space-10);
+    flex-wrap: wrap;
+  }
+  h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--fh-space-3);
+    font-size: var(--fh-text-3xl);
+    font-weight: var(--fh-weight-extrabold);
+  }
+  p {
+    margin-top: var(--fh-space-3);
+    max-width: 52ch;
+    opacity: 0.9;
+  }
+  .cta {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    height: var(--fh-control-height-lg);
+    padding-inline: var(--fh-space-8);
+    border-radius: var(--fh-radius-full);
+    /* Same hero field as Hero, so the same CTA slot — on FALH this band is
+       yellow and an accent-yellow button would vanish into it (WCAG 1.4.11). */
+    background: var(--fh-color-hero-cta-bg);
+    color: var(--fh-color-hero-cta-fg);
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    text-decoration: none;
+    transition: transform var(--fh-duration-base) var(--fh-ease-standard);
+  }
+  .cta:hover {
+    transform: translateY(-2px);
+  }
+</style>

@@ -1,0 +1,146 @@
+---
+// Group footer: nav columns, contact, and the compliance line every page
+// carries — grievance contact (WA-22/WA-34 published contact) and the
+// child-protection link (WA-23).
+import Spark from './Spark.astro';
+
+interface Column {
+  heading: string;
+  links: { label: string; path: string }[];
+}
+interface Props {
+  siteName: string;
+  columns: Column[];
+  address?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  coBrand?: string | undefined;
+  /** Resolved social links — plain anchors, never embed scripts (WA-18). */
+  social?: { label: string; url: string }[] | undefined;
+}
+const { siteName, columns, address, email, phone, coBrand, social } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="footer u-print-hidden">
+  <div class="container grid">
+    <div class="ident">
+      <p class="name"><Spark size={16} /> {siteName}</p>
+      {coBrand && <p class="cobrand">{coBrand}</p>}
+      {address && <p class="line">{address}</p>}
+      {email && <p class="line"><a href={`mailto:${email}`}>{email}</a></p>}
+      {phone && <p class="line"><a href={`tel:${phone.replace(/\s/g, '')}`}>{phone}</a></p>}
+      {social && social.length > 0 && (
+        <ul class="social">
+          {social.map((s) => (
+            <li><a href={s.url} rel="noopener">{s.label}</a></li>
+          ))}
+        </ul>
+      )}
+    </div>
+    {columns.map((col) => (
+      <nav aria-label={col.heading}>
+        <p class="col-h">{col.heading}</p>
+        <ul>
+          {col.links.map((l) => (
+            <li><a href={l.path}>{l.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+    ))}
+  </div>
+  <div class="container legal">
+    <p>© {year} Fountainhead Group. <a href="/child-protection/">Child protection</a> · <a href="/policies/">Policies</a> · Grievance: <a href="mailto:grievance@fountainheadschools.org">grievance@fountainheadschools.org</a></p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--fh-color-footer-bg);
+    color: var(--fh-color-footer-fg);
+    margin-top: var(--fh-space-24);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 2fr repeat(auto-fit, minmax(9rem, 1fr));
+    gap: var(--fh-space-10);
+    padding-block: var(--fh-space-16) var(--fh-space-10);
+  }
+  .name {
+    display: flex;
+    align-items: center;
+    gap: var(--fh-space-2);
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-extrabold);
+    font-size: var(--fh-text-lg);
+    margin-bottom: var(--fh-space-4);
+  }
+  .cobrand {
+    font-size: var(--fh-text-sm);
+    opacity: 0.75;
+    margin-bottom: var(--fh-space-3);
+  }
+  .line {
+    font-size: var(--fh-text-sm);
+    opacity: 0.85;
+    margin-bottom: var(--fh-space-1);
+  }
+  .line a,
+  .legal a {
+    color: inherit;
+  }
+  .social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--fh-space-4);
+    list-style: none;
+    padding: 0;
+    margin-top: var(--fh-space-4);
+  }
+  .social a {
+    color: inherit;
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-bold);
+    letter-spacing: var(--fh-tracking-wide);
+    text-transform: uppercase;
+  }
+  .col-h {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--fh-tracking-wider);
+    opacity: 0.6;
+    margin-bottom: var(--fh-space-4);
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--fh-space-2);
+  }
+  ul a {
+    color: inherit;
+    text-decoration: none;
+    font-size: var(--fh-text-sm);
+  }
+  ul a:hover {
+    text-decoration: underline;
+  }
+  .legal {
+    border-top: var(--fh-border-width) solid var(--fh-color-border-strong);
+    padding-block: var(--fh-space-5);
+    font-size: var(--fh-text-xs);
+    opacity: 0.75;
+  }
+  @media (max-width: 760px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .ident {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

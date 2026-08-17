@@ -1,0 +1,36 @@
+---
+// Breadcrumbs for the placements drill-down. A reader who lands three levels deep from a search
+// result needs to know where they are and how to widen — without that, an axis page is a dead end.
+export interface Props {
+  trail: { label: string; href?: string | undefined }[];
+}
+const { trail } = Astro.props;
+---
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <ol>
+    {trail.map((c, i) => (
+      <li>
+        {c.href ? <a href={c.href}>{c.label}</a> : <span aria-current="page">{c.label}</span>}
+        {i < trail.length - 1 && <span class="sep" aria-hidden="true">/</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .crumbs ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--fh-space-2);
+    font-size: var(--fh-text-sm);
+  }
+  .crumbs li { display: flex; align-items: baseline; gap: var(--fh-space-2); }
+  .crumbs a { color: var(--fh-color-text-muted); }
+  .crumbs [aria-current='page'] { color: var(--fh-color-text); font-weight: var(--fh-weight-semibold); }
+  .sep { color: var(--fh-color-text-subtle, var(--fh-color-text-muted)); }
+</style>

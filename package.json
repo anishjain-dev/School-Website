@@ -1,0 +1,30 @@
+{
+  "name": "fountainhead-web",
+  "private": true,
+  "packageManager": "pnpm@11.15.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @fountainhead-web/group dev",
+    "build": "pnpm --filter @fountainhead-web/group build && node scripts/check-zero-js.mjs && node scripts/check-brand-parity.mjs",
+    "check": "pnpm --filter @fountainhead-web/group check",
+    "test": "pnpm --filter @fountainhead-web/group test",
+    "report": "pnpm --filter @fountainhead-web/group report",
+    "keystatic": "pnpm --filter @fountainhead-web/group keystatic",
+    "media": "node tools/media-upload/cli.mjs",
+    "a11y": "node scripts/a11y-scan.mjs",
+    "inventory": "node tools/crawl-inventory/crawl.mjs",
+    "inventory:join": "node tools/crawl-inventory/join-gsc.mjs",
+    "redirects": "node tools/crawl-inventory/build-redirects.mjs",
+    "extract": "node tools/extract-legacy/extract.mjs",
+    "export:policies": "node tools/policy-export/export.mjs",
+    "lint": "node scripts/lint.mjs && node scripts/check-brand-anchors.mjs && node scripts/check-contrast.mjs",
+    "verify:brands": "node scripts/check-brand-parity.mjs"
+  },
+  "devDependencies": {
+    "@keystatic/core": "^0.5",
+    "axe-core": "^4.12.1",
+    "playwright": "^1.61.1"
+  }
+}

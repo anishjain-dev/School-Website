@@ -1,0 +1,105 @@
+# Editorial layer over the placements record (WA-43).
+#
+# The counts on the placements page are GENERATED from the Career Counselling app and must never be
+# edited. This file is the opposite: the human judgements laid over them — which universities lead
+# the page, and how each is described. It is here, in content, precisely so marketing and the
+# counselling team can revise it without a code change.
+#
+# Two hard rules:
+#   1. Nothing here creates a number. Every count still comes from the record; an id listed below
+#      that has no placements simply does not appear.
+#   2. Every standing claim carries its source and year. A rival school fact-checks this page first,
+#      and NIRF bands move annually. Researched and adversarially re-checked 2026-07-28 — 23 of 24
+#      draft claims had to be reworded, so do not add one from memory.
+
+# --- Section 0 -------------------------------------------------------------------------------
+# Universities recognised worldwide that our graduates have been admitted to. Ordered as shown.
+# Counts are attached from the record, including where that is one student — VK, 2026-07-28: with
+# counts is fine. A place at Stanford means one student at any school; hiding that reads as evasion.
+worldLeading:
+  - stanford-university
+  - university-of-cambridge
+  - ucl
+  - national-university-of-singapore
+  - university-of-toronto
+  - nanyang-technological-university
+  - the-university-of-hong-kong-hku
+  - wharton-school-of-business-university-of-pennsylvania
+  - university-of-british-columbia
+  - university-of-california-los-angeles-ucla-college-of-letters
+  - university-of-sydney
+  - university-of-new-south-wales-unsw
+  - university-of-manchester
+  - london-school-of-economics-and-political-science
+  - delft-university-of-technology
+  - duke-university
+
+# --- Section 1 ---------------------------------------------------------------------------------
+# Indian institutions judged by INDIAN measures. VK, 2026-07-28: "Indian colleges are not going to
+# be top in the world, but they are top in India" — so NIRF, NAAC and category standing, never a
+# world ranking they were never competing in.
+#
+# `standing` is printed verbatim. Keep it to one line a parent would recognise.
+indiaLeading:
+  - id: op-jindal-global-university
+    standing: "India's No.1 private law school four years running (Outlook-ICARE 2026) · 35th in the world for Law (QS 2026) · Institution of Eminence"
+  - id: national-institute-of-fashion-technology
+    standing: "No.1 in India for Fashion Design four years running (India Today–MDRA 2026) · a statutory institute under the Ministry of Textiles"
+  - id: gujarat-national-law-university
+    standing: "5th in India for Law (NIRF 2025), up from 8th the year before"
+  - id: symbiosis-international-university
+    standing: "24th among Indian universities (NIRF 2025); its Law School ranks 7th in India and its business school 11th"
+  - id: narsee-monjee-institute-of-management-studies-nmims
+    standing: "24th in India for Management and 11th for Pharmacy (NIRF 2025) · a Deemed-to-be-University"
+  - id: shiv-nadar-university
+    standing: "Institution of Eminence · 57th among Indian universities (NIRF 2025)"
+  - id: christ-university
+    standing: "63rd among Indian universities and 24th in Law (NIRF 2025)"
+  - id: nirma-university
+    standing: "29th in India for Architecture and 33rd for Law (NIRF 2025)"
+  - id: pandit-deendayal-energy-university-pdeu
+    standing: "98th for Engineering and 89th for Management (NIRF 2025) · NAAC A++"
+
+# Universities outside the NIRF framework rather than below it — several deliberately do not take
+# part, and Plaksha's first class only graduated in 2025 (NIRF requires three graduated batches).
+# Presenting them as unranked would be wrong.
+indiaEmerging:
+  - id: flame-university
+    standing: "NAAC A++ (2024) · QS I-Gauge Platinum for Liberal Arts and Humanities"
+  - id: ashoka-university
+    standing: ""            # left blank on purpose: the drafted claim failed fact-checking and no
+                            # replacement is yet sourced. Better an empty line than an unsound one.
+  - id: plaksha-university
+    standing: "Founded 2021 with UC Berkeley, Purdue, Cornell and Penn Engineering · first class graduated 2025, so no NIRF rank yet"
+  - id: krea-university
+    standing: "Interdisciplinary arts and sciences · home of the IFMR Graduate School of Business"
+  - id: ahmedabad-university
+    standing: "NAAC 'A' · 5-star in the Gujarat State Institutional Rating Framework 2023–24"
+
+# --- Section 2 ---------------------------------------------------------------------------------
+# VK, 2026-07-28: "many parents/students choose Auro only because it's in Surat... for various
+# reasons they want their kids in Surat itself." So this is a section about a deliberate choice,
+# not a lesser one — and it keeps an unranked university out of a ranked list, where it would look
+# out of place while being the largest destination on the page.
+homeCity: Surat
+
+# --- Section 3 ---------------------------------------------------------------------------------
+# Specialist creative institutions worth naming. The COUNT for this section is computed from the
+# career-cluster field across the whole record; this list only decides which names are shown.
+creativeSpecialists:
+  - national-institute-of-design
+  - whistling-woods-international
+  - atlas-skilltech-university
+  - anant-national-university
+  - national-institute-of-fashion-technology
+  - srishti-school-of-art-design-and-technology
+  - pearl-academy
+  - the-new-school-parsons-school-of-design
+  - pratt-institute
+  - savannah-college-of-art-and-design
+  - fashion-institute-of-technology
+  - school-of-visual-arts
+  - otis-college-of-art-and-design
+  - new-york-film-academy
+  - los-angeles-college-of-music
+  - 3is-international-institute-de-l-image-et-du-son
