@@ -15,7 +15,7 @@ const nn = String(index).padStart(2, '0');
 
 <article class="card">
   <p class="numeral" aria-hidden="true">{nn}</p>
-  <h3><a href={path} target="_blank" rel="noopener noreferrer">{name}</a></h3>
+  <h3><a href={path}>{name}</a></h3>
   <p class="city">{city}</p>
   {descriptor && <p class="desc">{descriptor}</p>}
   <p class="go" aria-hidden="true">Visit campus →</p>
