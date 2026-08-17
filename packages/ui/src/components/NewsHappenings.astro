@@ -117,10 +117,6 @@ const secondary = items.slice(1);
 ════════════════════════════════════════════════════════ -->
 {variant === 'cards' && (
   <section class="nh-cards-section">
-    <header class="nh-cards-header">
-      <p class="nh-cards-eyebrow">Fountainhead group</p>
-      <h2 class="nh-cards-heading">News &amp; Happenings</h2>
-    </header>
     <ul class="nh-cards-grid" role="list">
       {items.map((item, i) => (
         <li>
@@ -888,21 +884,10 @@ const secondary = items.slice(1);
   text-transform: uppercase;
 }
 
-/* Editorial — tablet */
+/* Editorial — tablet: keep image on left, adjust padding */
 @media (max-width: 900px) {
-  .nh-ed-feature {
-    grid-template-columns: 1fr;
-  }
-  .nh-ed-feature-image :global(.frame),
-  .nh-ed-feature-image :global(.fixture) {
-    min-height: 240px;
-    aspect-ratio: 16 / 7;
-  }
   .nh-ed-feature-content {
-    padding: var(--fh-space-6);
-  }
-  .nh-ed-secondary {
-    grid-template-columns: repeat(2, 1fr);
+    padding: var(--fh-space-6) var(--fh-space-6) var(--fh-space-6) 0;
   }
 }
 
