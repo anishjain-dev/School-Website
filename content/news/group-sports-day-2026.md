@@ -4,7 +4,7 @@ publishDate: 2026-06-15
 campus: group
 description: For the first time, all five Fountainhead campuses competed together at the annual Group Sports Day, held at the Kunkni ground. Over 1,200 students took part in track, field, and team events across a full day of competition.
 cover:
-  id: "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?w=1200&h=600&fit=crop&q=80"
+  id: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=1200&h=600&fit=crop&q=80"
   alt: "Students from five Fountainhead campuses competing at Group Sports Day 2026"
 draft: false
 ---

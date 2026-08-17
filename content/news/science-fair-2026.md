@@ -4,7 +4,7 @@ publishDate: 2026-08-10
 campus: kunkni
 description: Students from Kunkni and Malgama campuses showcased over 80 projects at this year's Science Fair, with themes ranging from water conservation to AI-assisted crop monitoring.
 cover:
-  id: "https://images.unsplash.com/photo-1532094349884-543559c98b51?w=1200&h=600&fit=crop&q=80"
+  id: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&h=600&fit=crop&q=80"
   alt: "Students presenting science projects at the inter-campus Science Fair 2026"
 draft: false
 ---

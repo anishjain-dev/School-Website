@@ -4,7 +4,7 @@ publishDate: 2026-07-18
 campus: malgama
 description: The Malgama campus unveiled its newly upgraded sports complex this month, featuring an expanded gymnasium, two multipurpose courts, and an outdoor fitness trail for senior students.
 cover:
-  id: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1200&h=600&fit=crop&q=80"
+  id: "https://images.unsplash.com/photo-1546483875-ad9014c88eba?w=1200&h=600&fit=crop&q=80"
   alt: "New sports complex at Fountainhead School Malgama with students using the facilities"
 draft: false
 ---
