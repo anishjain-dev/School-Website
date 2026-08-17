@@ -36,7 +36,7 @@ const items = allNews
     {items.length > 0 ? (
       <>
         <NewsHappenings items={items} variant="editorial" />
-        <NewsHappenings items={items} variant="cards" />
+        <NewsHappenings items={items.slice(1)} variant="cards" />
       </>
     ) : (
       <p class="empty">Nothing published yet — check back soon.</p>
