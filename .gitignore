@@ -13,9 +13,6 @@ artifacts/
 tools/extract-legacy/media/
 tools/extract-legacy/out/
 
-# Local dev news images (Instagram downloads — not for git; upload to Cloudflare Images for production)
-sites/group/public/news/
-
 # Environment / secrets
 .env
 .env.*
