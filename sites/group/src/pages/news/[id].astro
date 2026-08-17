@@ -26,12 +26,14 @@ const fmt = new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'long', ye
   eyebrow={`${fmt.format(entry.data.publishDate)}${entry.data.campus !== 'group' ? ` · ${entry.data.campus}` : ''}`}
   admissionsPath={ctx.admissionsPathFor(null)}
 >
-  <article class="container prose">
-    {entry.data.cover && (
+  {entry.data.cover && (
+    <div class="cover-wrap container">
       <div class="cover-image">
-        <ImageFrame image={entry.data.cover} variant="hero" aspect="3 / 4" loading="eager" />
+        <ImageFrame image={entry.data.cover} variant="hero" aspect="16 / 9" loading="eager" />
       </div>
-    )}
+    </div>
+  )}
+  <article class="container prose">
     {entry.data.description && (
       <p class="lede">{entry.data.description}</p>
     )}
@@ -41,16 +43,20 @@ const fmt = new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'long', ye
 </PageChrome>
 
 <style>
+  .cover-wrap {
+    padding-top: var(--fh-space-10);
+  }
+  .cover-image {
+    border-radius: var(--fh-radius-2xl);
+    overflow: hidden;
+    box-shadow: var(--fh-shadow-lg);
+    margin-bottom: 0;
+  }
   .prose {
-    padding-block: var(--fh-space-12);
+    padding-block: var(--fh-space-10) var(--fh-space-12);
     max-width: calc(var(--fh-container-max) * 0.6);
     font-size: var(--fh-text-lg);
     line-height: var(--fh-leading-relaxed);
-  }
-  .cover-image {
-    margin-bottom: var(--fh-space-8);
-    border-radius: var(--fh-radius-xl);
-    overflow: hidden;
   }
   .lede {
     font-size: var(--fh-text-xl);
