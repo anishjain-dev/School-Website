@@ -26,12 +26,12 @@ const fmt = new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'long', ye
   eyebrow={`${fmt.format(entry.data.publishDate)}${entry.data.campus !== 'group' ? ` · ${entry.data.campus}` : ''}`}
   admissionsPath={ctx.admissionsPathFor(null)}
 >
-  {entry.data.cover && (
-    <div class="cover-image">
-      <ImageFrame image={entry.data.cover} variant="hero" aspect="3 / 4" loading="eager" />
-    </div>
-  )}
   <article class="container prose">
+    {entry.data.cover && (
+      <div class="cover-image">
+        <ImageFrame image={entry.data.cover} variant="hero" aspect="3 / 4" loading="eager" />
+      </div>
+    )}
     {entry.data.description && (
       <p class="lede">{entry.data.description}</p>
     )}
