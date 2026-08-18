@@ -38,7 +38,6 @@ const fmt = new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'long', ye
         <div><dt>Owner</dt><dd>{entry.data.owner}</dd></div>
         {entry.data.reviewDue && <div><dt>Review due</dt><dd>{fmt.format(entry.data.reviewDue)}</dd></div>}
       </dl>
-      <p class="print-hint u-print-hidden">To keep a copy: print this page — the print layout is the official document format.</p>
     </div>
     <div class="prose">
       <Content />
@@ -80,21 +79,75 @@ const fmt = new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'long', ye
     font-weight: var(--fh-weight-bold);
     font-family: var(--fh-font-heading);
   }
-  .print-hint {
-    margin-top: var(--fh-space-5);
-    font-size: var(--fh-text-sm);
-    color: var(--fh-color-text-muted);
-  }
   .prose {
     font-size: var(--fh-text-lg);
     line-height: var(--fh-leading-relaxed);
   }
   .prose :global(h2) {
     font-size: var(--fh-text-2xl);
-    margin: var(--fh-space-8) 0 var(--fh-space-4);
+    font-weight: var(--fh-weight-bold);
+    margin: var(--fh-space-10) 0 var(--fh-space-4);
+    padding-top: var(--fh-space-5);
+    border-top: var(--fh-border-width-2) solid var(--fh-color-border);
+  }
+  .prose :global(h3) {
+    font-size: var(--fh-text-xl);
+    font-weight: var(--fh-weight-bold);
+    margin: var(--fh-space-8) 0 var(--fh-space-3);
+  }
+  .prose :global(h4) {
+    font-size: var(--fh-text-lg);
+    font-weight: var(--fh-weight-bold);
+    margin: var(--fh-space-6) 0 var(--fh-space-2);
   }
   .prose :global(p) {
     margin-bottom: var(--fh-space-5);
+  }
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin: 0 0 var(--fh-space-5);
+    padding-left: var(--fh-space-6);
+  }
+  .prose :global(li) {
+    margin-bottom: var(--fh-space-2);
+  }
+  .prose :global(a) {
+    color: var(--fh-color-text-link);
+  }
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--fh-space-6);
+    display: block;
+    overflow-x: auto;
+  }
+  .prose :global(th),
+  .prose :global(td) {
+    text-align: left;
+    padding: var(--fh-space-3) var(--fh-space-4);
+    border: var(--fh-border-width) solid var(--fh-color-border);
+    font-size: var(--fh-text-base);
+    vertical-align: top;
+  }
+  .prose :global(th) {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-sm);
+    letter-spacing: var(--fh-tracking-wide);
+    text-transform: uppercase;
+    color: var(--fh-color-text-muted);
+    background: var(--fh-color-surface-raised);
+  }
+  .prose :global(blockquote) {
+    margin: var(--fh-space-6) 0;
+    padding-left: var(--fh-space-5);
+    border-left: var(--fh-space-1) solid var(--fh-color-accent);
+    color: var(--fh-color-text-muted);
+    font-size: var(--fh-text-base);
+  }
+  .prose :global(hr) {
+    border: none;
+    border-top: var(--fh-border-width) solid var(--fh-color-border);
+    margin: var(--fh-space-10) 0;
   }
 
   @media print {

@@ -1,4 +1,5 @@
 ---
+hideFromNav: true
 title: Contact & visits
 description: Ask a question, or better — come and see a school day in motion.
 template: contact

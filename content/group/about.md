@@ -1,25 +1,23 @@
 ---
-title: Our Story
-description: From six students in 2005 to a network across Surat, Vapi and Chhatrapati Sambhajinagar.
-draft: true
-order: 15
+title: About Us
+description: Fountainhead Schools — six campuses across Surat, Vapi and Chhatrapati Sambhajinagar, built on one conviction about how children learn.
+order: 5
 ---
 
-> **DRAFT — comms to review.** Timeline recovered from the FALH brochure by
-> OCR; **year-to-milestone mapping needs visual verification** against the
-> brochure before publishing. Wording is theirs to polish.
+Fountainhead Schools is a family of IB World Schools built on a single conviction: children flourish when curiosity leads, and the right environment gives it direction.
 
-## The journey so far
+What began in 2005 as a preschool with six students has grown into a network spanning Surat, Vapi and Chhatrapati Sambhajinagar — each campus authorised for the International Baccalaureate continuum, each designed for the whole child.
 
-- **2005** — Founded with 6 students as "The Fountainhead Preschool".
-- **c. 2011** — Authorized for the IB Primary Years Programme.
-- **2014** — IB Diploma Programme authorized.
-- **c. 2014** — Ankita Diwekar Kabra conferred the Global Teacher Accreditation Award by the British Council.
-- **2016** — First graduating class of Fountainhead School.
-- **2017** — Second Fountainhead Preschool opens.
-- **2018** — IB Middle Years Programme authorized.
-- **c. 2019** — MSA-CESS accreditation for the American High School Diploma.
-- **2020** — Fountainhead School Kunkni established.
-- **2023** — Ranked Best International School in Surat (C fore rankings).
-- **2024/2025** — Great Place To Work certified.
-- **2026–27** — Malgama, FALH (Vapi learning hub), FWGS, and FASV (Vapi school) join the group.
+## The FS Logo
+
+The Fountainhead logo captures the relationship at the heart of every classroom.
+
+The school — the teacher — represents the spring, the principal source of knowledge. The student is the stream, the beneficiary of that knowledge. The extended hand shows the school inviting students to learn. The open arms represent the general ambience of the school, where teachers share a healthy and open relationship with their students — where students learn to be fearless in expressing ideas and opinions, where teachers work towards nurturing the child and helping them reach their true potential.
+
+The magic is in the bond shared by the one who imparts knowledge and the one who imbibes it. That bond is the principal source of something great, which can only be achieved when it is a collaborative effort. To achieve greater heights, the bond has to be strong. The logo symbolises that bond and the sharing of knowledge.
+
+## Our Conviction
+
+We believe that education is far more than the transmission of knowledge. It is the deliberate cultivation of character, competence, and the courage to lead.
+
+Our mission: **to nurture leaders with character and competence.**

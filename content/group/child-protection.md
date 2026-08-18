@@ -1,4 +1,5 @@
 ---
+hideFromNav: true
 title: Child Protection
 description: Safety is non-negotiable — the systems, people and protocols that keep every child secure.
 draft: true

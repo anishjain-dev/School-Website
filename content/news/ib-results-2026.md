@@ -1,12 +1,18 @@
 ---
-title: Outstanding IB Results — Class of 2026
-publishDate: 2026-07-05
+title: "Perfect 45/45 — Hitarth Diwan & Misha Lilwani, IBDP Class of 2026"
+publishDate: 2026-07-18
 campus: fwgs
-description: Fountainhead Wockhardt Global School students achieved exceptional IB Diploma results this year, with the school average surpassing the global mean for the fifth consecutive year.
+description: Perfection is never achieved by chance. We celebrate Hitarth Diwan and Misha Lilwani for achieving a perfect score of 45/45 in the International Baccalaureate Diploma Programme — placing them among the world's highest-performing IB students.
 cover:
-  id: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1200&h=600&fit=crop&q=80"
-  alt: "IB Diploma students with their results"
+  id: "/news/ib-results.jpg"
+  alt: "IB Diploma perfect score achievement — Fountainhead Wockhardt Global School"
 draft: false
 ---
 
-Seed news entry — replace with real IB results content before launch.
+Perfection is never achieved by chance. It is earned through unwavering commitment.
+
+We are immensely proud to celebrate **Hitarth Diwan** and **Misha Lilwani** of the IBDP Class of 2026 for achieving a perfect score of **45/45** in the International Baccalaureate Diploma Programme, placing them among the world's highest-performing IB students.
+
+This exceptional achievement is a testament to years of intellectual curiosity, resilience, disciplined effort, and an enduring passion for learning.
+
+Congratulations, Hitarth and Misha. Your accomplishment reflects the very best of what dedication can achieve, and we wish you every success as you embark on the exciting journey ahead.

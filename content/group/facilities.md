@@ -1,4 +1,5 @@
 ---
+hideFromNav: true
 title: Facilities
 description: Campuses built for children to move, make and question.
 draft: true

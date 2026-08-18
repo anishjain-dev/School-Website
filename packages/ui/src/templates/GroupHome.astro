@@ -18,6 +18,9 @@ export interface CampusLite {
   name: string;
   city: string;
   descriptor?: string | undefined;
+  address: { line1: string; line2?: string | undefined; pincode: string };
+  phone?: string | undefined;
+  email?: string | undefined;
 }
 export interface NetworkLite {
   campusCount: number;

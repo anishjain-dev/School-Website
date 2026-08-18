@@ -44,7 +44,15 @@ export interface RouteProps {
   resolved: ResolvedPage;
   nav: NavItem[];
   sections: { label: string; path: string; note: string }[];
-  campuses: { slug: string; name: string; city: string; descriptor?: string | undefined }[];
+  campuses: {
+    slug: string;
+    name: string;
+    city: string;
+    descriptor?: string | undefined;
+    address: { line1: string; line2?: string; pincode: string };
+    phone?: string | undefined;
+    email?: string | undefined;
+  }[];
   network: NetworkSummary;
   news: NewsItem[];
   admissionsPath: string;
@@ -172,12 +180,13 @@ async function compute(): Promise<SiteContext> {
   const navFor = (campusSlug: string | null): NavItem[] => {
     const sources: NavSource[] = result.pages
       .filter((p) => p.campus === campusSlug && p.id !== 'index')
+      .filter((p) => !entryFor(p)?.data.hideFromNav)
       .map((p) => {
         const e = entryFor(p);
         return { id: p.id, path: p.path, label: e?.data.title ?? p.id, order: e?.data.order ?? 99 };
       });
     const system = systemLinks(campusSlug).map((s) => ({ label: s.label, path: s.path }));
-    const groupSystem = campusSlug === null ? [{ label: 'News', path: '/news/' }] : [];
+    const groupSystem = campusSlug === null ? [{ label: 'News and Happenings', path: '/news/' }] : [];
     // Reference material lives once at group level (WA-48) — campus sections
     // link out to the group path rather than rendering a branded copy. The
     // policy index already groups by category, so this stays one flat link
@@ -241,6 +250,9 @@ async function compute(): Promise<SiteContext> {
       name: c.data.name,
       city: c.data.address.city,
       descriptor: c.data.descriptor,
+      address: { line1: c.data.address.line1, line2: c.data.address.line2, pincode: c.data.address.pincode },
+      phone: c.data.phone,
+      email: c.data.email,
     }))
     .sort((a, b) => a.slug.localeCompare(b.slug));
 

@@ -14,6 +14,8 @@ export const pageSchema = z.object({
     .default('content'),
   heroImage: imageRefSchema.optional(),
   order: z.number().optional(),
+  /** Exclude this page from the site header nav (e.g. footer-only pages). */
+  hideFromNav: z.boolean().default(false),
   /** Fact panel rows (programme/admissions templates) */
   facts: z.array(z.object({ label: z.string(), value: z.string() })).optional(),
   /** FAQ rendered as native <details> — zero JS */

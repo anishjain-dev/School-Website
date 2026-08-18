@@ -23,6 +23,19 @@ interface Props {
 const { campus, heading, pageTitle, description, canonical, nav, eyebrow, admissionsPath, social } = Astro.props;
 const siteName = campus?.name ?? 'Fountainhead Schools';
 const homePath = campus ? `/${campus.slug}/` : '/';
+const coBrand = campus
+  ? campus.brand === 'fwgs'
+    ? 'A Fountainhead × Wockhardt school'
+    : campus.brand === 'falh' || campus.brand === 'fasv'
+      ? 'A Fountainhead × Avadh venture'
+      : 'Part of the Fountainhead Group'
+  : undefined;
+const footerCols = campus
+  ? [
+      ...footerColumns(nav, homePath),
+      { heading: 'The group', links: [{ label: 'Fountainhead Schools', path: '/' }, { label: 'Philosophy', path: '/philosophy/' }, { label: 'Careers', path: '/careers/' }] },
+    ]
+  : footerColumns(nav, homePath);
 ---
 
 <BaseLayout brand={campus?.brand ?? 'fountainhead'} title={pageTitle} description={description} canonical={canonical}>
@@ -56,8 +69,12 @@ const homePath = campus ? `/${campus.slug}/` : '/';
   <SiteFooter
     slot="footer"
     siteName={siteName}
+    coBrand={coBrand}
+    address={campus ? `${campus.address.line1}, ${campus.address.city}` : undefined}
+    email={campus?.email}
+    phone={campus?.phone}
     social={social}
-    columns={footerColumns(nav, homePath)}
+    columns={footerCols}
   />
 </BaseLayout>
 
