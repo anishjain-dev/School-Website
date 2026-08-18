@@ -1,6 +1,7 @@
 ---
 title: Values, Mission, and Philosophy
 description: At Fountainhead, education is purposeful. Every learning experience is designed to nurture the whole child — academically, emotionally, and ethically.
+order: 20
 ---
 
 At Fountainhead, we believe that education is far more than the transmission of knowledge. It is the deliberate cultivation of character, competence, and the courage to lead.

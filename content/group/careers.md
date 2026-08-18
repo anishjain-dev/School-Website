@@ -1,4 +1,5 @@
 ---
+hideFromNav: true
 title: Careers
 description: Teach and work with the Fountainhead group.
 scope: group-only

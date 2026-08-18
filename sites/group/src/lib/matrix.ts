@@ -180,6 +180,7 @@ async function compute(): Promise<SiteContext> {
   const navFor = (campusSlug: string | null): NavItem[] => {
     const sources: NavSource[] = result.pages
       .filter((p) => p.campus === campusSlug && p.id !== 'index')
+      .filter((p) => !entryFor(p)?.data.hideFromNav)
       .map((p) => {
         const e = entryFor(p);
         return { id: p.id, path: p.path, label: e?.data.title ?? p.id, order: e?.data.order ?? 99 };
