@@ -1,7 +1,7 @@
 ---
 title: Academics
 description: The IB continuum at Fountainhead — PYP, MYP and DP under one philosophy.
-order: 20
+order: 35
 ---
 
 <!-- PUBLISHED PAGE — everything below renders at /academics/ and at every

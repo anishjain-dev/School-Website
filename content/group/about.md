@@ -1,25 +1,23 @@
 ---
-title: Our Story
-description: From six students in 2005 to a network across Surat, Vapi and Chhatrapati Sambhajinagar.
-draft: true
-order: 15
+title: About Us
+description: Fountainhead Schools — six campuses across Surat, Vapi and Chhatrapati Sambhajinagar, built on one conviction about how children learn.
+order: 5
 ---
 
-> **DRAFT — comms to review.** Timeline recovered from the FALH brochure by
-> OCR; **year-to-milestone mapping needs visual verification** against the
-> brochure before publishing. Wording is theirs to polish.
+Fountainhead Schools is a family of IB World Schools built on a single conviction: children flourish when curiosity leads, and the right environment gives it direction.
 
-## The journey so far
+What began in 2005 as a preschool with six students has grown into a network spanning Surat, Vapi and Chhatrapati Sambhajinagar — each campus authorised for the International Baccalaureate continuum, each designed for the whole child.
 
-- **2005** — Founded with 6 students as "The Fountainhead Preschool".
-- **c. 2011** — Authorized for the IB Primary Years Programme.
-- **2014** — IB Diploma Programme authorized.
-- **c. 2014** — Ankita Diwekar Kabra conferred the Global Teacher Accreditation Award by the British Council.
-- **2016** — First graduating class of Fountainhead School.
-- **2017** — Second Fountainhead Preschool opens.
-- **2018** — IB Middle Years Programme authorized.
-- **c. 2019** — MSA-CESS accreditation for the American High School Diploma.
-- **2020** — Fountainhead School Kunkni established.
-- **2023** — Ranked Best International School in Surat (C fore rankings).
-- **2024/2025** — Great Place To Work certified.
-- **2026–27** — Malgama, FALH (Vapi learning hub), FWGS, and FASV (Vapi school) join the group.
+We believe education is far more than the transmission of knowledge. It is the deliberate cultivation of character, competence, and the courage to lead.
+
+## The FS Logo
+
+The Fountainhead logo captures the relationship at the heart of every classroom. The teacher is the spring — the source. The student is the stream — the recipient. The extended hand is an invitation to learn. The open arms reflect an environment where students learn to be fearless in expressing ideas and opinions, where curiosity is protected and celebrated, not reduced to performance.
+
+## Our Character
+
+**Character** — doing the right thing, even when no one is watching.
+
+**Competence** — academic and non-academic skills that help students become socially adept people, researchers, critical thinkers, problem-solvers, good leaders and decision-makers — skills that are valuable in all spheres of life today.
+
+This is not a curriculum framework. It is a promise — to every student, and to every family that chooses Fountainhead.

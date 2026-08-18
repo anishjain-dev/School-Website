@@ -2,7 +2,7 @@
 title: Admissions
 description: How admission to a Fountainhead school works.
 template: admissions
-order: 10
+order: 40
 faq:
   - q: Which ages do you admit?
     a: Seed answer — real admissions FAQ content arrives with the content plan in August.
