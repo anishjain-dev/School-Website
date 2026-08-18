@@ -44,7 +44,15 @@ export interface RouteProps {
   resolved: ResolvedPage;
   nav: NavItem[];
   sections: { label: string; path: string; note: string }[];
-  campuses: { slug: string; name: string; city: string; descriptor?: string | undefined }[];
+  campuses: {
+    slug: string;
+    name: string;
+    city: string;
+    descriptor?: string | undefined;
+    address: { line1: string; line2?: string; pincode: string };
+    phone?: string | undefined;
+    email?: string | undefined;
+  }[];
   network: NetworkSummary;
   news: NewsItem[];
   admissionsPath: string;
@@ -241,6 +249,9 @@ async function compute(): Promise<SiteContext> {
       name: c.data.name,
       city: c.data.address.city,
       descriptor: c.data.descriptor,
+      address: { line1: c.data.address.line1, line2: c.data.address.line2, pincode: c.data.address.pincode },
+      phone: c.data.phone,
+      email: c.data.email,
     }))
     .sort((a, b) => a.slug.localeCompare(b.slug));
 

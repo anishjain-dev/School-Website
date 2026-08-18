@@ -1,0 +1,155 @@
+---
+// FSK campus policies — transparent card layout (WA-13: web page = PDF via print CSS).
+import { getCollection } from 'astro:content';
+import PageChrome from '@fountainhead-web/ui/layouts/PageChrome.astro';
+import { getSiteContext } from '../../lib/matrix';
+
+const ctx = await getSiteContext();
+const campus = ctx.campusDataFor('kunkni');
+const all = await getCollection('policies');
+const fskPolicies = all
+  .filter((p) => p.data.status === 'active' && p.id.startsWith('school/fsk-'))
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+const fmt = new Intl.DateTimeFormat('en-IN', { month: 'long', year: 'numeric' });
+---
+
+<PageChrome
+  campus={campus}
+  heading="School Policies"
+  pageTitle="School Policies — Fountainhead School Kunkni"
+  description="Academic integrity, language, and learning diversity policies for Fountainhead School Kunkni — open any policy to read online or print as PDF."
+  canonical={new URL('/kunkni/policies/', Astro.site)}
+  nav={ctx.navFor('kunkni')}
+  eyebrow="Fountainhead School Kunkni"
+  admissionsPath={ctx.admissionsPathFor('kunkni')}
+  social={ctx.socialFor('kunkni')}
+>
+  <div class="container">
+    <p class="lede">
+      Every policy is a living web page — the print layout is the official document format.
+      Open a policy, then use <kbd>Ctrl+P</kbd> / <kbd>⌘P</kbd> to save as PDF.
+    </p>
+
+    <ul class="policy-grid" role="list">
+      {fskPolicies.map((p) => (
+        <li class="policy-card">
+          <a href={`/policies/${p.id}/`} class="card-link">
+            <span class="card-title">{p.data.title}</span>
+            {p.data.summary && <span class="card-summary">{p.data.summary}</span>}
+            <span class="card-meta">
+              v{p.data.version} · effective {fmt.format(p.data.effectiveDate)}
+              {p.data.reviewDue && <> · review {fmt.format(p.data.reviewDue)}</>}
+            </span>
+            <span class="card-cta" aria-hidden="true">Read policy →</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <p class="all-link">
+      <a href="/policies/">View all Fountainhead group policies</a>
+    </p>
+  </div>
+</PageChrome>
+
+<style>
+  .container {
+    padding-block: var(--fh-space-12);
+    max-width: calc(var(--fh-container-max) * 0.8);
+  }
+
+  .lede {
+    font-size: var(--fh-text-lg);
+    color: var(--fh-color-text-muted);
+    margin-bottom: var(--fh-space-10);
+    max-width: 60ch;
+  }
+
+  .policy-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--fh-space-1);
+  }
+
+  .policy-card {
+    border-top: var(--fh-border-width) solid var(--fh-color-border);
+  }
+  .policy-card:last-child {
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+  }
+
+  .card-link {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto auto;
+    column-gap: var(--fh-space-8);
+    row-gap: var(--fh-space-1);
+    padding-block: var(--fh-space-6);
+    text-decoration: none;
+    color: var(--fh-color-text);
+    background: transparent;
+  }
+  .card-link:hover .card-title {
+    color: var(--fh-color-primary-text);
+  }
+
+  .card-title {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xl);
+    font-weight: var(--fh-weight-bold);
+    transition: color var(--fh-duration-fast) var(--fh-ease-standard);
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .card-summary {
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-text-muted);
+    grid-column: 1;
+    grid-row: 2;
+    max-width: 65ch;
+    line-height: 1.5;
+  }
+
+  .card-meta {
+    font-size: var(--fh-text-xs);
+    color: var(--fh-color-text-subtle);
+    font-family: var(--fh-font-mono);
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: var(--fh-space-2);
+  }
+
+  .card-cta {
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-primary-text);
+    font-weight: var(--fh-weight-semibold);
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    white-space: nowrap;
+  }
+
+  .all-link {
+    margin-top: var(--fh-space-8);
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-text-muted);
+  }
+  .all-link a {
+    color: var(--fh-color-primary-text);
+  }
+
+  @media (max-width: 640px) {
+    .card-link {
+      grid-template-columns: 1fr;
+    }
+    .card-cta {
+      grid-column: 1;
+      grid-row: 4;
+      margin-top: var(--fh-space-2);
+    }
+  }
+</style>

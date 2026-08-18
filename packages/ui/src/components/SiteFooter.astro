@@ -60,10 +60,14 @@ const year = new Date().getFullYear();
     color: var(--fh-color-footer-fg);
     margin-top: var(--fh-space-24);
   }
+  .footer a,
+  .footer a:visited {
+    color: var(--fh-color-footer-fg);
+  }
   .grid {
     display: grid;
-    grid-template-columns: 2fr repeat(auto-fit, minmax(9rem, 1fr));
-    gap: var(--fh-space-10);
+    grid-template-columns: 1.2fr 1fr 1fr 1.4fr;
+    gap: var(--fh-space-8);
     padding-block: var(--fh-space-16) var(--fh-space-10);
   }
   .name {
@@ -135,12 +139,17 @@ const year = new Date().getFullYear();
     font-size: var(--fh-text-xs);
     opacity: 0.75;
   }
-  @media (max-width: 760px) {
+  @media (max-width: 700px) {
     .grid {
       grid-template-columns: 1fr 1fr;
     }
     .ident {
       grid-column: 1 / -1;
+    }
+  }
+  @media (max-width: 400px) {
+    .grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
