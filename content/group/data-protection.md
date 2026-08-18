@@ -1,10 +1,12 @@
 ---
+hideFromNav: true
 title: Data protection
 description: How Fountainhead handles personal data under the Digital Personal Data Protection Act, 2023.
 scope: group-only
 draft: true
 order: 95
 ---
+hideFromNav: true
 
 > **TODO (comms + VK):** Public-facing DPDP Act 2023 page. Requested in the
 > marketing IA proposal (2026-07-27) on the reasoning that parents are

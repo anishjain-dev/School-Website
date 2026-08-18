@@ -8,16 +8,16 @@ Fountainhead Schools is a family of IB World Schools built on a single convictio
 
 What began in 2005 as a preschool with six students has grown into a network spanning Surat, Vapi and Chhatrapati Sambhajinagar — each campus authorised for the International Baccalaureate continuum, each designed for the whole child.
 
-We believe education is far more than the transmission of knowledge. It is the deliberate cultivation of character, competence, and the courage to lead.
-
 ## The FS Logo
 
-The Fountainhead logo captures the relationship at the heart of every classroom. The teacher is the spring — the source. The student is the stream — the recipient. The extended hand is an invitation to learn. The open arms reflect an environment where students learn to be fearless in expressing ideas and opinions, where curiosity is protected and celebrated, not reduced to performance.
+The Fountainhead logo captures the relationship at the heart of every classroom.
 
-## Our Character
+The school — the teacher — represents the spring, the principal source of knowledge. The student is the stream, the beneficiary of that knowledge. The extended hand shows the school inviting students to learn. The open arms represent the general ambience of the school, where teachers share a healthy and open relationship with their students — where students learn to be fearless in expressing ideas and opinions, where teachers work towards nurturing the child and helping them reach their true potential.
 
-**Character** — doing the right thing, even when no one is watching.
+The magic is in the bond shared by the one who imparts knowledge and the one who imbibes it. That bond is the principal source of something great, which can only be achieved when it is a collaborative effort. To achieve greater heights, the bond has to be strong. The logo symbolises that bond and the sharing of knowledge.
 
-**Competence** — academic and non-academic skills that help students become socially adept people, researchers, critical thinkers, problem-solvers, good leaders and decision-makers — skills that are valuable in all spheres of life today.
+## Our Conviction
 
-This is not a curriculum framework. It is a promise — to every student, and to every family that chooses Fountainhead.
+We believe that education is far more than the transmission of knowledge. It is the deliberate cultivation of character, competence, and the courage to lead.
+
+Our mission: **to nurture leaders with character and competence.**

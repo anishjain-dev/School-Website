@@ -24,10 +24,22 @@ Fountainhead began in 2005 with six students and a belief that education could b
 - **2024–25** — Great Place To Work certified
 - **2026–27** — Malgama, FALH (Vapi learning hub), FWGS, and FASV (Vapi school) join the group
 
-## Our Leadership
+## Our People
 
-**Bhumika Parmar** — Head of School, Fountainhead Schools. Serving since 2009 in various roles, holding degrees in Commerce, Law, and Education, plus School Leadership Management certification.
+### Bhumika Parmar — Head of School
 
-**Shezin Siganporia** — Senior School Principal (Chartered Accountant), bringing specialist expertise in school administration alongside educational leadership.
+Bhumika Parmar strongly believes that life is one big circle and you get back what you give in life. This philosophy has brought her a long way, both in personal and professional life.
 
-**Utsav Oza** — Senior School Principal (Engineer), combining technical rigour with a deep commitment to inquiry-based learning.
+She has been associated with Fountainhead School since 2009, working in varied roles as a home room teacher, team leader and Middle Years Coordinator prior to taking up her current position. Her tenure at the school has given her a rich experience in understanding child psychology as well as the academic needs of students, and she has been a mentor to students, parents and teachers alike.
+
+She holds a bright academic background with degrees in Commerce, Law and Education, and has pursued a degree in School Leadership Management. She has been instrumental in setting up systems, processes and curriculum development in the Middle Years, and leads the IB Middle Years Programme while overseeing smooth administration of the DP programme.
+
+Her vision of education is not limited to the tangibles of academic achievement but goes well beyond that.
+
+### Shezin Siganporia — Senior School Principal
+
+Shezin Siganporia is a Chartered Accountant who enjoys taking on new challenges. She is passionate about topics related to Finance and Business Management. Shezin has been working with Fountainhead School since 2013.
+
+### Utsav Oza — Senior School Principal
+
+Utsav Oza is an engineer who completed his Bachelor of Engineering in IT from SCET and is a gold medalist. He was awarded the Dewang Mehta IT Award — 2017. He has a keen interest in quizzing, drama and poem writing, and has competed in state and national level quiz competitions, including Youth Festival, TATA Crucible and AIU quiz competitions at IIM-Ahmedabad and Nirma University. He has performed drama and poetry at Asia's largest youth festival, Mood Indigo at IIT-Bombay.

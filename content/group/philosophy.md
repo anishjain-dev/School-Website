@@ -1,48 +1,33 @@
 ---
 title: Values, Mission, and Philosophy
-description: At Fountainhead, education is purposeful. Every learning experience is designed to nurture the whole child — academically, emotionally, and ethically.
+description: At Fountainhead, education is purposeful — nurturing leaders with character and competence.
 order: 20
 ---
 
-At Fountainhead, we believe that education is far more than the transmission of knowledge. It is the deliberate cultivation of character, competence, and the courage to lead.
+## Our Values
+
+### Character
+
+Doing the right thing, even when no one is watching.
+
+Character is defined as an individual's mental and moral qualities. It is a combination of values such as integrity, generosity, sincerity, compassion, service orientation, self-regulation and ethics. An individual's character drives one to think and act in the right direction in day-to-day life as well as in unexpected and difficult situations.
+
+### Competence
+
+Academic and non-academic skills that help students become socially adept people, researchers, critical thinkers and problem-solvers, good leaders and decision-makers — skills that are valuable in all spheres of life today.
+
+Competence means acquiring domain knowledge in areas of interest as well as a range of transferable skills — communication, leadership, people management, research, critical thinking, problem-solving, and social adeptness.
+
+## Our Tagline
+
+**To nurture leaders with character and competence.**
+
+Not everyone may want to or can become business, political, or sports leaders. The kind of leaders Fountainhead hopes to nurture are those who can take charge of their lives, work effectively with others, do the right thing even when no one is watching, and are internationally minded. Such leaders need both character and competence to survive and succeed, especially in the 21st century.
 
 ## The FS Learning Model
 
-Our learning model places the **Learner** at the centre — surrounded by the conditions, values, and aspirations that shape a truly educated person.
+With students at the centre of everything we do, at Fountainhead we place a strong emphasis on fostering a love of learning. Our pedagogy is learner-centred and aims to create a positive and supportive environment.
 
-![The FS Learning Model — a circular diagram showing the Fountainhead Schools framework for holistic learning](/learning-model.png)
+We believe that learning needs to be goal-directed, and with that in mind we offer experiential learning opportunities through innovative curricular practices and teaching methods. We help students focus on academic competencies, but at the same time understand the value of physical fitness, creativity and social-emotional well-being.
 
-### At the core: three principles of learning
-
-Every Fountainhead classroom is guided by three interconnected principles:
-
-- **Goal-Directed Learning** — students understand why they are learning and what they are working towards
-- **Experiential Learning** — knowledge is built through doing, not just listening
-- **Joy of Learning** — curiosity is protected and celebrated, not reduced to performance
-
-### Five domains of development
-
-Surrounding the core are the five domains in which every student grows:
-
-1. **Academic Competencies** — rigorous, IB-aligned knowledge and skills
-2. **Physical Fitness** — health and movement as foundations of readiness to learn
-3. **Creativity and the Arts** — expression, imagination, and aesthetic intelligence
-4. **Socio-Emotional Well-Being** — self-awareness, empathy, and resilience
-5. **21st Century Skills** — collaboration, critical thinking, communication, and creativity
-
-### Values that guide us
-
-Woven through every domain are the values we hold non-negotiable:
-
-Fairness · Respect · Responsibility · Excellence · Win-Win · Integrity · Sustainability
-
-### Four pillars of the graduate profile
-
-Everything above serves four pillars that define what a Fountainhead graduate looks like in the world:
-
-- **Character** — a person of integrity and ethical grounding
-- **Service** — a contributor who acts beyond self-interest
-- **Global Citizenship** — a thinker who belongs to the world
-- **Leadership** — an individual who takes initiative and lifts others
-
-This is not a curriculum framework. It is a promise — to every student, and to every family that chooses Fountainhead.
+The values we hope to inculcate in our students seek to develop the skills, attitudes, and character necessary for long-term success.
