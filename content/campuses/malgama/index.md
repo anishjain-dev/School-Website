@@ -4,5 +4,4 @@ description: The Malgama campus, Surat.
 template: home
 ---
 
-Seed copy for the Malgama campus home. Malgama inherits everything
-inheritable and overrides nothing yet — the purest inherit case.
+Fountainhead School Malgama is an IB continuum campus of the Fountainhead group, located in Surat, Gujarat. The campus brings together the Early Years through the Diploma Programme within a connected, inquiry-based learning community.
