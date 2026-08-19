@@ -49,7 +49,7 @@ Students are permitted to eat in the school bus provided they observe the follow
 Didis have full authority in the bus to enforce this policy:
 
 1. **First warning** — issued by driver or didi; the student is not allowed to eat in the bus for that journey.
-2. **Second warning** — student is referred to the Operations Manager and Homeroom Teacher.
+2. **Second warning** — student is referred to the principal.
 3. **Third warning** — parents are called and disciplinary action is taken.
 
 Didis may also confiscate any prohibited items found in the bus.

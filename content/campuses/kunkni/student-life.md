@@ -12,7 +12,9 @@ Our annual celebration of games brings the entire school community together thro
 
 ## Sports & Athletics
 
-FSK's sports grounds give students the space to compete, collaborate, and build physical confidence alongside their academic growth.
+![Fountainhead School Kunkni — Sports Ground](/fsk-ground.jpg)
+
+FSK's sports facilities include turf from the Netherlands, Cricket Nets, Basketball, Football, Pickleball, Badminton, and Gymnastics. Students can participate in our Holistic Development Programme (HDP) and HDP+, which ensures every student has structured opportunities for physical development alongside their academic growth.
 
 ## Robotics
 
@@ -25,3 +27,6 @@ Access the FSK school calendar for key dates, events, and holiday schedules.
 ## Newsletters
 
 Stay connected with the FSK community through our student-produced newsletters.
+
+- [June 2026 Newsletter](/fsk-newsletter-june-2026.pdf)
+- [July 2026 Newsletter](/fsk-newsletter-july-2026.pdf)

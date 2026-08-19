@@ -14,11 +14,11 @@ Character is defined as an individual's mental and moral qualities. It is a comb
 
 ### Competence
 
-Academic and non-academic skills that help students become socially adept people, researchers, critical thinkers and problem-solvers, good leaders and decision-makers — skills that are valuable in all spheres of life today.
-
-Competence means acquiring domain knowledge in areas of interest as well as a range of transferable skills — communication, leadership, people management, research, critical thinking, problem-solving, and social adeptness.
+Academic and non-academic skills that will help them to become socially adept people, researchers, critical thinkers and problem-solvers, good leaders and decision-makers which are valuable in all spheres of life today.
 
 ## Our Tagline
+
+![To nurture leaders with character and competence](/student-mission-tagline.png)
 
 **To nurture leaders with character and competence.**
 

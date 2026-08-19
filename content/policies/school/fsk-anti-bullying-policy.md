@@ -26,6 +26,8 @@ Bullying can consist of one student targeting another, a group ganging up agains
 
 ## Types of Bullying
 
+![The 6 Types of Bullying](/bullying-types.png)
+
 - **Verbal** — name calling, teasing, threatening language
 - **Physical** — hitting, pushing, kicking, taking belongings
 - **Social / Relational** — excluding someone, spreading rumours, damaging friendships
