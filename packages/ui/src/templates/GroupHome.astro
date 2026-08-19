@@ -113,7 +113,17 @@ const { heading, lede, pageTitle, description, canonical, nav, campuses, network
     social={social}
     address={`${network.citiesLabel} · India`}
     columns={[
-      ...footerColumns(nav, '/'),
+      {
+        heading: 'Navigate',
+        links: [
+          { label: 'Home', path: '/' },
+          { label: 'About Us', path: '/about/' },
+          { label: 'Our Schools', path: '/our-schools/' },
+          { label: 'Admissions', path: '/admissions/' },
+          { label: 'News and Happenings', path: '/news/' },
+          { label: 'Accolades & Certifications', path: '/accolades/' },
+        ],
+      },
       {
         heading: 'Campuses',
         links: campuses.map((c) => ({ label: c.name, path: `/${c.slug}/` })),

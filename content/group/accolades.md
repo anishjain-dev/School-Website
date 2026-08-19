@@ -42,3 +42,7 @@ Recognised by FIT India for commitment to fitness and physical education across 
 ## The Education World (EW) Grade Jury Award 2019–20
 
 Recognised by Education World in the Grade Jury Awards for academic excellence and institutional quality.
+
+## IB Education Forum — DIDAC
+
+Fountainhead School was recognised at the IB Education Forum — DIDAC for its contributions to international education and progressive pedagogy.

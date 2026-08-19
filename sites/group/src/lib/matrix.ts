@@ -175,9 +175,138 @@ async function compute(): Promise<SiteContext> {
     return links;
   };
 
-  // Two-level nav (WA-48) — grouping logic lives in the pure nav-tree
-  // module so it can be tested without the content layer.
+  // Group-level static nav — 10 flat tabs matching the premium header IA.
+  // Campus navs remain data-driven via buildNavTree.
+  const GROUP_NAV: NavItem[] = [
+    { label: 'About Us', path: '/about/' },
+    {
+      label: 'Our Story and Founders',
+      path: '/founders/',
+      children: [
+        { label: 'About Fountainhead Schools', path: '/about/' },
+        { label: 'Video Bytes', path: '/about/' },
+        { label: 'Our Founders', path: '/founders/' },
+        { label: 'FS Logo & Identity', path: '/about/' },
+      ],
+    },
+    {
+      label: 'Values, Mission, and Philosophy',
+      path: '/philosophy/',
+      children: [
+        { label: '6 New Values', path: '/philosophy/' },
+        { label: 'Our Tagline', path: '/philosophy/' },
+        { label: 'Fountainhead Vision', path: '/philosophy/' },
+        { label: 'Student Mission Statement', path: '/philosophy/' },
+        { label: 'IB Mission Statement', path: '/philosophy/ib-mission/' },
+      ],
+    },
+    {
+      label: 'Our Schools',
+      path: '/our-schools/',
+    },
+    {
+      label: 'Academics',
+      path: '/academics/',
+      children: [
+        { label: 'Academic Approach', path: '/academics/' },
+        { label: 'Primary Years Programme', path: '/academics/pyp/' },
+        { label: 'Middle Years Programme', path: '/academics/myp/' },
+        { label: 'Diploma Programme', path: '/academics/dp/' },
+      ],
+    },
+    { label: 'Admissions', path: '/admissions/' },
+    { label: 'News and Happenings', path: '/news/' },
+    { label: 'Accolades & Certifications', path: '/accolades/' },
+    {
+      label: 'Testimonials — Voices at the Campuses',
+      path: '/testimonials/',
+      children: [
+        { label: 'Students', path: '/testimonials/' },
+        { label: 'Parents', path: '/testimonials/' },
+        { label: 'Teachers', path: '/testimonials/' },
+        { label: 'Campus Voices', path: '/testimonials/' },
+      ],
+    },
+    {
+      label: 'Results and University Destinations',
+      path: '/results/',
+      children: [
+        { label: 'Academic Results', path: '/results/' },
+        { label: 'Student Achievements', path: '/results/' },
+        { label: 'University Destinations', path: '/results/' },
+        { label: 'University Highlights', path: '/results/' },
+      ],
+    },
+  ];
+
+  // Fountainhead School Kunkni static nav — editorial IA from the FSK site map.
+  const KUNKNI_NAV: NavItem[] = [
+    {
+      label: 'About Us',
+      path: '/kunkni/about/',
+      children: [
+        { label: 'About FSK', path: '/kunkni/about/' },
+        { label: 'Our People', path: '/kunkni/staff/' },
+      ],
+    },
+    { label: 'The Campus', path: '/kunkni/campus/' },
+    {
+      label: 'Admissions',
+      path: '/kunkni/admissions/',
+      children: [
+        { label: 'How to Apply', path: '/kunkni/admissions/' },
+        { label: 'Fees', path: '/kunkni/fees/' },
+        { label: 'Transport', path: '/kunkni/transport/' },
+      ],
+    },
+    {
+      label: 'Academics',
+      path: '/kunkni/academics/',
+      children: [
+        { label: 'IB Continuum', path: '/kunkni/academics/' },
+        { label: 'Primary Years Programme', path: '/kunkni/academics/pyp/' },
+        { label: 'Middle Years Programme', path: '/kunkni/academics/myp/' },
+        { label: 'Diploma Programme', path: '/kunkni/academics/dp/' },
+        { label: 'Maverick Learning Centre', path: '/kunkni/academics/mlc/' },
+        { label: 'BTec', path: '/kunkni/academics/btec/' },
+      ],
+    },
+    {
+      label: 'Policies',
+      path: '/kunkni/policies/',
+      children: [
+        { label: 'All Policies', path: '/kunkni/policies/' },
+        { label: 'Bus Food Policy', path: '/policies/school/fsk-bus-food-policy/' },
+        { label: 'Anti-Bullying Policy', path: '/policies/school/fsk-anti-bullying-policy/' },
+        { label: 'No Tuition Policy', path: '/policies/school/fsk-no-tuition-policy/' },
+        { label: 'Parent Role in Education', path: '/policies/school/fsk-parent-role-policy/' },
+      ],
+    },
+    {
+      label: 'Student Life',
+      path: '/kunkni/student-life/',
+      children: [
+        { label: 'School Calendar', path: '/kunkni/calendar/' },
+      ],
+    },
+    { label: 'Upcoming Events', path: '/kunkni/calendar/' },
+    {
+      label: 'Student Support',
+      path: '/kunkni/student-support/',
+      children: [
+        { label: 'Career Counselling', path: '/kunkni/student-support/' },
+        { label: 'Wellbeing Counselling', path: '/kunkni/student-support/' },
+      ],
+    },
+    { label: 'Media', path: '/kunkni/media/' },
+    { label: 'Contact Us', path: '/kunkni/contact/' },
+  ];
+
+  // Two-level nav (WA-48). Group site uses the static editorial nav above;
+  // FSK uses its own editorial nav; other campus pages remain data-driven.
   const navFor = (campusSlug: string | null): NavItem[] => {
+    if (campusSlug === null) return GROUP_NAV;
+    if (campusSlug === 'kunkni') return KUNKNI_NAV;
     const sources: NavSource[] = result.pages
       .filter((p) => p.campus === campusSlug && p.id !== 'index')
       .filter((p) => !entryFor(p)?.data.hideFromNav)
@@ -186,13 +315,8 @@ async function compute(): Promise<SiteContext> {
         return { id: p.id, path: p.path, label: e?.data.title ?? p.id, order: e?.data.order ?? 99 };
       });
     const system = systemLinks(campusSlug).map((s) => ({ label: s.label, path: s.path }));
-    const groupSystem = campusSlug === null ? [{ label: 'News and Happenings', path: '/news/' }] : [];
-    // Reference material lives once at group level (WA-48) — campus sections
-    // link out to the group path rather than rendering a branded copy. The
-    // policy index already groups by category, so this stays one flat link
-    // rather than an eleven-item dropdown.
     const reference = [{ label: 'Policies', path: '/policies/' }];
-    return [...buildNavTree(sources), ...system, ...groupSystem, ...reference];
+    return [...buildNavTree(sources), ...system, ...reference];
   };
 
   // The campus-home "explore" index. Top-level only, so it expresses the

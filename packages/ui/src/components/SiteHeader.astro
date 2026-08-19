@@ -1,14 +1,7 @@
----
-// Campus-aware header. Utility strip carries the child-protection link
-// (WA-23 locked: elevated AND listed under Policies). Mobile nav is the
-// Popover API — zero JS; the browser manages button state.
-//
-// Two-level nav (WA-48) uses native <details name> — the exclusive
-// accordion, so opening one group closes its siblings without script.
-// Deliberately NOT a hover menu: hover-revealed submenus have to be
-// dismissible under WCAG 1.4.13, which WA-21 makes binding, and there is
-// no way to wire Escape without JS. A click-triggered disclosure sidesteps
-// 1.4.13 entirely and gets correct button semantics from <summary> free.
+﻿---
+// Premium IB school header — simple dropdowns + right-side mobile drawer.
+// JS justified: hover menus need WCAG 1.4.13 hoverable/dismissible behaviour.
+// Campus pages use zero-JS <details> accordion for the campus nav.
 import Spark from './Spark.astro';
 
 export interface NavItem {
@@ -26,366 +19,766 @@ interface Props {
   enquirePath?: string | undefined;
   phone?: string | undefined;
 }
+
 const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
+const isGroupSite = homePath === '/';
+
+// Group site: 10-tab nav per IA spec. Simple single-column dropdowns only.
+// Links only to pages confirmed in content/group/.
+const GROUP_NAV = [
+  {
+    label: 'About Us',
+    path: '/about/',
+  },
+  {
+    label: 'Our Story',
+    path: '/founders/',
+    children: [
+      { label: 'Our Story & Founders',          path: '/founders/' },
+      { label: 'Values, Mission & Philosophy',  path: '/philosophy/' },
+    ],
+  },
+  {
+    label: 'Values',
+    path: '/philosophy/',
+    children: [
+      { label: 'Values, Mission & Philosophy',  path: '/philosophy/' },
+      { label: 'IB Mission Statement',          path: '/philosophy/ib-mission/' },
+    ],
+  },
+  {
+    label: 'Our Schools',
+    path: '/our-schools/',
+    children: [
+      { label: 'All Our Schools',   path: '/our-schools/' },
+      { label: 'Kunkni Campus',     path: '/kunkni/' },
+      { label: 'Malgama Campus',    path: '/malgama/' },
+      { label: 'Aurangabad Campus', path: '/fwgs/' },
+      { label: 'Avadh Learning Hub',path: '/falh/' },
+    ],
+  },
+  {
+    label: 'Academics',
+    path: '/academics/',
+    children: [
+      { label: 'Academics Overview',               path: '/academics/' },
+      { label: 'Primary Years Programme (PYP)',    path: '/academics/pyp/' },
+      { label: 'Middle Years Programme (MYP)',     path: '/academics/myp/' },
+      { label: 'Diploma Programme (DP)',           path: '/academics/dp/' },
+    ],
+  },
+  {
+    label: 'Admissions',
+    path: '/admissions/',
+  },
+  {
+    label: 'News',
+    path: '/news/',
+  },
+  {
+    label: 'Accolades',
+    path: '/accolades/',
+  },
+  {
+    label: 'Voices',
+    path: '/testimonials/',
+    children: [
+      { label: 'Hear From Our Students', path: '/testimonials/' },
+      { label: 'Hear From Our Parents',  path: '/testimonials/' },
+      { label: 'All Testimonials',       path: '/testimonials/' },
+    ],
+  },
+  {
+    label: 'Results',
+    path: '/results/',
+  },
+];
 ---
 
-<div class="utility u-print-hidden">
-  <div class="container utility-row">
-    <a href="/child-protection/">Child protection</a>
-    {phone && <a href={`tel:${phone.replace(/\s/g, '')}`}>{phone}</a>}
+<!----------  UTILITY STRIP — all pages (WA-23)  ---------->
+<div class="util-strip u-print-hidden">
+  <div class="util-inner">
+    <a href="/child-protection/" class="util-link">Child Protection</a>
   </div>
 </div>
 
-<header class="header u-print-hidden">
-  <div class="container header-row">
-    <a class="lockup" href={homePath}>
-      <Spark size={18} />
-      <span class="lockup-name">{siteName}</span>
-      {shortName && <span class="lockup-chip">{shortName}</span>}
+<!----------  MAIN HEADER  ---------->
+<header class="hdr u-print-hidden" id="fh-header">
+  <div class="hdr-inner">
+
+    <!--  Logo  -->
+    <a class="logo" href={homePath} aria-label={siteName}>
+      <Spark size={20} />
+      <span class="logo-name">{siteName}</span>
+      {shortName && <span class="logo-chip">{shortName}</span>}
     </a>
 
-    <nav class="nav-desktop" aria-label="Primary">
-      {nav.map((item) =>
+    <!--------  DESKTOP NAV  -------->
+    {isGroupSite ? (
+      <nav class="nav-d" aria-label="Primary" id="fh-nav">
+        {GROUP_NAV.map(item =>
+          item.children?.length ? (
+            <div class="nd-item" data-menu={item.label}>
+              <button
+                class="nd-btn"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                {item.label}
+                <svg class="nd-chev" viewBox="0 0 10 6" fill="none" aria-hidden="true" width="9" height="5">
+                  <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </button>
+              <div class="dd" role="menu" hidden>
+                {item.children.map(c => (
+                  <a href={c.path} class="dd-link" role="menuitem">{c.label}</a>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <a href={item.path} class="nd-plain">{item.label}</a>
+          )
+        )}
+      </nav>
+    ) : (
+      <nav class="nav-d nav-d--campus" aria-label="Primary">
+        {nav.map(item =>
+          item.children?.length ? (
+            <details class="nd-group" name="campus-nav">
+              <summary class="nd-btn nd-sum">
+                {item.label}
+                <svg class="nd-chev" viewBox="0 0 10 6" fill="none" aria-hidden="true" width="9" height="5">
+                  <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </summary>
+              <div class="dd">
+                <a href={item.path} aria-current={item.current ? 'page' : undefined} class="dd-link dd-link--ov">{item.label} overview</a>
+                {item.children.map(c => (
+                  <a href={c.path} aria-current={c.current ? 'page' : undefined} class="dd-link">{c.label}</a>
+                ))}
+              </div>
+            </details>
+          ) : (
+            <a href={item.path} aria-current={item.current ? 'page' : undefined} class="nd-plain">{item.label}</a>
+          )
+        )}
+      </nav>
+    )}
+
+    <!--  Enquire CTA + hamburger  -->
+    <div class="hdr-actions">
+      {enquirePath && (
+        <a class="btn-enquire" href={enquirePath}>Enquire</a>
+      )}
+      <button class="ham" id="fh-ham" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="fh-drawer">
+        <span class="ham-bar"></span>
+        <span class="ham-bar"></span>
+        <span class="ham-bar"></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!----------  MOBILE DRAWER + OVERLAY  ---------->
+<div class="overlay" id="fh-overlay" aria-hidden="true"></div>
+
+<nav class="drawer" id="fh-drawer" aria-label="Primary, mobile" aria-hidden="true">
+  <div class="drawer-top">
+    <a class="logo" href={homePath} aria-label={siteName}>
+      <Spark size={18} />
+      <span class="logo-name">{siteName}</span>
+    </a>
+    <button class="drawer-close" id="fh-drawer-close" type="button" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" width="20" height="20" aria-hidden="true">
+        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="drawer-body">
+    {isGroupSite ? (
+      <>
+        {GROUP_NAV.map(item =>
+          item.children?.length ? (
+            <details class="mob-item">
+              <summary class="mob-row mob-row--toggle">
+                {item.label}
+                <svg class="mob-chev" viewBox="0 0 10 6" fill="none" aria-hidden="true" width="10" height="6">
+                  <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </summary>
+              <div class="mob-sub">
+                {item.children.map(c => (
+                  <a href={c.path} class="mob-sub-link">{c.label}</a>
+                ))}
+              </div>
+            </details>
+          ) : (
+            <div class="mob-item">
+              <a href={item.path} class="mob-row">{item.label}</a>
+            </div>
+          )
+        )}
+      </>
+    ) : (
+      nav.map(item =>
         item.children?.length ? (
-          <details class="nav-group" name="primary-nav">
-            <summary>{item.label}</summary>
-            <div class="submenu">
-              <a href={item.path} aria-current={item.current ? 'page' : undefined}>
-                {item.label} overview
-              </a>
-              {item.children.map((child) => (
-                <a href={child.path} aria-current={child.current ? 'page' : undefined}>{child.label}</a>
+          <details class="mob-item">
+            <summary class="mob-row mob-row--toggle">
+              {item.label}
+              <svg class="mob-chev" viewBox="0 0 10 6" fill="none" aria-hidden="true" width="10" height="6">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </summary>
+            <div class="mob-sub">
+              <a href={item.path} aria-current={item.current ? 'page' : undefined} class="mob-sub-link">{item.label} overview</a>
+              {item.children.map(c => (
+                <a href={c.path} aria-current={c.current ? 'page' : undefined} class="mob-sub-link">{c.label}</a>
               ))}
             </div>
           </details>
         ) : (
-          <a href={item.path} aria-current={item.current ? 'page' : undefined}>{item.label}</a>
-        ),
-      )}
-    </nav>
-
-    {enquirePath && <a class="enquire" href={enquirePath}>Enquire</a>}
-
-    <button class="nav-toggle" popovertarget="site-nav" aria-label="Menu">
-      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-    </button>
+          <div class="mob-item">
+            <a href={item.path} aria-current={item.current ? 'page' : undefined} class="mob-row">{item.label}</a>
+          </div>
+        )
+      )
+    )}
   </div>
-</header>
 
-<nav id="site-nav" class="nav-panel" popover aria-label="Primary, mobile">
-  {nav.map((item) =>
-    item.children?.length ? (
-      <details class="panel-group" name="mobile-nav">
-        <summary>{item.label}</summary>
-        <div class="panel-submenu">
-          <a href={item.path} aria-current={item.current ? 'page' : undefined}>
-            {item.label} overview
-          </a>
-          {item.children.map((child) => (
-            <a href={child.path} aria-current={child.current ? 'page' : undefined}>{child.label}</a>
-          ))}
-        </div>
-      </details>
-    ) : (
-      <a href={item.path} aria-current={item.current ? 'page' : undefined}>{item.label}</a>
-    ),
+  {enquirePath && (
+    <div class="drawer-foot">
+      <a href={enquirePath} class="btn-enquire btn-enquire--full">Enquire</a>
+    </div>
   )}
-  {enquirePath && <a class="panel-enquire" href={enquirePath}>Enquire</a>}
 </nav>
 
 <style>
-  .utility {
-    background: var(--fh-color-footer-bg);
-    color: var(--fh-color-footer-fg);
-    font-size: var(--fh-text-xs);
-    font-family: var(--fh-font-heading);
-    letter-spacing: var(--fh-tracking-wide);
+  /* ─────────────────────────────────────────
+     UTILITY STRIP — all pages (WA-23)
+  ───────────────────────────────────────── */
+  .util-strip {
+    background: var(--fh-neutral-900);
+    text-align: center;
   }
-  .utility-row {
+  .util-inner {
     display: flex;
-    justify-content: space-between;
-    gap: var(--fh-space-6);
-    padding-block: var(--fh-space-2);
+    align-items: center;
+    height: 34px;
+    padding-inline: var(--fh-space-6);
   }
-  .utility a {
-    color: inherit;
-    text-decoration: none;
+  .util-link {
+    font-family: var(--fh-font-heading);
+    font-size: 0.6875rem;
+    font-weight: var(--fh-weight-bold);
+    letter-spacing: 0.1em;
     text-transform: uppercase;
+    color: var(--fh-yellow-400);
+    text-decoration: none;
+    transition: color var(--fh-duration-fast);
   }
-  .utility a:hover {
-    text-decoration: underline;
-  }
+  .util-link:hover { color: var(--fh-yellow-300); }
 
-  .header {
-    background: var(--fh-color-header-bg);
-    color: var(--fh-color-header-fg);
-    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+  /* ─────────────────────────────────────────
+     MAIN HEADER
+  ───────────────────────────────────────── */
+  .hdr {
+    background: var(--fh-neutral-0);
     position: sticky;
     top: 0;
     z-index: var(--fh-z-sticky);
+    border-bottom: 1px solid transparent;
+    transition:
+      border-color var(--fh-duration-base),
+      box-shadow var(--fh-duration-base);
   }
-  .header-row {
+  .hdr.is-scrolled {
+    border-color: var(--fh-neutral-100);
+    box-shadow: 0 1px 8px rgba(11, 35, 65, 0.06);
+  }
+  .hdr-inner {
+    padding-inline: var(--fh-space-8);
     display: flex;
     align-items: center;
+    height: 80px;
     gap: var(--fh-space-8);
-    min-height: var(--fh-space-16);
   }
 
-  .lockup {
+  /* ─────────────────────────────────────────
+     LOGO
+  ───────────────────────────────────────── */
+  .logo {
     display: flex;
     align-items: center;
     gap: var(--fh-space-2);
     text-decoration: none;
-    color: inherit;
-    margin-right: auto;
+    color: var(--fh-blue-900);
+    flex-shrink: 0;
   }
-  .lockup-name {
+  .logo-name {
     font-family: var(--fh-font-heading);
     font-weight: var(--fh-weight-extrabold);
-    font-size: var(--fh-text-lg);
-    letter-spacing: var(--fh-tracking-tight);
-  }
-  .lockup-chip {
-    font-family: var(--fh-font-heading);
-    font-size: var(--fh-text-xs);
-    font-weight: var(--fh-weight-bold);
-    letter-spacing: var(--fh-tracking-wider);
-    color: var(--fh-color-primary-subtle-fg);
-    background: var(--fh-color-primary-subtle);
-    border-radius: var(--fh-radius-full);
-    padding: var(--fh-space-1) var(--fh-space-3);
-  }
-
-  .nav-desktop {
-    display: flex;
-    gap: var(--fh-space-6);
-  }
-  .nav-desktop > a,
-  .nav-group > summary {
-    font-family: var(--fh-font-heading);
-    font-size: var(--fh-text-sm);
-    font-weight: var(--fh-weight-semibold);
-    color: inherit;
-    text-decoration: none;
-    padding-block: var(--fh-space-2);
-    background: linear-gradient(currentColor, currentColor) no-repeat left bottom / 0 2px;
-    transition: background-size var(--fh-duration-base) var(--fh-ease-standard);
-  }
-  .nav-desktop > a:hover,
-  .nav-desktop > a[aria-current='page'] {
-    background-size: 100% 2px;
-  }
-
-  /* Two-level disclosure (WA-48). <details name> = exclusive accordion, so
-     opening one group closes its siblings with no script. */
-  .nav-group {
-    position: relative;
-  }
-  .nav-group > summary {
-    display: flex;
-    align-items: center;
-    gap: var(--fh-space-2);
-    cursor: pointer;
-    list-style: none;
-  }
-  .nav-group > summary::-webkit-details-marker {
-    display: none;
-  }
-  .nav-group > summary::after {
-    content: '';
-    width: 0.4em;
-    height: 0.4em;
-    border-right: 2px solid currentColor;
-    border-bottom: 2px solid currentColor;
-    transform: translateY(-0.15em) rotate(45deg);
-    transition: transform var(--fh-duration-base) var(--fh-ease-standard);
-  }
-  .nav-group[open] > summary::after {
-    transform: translateY(0.1em) rotate(-135deg);
-  }
-  .nav-group > summary:hover,
-  .nav-group[open] > summary,
-  .nav-group:has(a[aria-current='page']) > summary {
-    background-size: 100% 2px;
-  }
-
-  .submenu {
-    position: absolute;
-    top: calc(100% + var(--fh-space-2));
-    left: 0;
-    min-width: 15rem;
-    display: flex;
-    flex-direction: column;
-    gap: var(--fh-space-1);
-    padding: var(--fh-space-2);
-    background: var(--fh-color-surface);
-    border: var(--fh-border-width) solid var(--fh-color-border);
-    border-radius: var(--fh-radius-lg);
-    box-shadow: var(--fh-shadow-xl);
-    z-index: var(--fh-z-dropdown);
-  }
-  .submenu a {
-    font-family: var(--fh-font-heading);
-    font-size: var(--fh-text-sm);
-    font-weight: var(--fh-weight-semibold);
-    color: var(--fh-color-text);
-    text-decoration: none;
-    padding: var(--fh-space-2) var(--fh-space-3);
-    border-radius: var(--fh-radius-md);
+    font-size: 0.9375rem;
+    letter-spacing: -0.02em;
     white-space: nowrap;
   }
-  .submenu a:hover,
-  .submenu a[aria-current='page'] {
-    background: var(--fh-color-surface-sunken);
-  }
-
-  .enquire {
+  .logo-chip {
     font-family: var(--fh-font-heading);
-    font-size: var(--fh-text-sm);
+    font-size: 0.6875rem;
     font-weight: var(--fh-weight-bold);
-    text-decoration: none;
-    color: var(--fh-color-accent-fg);
-    background: var(--fh-color-accent);
+    letter-spacing: 0.06em;
+    color: var(--fh-blue-700);
+    background: var(--fh-blue-50);
     border-radius: var(--fh-radius-full);
-    padding: var(--fh-space-2) var(--fh-space-5);
-    transition: background var(--fh-duration-base) var(--fh-ease-standard);
-  }
-  .enquire:hover {
-    background: var(--fh-color-accent-hover);
+    padding: 2px var(--fh-space-3);
   }
 
-  .nav-toggle {
+  /* ─────────────────────────────────────────
+     DESKTOP NAV
+  ───────────────────────────────────────── */
+  .nav-d {
+    display: flex;
+    align-items: center;
+    gap: var(--fh-space-1);
+    flex: 1;
+    justify-content: center;
+  }
+
+  /* shared link / button style */
+  .nd-btn,
+  .nd-plain {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-family: var(--fh-font-heading);
+    font-size: 0.84rem;
+    font-weight: var(--fh-weight-semibold);
+    color: var(--fh-neutral-700);
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    border-radius: var(--fh-radius-md);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color var(--fh-duration-fast), background var(--fh-duration-fast);
+  }
+  .nd-btn:hover,
+  .nd-plain:hover,
+  .nd-plain[aria-current='page'],
+  .nd-btn[aria-expanded='true'] {
+    color: var(--fh-blue-900);
+    background: var(--fh-neutral-100);
+  }
+  .nd-chev {
+    opacity: 0.45;
+    flex-shrink: 0;
+    transition: transform var(--fh-duration-base) var(--fh-ease-standard);
+  }
+  .nd-btn[aria-expanded='true'] .nd-chev { transform: rotate(-180deg); opacity: 0.7; }
+
+  /* nav item wrapper — needed for dropdown positioning */
+  .nd-item { position: relative; }
+
+  /* campus details fallback */
+  .nd-group { position: relative; }
+  .nd-sum { list-style: none; }
+  .nd-sum::-webkit-details-marker { display: none; }
+  .nd-group[open] .nd-chev { transform: rotate(-180deg); opacity: 0.7; }
+
+  /* ─────────────────────────────────────────
+     SIMPLE DROPDOWN
+  ───────────────────────────────────────── */
+  .dd {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 230px;
+    background: var(--fh-neutral-0);
+    border: 1px solid var(--fh-neutral-200);
+    border-radius: var(--fh-radius-lg);
+    box-shadow: var(--fh-shadow-lg);
+    padding: var(--fh-space-2);
+    z-index: var(--fh-z-dropdown);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-4px);
+    pointer-events: none;
+    transition:
+      opacity 160ms var(--fh-ease-standard),
+      transform 160ms var(--fh-ease-standard);
+  }
+  .dd.is-open {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+  /* campus simple dropdown (no animation needed) */
+  .nd-group[open] .dd {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .dd-link {
+    display: block;
+    font-family: var(--fh-font-heading);
+    font-size: 0.8125rem;
+    font-weight: var(--fh-weight-medium);
+    color: var(--fh-neutral-800);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: var(--fh-radius-md);
+    white-space: nowrap;
+    transition: background var(--fh-duration-fast), color var(--fh-duration-fast);
+  }
+  .dd-link:hover,
+  .dd-link[aria-current='page'] {
+    background: var(--fh-neutral-50);
+    color: var(--fh-blue-900);
+  }
+  .dd-link--ov {
+    color: var(--fh-neutral-500);
+    font-size: 0.75rem;
+    border-bottom: 1px solid var(--fh-neutral-100);
+    padding-bottom: var(--fh-space-2);
+    margin-bottom: 2px;
+  }
+
+  /* ─────────────────────────────────────────
+     HEADER ACTIONS (enquire + hamburger)
+  ───────────────────────────────────────── */
+  .hdr-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--fh-space-3);
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  /* ─────────────────────────────────────────
+     ENQUIRE BUTTON
+  ───────────────────────────────────────── */
+  .btn-enquire {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--fh-font-heading);
+    font-size: 0.8125rem;
+    font-weight: var(--fh-weight-bold);
+    letter-spacing: 0.01em;
+    color: var(--fh-neutral-900);
+    background: var(--fh-yellow-400);
+    border-radius: var(--fh-radius-full);
+    padding: 9px 22px;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background var(--fh-duration-base), transform var(--fh-duration-fast);
+  }
+  .btn-enquire:hover { background: var(--fh-yellow-500); transform: translateY(-1px); }
+  .btn-enquire:active { transform: none; }
+  .btn-enquire--full { width: 100%; justify-content: center; font-size: 0.9375rem; padding: 13px 24px; }
+
+  /* ─────────────────────────────────────────
+     HAMBURGER
+  ───────────────────────────────────────── */
+  .ham {
     display: none;
     flex-direction: column;
+    justify-content: center;
     gap: 5px;
     background: none;
-    border: 0;
-    padding: var(--fh-space-3);
+    border: none;
+    padding: var(--fh-space-2);
     cursor: pointer;
+    border-radius: var(--fh-radius-md);
+    color: var(--fh-neutral-800);
+    transition: background var(--fh-duration-fast);
+    min-width: 44px;
+    min-height: 44px;
   }
-  .nav-toggle .bar {
+  .ham:hover { background: var(--fh-neutral-100); }
+  .ham-bar {
     width: 22px;
     height: 2px;
-    background: var(--fh-color-text);
+    background: currentColor;
+    border-radius: 2px;
+    transition: transform var(--fh-duration-base), opacity var(--fh-duration-base);
   }
 
-  .nav-panel {
-    inset: auto var(--fh-space-4) auto auto;
-    top: var(--fh-space-20);
-    min-width: 60vw;
-    /* Without a cap the panel grows past the viewport on a short screen —
-       expand a disclosure group on a landscape phone and the lower entries
-       render below the fold with no way to reach them. */
-    max-height: calc(100dvh - var(--fh-space-24));
+  /* ─────────────────────────────────────────
+     OVERLAY
+  ───────────────────────────────────────── */
+  .overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 35, 65, 0.45);
+    z-index: calc(var(--fh-z-overlay) - 1);
+    opacity: 0;
+    transition: opacity var(--fh-duration-slow) var(--fh-ease-standard);
+  }
+  .overlay.is-open {
+    display: block;
+    opacity: 1;
+  }
+
+  /* ─────────────────────────────────────────
+     MOBILE DRAWER
+  ───────────────────────────────────────── */
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(85vw, 380px);
+    background: var(--fh-neutral-0);
+    z-index: var(--fh-z-overlay);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 280ms var(--fh-ease-emphasized);
     overflow-y: auto;
     overscroll-behavior: contain;
-    border: var(--fh-border-width) solid var(--fh-color-border);
-    border-radius: var(--fh-radius-lg);
-    background: var(--fh-color-surface);
-    box-shadow: var(--fh-shadow-xl);
-    padding: var(--fh-space-4);
-    flex-direction: column;
-    gap: var(--fh-space-1);
   }
-  .nav-panel:popover-open {
-    display: flex;
-  }
-  .nav-panel a {
-    font-family: var(--fh-font-heading);
-    font-weight: var(--fh-weight-semibold);
-    color: var(--fh-color-text);
-    text-decoration: none;
-    padding: var(--fh-space-3) var(--fh-space-4);
-    border-radius: var(--fh-radius-md);
-  }
-  .nav-panel a:hover {
-    background: var(--fh-color-surface-sunken);
-  }
-  .panel-enquire {
-    color: var(--fh-color-accent-fg);
-    background: var(--fh-color-accent);
-    text-align: center;
-    margin-top: var(--fh-space-2);
+  .drawer.is-open {
+    transform: translateX(0);
   }
 
-  /* Mobile second level — same disclosure, stacked and rule-indented. */
-  .panel-group > summary {
+  .drawer-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--fh-space-3);
-    font-family: var(--fh-font-heading);
-    font-weight: var(--fh-weight-semibold);
-    color: var(--fh-color-text);
-    padding: var(--fh-space-3) var(--fh-space-4);
-    border-radius: var(--fh-radius-md);
+    padding: var(--fh-space-4) var(--fh-space-5);
+    border-bottom: 1px solid var(--fh-neutral-100);
+    position: sticky;
+    top: 0;
+    background: var(--fh-neutral-0);
+    z-index: 1;
+    flex-shrink: 0;
+  }
+
+  .drawer-close {
+    background: none;
+    border: none;
     cursor: pointer;
-    list-style: none;
+    padding: var(--fh-space-2);
+    color: var(--fh-neutral-600);
+    border-radius: var(--fh-radius-md);
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--fh-duration-fast), color var(--fh-duration-fast);
   }
-  .panel-group > summary::-webkit-details-marker {
-    display: none;
-  }
-  .panel-group > summary::after {
-    content: '';
-    width: 0.4em;
-    height: 0.4em;
-    border-right: 2px solid currentColor;
-    border-bottom: 2px solid currentColor;
-    transform: translateY(-0.15em) rotate(45deg);
-    transition: transform var(--fh-duration-base) var(--fh-ease-standard);
-  }
-  .panel-group[open] > summary::after {
-    transform: translateY(0.1em) rotate(-135deg);
-  }
-  .panel-group > summary:hover {
-    background: var(--fh-color-surface-sunken);
-  }
-  .panel-submenu {
+  .drawer-close:hover { background: var(--fh-neutral-100); color: var(--fh-neutral-900); }
+
+  .drawer-body {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    margin-left: var(--fh-space-6);
-    padding-left: var(--fh-space-2);
-    border-left: var(--fh-border-width) solid var(--fh-color-border);
-  }
-  .panel-submenu a {
-    font-size: var(--fh-text-sm);
+    padding: var(--fh-space-2) 0;
   }
 
-  @media (max-width: 760px) {
-    .nav-desktop,
-    .enquire {
-      display: none;
-    }
-    .nav-toggle {
-      display: flex;
-    }
+  .drawer-foot {
+    padding: var(--fh-space-4) var(--fh-space-5) var(--fh-space-8);
+    border-top: 1px solid var(--fh-neutral-100);
+    flex-shrink: 0;
   }
 
-  /* Popover unsupported (old WebView): show the toggle-less stacked nav */
-  @supports not selector(:popover-open) {
-    .nav-toggle {
-      display: none;
-    }
-    .nav-panel {
-      display: none;
-    }
-    @media (max-width: 760px) {
-      .nav-desktop {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--fh-space-4);
-        padding-block: var(--fh-space-2);
-      }
-      /* No popover, no room to float: drop the submenu into the flow so it
-         cannot overflow the viewport on a narrow screen. */
-      .nav-group {
-        width: 100%;
-      }
-      .submenu {
-        position: static;
-        min-width: 0;
-        box-shadow: none;
-      }
-    }
+  /* ─────────────────────────────────────────
+     MOBILE NAV ITEMS
+  ───────────────────────────────────────── */
+  .mob-item {
+    border-bottom: 1px solid var(--fh-neutral-100);
+  }
+  .mob-item:last-child { border-bottom: none; }
+
+  .mob-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px var(--fh-space-5);
+    font-family: var(--fh-font-heading);
+    font-size: 1rem;
+    font-weight: var(--fh-weight-semibold);
+    color: var(--fh-neutral-800);
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    transition: color var(--fh-duration-fast), background var(--fh-duration-fast);
+    min-height: 56px;
+  }
+  .mob-row:hover { color: var(--fh-blue-900); }
+  .mob-row[aria-current='page'] { color: var(--fh-blue-700); }
+
+  .mob-row--toggle { list-style: none; cursor: pointer; }
+  .mob-row--toggle::-webkit-details-marker { display: none; }
+
+  .mob-chev {
+    opacity: 0.45;
+    flex-shrink: 0;
+    transition: transform var(--fh-duration-base) var(--fh-ease-standard);
+  }
+  .mob-item[open] .mob-chev { transform: rotate(-180deg); opacity: 0.7; }
+  .mob-item[open] .mob-row--toggle { color: var(--fh-blue-900); }
+
+  .mob-sub {
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--fh-space-5) var(--fh-space-3);
+    gap: 2px;
+    border-left: 2px solid var(--fh-yellow-400);
+    margin-inline: var(--fh-space-5);
+  }
+
+  .mob-sub-link {
+    display: block;
+    font-family: var(--fh-font-heading);
+    font-size: 0.875rem;
+    font-weight: var(--fh-weight-medium);
+    color: var(--fh-neutral-600);
+    text-decoration: none;
+    padding: 9px var(--fh-space-3);
+    border-radius: var(--fh-radius-sm);
+    transition: color var(--fh-duration-fast), background var(--fh-duration-fast);
+  }
+  .mob-sub-link:hover,
+  .mob-sub-link[aria-current='page'] {
+    color: var(--fh-blue-900);
+    background: var(--fh-neutral-50);
+  }
+
+  /* ─────────────────────────────────────────
+     RESPONSIVE — desktop ≥ 768px: full nav
+     tablet/mobile < 768px: hamburger only
+  ───────────────────────────────────────── */
+  @media (max-width: 1099px) {
+    .nav-d    { display: none; }
+    .btn-enquire:not(.btn-enquire--full) { display: none; }
+    .ham      { display: flex; }
+  }
+  @media (min-width: 1100px) {
+    .ham      { display: none; }
+    .overlay  { display: none !important; }
+    .drawer   { display: none !important; }
   }
 </style>
+
+<!----------  SCRIPTS  ---------->
+<script>
+  // ── STICKY SHADOW ──────────────────────────────────────────────────────────
+  const hdr = document.getElementById('fh-header');
+  if (hdr) {
+    const s = document.createElement('div');
+    s.style.cssText = 'position:absolute;top:0;height:1px;width:1px;pointer-events:none';
+    document.body.prepend(s);
+    new IntersectionObserver(([e]) => hdr.classList.toggle('is-scrolled', !e.isIntersecting)).observe(s);
+  }
+
+  // ── DESKTOP DROPDOWNS ──────────────────────────────────────────────────────
+  const nav = document.getElementById('fh-nav');
+  if (nav) {
+    let open: HTMLElement | null = null;
+    let timer: ReturnType<typeof setTimeout> | null = null;
+
+    function closeItem(item: HTMLElement) {
+      const dd = item.querySelector<HTMLElement>('.dd');
+      const btn = item.querySelector<HTMLElement>('.nd-btn');
+      dd?.classList.remove('is-open');
+      setTimeout(() => { if (!dd?.classList.contains('is-open')) dd?.setAttribute('hidden', ''); }, 170);
+      btn?.setAttribute('aria-expanded', 'false');
+    }
+
+    function show(item: HTMLElement) {
+      if (timer) { clearTimeout(timer); timer = null; }
+      if (open === item) return;
+      if (open) closeItem(open);
+      open = item;
+      const dd = item.querySelector<HTMLElement>('.dd');
+      const btn = item.querySelector<HTMLElement>('.nd-btn');
+      if (!dd || !btn) return;
+      dd.removeAttribute('hidden');
+      void dd.offsetHeight; // force reflow so CSS transition triggers
+      dd.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+
+    function hide(delay = 0) {
+      if (timer) clearTimeout(timer);
+      const closing = open;
+      if (!closing) return;
+      timer = setTimeout(() => {
+        if (open !== closing) return;
+        closeItem(closing);
+        open = null;
+        timer = null;
+      }, delay);
+    }
+
+    nav.querySelectorAll<HTMLElement>('.nd-item').forEach(item => {
+      item.addEventListener('pointerenter', () => show(item));
+      item.addEventListener('pointerleave', () => hide(130));
+
+      item.querySelector<HTMLElement>('.nd-btn')?.addEventListener('click', e => {
+        e.preventDefault();
+        open === item ? hide(0) : show(item);
+      });
+    });
+
+    if (nav.querySelector('.dd')) {
+      nav.querySelectorAll<HTMLElement>('.dd').forEach(dd => {
+        dd.addEventListener('pointerenter', () => { if (timer) { clearTimeout(timer); timer = null; } });
+        dd.addEventListener('pointerleave', () => hide(130));
+      });
+    }
+
+    document.addEventListener('pointerdown', e => {
+      if (!(e.target as Element).closest('.nd-item')) hide(0);
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && open) {
+        const btn = open.querySelector<HTMLElement>('.nd-btn');
+        hide(0);
+        btn?.focus();
+      }
+    });
+  }
+
+  // ── MOBILE DRAWER ──────────────────────────────────────────────────────────
+  const ham     = document.getElementById('fh-ham');
+  const drawer  = document.getElementById('fh-drawer');
+  const overlay = document.getElementById('fh-overlay');
+  const closeBtn = document.getElementById('fh-drawer-close');
+
+  function openDrawer() {
+    if (!drawer || !overlay || !ham) return;
+    drawer.classList.add('is-open');
+    drawer.setAttribute('aria-hidden', 'false');
+    overlay.classList.add('is-open');
+    ham.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    if (!drawer || !overlay || !ham) return;
+    drawer.classList.remove('is-open');
+    drawer.setAttribute('aria-hidden', 'true');
+    overlay.classList.remove('is-open');
+    ham.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  ham?.addEventListener('click', openDrawer);
+  closeBtn?.addEventListener('click', closeDrawer);
+  overlay?.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+</script>
