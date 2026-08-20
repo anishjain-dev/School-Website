@@ -13,6 +13,7 @@ import NewsList from '../components/NewsList.astro';
 import CampusSchema from '../components/CampusSchema.astro';
 import { footerColumns } from '../lib/nav';
 import type { CampusConfig } from '@fountainhead-web/content-schema';
+import type { CampusLite } from './GroupHome.astro';
 
 interface Props {
   campus: CampusConfig;
@@ -27,8 +28,9 @@ interface Props {
   admissionsPath: string;
   pageUrl: URL | string;
   social?: { label: string; url: string }[] | undefined;
+  campuses?: CampusLite[] | undefined;
 }
-const { campus, heading, lede, pageTitle, description, canonical, nav, sections, news, admissionsPath, pageUrl, social } =
+const { campus, heading, lede, pageTitle, description, canonical, nav, sections, news, admissionsPath, pageUrl, social, campuses } =
   Astro.props;
 ---
 
@@ -98,6 +100,10 @@ const { campus, heading, lede, pageTitle, description, canonical, nav, sections,
     phone={campus.phone}
     columns={[
       ...footerColumns(nav, `/${campus.slug}/`),
+      ...(campuses && campuses.length > 0 ? [{
+        heading: 'All Campuses',
+        links: campuses.map((c) => ({ label: c.name, path: `/${c.slug}/` })),
+      }] : []),
       {
         heading: 'The group',
         links: [

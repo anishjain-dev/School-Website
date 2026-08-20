@@ -2,7 +2,7 @@
 title: About FALH
 description: The learning hub where the Fountainhead journey begins in Vapi.
 draft: true
-order: 20
+order: 10
 ---
 
 > **TODO (comms):** FALH story — preschool ladder (Caterpillars → Cocoons →

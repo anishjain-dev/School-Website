@@ -1,10 +1,9 @@
----
+﻿---
 title: Academic Integrity Policy
 category: school
-campus: kunkni
 version: "2024"
 effectiveDate: 2024-03-01
-nextReview: 2028-03-01
+reviewDue: 2028-03-01
 owner: Academic Integrity Committee
 status: active
 summary: Fountainhead School Kunkni's commitment to honest, authentic learning — covering plagiarism, AI tools, citation, and programme-specific expectations from EYP through the Diploma Programme.

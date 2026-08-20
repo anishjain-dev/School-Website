@@ -1,10 +1,9 @@
----
+﻿---
 title: Language Policy
 category: school
-campus: kunkni
 version: "2024"
 effectiveDate: 2024-03-01
-nextReview: 2028-03-01
+reviewDue: 2028-03-01
 owner: Language Policy Committee
 status: active
 summary: How Fountainhead School Kunkni develops language across all programmes, supports first-generation English learners, and honours students' home languages.

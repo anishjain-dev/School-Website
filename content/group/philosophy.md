@@ -1,11 +1,18 @@
 ---
-title: Our Philosophy
+title: Values, Mission & Philosophy
 description: What we believe about how children learn.
 ---
 
-Seed copy for the shared philosophy page. Every campus inherits this page
-unless it provides its own override file — absence means inherit (WA-11).
+## Values
 
-## Learning first
+**Character**
 
-Placeholder body demonstrating markdown rendering through the content layer.
+Doing the right thing, even when no one is watching
+
+**Competence**
+
+Academic and non-academic skills that will help them to become socially adept people, researchers, critical thinkers and problem-solvers, good leaders and decision-makers which are valuable in all spheres of life today.
+
+## Mission
+
+![To nurture leaders with character and competence](https://github.com/anishjain-dev/School-Website/releases/download/v0-media-assets/image2.png)

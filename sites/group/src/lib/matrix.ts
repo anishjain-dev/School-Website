@@ -167,9 +167,59 @@ async function compute(): Promise<SiteContext> {
     return links;
   };
 
-  // Two-level nav (WA-48) — grouping logic lives in the pure nav-tree
-  // module so it can be tested without the content layer.
+  // Group-level static nav — matches the FS content brief (Screenshot 1).
+  // Only references pages that exist as content files or system routes.
+  // Campus navs remain data-driven via buildNavTree.
+  const GROUP_NAV: NavItem[] = [
+    {
+      label: 'About Us',
+      path: '/about/',
+      children: [
+        { label: 'Our Story and Founders', path: '/founders/' },
+        { label: 'Values, Mission & Philosophy', path: '/philosophy/' },
+        { label: 'IB Mission Statement', path: '/ib-mission/' },
+        { label: 'Our Schools', path: '/our-schools/' },
+        { label: 'Accolades & Certifications', path: '/accolades/' },
+      ],
+    },
+    {
+      label: 'Academics',
+      path: '/academics/',
+      children: [
+        { label: 'Primary Years Programme', path: '/academics/pyp/' },
+        { label: 'Middle Years Programme', path: '/academics/myp/' },
+        { label: 'Diploma Programme', path: '/academics/dp/' },
+        { label: 'FHSD', path: '/academics/fhsd/' },
+        { label: 'Learning Model', path: '/learning-model/' },
+        { label: 'Results & University Destinations', path: '/results/' },
+      ],
+    },
+    {
+      label: 'Admissions',
+      path: '/admissions/',
+    },
+    {
+      label: 'News & Happenings',
+      path: '/news/',
+    },
+    {
+      label: 'Testimonials',
+      path: '/testimonials/',
+    },
+    {
+      label: 'Connect',
+      path: '/contact/',
+      children: [
+        { label: 'Contact & Visits', path: '/contact/' },
+        { label: 'Careers', path: '/careers/' },
+      ],
+    },
+  ];
+
+  // Two-level nav (WA-48). Group site uses the static editorial nav above;
+  // campus pages remain data-driven so they reflect actual published content.
   const navFor = (campusSlug: string | null): NavItem[] => {
+    if (campusSlug === null) return GROUP_NAV;
     const sources: NavSource[] = result.pages
       .filter((p) => p.campus === campusSlug && p.id !== 'index')
       .map((p) => {
@@ -177,13 +227,8 @@ async function compute(): Promise<SiteContext> {
         return { id: p.id, path: p.path, label: e?.data.title ?? p.id, order: e?.data.order ?? 99 };
       });
     const system = systemLinks(campusSlug).map((s) => ({ label: s.label, path: s.path }));
-    const groupSystem = campusSlug === null ? [{ label: 'News', path: '/news/' }] : [];
-    // Reference material lives once at group level (WA-48) — campus sections
-    // link out to the group path rather than rendering a branded copy. The
-    // policy index already groups by category, so this stays one flat link
-    // rather than an eleven-item dropdown.
     const reference = [{ label: 'Policies', path: '/policies/' }];
-    return [...buildNavTree(sources), ...system, ...groupSystem, ...reference];
+    return [...buildNavTree(sources), ...system, ...reference];
   };
 
   // The campus-home "explore" index. Top-level only, so it expresses the

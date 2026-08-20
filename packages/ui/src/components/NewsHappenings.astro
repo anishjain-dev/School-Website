@@ -495,11 +495,13 @@ const secondary = items.slice(1);
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: var(--fh-space-6);
   align-items: stretch;
+  grid-auto-rows: 1fr;
 }
 
 .nh-cards-grid > li {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .nh-card {

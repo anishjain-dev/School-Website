@@ -1,10 +1,9 @@
----
+﻿---
 title: Learning Diversity and Inclusion Policy
 category: school
-campus: kunkni
 version: "2024"
 effectiveDate: 2024-03-01
-nextReview: 2026-05-01
+reviewDue: 2026-05-01
 owner: ALS Coordinator
 status: active
 summary: How Fountainhead School Kunkni identifies and supports students with diverse learning needs across all IB programmes, from EYP through the Diploma Programme.
