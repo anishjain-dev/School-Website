@@ -191,6 +191,7 @@ async function compute(): Promise<SiteContext> {
         { label: 'Diploma Programme', path: '/academics/dp/' },
         { label: 'FHSD', path: '/academics/fhsd/' },
         { label: 'Learning Model', path: '/learning-model/' },
+        { label: 'Parent Role in Education', path: '/policies/parent-role-in-education/' },
         { label: 'Results & University Destinations', path: '/results/' },
       ],
     },
