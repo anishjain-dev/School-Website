@@ -3,7 +3,7 @@ title: Fountainhead Avadh Learning Hub
 description: Preschool and after-school programmes in Vapi.
 template: home
 heroImage:
-  id: "https://fountainheadschools.org/wp-content/uploads/2026/03/FALH.png"
+  id: "https://github.com/anishjain-dev/School-Website/releases/download/v0-media-assets/FALH.Logo.-.Colour.-.JPEG.jpg"
   alt: "Fountainhead Avadh Learning Hub, Vapi"
 ---
 
