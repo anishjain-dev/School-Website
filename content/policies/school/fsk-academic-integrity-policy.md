@@ -9,6 +9,8 @@ status: active
 summary: Fountainhead School Kunkni's commitment to honest, authentic learning — covering plagiarism, AI tools, citation, and programme-specific expectations from EYP through the Diploma Programme.
 ---
 
+[Download: FSK Academic Integrity Policy PDF](https://github.com/anishjain-dev/School-Website/releases/download/v0-media-assets/FSK.Academic.Integrity.Policy.pdf)
+
 ## A. Mission Alignment
 
 Fountainhead School's mission — *To nurture leaders with character and competence* — requires that every academic achievement is earned with integrity. Academic integrity is not a rule imposed on students; it is the condition under which learning is real. This policy articulates what honest scholarship looks like at every stage of a student's journey at Fountainhead.

@@ -15,6 +15,6 @@ Fountainhead Wockhardt Global School offers the full IB continuum — from Early
 
 ## Programme Brochures
 
-- [PYP Programme Brochure](https://github.com/anishjain-dev/School-Website/releases/download/v0-media-assets/FWGS-PYP-Brochure.pdf) — Download PDF
-- [MYP Programme Brochure](https://github.com/anishjain-dev/School-Website/releases/download/v0-media-assets/FWGS-MYP-Brochure.pdf) — Download PDF
-- [DP Programme Brochure](https://github.com/anishjain-dev/School-Website/releases/download/v0-media-assets/FWGS-DP-Brochure.pdf) — Download PDF
+- [PYP Programme Brochure](https://github.com/anishjain-dev/School-Website/releases/download/v0-media-assets/FWGS.-.PYP.Programme.Brochures.-.Rashida.Muchhala.pdf) — Download PDF
+- [MYP Programme Brochure](https://github.com/anishjain-dev/School-Website/releases/download/v0-media-assets/FWGS.-.MYP.Programme.Brochures.-.Rashida.Muchhala.pdf) — Download PDF
+- [DP Programme Brochure](https://github.com/anishjain-dev/School-Website/releases/download/v0-media-assets/FWGS.-.DP.Programme.Brochures.-.Rashida.Muchhala.pdf) — Download PDF

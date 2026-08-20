@@ -9,6 +9,8 @@ status: active
 summary: How Fountainhead School Kunkni identifies and supports students with diverse learning needs across all IB programmes, from EYP through the Diploma Programme.
 ---
 
+[Download: FSK Learning Diversity & Inclusion Policy PDF](https://github.com/anishjain-dev/School-Website/releases/download/v0-media-assets/FSK.Learning.Diversity.Inclusion.Policy.pdf)
+
 ## A. Mission Alignment
 
 Fountainhead School's mission — *To nurture leaders with character and competence* — applies to every student, without exception. This policy gives that commitment operational substance: it describes how the school identifies students with diverse learning needs, what support it provides, and what it expects from every member of the school community in return.

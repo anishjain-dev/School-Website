@@ -9,6 +9,8 @@ status: active
 summary: How Fountainhead School Kunkni develops language across all programmes, supports first-generation English learners, and honours students' home languages.
 ---
 
+[Download: FSK Language Policy PDF](https://github.com/anishjain-dev/School-Website/releases/download/v0-media-assets/FSK.Language.Policy.pdf)
+
 ## A. Mission Alignment
 
 Fountainhead School's mission — *To nurture leaders with character and competence* — is realised only when every student has full access to learning. Language is the gateway to that access. This policy ensures all students can engage with the curriculum, develop voice, and achieve their potential, regardless of the language they speak at home.
