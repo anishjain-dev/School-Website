@@ -112,6 +112,16 @@ const { heading, lede, pageTitle, description, canonical, nav, campuses, network
     columns={[
       ...footerColumns(nav, '/'),
       {
+        heading: 'Academics',
+        links: [
+          { label: 'Academics overview', path: '/academics/' },
+          { label: 'Primary Years Programme', path: '/academics/pyp/' },
+          { label: 'Middle Years Programme', path: '/academics/myp/' },
+          { label: 'Diploma Programme', path: '/academics/dp/' },
+          { label: 'Learning Model', path: '/learning-model/' },
+        ],
+      },
+      {
         heading: 'Campuses',
         links: campuses.map((c) => ({ label: c.name, path: `/${c.slug}/` })),
       },
