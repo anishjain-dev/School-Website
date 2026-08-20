@@ -2,6 +2,9 @@
 title: Fountainhead Preschool Adajan
 description: A warm and inspiring community in Adajan where children begin their journey of discovery.
 template: early-years
+heroImage:
+  id: "https://github.com/anishjain-dev/School-Website/releases/download/v0-media-assets/FPA-Front-Facade.jpeg"
+  alt: "Fountainhead Preschool Adajan campus"
 earlyYears:
   ratio: "1:10"
   programmes:
