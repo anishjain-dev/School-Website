@@ -100,10 +100,6 @@ const { campus, heading, lede, pageTitle, description, canonical, nav, sections,
     phone={campus.phone}
     columns={[
       ...footerColumns(nav, `/${campus.slug}/`),
-      ...(campuses && campuses.length > 0 ? [{
-        heading: 'All Campuses',
-        links: campuses.map((c) => ({ label: c.name, path: `/${c.slug}/` })),
-      }] : []),
       {
         heading: 'The group',
         links: [
@@ -112,6 +108,10 @@ const { campus, heading, lede, pageTitle, description, canonical, nav, sections,
           { label: 'Careers', path: '/careers/' },
         ],
       },
+      ...(campuses && campuses.length > 0 ? [{
+        heading: 'Campuses',
+        links: campuses.map((c) => ({ label: c.name, path: `/${c.slug}/` })),
+      }] : []),
     ]}
   />
 </BaseLayout>
