@@ -39,7 +39,7 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
 <header class="header u-print-hidden">
   <div class="container header-row">
     <a class="lockup" href={homePath}>
-      <Spark size={18} />
+      <Spark size={20} />
       <span class="lockup-name">{siteName}</span>
       {shortName && <span class="lockup-chip">{shortName}</span>}
     </a>
@@ -94,12 +94,14 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
 </nav>
 
 <style>
+  /* ── Utility bar ─────────────────────────────────────────────────── */
   .utility {
     background: var(--fh-color-footer-bg);
     color: var(--fh-color-footer-fg);
     font-size: var(--fh-text-xs);
     font-family: var(--fh-font-heading);
-    letter-spacing: var(--fh-tracking-wide);
+    font-weight: var(--fh-weight-medium);
+    letter-spacing: var(--fh-tracking-wider);
   }
   .utility-row {
     display: flex;
@@ -108,29 +110,35 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
     padding-block: var(--fh-space-2);
   }
   .utility a {
-    color: inherit;
+    color: var(--fh-color-footer-fg);
     text-decoration: none;
     text-transform: uppercase;
+    opacity: 0.85;
   }
   .utility a:hover {
+    opacity: 1;
     text-decoration: underline;
   }
 
+  /* ── Main header ──────────────────────────────────────────────────── */
   .header {
     background: var(--fh-color-header-bg);
     color: var(--fh-color-header-fg);
+    /* Blue accent strip (WA-48 visual identity) */
     border-bottom: 3px solid var(--fh-color-primary);
     position: sticky;
     top: 0;
     z-index: var(--fh-z-sticky);
+    box-shadow: var(--fh-shadow-sm);
   }
   .header-row {
     display: flex;
     align-items: center;
-    gap: var(--fh-space-8);
-    min-height: var(--fh-space-16);
+    gap: var(--fh-space-6);
+    min-height: 4.5rem;
   }
 
+  /* ── Branding lockup ──────────────────────────────────────────────── */
   .lockup {
     display: flex;
     align-items: center;
@@ -138,12 +146,14 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
     text-decoration: none;
     color: inherit;
     margin-right: auto;
+    flex-shrink: 0;
   }
   .lockup-name {
     font-family: var(--fh-font-heading);
     font-weight: var(--fh-weight-extrabold);
     font-size: var(--fh-text-lg);
     letter-spacing: var(--fh-tracking-tight);
+    line-height: var(--fh-leading-none);
   }
   .lockup-chip {
     font-family: var(--fh-font-heading);
@@ -156,24 +166,31 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
     padding: var(--fh-space-1) var(--fh-space-3);
   }
 
+  /* ── Desktop navigation ───────────────────────────────────────────── */
   .nav-desktop {
     display: flex;
-    gap: var(--fh-space-6);
+    align-items: center;
+    gap: var(--fh-space-1);
   }
   .nav-desktop > a,
   .nav-group > summary {
     font-family: var(--fh-font-heading);
     font-size: var(--fh-text-sm);
     font-weight: var(--fh-weight-semibold);
-    color: inherit;
+    color: var(--fh-color-text-muted);
     text-decoration: none;
-    padding-block: var(--fh-space-2);
-    background: linear-gradient(currentColor, currentColor) no-repeat left bottom / 0 2px;
-    transition: background-size var(--fh-duration-base) var(--fh-ease-standard);
+    padding: var(--fh-space-2) var(--fh-space-3);
+    border-radius: var(--fh-radius-sm);
+    background: linear-gradient(var(--fh-color-primary), var(--fh-color-primary))
+      no-repeat left bottom / 0 2px;
+    transition:
+      background-size var(--fh-duration-base) var(--fh-ease-standard),
+      color var(--fh-duration-base) var(--fh-ease-standard);
   }
   .nav-desktop > a:hover,
   .nav-desktop > a[aria-current='page'] {
-    background-size: 100% 2px;
+    background-size: calc(100% - var(--fh-space-6)) 2px;
+    color: var(--fh-color-text);
   }
 
   /* Two-level disclosure (WA-48). <details name> = exclusive accordion, so
@@ -184,45 +201,62 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
   .nav-group > summary {
     display: flex;
     align-items: center;
-    gap: var(--fh-space-2);
+    gap: var(--fh-space-1);
     cursor: pointer;
     list-style: none;
+    user-select: none;
   }
   .nav-group > summary::-webkit-details-marker {
     display: none;
   }
   .nav-group > summary::after {
     content: '';
-    width: 0.4em;
-    height: 0.4em;
-    border-right: 2px solid currentColor;
-    border-bottom: 2px solid currentColor;
-    transform: translateY(-0.15em) rotate(45deg);
+    width: 0.35em;
+    height: 0.35em;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: translateY(-0.12em) rotate(45deg);
     transition: transform var(--fh-duration-base) var(--fh-ease-standard);
+    opacity: 0.7;
   }
   .nav-group[open] > summary::after {
-    transform: translateY(0.1em) rotate(-135deg);
+    transform: translateY(0.08em) rotate(-135deg);
   }
   .nav-group > summary:hover,
   .nav-group[open] > summary,
   .nav-group:has(a[aria-current='page']) > summary {
-    background-size: 100% 2px;
+    background-size: calc(100% - var(--fh-space-6)) 2px;
+    color: var(--fh-color-text);
   }
 
+  /* ── Dropdown submenu ────────────────────────────────────────────── */
   .submenu {
     position: absolute;
-    top: calc(100% + var(--fh-space-2));
+    top: calc(100% + var(--fh-space-3));
     left: 0;
-    min-width: 15rem;
+    min-width: 16rem;
     display: flex;
     flex-direction: column;
-    gap: var(--fh-space-1);
+    gap: 0;
     padding: var(--fh-space-2);
     background: var(--fh-color-surface);
-    border: var(--fh-border-width) solid var(--fh-color-border);
-    border-radius: var(--fh-radius-lg);
-    box-shadow: var(--fh-shadow-xl);
+    /* Blue top accent to tie dropdown to brand */
+    border-top: 2px solid var(--fh-color-primary);
+    border-left: var(--fh-border-width) solid var(--fh-color-border);
+    border-right: var(--fh-border-width) solid var(--fh-color-border);
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+    border-radius: 0 0 var(--fh-radius-md) var(--fh-radius-md);
+    box-shadow: var(--fh-shadow-lg);
     z-index: var(--fh-z-dropdown);
+  }
+  /* First link = "overview" — visually separated */
+  .submenu a:first-child {
+    font-weight: var(--fh-weight-bold);
+    color: var(--fh-color-primary-text);
+    margin-bottom: var(--fh-space-1);
+    padding-bottom: var(--fh-space-2);
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+    border-radius: var(--fh-radius-sm) var(--fh-radius-sm) 0 0;
   }
   .submenu a {
     font-family: var(--fh-font-heading);
@@ -231,14 +265,16 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
     color: var(--fh-color-text);
     text-decoration: none;
     padding: var(--fh-space-2) var(--fh-space-3);
-    border-radius: var(--fh-radius-md);
+    border-radius: var(--fh-radius-sm);
     white-space: nowrap;
   }
   .submenu a:hover,
   .submenu a[aria-current='page'] {
     background: var(--fh-color-surface-sunken);
+    color: var(--fh-color-primary-text);
   }
 
+  /* ── Enquire CTA ─────────────────────────────────────────────────── */
   .enquire {
     font-family: var(--fh-font-heading);
     font-size: var(--fh-text-sm);
@@ -248,42 +284,55 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
     background: var(--fh-color-accent);
     border-radius: var(--fh-radius-full);
     padding: var(--fh-space-2) var(--fh-space-5);
-    transition: background var(--fh-duration-base) var(--fh-ease-standard);
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background var(--fh-duration-base) var(--fh-ease-standard),
+                transform var(--fh-duration-base) var(--fh-ease-standard);
   }
   .enquire:hover {
     background: var(--fh-color-accent-hover);
+    transform: translateY(-1px);
   }
 
+  /* ── Hamburger toggle (mobile) ──────────────────────────────────── */
   .nav-toggle {
     display: none;
     flex-direction: column;
+    justify-content: center;
     gap: 5px;
     background: none;
-    border: 0;
-    padding: var(--fh-space-3);
+    border: var(--fh-border-width) solid var(--fh-color-border);
+    border-radius: var(--fh-radius-sm);
+    padding: var(--fh-space-2) var(--fh-space-3);
     cursor: pointer;
   }
   .nav-toggle .bar {
-    width: 22px;
+    width: 20px;
     height: 2px;
     background: var(--fh-color-text);
+    border-radius: 1px;
+    transition: background var(--fh-duration-base);
+  }
+  .nav-toggle:hover .bar {
+    background: var(--fh-color-primary);
   }
 
+  /* ── Mobile nav panel ──────────────────────────────────────────── */
   .nav-panel {
     inset: auto var(--fh-space-4) auto auto;
-    top: var(--fh-space-20);
-    min-width: 60vw;
-    /* Without a cap the panel grows past the viewport on a short screen —
-       expand a disclosure group on a landscape phone and the lower entries
-       render below the fold with no way to reach them. */
+    top: calc(var(--fh-space-20) + var(--fh-space-3));
+    min-width: min(72vw, 20rem);
     max-height: calc(100dvh - var(--fh-space-24));
     overflow-y: auto;
     overscroll-behavior: contain;
-    border: var(--fh-border-width) solid var(--fh-color-border);
-    border-radius: var(--fh-radius-lg);
+    border-top: 2px solid var(--fh-color-primary);
+    border-left: var(--fh-border-width) solid var(--fh-color-border);
+    border-right: var(--fh-border-width) solid var(--fh-color-border);
+    border-bottom: var(--fh-border-width) solid var(--fh-color-border);
+    border-radius: 0 0 var(--fh-radius-lg) var(--fh-radius-lg);
     background: var(--fh-color-surface);
     box-shadow: var(--fh-shadow-xl);
-    padding: var(--fh-space-4);
+    padding: var(--fh-space-3);
     flex-direction: column;
     gap: var(--fh-space-1);
   }
@@ -293,19 +342,27 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
   .nav-panel a {
     font-family: var(--fh-font-heading);
     font-weight: var(--fh-weight-semibold);
+    font-size: var(--fh-text-sm);
     color: var(--fh-color-text);
     text-decoration: none;
     padding: var(--fh-space-3) var(--fh-space-4);
-    border-radius: var(--fh-radius-md);
+    border-radius: var(--fh-radius-sm);
   }
   .nav-panel a:hover {
     background: var(--fh-color-surface-sunken);
+    color: var(--fh-color-primary-text);
   }
   .panel-enquire {
     color: var(--fh-color-accent-fg);
     background: var(--fh-color-accent);
     text-align: center;
     margin-top: var(--fh-space-2);
+    border-radius: var(--fh-radius-full);
+    font-weight: var(--fh-weight-bold);
+  }
+  .panel-enquire:hover {
+    background: var(--fh-color-accent-hover);
+    color: var(--fh-color-accent-fg);
   }
 
   /* Mobile second level — same disclosure, stacked and rule-indented. */
@@ -316,39 +373,58 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
     gap: var(--fh-space-3);
     font-family: var(--fh-font-heading);
     font-weight: var(--fh-weight-semibold);
+    font-size: var(--fh-text-sm);
     color: var(--fh-color-text);
     padding: var(--fh-space-3) var(--fh-space-4);
-    border-radius: var(--fh-radius-md);
+    border-radius: var(--fh-radius-sm);
     cursor: pointer;
     list-style: none;
+    user-select: none;
   }
   .panel-group > summary::-webkit-details-marker {
     display: none;
   }
   .panel-group > summary::after {
     content: '';
-    width: 0.4em;
-    height: 0.4em;
-    border-right: 2px solid currentColor;
-    border-bottom: 2px solid currentColor;
-    transform: translateY(-0.15em) rotate(45deg);
+    width: 0.35em;
+    height: 0.35em;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: translateY(-0.12em) rotate(45deg);
     transition: transform var(--fh-duration-base) var(--fh-ease-standard);
+    opacity: 0.7;
+    flex-shrink: 0;
   }
   .panel-group[open] > summary::after {
-    transform: translateY(0.1em) rotate(-135deg);
+    transform: translateY(0.08em) rotate(-135deg);
   }
   .panel-group > summary:hover {
     background: var(--fh-color-surface-sunken);
+    color: var(--fh-color-primary-text);
   }
   .panel-submenu {
     display: flex;
     flex-direction: column;
-    margin-left: var(--fh-space-6);
-    padding-left: var(--fh-space-2);
-    border-left: var(--fh-border-width) solid var(--fh-color-border);
+    margin-left: var(--fh-space-4);
+    padding-left: var(--fh-space-3);
+    border-left: 2px solid var(--fh-color-primary-subtle);
+    margin-bottom: var(--fh-space-1);
   }
   .panel-submenu a {
     font-size: var(--fh-text-sm);
+    color: var(--fh-color-text-muted);
+  }
+
+  /* ── Responsive breakpoints ─────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .nav-desktop {
+      gap: var(--fh-space-px);
+    }
+    .nav-desktop > a,
+    .nav-group > summary {
+      padding: var(--fh-space-2);
+      font-size: 0.8125rem;
+    }
   }
 
   @media (max-width: 760px) {
@@ -358,6 +434,9 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
     }
     .nav-toggle {
       display: flex;
+    }
+    .header-row {
+      min-height: 3.75rem;
     }
   }
 
@@ -385,6 +464,11 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
         position: static;
         min-width: 0;
         box-shadow: none;
+        border-radius: 0;
+        border-top: none;
+        border-left: 2px solid var(--fh-color-primary-subtle);
+        border-right: none;
+        margin-left: var(--fh-space-4);
       }
     }
   }

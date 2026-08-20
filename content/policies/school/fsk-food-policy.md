@@ -2,6 +2,7 @@
 title: Food Policy
 category: school
 version: "2024"
+effectiveDate: 2024-03-01
 owner: Operations Manager
 status: active
 summary: Fountainhead School Kunkni's food policy for students, including canteen and pantry usage guidelines.

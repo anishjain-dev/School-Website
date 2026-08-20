@@ -2,6 +2,7 @@
 title: Assessment Policy
 category: school
 version: "2024"
+effectiveDate: 2024-03-01
 owner: Academic Leadership
 status: active
 summary: Fountainhead School Kunkni's assessment philosophy and practices across all IB programmes.

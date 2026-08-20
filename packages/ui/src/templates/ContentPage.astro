@@ -74,4 +74,17 @@ interface Props {
     font-size: var(--fh-text-xl);
     color: var(--fh-color-text-muted);
   }
+  /* Blend out white backgrounds from diagrams/infographics (e.g. learning-model.png) */
+  .prose :global(img) {
+    mix-blend-mode: multiply;
+    max-width: 480px;
+    margin-inline: auto;
+    /* Compensate for built-in whitespace padding in the PNG */
+    margin-block-start: -3rem;
+    margin-block-end: 0;
+  }
+  /* Remove the paragraph margin that wraps the image */
+  .prose :global(p:has(img)) {
+    margin-bottom: 0;
+  }
 </style>
