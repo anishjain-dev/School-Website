@@ -8,12 +8,6 @@ status: active
 summary: Defines bullying, its types, signs, and the school's response framework to create a safe and respectful environment for all students.
 ---
 
-[Download: FSK Discipline Policy PDF](https://github.com/anishjain-dev/School-Website/releases/download/v0-media-assets/FSK.Discipline.Policy.pdf)
-
-**Objective:** The objective of this policy is to address disciplinary issues of the students in schools.
-
-**Rationale:** The aim is to develop self-discipline in students to take responsibility for their own actions. However, the school recognizes that some students will step outside the realm of acceptable behavior. Consequences must be applied against such individuals, but those consequences must be just, fair and appropriate.
-
 ## Policy Guidelines
 
 The guidelines given in this policy are to be implemented only after:

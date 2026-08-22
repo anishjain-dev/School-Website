@@ -24,33 +24,69 @@ interface Props {
 
 <style>
   .prose {
-    padding-block: var(--fh-space-12);
-    max-width: calc(var(--fh-container-max) * 0.66);
+    padding-block: var(--fh-space-12) var(--fh-space-16);
+    max-width: calc(var(--fh-container-max) * 0.72);
     font-size: var(--fh-text-lg);
     line-height: var(--fh-leading-relaxed);
   }
   .prose :global(h2) {
     font-size: var(--fh-text-2xl);
     font-weight: var(--fh-weight-bold);
-    margin: var(--fh-space-10) 0 var(--fh-space-4);
-    padding-top: var(--fh-space-5);
+    margin: var(--fh-space-12) 0 var(--fh-space-4);
+    padding-top: var(--fh-space-6);
     border-top: var(--fh-border-width-2) solid var(--fh-color-border);
+    line-height: var(--fh-leading-tight);
+  }
+  .prose :global(h2:first-child) {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+  .prose :global(h3) {
+    font-size: var(--fh-text-xl);
+    font-weight: var(--fh-weight-bold);
+    margin: var(--fh-space-8) 0 var(--fh-space-3);
+    line-height: var(--fh-leading-snug);
+  }
+  .prose :global(h4) {
+    font-size: var(--fh-text-lg);
+    font-weight: var(--fh-weight-semibold);
+    margin: var(--fh-space-6) 0 var(--fh-space-2);
   }
   .prose :global(p) {
     margin-bottom: var(--fh-space-5);
   }
   .prose :global(ul),
   .prose :global(ol) {
-    margin: 0 0 var(--fh-space-5);
-    padding-left: var(--fh-space-6);
+    margin: 0 0 var(--fh-space-6);
+    padding-left: var(--fh-space-7);
+  }
+  .prose :global(li) {
+    margin-bottom: var(--fh-space-2);
+    line-height: var(--fh-leading-relaxed);
+  }
+  .prose :global(li:last-child) {
+    margin-bottom: 0;
   }
   .prose :global(a) {
     color: var(--fh-color-text-link);
+    text-underline-offset: 0.2em;
+  }
+  .prose :global(strong) {
+    font-weight: var(--fh-weight-bold);
+    color: var(--fh-color-text);
+  }
+  .prose :global(hr) {
+    border: none;
+    border-top: var(--fh-border-width) solid var(--fh-color-border);
+    margin: var(--fh-space-10) 0;
   }
   .prose :global(table) {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: var(--fh-space-6);
+    margin-bottom: var(--fh-space-8);
+    overflow-x: auto;
+    display: block;
   }
   .prose :global(th),
   .prose :global(td) {
@@ -58,6 +94,7 @@ interface Props {
     padding: var(--fh-space-3) var(--fh-space-4);
     border-bottom: var(--fh-border-width) solid var(--fh-color-border);
     font-size: var(--fh-text-base);
+    vertical-align: top;
   }
   .prose :global(th) {
     font-family: var(--fh-font-heading);
@@ -65,25 +102,29 @@ interface Props {
     letter-spacing: var(--fh-tracking-wide);
     text-transform: uppercase;
     color: var(--fh-color-text-muted);
+    background: var(--fh-color-surface-sunken);
+    white-space: nowrap;
   }
   .prose :global(blockquote) {
     margin: var(--fh-space-8) 0;
-    padding-left: var(--fh-space-6);
+    padding: var(--fh-space-5) var(--fh-space-6);
     border-left: var(--fh-space-1) solid var(--fh-color-accent);
+    background: var(--fh-color-surface-sunken);
+    border-radius: 0 var(--fh-radius-md) var(--fh-radius-md) 0;
     font-family: var(--fh-font-heading);
     font-size: var(--fh-text-xl);
+    font-style: italic;
     color: var(--fh-color-text-muted);
   }
-  /* Blend out white backgrounds from diagrams/infographics (e.g. learning-model.png) */
-  .prose :global(img) {
-    mix-blend-mode: multiply;
-    max-width: 480px;
-    margin-inline: auto;
-    /* Compensate for built-in whitespace padding in the PNG */
-    margin-block-start: -3rem;
-    margin-block-end: 0;
+  .prose :global(blockquote p) {
+    margin-bottom: 0;
   }
-  /* Remove the paragraph margin that wraps the image */
+  .prose :global(img) {
+    max-width: min(100%, 500px);
+    height: auto;
+    margin: var(--fh-space-4) auto;
+    display: block;
+  }
   .prose :global(p:has(img)) {
     margin-bottom: 0;
   }

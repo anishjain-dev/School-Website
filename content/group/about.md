@@ -1,31 +1,23 @@
 ---
-title: Our Story
-description: From six students in 2005 to a network across Surat, Vapi and Chhatrapati Sambhajinagar.
-draft: true
+title: About Fountainhead Schools
+description: One conviction, carried across every campus — that children flourish when learning is joyful, purposeful and built around them.
 order: 15
 ---
 
-> **DRAFT — comms to review.** Timeline recovered from the FALH brochure by
-> OCR; **year-to-milestone mapping needs visual verification** against the
-> brochure before publishing. Wording is theirs to polish.
+Fountainhead Schools is an IB school group with campuses across Surat, Vapi and Chhatrapati Sambhajinagar. Founded in 2005 with six students, the group has grown into one of India's most respected international school networks — ranked 4th nationally in the Cfore Rankings 2026 for Co-Ed Day Schools (International Curriculum).
 
-## FS Logo Description
+What unites every campus is a single conviction about how children learn: that curiosity is not a problem to be managed, but a capability to be cultivated. That a child who loves learning will outperform a child who is merely trained to score.
 
-1. The relationship between a teacher and a student, the school / teacher (who represents the spring, the principal source of knowledge) is the spring who imparts knowledge to the student (who is the stream, the beneficiary of the knowledge). The extended hand shows the school / teacher inviting students to learn. The open arms represent the general ambience of the school, where the teachers share a healthy and open relationship with their students, where students learn to be fearless in expressing ideas / opinions, where the teachers work towards nurturing the child and helping the child attain and reach true potential.
+## What makes us different
 
-2. The magic is in the bond shared by the one who imparts knowledge and the one who imbibes it. That bond is the principle source of something great which can only be achieved when it is a collaborative effort. To achieve greater heights, the bond has to be strong. The logo symbolizes the bond and the sharing of knowledge.
+**The full IB continuum** — a child at Fountainhead can move from their first years of school through to a university-entrance qualification without changing the philosophy of how they are taught.
 
-## The journey so far
+**Learner at the centre** — our Learning Model places the student at the heart of four interconnected dimensions: Academic Competencies, Physical Fitness, Creativity and the Arts, and Socio-Emotional Well-Being.
 
-- **2005** — Founded with 6 students as "The Fountainhead Preschool".
-- **c. 2011** — Authorized for the IB Primary Years Programme.
-- **2014** — IB Diploma Programme authorized.
-- **c. 2014** — Ankita Diwekar Kabra conferred the Global Teacher Accreditation Award by the British Council.
-- **2016** — First graduating class of Fountainhead School.
-- **2017** — Second Fountainhead Preschool opens.
-- **2018** — IB Middle Years Programme authorized.
-- **c. 2019** — MSA-CESS accreditation for the American High School Diploma.
-- **2020** — Fountainhead School Kunkni established.
-- **2023** — Ranked Best International School in Surat (C fore rankings).
-- **2024/2025** — Great Place To Work certified.
-- **2026–27** — Malgama, FALH (Vapi learning hub), FWGS, and FASV (Vapi school) join the group.
+**Character alongside competence** — our mission is to nurture leaders with both. Not just high-achievers, but people who do the right thing even when no one is watching.
+
+**A wellbeing infrastructure** — seven trained counsellors, regular check-ins, and wellbeing woven into the school day rather than bolted on.
+
+## Great Place to Work
+
+Fountainhead Schools is Great Place to Work certified — because a school where teachers thrive is a school where children thrive.

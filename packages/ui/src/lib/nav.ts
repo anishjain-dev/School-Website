@@ -16,33 +16,26 @@ export interface FooterColumn {
 }
 
 /**
- * Full sitemap for the footer (WA-48). Every nav group becomes its own
- * column; ungrouped items collect under "Navigate". Deep IA lives in the
- * footer, which is what lets the header stay short.
+ * Full sitemap for the footer (WA-48). Every top-level nav item becomes its
+ * own column; items with children list those children beneath; items without
+ * children appear as a single link in their column. A "Home" link is prepended
+ * to the first column so there is always a root anchor.
  */
 export function footerColumns(nav: NavLike[], homePath: string): FooterColumn[] {
-  const ungrouped = nav.filter((item) => !item.children?.length);
-  const groups = nav.filter((item) => item.children?.length);
+  if (!nav.length) return [];
 
-  const columns: FooterColumn[] = [
-    {
-      heading: 'Navigate',
-      links: [
-        { label: 'Home', path: homePath },
-        ...ungrouped.map((item) => ({ label: item.label, path: item.path })),
-      ],
-    },
-  ];
+  const columns: FooterColumn[] = nav.map((item) => ({
+    heading: item.label,
+    links: item.children?.length
+      ? [
+          { label: `${item.label} overview`, path: item.path },
+          ...item.children.map((child) => ({ label: child.label, path: child.path })),
+        ]
+      : [{ label: item.label, path: item.path }],
+  }));
 
-  for (const group of groups) {
-    columns.push({
-      heading: group.label,
-      links: [
-        { label: `${group.label} overview`, path: group.path },
-        ...(group.children ?? []).map((child) => ({ label: child.label, path: child.path })),
-      ],
-    });
-  }
+  // Prepend Home to the first column
+  columns[0]!.links = [{ label: 'Home', path: homePath }, ...columns[0]!.links];
 
   return columns;
 }

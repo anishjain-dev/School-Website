@@ -1,7 +1,7 @@
 ---
-// Template 1 — Group home (prospectus-editorial direction).
-// Photo-free flagship: display typography, numbered campus index,
-// proof band, ruled news list, conversion band.
+// Template 1 — Group home. Sections mirror the header nav order exactly:
+// About Us → Our Schools → Academics → Admissions → News & Happenings →
+// Accolades & Certifications → Testimonials
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader, { type NavItem } from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
@@ -11,7 +11,6 @@ import CampusCard from '../components/CampusCard.astro';
 import StatBand from '../components/StatBand.astro';
 import CTABand from '../components/CTABand.astro';
 import NewsList from '../components/NewsList.astro';
-import { footerColumns } from '../lib/nav';
 
 export interface CampusLite {
   slug: string;
@@ -32,7 +31,6 @@ interface Props {
   canonical?: URL | string | undefined;
   nav: NavItem[];
   campuses: CampusLite[];
-  /** Positioning claim derived from launched campuses (WA-47) — never hardcoded. */
   network: NetworkLite;
   social?: { label: string; url: string }[] | undefined;
   news: { title: string; date: Date; path: string; campus?: string | undefined }[];
@@ -59,6 +57,7 @@ const { heading, lede, pageTitle, description, canonical, nav, campuses, network
     secondaryCta={{ label: 'Our philosophy', path: '/philosophy/' }}
   />
 
+  <!-- Proof strip -->
   <Section eyebrow="The group" heading="One conviction, every campus" id="proof">
     <StatBand
       stats={[
@@ -69,7 +68,33 @@ const { heading, lede, pageTitle, description, canonical, nav, campuses, network
     />
   </Section>
 
-  <Section eyebrow="Choose a campus" heading="Find your Fountainhead" id="campuses" tone="sunken">
+  <!-- 1. ABOUT US -->
+  <Section eyebrow="About Us" heading="A school built on one conviction" id="about" tone="sunken">
+    <div class="two-col">
+      <div class="two-col-body">
+        <p class="body-lg">Founded in 2005 with six students and one belief — that children learn best when they are curious, not compliant — Fountainhead has grown into a group of six campuses across Surat, Vapi and Chhatrapati Sambhajinagar.</p>
+        <p class="body-lg">Our mission has not changed: to nurture leaders with character and competence. Every campus, every programme, every policy traces back to that sentence.</p>
+        <div class="link-group">
+          <a class="text-cta" href="/founders/">Our story and founders →</a>
+          <a class="text-cta" href="/philosophy/">Values, Mission &amp; Philosophy →</a>
+        </div>
+      </div>
+      <div class="journey-list">
+        <p class="journey-label">Key milestones</p>
+        <ul>
+          <li><span class="year">2005</span> Founded as "The Fountainhead Preschool" — 6 students</li>
+          <li><span class="year">2011</span> IB Primary Years Programme authorised</li>
+          <li><span class="year">2014</span> IB Diploma Programme authorised</li>
+          <li><span class="year">2018</span> IB Middle Years Programme authorised</li>
+          <li><span class="year">2020</span> Fountainhead School Kunkni established</li>
+          <li><span class="year">2026</span> Six campuses across three cities</li>
+        </ul>
+      </div>
+    </div>
+  </Section>
+
+  <!-- 2. OUR SCHOOLS -->
+  <Section eyebrow="Our Schools" heading="Find your Fountainhead" id="campuses">
     <div class="campus-grid">
       {campuses.map((c, i) => (
         <CampusCard
@@ -81,20 +106,124 @@ const { heading, lede, pageTitle, description, canonical, nav, campuses, network
         />
       ))}
     </div>
+    <p class="section-cta"><a class="text-cta" href="/our-schools/">About our schools →</a></p>
   </Section>
 
+  <!-- 3. ACADEMICS -->
+  <Section eyebrow="Academics" heading="The full IB continuum — PYP to DP" id="academics" tone="sunken">
+    <div class="programmes">
+      <div class="prog-card">
+        <p class="prog-label">PYP</p>
+        <p class="prog-name">Primary Years Programme</p>
+        <p class="prog-age">Ages 3 – 12</p>
+        <p class="prog-desc">Transdisciplinary inquiry that builds curiosity, agency and a love of learning from the earliest years.</p>
+        <a class="prog-link" href="/academics/pyp/">Learn more →</a>
+      </div>
+      <div class="prog-card">
+        <p class="prog-label">MYP</p>
+        <p class="prog-name">Middle Years Programme</p>
+        <p class="prog-age">Ages 11 – 16</p>
+        <p class="prog-desc">Concept-driven learning that connects knowledge to real-world challenges and grows independence.</p>
+        <a class="prog-link" href="/academics/myp/">Learn more →</a>
+      </div>
+      <div class="prog-card">
+        <p class="prog-label">DP</p>
+        <p class="prog-name">Diploma Programme</p>
+        <p class="prog-age">Ages 16 – 19</p>
+        <p class="prog-desc">A rigorous, globally recognised qualification that opens doors to universities worldwide.</p>
+        <a class="prog-link" href="/academics/dp/">Learn more →</a>
+      </div>
+      <div class="prog-card prog-card--fhsd">
+        <p class="prog-label">FHSD</p>
+        <p class="prog-name">Fountainhead High School Diploma</p>
+        <p class="prog-age">American-standard qualification</p>
+        <p class="prog-desc">MSA-CESS accredited. A route for students seeking an American high school credential alongside the IB.</p>
+        <a class="prog-link" href="/academics/fhsd/">Learn more →</a>
+      </div>
+    </div>
+    <p class="section-cta"><a class="text-cta" href="/academics/">Explore all academics →</a></p>
+  </Section>
+
+  <!-- 4. ADMISSIONS -->
+  <Section eyebrow="Admissions" heading="How to join a Fountainhead school" id="admissions">
+    <div class="admissions-steps">
+      <div class="step">
+        <p class="step-num">01</p>
+        <p class="step-title">Tell us about your child</p>
+        <p class="step-desc">Fill the enquiry form — takes two minutes. We read every submission the same day.</p>
+      </div>
+      <div class="step">
+        <p class="step-num">02</p>
+        <p class="step-title">Visit the campus</p>
+        <p class="step-desc">See a working school day. The campus visit is the most important step — we insist on it.</p>
+      </div>
+      <div class="step">
+        <p class="step-num">03</p>
+        <p class="step-title">Conversation with our team</p>
+        <p class="step-desc">A relaxed conversation — not a test. We want to understand your child and your family's expectations.</p>
+      </div>
+      <div class="step">
+        <p class="step-num">04</p>
+        <p class="step-title">Offer &amp; welcome</p>
+        <p class="step-desc">Fee payment, orientation, and a warm welcome to the Fountainhead community.</p>
+      </div>
+    </div>
+    <p class="section-cta"><a class="text-cta" href="/admissions/">Start your enquiry →</a></p>
+  </Section>
+
+  <!-- 5. NEWS & HAPPENINGS -->
+  {news.length > 0 && (
+    <Section eyebrow="News &amp; Happenings" heading="From our campuses" id="news" tone="sunken">
+      <NewsList items={news} />
+      <p class="section-cta"><a class="text-cta" href="/news/">All news →</a></p>
+    </Section>
+  )}
+
+  <!-- 6. ACCOLADES & CERTIFICATIONS -->
+  <Section eyebrow="Accolades &amp; Certifications" heading="Trusted. Awarded. Certified." id="accolades">
+    <div class="accolade-grid">
+      <div class="accolade-item">
+        <p class="accolade-rank">5<sup>th</sup></p>
+        <p class="accolade-label">Nationally — Cfore Best Schools 2025</p>
+      </div>
+      <div class="accolade-item">
+        <p class="accolade-rank">4<sup>th</sup></p>
+        <p class="accolade-label">Nationally — Cfore Best Schools 2026</p>
+      </div>
+      <div class="accolade-item">
+        <p class="accolade-rank">★</p>
+        <p class="accolade-label">Great Place to Work Certified 2025</p>
+      </div>
+      <div class="accolade-item">
+        <p class="accolade-rank">★</p>
+        <p class="accolade-label">IDA Awards — Excellence in Education 2025</p>
+      </div>
+    </div>
+    <p class="section-cta"><a class="text-cta" href="/accolades/">See all accolades →</a></p>
+  </Section>
+
+  <!-- 7. TESTIMONIALS -->
+  <Section eyebrow="Testimonials" heading="What our community says" id="testimonials" tone="sunken">
+    <div class="testimonials">
+      <blockquote class="testi">
+        <p>"The IB taught me how to think, not what to think. That difference showed up in my first semester of university — I was not surprised by anything the course demanded."</p>
+        <cite>— FSK Student</cite>
+      </blockquote>
+      <blockquote class="testi">
+        <p>"When we joined Fountainhead, we did not fully understand the IB. The school took time to explain — not just once, but every year. That investment in us as parents made us better partners to our child."</p>
+        <cite>— FSK Parent</cite>
+      </blockquote>
+    </div>
+    <p class="section-cta"><a class="text-cta" href="/testimonials/">Read all testimonials →</a></p>
+  </Section>
+
+  <!-- Philosophy (supporting Why section) -->
   {philosophy && (
     <Section eyebrow="Why we teach this way" heading={philosophy.title} id="philosophy">
       <div class="philo">
         {philosophy.excerpt && <p class="philo-lede">{philosophy.excerpt}</p>}
         <p><a class="text-cta" href={philosophy.path}>Read our philosophy →</a></p>
       </div>
-    </Section>
-  )}
-
-  {news.length > 0 && (
-    <Section eyebrow="From our campuses" heading="News & happenings" id="news">
-      <NewsList items={news} />
     </Section>
   )}
 
@@ -110,19 +239,42 @@ const { heading, lede, pageTitle, description, canonical, nav, campuses, network
     social={social}
     address={`${network.citiesLabel} · India`}
     columns={[
-      ...footerColumns(nav, '/'),
+      {
+        heading: 'About Us',
+        links: [
+          { label: 'Home', path: '/' },
+          { label: 'Our Story and Founders', path: '/founders/' },
+          { label: 'Values, Mission & Philosophy', path: '/philosophy/' },
+          { label: 'IB Mission Statement', path: '/philosophy/ib-mission/' },
+          { label: 'Our Schools', path: '/our-schools/' },
+          { label: 'Testimonials', path: '/testimonials/' },
+        ],
+      },
       {
         heading: 'Academics',
         links: [
           { label: 'Academics overview', path: '/academics/' },
+          { label: 'Learning Model', path: '/academics/learning-model/' },
+          { label: "IB & Parents' Role", path: '/academics/' },
           { label: 'Primary Years Programme', path: '/academics/pyp/' },
           { label: 'Middle Years Programme', path: '/academics/myp/' },
           { label: 'Diploma Programme', path: '/academics/dp/' },
-          { label: 'Learning Model', path: '/learning-model/' },
+          { label: 'FHSD', path: '/academics/fhsd/' },
+          { label: 'Demystifying IB Myths', path: '/demystifying-ib-myths/' },
         ],
       },
       {
-        heading: 'Campuses',
+        heading: 'Quick Links',
+        links: [
+          { label: 'Admissions', path: '/admissions/' },
+          { label: 'News & Happenings', path: '/news/' },
+          { label: 'Accolades & Certifications', path: '/accolades/' },
+          { label: 'Policies', path: '/policies/' },
+          { label: 'Child Protection', path: '/child-protection/' },
+        ],
+      },
+      {
+        heading: 'Our Campuses',
         links: campuses.map((c) => ({ label: c.name, path: `/${c.slug}/` })),
       },
     ]}
@@ -130,27 +282,229 @@ const { heading, lede, pageTitle, description, canonical, nav, campuses, network
 </BaseLayout>
 
 <style>
+  /* About Us */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--fh-space-12);
+    align-items: start;
+  }
+  .body-lg {
+    font-size: var(--fh-text-lg);
+    line-height: var(--fh-leading-relaxed);
+    color: var(--fh-color-text-muted);
+    margin-bottom: var(--fh-space-5);
+  }
+  .link-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--fh-space-3);
+    margin-top: var(--fh-space-6);
+  }
+  .journey-label {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-xs);
+    font-weight: var(--fh-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--fh-tracking-wider);
+    color: var(--fh-color-text-muted);
+    margin-bottom: var(--fh-space-4);
+  }
+  .journey-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--fh-space-3);
+  }
+  .journey-list li {
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-text-muted);
+    padding-left: 3.75rem;
+    position: relative;
+  }
+  .year {
+    position: absolute;
+    left: 0;
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-primary);
+    width: 3.25rem;
+  }
+
+  /* Our Schools */
   .campus-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
     gap: var(--fh-space-6);
+    margin-bottom: var(--fh-space-8);
   }
-  .philo {
-    max-width: 60ch;
+
+  /* Academics */
+  .programmes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: var(--fh-space-6);
+    margin-bottom: var(--fh-space-8);
   }
+  .prog-card {
+    background: var(--fh-color-surface);
+    border: var(--fh-border-width) solid var(--fh-color-border);
+    border-top: 3px solid var(--fh-color-primary);
+    border-radius: var(--fh-radius-md);
+    padding: var(--fh-space-6);
+    display: flex;
+    flex-direction: column;
+  }
+  .prog-card--fhsd {
+    border-top-color: var(--fh-color-accent);
+  }
+  .prog-label {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-extrabold);
+    font-size: var(--fh-text-3xl);
+    color: var(--fh-color-primary);
+    margin-bottom: var(--fh-space-1);
+  }
+  .prog-card--fhsd .prog-label {
+    color: var(--fh-color-accent);
+  }
+  .prog-name {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    font-size: var(--fh-text-base);
+    margin-bottom: var(--fh-space-1);
+  }
+  .prog-age {
+    font-size: var(--fh-text-sm);
+    color: var(--fh-color-text-muted);
+    margin-bottom: var(--fh-space-4);
+  }
+  .prog-desc {
+    font-size: var(--fh-text-sm);
+    line-height: var(--fh-leading-relaxed);
+    color: var(--fh-color-text-muted);
+    flex: 1;
+    margin-bottom: var(--fh-space-4);
+  }
+  .prog-link {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-sm);
+    font-weight: var(--fh-weight-bold);
+    color: var(--fh-color-primary-text);
+    text-decoration: none;
+    margin-top: auto;
+  }
+  .prog-link:hover { text-decoration: underline; }
+
+  /* Admissions */
+  .admissions-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    gap: var(--fh-space-6);
+    margin-bottom: var(--fh-space-8);
+  }
+  .step {
+    padding: var(--fh-space-6);
+    border: var(--fh-border-width) solid var(--fh-color-border);
+    border-radius: var(--fh-radius-md);
+  }
+  .step-num {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-extrabold);
+    font-size: var(--fh-text-4xl);
+    color: var(--fh-color-border-strong);
+    line-height: 1;
+    margin-bottom: var(--fh-space-3);
+  }
+  .step-title {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-bold);
+    font-size: var(--fh-text-base);
+    margin-bottom: var(--fh-space-2);
+  }
+  .step-desc {
+    font-size: var(--fh-text-sm);
+    line-height: var(--fh-leading-relaxed);
+    color: var(--fh-color-text-muted);
+  }
+
+  /* Accolades */
+  .accolade-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: var(--fh-space-6);
+    margin-bottom: var(--fh-space-8);
+  }
+  .accolade-item {
+    border-left: 3px solid var(--fh-color-accent);
+    padding-left: var(--fh-space-5);
+  }
+  .accolade-rank {
+    font-family: var(--fh-font-heading);
+    font-weight: var(--fh-weight-extrabold);
+    font-size: var(--fh-text-4xl);
+    color: var(--fh-color-primary);
+    line-height: 1;
+    margin-bottom: var(--fh-space-2);
+  }
+  .accolade-rank sup { font-size: var(--fh-text-xl); }
+  .accolade-label {
+    font-size: var(--fh-text-sm);
+    line-height: var(--fh-leading-snug);
+    color: var(--fh-color-text-muted);
+  }
+
+  /* Testimonials */
+  .testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+    gap: var(--fh-space-8);
+    margin-bottom: var(--fh-space-8);
+  }
+  .testi {
+    margin: 0;
+    padding: var(--fh-space-6);
+    background: var(--fh-color-surface);
+    border-radius: var(--fh-radius-md);
+    border-left: 3px solid var(--fh-color-primary);
+  }
+  .testi p {
+    font-size: var(--fh-text-lg);
+    line-height: var(--fh-leading-relaxed);
+    font-style: italic;
+    color: var(--fh-color-text-muted);
+    margin-bottom: var(--fh-space-4);
+  }
+  .testi cite {
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-sm);
+    font-weight: var(--fh-weight-semibold);
+    color: var(--fh-color-text);
+    font-style: normal;
+  }
+
+  /* Philosophy */
+  .philo { max-width: 60ch; }
   .philo-lede {
     font-size: var(--fh-text-xl);
     line-height: var(--fh-leading-relaxed);
     color: var(--fh-color-text-muted);
     margin-bottom: var(--fh-space-6);
   }
+
+  /* Shared */
+  .section-cta { margin-top: var(--fh-space-4); }
   .text-cta {
     font-family: var(--fh-font-heading);
     font-weight: var(--fh-weight-bold);
     color: var(--fh-color-primary-text);
     text-decoration: none;
   }
-  .text-cta:hover {
-    text-decoration: underline;
+  .text-cta:hover { text-decoration: underline; }
+
+  @media (max-width: 760px) {
+    .two-col { grid-template-columns: 1fr; }
   }
 </style>

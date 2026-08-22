@@ -41,7 +41,6 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
     <a class="lockup" href={homePath}>
       <Spark size={20} />
       <span class="lockup-name">{siteName}</span>
-      {shortName && <span class="lockup-chip">{shortName}</span>}
     </a>
 
     <nav class="nav-desktop" aria-label="Primary">
@@ -180,6 +179,7 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
     color: var(--fh-color-text-muted);
     text-decoration: none;
     padding: var(--fh-space-2) var(--fh-space-3);
+    white-space: nowrap;
     border-radius: var(--fh-radius-sm);
     background: linear-gradient(var(--fh-color-primary), var(--fh-color-primary))
       no-repeat left bottom / 0 2px;
@@ -416,18 +416,27 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
   }
 
   /* ── Responsive breakpoints ─────────────────────────────────────── */
-  @media (max-width: 900px) {
+  /* Tighten at 1400px so 8 long nav items fit comfortably */
+  @media (max-width: 1400px) {
     .nav-desktop {
       gap: var(--fh-space-px);
     }
     .nav-desktop > a,
     .nav-group > summary {
-      padding: var(--fh-space-2);
+      padding: var(--fh-space-2) var(--fh-space-2);
       font-size: 0.8125rem;
     }
   }
+  @media (max-width: 1200px) {
+    .nav-desktop > a,
+    .nav-group > summary {
+      font-size: var(--fh-text-xs);
+      padding: var(--fh-space-1) var(--fh-space-2);
+    }
+  }
 
-  @media (max-width: 760px) {
+  /* Hamburger at 1024px — nav has 8 items; below this width they can't fit */
+  @media (max-width: 1024px) {
     .nav-desktop,
     .enquire {
       display: none;
@@ -448,7 +457,7 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
     .nav-panel {
       display: none;
     }
-    @media (max-width: 760px) {
+    @media (max-width: 1024px) {
       .nav-desktop {
         display: flex;
         flex-wrap: wrap;

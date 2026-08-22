@@ -6,12 +6,18 @@ descriptor: The flagship IB continuum campus
 brand: fountainhead
 jurisdiction: gujarat
 address:
-  line1: Kunkni Campus
+  line1: Opp. Ambetha Water Tank, Nr. Village Kunkni, Rander - Dandi Road
   city: Surat
   state: Gujarat
-  pincode: "395007"
+  pincode: "395005"
 domains:
   - fsksurat.in
+phone: "8000-130-031"
+email: surat@fountainheadschools.org
+social:
+  instagram: https://www.instagram.com/fountainheadschoolkunkni/
+  facebook: https://www.facebook.com/FountainheadSchoolKunkni/
+  youtube: https://www.youtube.com/@FountainheadSchoolKunkni
 inherit:
   mode: all
   exclude: []

@@ -2,6 +2,9 @@
 title: Fountainhead Preschool Vesu
 description: A warm and inspiring community in Vesu where children begin their journey of discovery.
 template: early-years
+heroImage:
+  id: "https://github.com/anishjain-dev/School-Website/releases/download/v0-media-assets/FPV.and.FSM.Front.Facade.JPG"
+  alt: "Fountainhead Preschool Vesu campus"
 earlyYears:
   ratio: "1:10"
   programmes:

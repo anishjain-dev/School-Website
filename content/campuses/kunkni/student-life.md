@@ -1,7 +1,6 @@
 ---
 title: Student Life
 description: Life at Fountainhead School Kunkni — sports, activities, and campus resources.
-draft: true
 order: 70
 ---
 
@@ -9,9 +8,13 @@ order: 70
 
 The Kunkni campus sports ground features a turf, cricket nets, basketball court, football ground, pickleball court, badminton courts, and gymnastics — with structured HDP and HDP+ programmes.
 
+![FSK sports ground](https://github.com/anishjain-dev/School-Website/releases/download/v0-media-assets/FSK.Ground.jpg)
+
 ## Khelangan
 
 Annual cultural and co-curricular celebration at FSK.
+
+[Watch: FS Got Talent](https://github.com/anishjain-dev/School-Website/releases/download/v0-media-assets/FS.Got.Talent.mp4)
 
 ## Robotics
 

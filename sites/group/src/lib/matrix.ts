@@ -167,7 +167,7 @@ async function compute(): Promise<SiteContext> {
     return links;
   };
 
-  // Group-level static nav — matches the FS content brief (Screenshot 1).
+  // Group-level static nav — matches the FS content brief (Excel IA, 2026-08).
   // Only references pages that exist as content files or system routes.
   // Campus navs remain data-driven via buildNavTree.
   const GROUP_NAV: NavItem[] = [
@@ -177,22 +177,24 @@ async function compute(): Promise<SiteContext> {
       children: [
         { label: 'Our Story and Founders', path: '/founders/' },
         { label: 'Values, Mission & Philosophy', path: '/philosophy/' },
-        { label: 'IB Mission Statement', path: '/ib-mission/' },
-        { label: 'Our Schools', path: '/our-schools/' },
-        { label: 'Accolades & Certifications', path: '/accolades/' },
+        { label: 'IB Mission Statement', path: '/philosophy/ib-mission/' },
       ],
+    },
+    {
+      label: 'Our Schools',
+      path: '/our-schools/',
     },
     {
       label: 'Academics',
       path: '/academics/',
       children: [
+        { label: 'Learning Model', path: '/academics/learning-model/' },
+        { label: "IB & Parents' Role in Education", path: '/academics/' },
         { label: 'Primary Years Programme', path: '/academics/pyp/' },
         { label: 'Middle Years Programme', path: '/academics/myp/' },
         { label: 'Diploma Programme', path: '/academics/dp/' },
-        { label: 'FHSD', path: '/academics/fhsd/' },
-        { label: 'Learning Model', path: '/learning-model/' },
-        { label: 'Parent Role in Education', path: '/policies/parent-role-in-education/' },
-        { label: 'Results & University Destinations', path: '/results/' },
+        { label: 'Fountainhead High School Diploma', path: '/academics/fhsd/' },
+        { label: 'Demystifying IB Myths', path: '/demystifying-ib-myths/' },
       ],
     },
     {
@@ -204,16 +206,16 @@ async function compute(): Promise<SiteContext> {
       path: '/news/',
     },
     {
+      label: 'Accolades & Certifications',
+      path: '/accolades/',
+    },
+    {
       label: 'Testimonials',
       path: '/testimonials/',
     },
     {
-      label: 'Connect',
-      path: '/contact/',
-      children: [
-        { label: 'Contact & Visits', path: '/contact/' },
-        { label: 'Careers', path: '/careers/' },
-      ],
+      label: 'Results & University Destinations',
+      path: '/results/',
     },
   ];
 

@@ -7,11 +7,23 @@ order: 30
 
 ## Cfore 2026
 
-Fountainhead School Kunkni, Surat ranks 4th Nationally. Up from 5th last year. Two points behind 2nd position. In Pedagogy and Curriculum, no school scored above us. This is the second year running we've moved up, verified by the Cfore School Ranking.
+STOP PRESS
+
+Fountainhead School Kunkni, Surat ranks 4th Nationally.
+
+Up from 5th last year.
+
+Two points behind 2nd position.
+
+In Pedagogy and Curriculum, no school scored above us.
+
+This is the second year running we've moved up, verified by the Cfore School Ranking.
 
 To our teachers, whose classrooms this ranking is really about. To our students, who make the work worth doing. To our parents, who trusted us with this journey. This one belongs to the entire FSK Community.
 
 Congratulations, FSK.
+
+For more details - Link in Bio
 
 ![Cfore 2026 ranking certificate — Fountainhead School Kunkni ranked 4th nationally](https://github.com/anishjain-dev/School-Website/releases/download/v0-media-assets/image9.png)
 
@@ -29,7 +41,7 @@ We receive this honour with gratitude and humility, and we move forward with ren
 
 ## IDA Awards 2025
 
-Fountainhead School Honoured at the IDA Awards 2025
+### Fountainhead School Honoured at the IDA Awards 2025
 
 Fountainhead School has been recognised at the IDA Awards 2025 for its exemplary work in wellbeing, engagement, and capacity building in the foundational years. This recognition is especially meaningful to us because Social and Emotional Learning (SEL) has been an integral part of our philosophy long before it became a widespread priority in education. Over the years, our approach has grown through the consistent efforts of our wellbeing counselors, teachers, parents, and school leadership.
 

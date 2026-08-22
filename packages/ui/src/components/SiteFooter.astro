@@ -62,8 +62,8 @@ const year = new Date().getFullYear();
   }
   .grid {
     display: grid;
-    grid-template-columns: 2fr repeat(auto-fit, minmax(9rem, 1fr));
-    gap: var(--fh-space-10);
+    grid-template-columns: 1.5fr repeat(auto-fill, minmax(11rem, 1fr));
+    gap: var(--fh-space-10) var(--fh-space-8);
     padding-block: var(--fh-space-16) var(--fh-space-10);
   }
   .name {
@@ -135,7 +135,7 @@ const year = new Date().getFullYear();
     font-size: var(--fh-text-xs);
     opacity: 0.75;
   }
-  @media (max-width: 760px) {
+  @media (max-width: 900px) {
     .grid {
       grid-template-columns: 1fr 1fr;
     }
