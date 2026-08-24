@@ -129,12 +129,15 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
     top: 0;
     z-index: var(--fh-z-sticky);
     box-shadow: var(--fh-shadow-sm);
+    /* Prevent header children from causing horizontal page scroll */
+    overflow-x: clip;
   }
   .header-row {
     display: flex;
     align-items: center;
     gap: var(--fh-space-6);
-    min-height: 4.5rem;
+    min-height: 3.75rem;
+    min-width: 0;
   }
 
   /* ── Branding lockup ──────────────────────────────────────────────── */
@@ -144,15 +147,17 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
     gap: var(--fh-space-2);
     text-decoration: none;
     color: inherit;
-    margin-right: auto;
     flex-shrink: 0;
   }
   .lockup-name {
     font-family: var(--fh-font-heading);
     font-weight: var(--fh-weight-extrabold);
-    font-size: var(--fh-text-lg);
+    font-size: var(--fh-text-base);
     letter-spacing: var(--fh-tracking-tight);
     line-height: var(--fh-leading-none);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .lockup-chip {
     font-family: var(--fh-font-heading);
@@ -169,7 +174,9 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
   .nav-desktop {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: var(--fh-space-1);
+    flex: 1;
   }
   .nav-desktop > a,
   .nav-group > summary {
@@ -416,37 +423,35 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
   }
 
   /* ── Responsive breakpoints ─────────────────────────────────────── */
-  /* Tighten at 1400px so 8 long nav items fit comfortably */
-  @media (max-width: 1400px) {
-    .nav-desktop {
-      gap: var(--fh-space-px);
+
+  /* Desktop: full-width header row (no 1200px cap) — fits logo + 8 nav + Enquire */
+  @media (min-width: 1025px) {
+    .header-row {
+      max-width: none;
+      padding-inline: var(--fh-space-8);
+      gap: var(--fh-space-4);
+      min-height: 3.5rem;
     }
-    .nav-desktop > a,
-    .nav-group > summary {
-      padding: var(--fh-space-2) var(--fh-space-2);
-      font-size: 0.8125rem;
-    }
-  }
-  @media (max-width: 1200px) {
+    .nav-desktop { gap: var(--fh-space-px); }
     .nav-desktop > a,
     .nav-group > summary {
       font-size: var(--fh-text-xs);
       padding: var(--fh-space-1) var(--fh-space-2);
     }
+    .lockup-name { font-size: var(--fh-text-base); }
   }
 
-  /* Hamburger at 1024px — nav has 8 items; below this width they can't fit */
+  /* Mobile/tablet hamburger ≤1024px */
   @media (max-width: 1024px) {
-    .nav-desktop,
-    .enquire {
-      display: none;
-    }
-    .nav-toggle {
-      display: flex;
-    }
-    .header-row {
-      min-height: 3.75rem;
-    }
+    .nav-desktop { display: none; }
+    .enquire { display: none; }
+    .nav-toggle { display: flex; }
+    .header-row { min-height: 3.25rem; }
+    .lockup-name { font-size: var(--fh-text-base); }
+  }
+
+  @media (max-width: 360px) {
+    .lockup-name { font-size: var(--fh-text-sm); }
   }
 
   /* Popover unsupported (old WebView): show the toggle-less stacked nav */

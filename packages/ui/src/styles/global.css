@@ -18,6 +18,8 @@ body {
   font-family: var(--fh-font-body);
   font-size: var(--fh-text-base);
   line-height: var(--fh-leading-normal);
+  /* Prevent any overflowing element from creating a horizontal scrollbar */
+  overflow-x: hidden;
 }
 
 img,
