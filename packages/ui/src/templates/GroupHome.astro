@@ -273,11 +273,8 @@ const { heading, lede, pageTitle, description, canonical, nav, campuses, network
           { label: 'Child Protection', path: '/child-protection/' },
         ],
       },
-      {
-        heading: 'Our Campuses',
-        links: campuses.map((c) => ({ label: c.name, path: `/${c.slug}/` })),
-      },
     ]}
+    campuses={campuses.map((c) => ({ name: c.name, slug: c.slug, shortName: c.shortName }))}
   />
 </BaseLayout>
 

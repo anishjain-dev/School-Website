@@ -19,8 +19,9 @@ interface Props {
   eyebrow?: string | undefined;
   admissionsPath: string;
   social?: { label: string; url: string }[] | undefined;
+  campuses?: { name: string; slug: string; shortName?: string | undefined }[] | undefined;
 }
-const { campus, heading, pageTitle, description, canonical, nav, eyebrow, admissionsPath, social } = Astro.props;
+const { campus, heading, pageTitle, description, canonical, nav, eyebrow, admissionsPath, social, campuses } = Astro.props;
 const siteName = campus?.name ?? 'Fountainhead Schools';
 const homePath = campus ? `/${campus.slug}/` : '/';
 ---
@@ -59,6 +60,7 @@ const homePath = campus ? `/${campus.slug}/` : '/';
     siteName={siteName}
     social={social}
     columns={footerColumns(nav, homePath)}
+    campuses={campuses}
   />
 </BaseLayout>
 

@@ -62,6 +62,7 @@ const chrome = {
   eyebrow,
   admissionsPath,
   social,
+  campuses: campuses?.map((c) => ({ name: c.name, slug: c.slug, shortName: c.shortName })),
 };
 ---
 
