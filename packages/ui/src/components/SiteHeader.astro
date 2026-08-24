@@ -25,8 +25,10 @@ interface Props {
   nav: NavItem[];
   enquirePath?: string | undefined;
   phone?: string | undefined;
+  /** Force hamburger-only mode — use on campus pages with many nav items */
+  hamburgerOnly?: boolean;
 }
-const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
+const { siteName, shortName, homePath, nav, enquirePath, phone, hamburgerOnly } = Astro.props;
 ---
 
 <div class="utility u-print-hidden">
@@ -36,7 +38,7 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
   </div>
 </div>
 
-<header class="header u-print-hidden">
+<header class="header u-print-hidden" data-hamburger-only={hamburgerOnly ? '' : undefined}>
   <div class="container header-row">
     <a class="lockup" href={homePath}>
       <Spark size={20} />
@@ -420,6 +422,15 @@ const { siteName, shortName, homePath, nav, enquirePath, phone } = Astro.props;
   .panel-submenu a {
     font-size: var(--fh-text-sm);
     color: var(--fh-color-text-muted);
+  }
+
+  /* ── Hamburger-only mode (campus pages with many nav items) ─────── */
+  .header[data-hamburger-only] .nav-desktop,
+  .header[data-hamburger-only] .enquire {
+    display: none !important;
+  }
+  .header[data-hamburger-only] .nav-toggle {
+    display: flex !important;
   }
 
   /* ── Responsive breakpoints ─────────────────────────────────────── */
