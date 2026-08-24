@@ -1,5 +1,5 @@
 ---
-// Group footer: 3-column layout — logo | nav links | social + campuses
+// Footer: logo | social | campuses — minimal 3-section layout
 import Spark from './Spark.astro';
 
 interface Column {
@@ -8,7 +8,7 @@ interface Column {
 }
 interface Props {
   siteName: string;
-  columns: Column[];
+  columns?: Column[] | undefined;
   address?: string | undefined;
   email?: string | undefined;
   phone?: string | undefined;
@@ -16,59 +16,41 @@ interface Props {
   social?: { label: string; url: string }[] | undefined;
   campuses?: { name: string; slug: string; shortName?: string | undefined }[] | undefined;
 }
-const { siteName, columns, address, email, phone, coBrand, social, campuses } = Astro.props;
+const { siteName, social, campuses } = Astro.props;
 const year = new Date().getFullYear();
 ---
 
 <footer class="footer u-print-hidden">
   <div class="container footer-row">
 
-    <!-- LEFT: Logo / identity -->
+    <!-- Logo -->
     <div class="ident">
-      <p class="name"><Spark size={16} /> {siteName}</p>
-      {coBrand && <p class="cobrand">{coBrand}</p>}
-      {address && <p class="line">{address}</p>}
-      {email && <p class="line"><a href={`mailto:${email}`}>{email}</a></p>}
-      {phone && <p class="line"><a href={`tel:${phone.replace(/\s/g, '')}`}>{phone}</a></p>}
+      <p class="name"><Spark size={18} /> {siteName}</p>
     </div>
 
-    <!-- MIDDLE: Nav columns -->
-    <div class="nav-cols">
-      {columns.map((col) => (
-        <nav aria-label={col.heading}>
-          <p class="col-h">{col.heading}</p>
-          <ul>
-            {col.links.map((l) => (
-              <li><a href={l.path}>{l.label}</a></li>
-            ))}
-          </ul>
-        </nav>
-      ))}
-    </div>
+    <!-- Social -->
+    {social && social.length > 0 && (
+      <div class="social-block">
+        <p class="col-h">Follow us</p>
+        <ul class="social">
+          {social.map((s) => (
+            <li><a href={s.url} rel="noopener noreferrer" target="_blank">{s.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    )}
 
-    <!-- RIGHT: Social + Campuses -->
-    <div class="sidebar">
-      {social && social.length > 0 && (
-        <div class="social-block">
-          <p class="col-h">Follow us</p>
-          <ul class="social">
-            {social.map((s) => (
-              <li><a href={s.url} rel="noopener noreferrer" target="_blank">{s.label}</a></li>
-            ))}
-          </ul>
-        </div>
-      )}
-      {campuses && campuses.length > 0 && (
-        <nav aria-label="Our campuses">
-          <p class="col-h">Our Schools</p>
-          <ul>
-            {campuses.map((c) => (
-              <li><a href={`/${c.slug}/`}>{c.shortName ?? c.name}</a></li>
-            ))}
-          </ul>
-        </nav>
-      )}
-    </div>
+    <!-- Campuses -->
+    {campuses && campuses.length > 0 && (
+      <nav aria-label="Our campuses">
+        <p class="col-h">Our Schools</p>
+        <ul>
+          {campuses.map((c) => (
+            <li><a href={`/${c.slug}/`}>{c.shortName ?? c.name}</a></li>
+          ))}
+        </ul>
+      </nav>
+    )}
 
   </div>
   <div class="container legal">
@@ -83,17 +65,13 @@ const year = new Date().getFullYear();
     margin-top: var(--fh-space-24);
   }
   .footer-row {
-    display: grid;
-    grid-template-columns: 14rem 1fr 12rem;
-    gap: var(--fh-space-10) var(--fh-space-8);
-    padding-block: var(--fh-space-16) var(--fh-space-10);
-    align-items: start;
-  }
-  /* Logo / ident */
-  .ident {
     display: flex;
-    flex-direction: column;
-    gap: var(--fh-space-2);
+    align-items: flex-start;
+    gap: var(--fh-space-16);
+    padding-block: var(--fh-space-14) var(--fh-space-10);
+  }
+  .ident {
+    flex: 1;
   }
   .name {
     display: flex;
@@ -101,47 +79,8 @@ const year = new Date().getFullYear();
     gap: var(--fh-space-2);
     font-family: var(--fh-font-heading);
     font-weight: var(--fh-weight-extrabold);
-    font-size: var(--fh-text-lg);
-    margin: 0 0 var(--fh-space-2);
-  }
-  .cobrand {
-    font-size: var(--fh-text-sm);
-    opacity: 0.75;
-  }
-  .line {
-    font-size: var(--fh-text-sm);
-    opacity: 0.85;
-  }
-  .line a {
-    color: inherit;
-  }
-  /* Middle nav columns */
-  .nav-cols {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
-    gap: var(--fh-space-8);
-  }
-  /* Right sidebar */
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: var(--fh-space-8);
-  }
-  .social {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--fh-space-3);
-    list-style: none;
-    padding: 0;
+    font-size: var(--fh-text-xl);
     margin: 0;
-  }
-  .social a {
-    color: inherit;
-    font-family: var(--fh-font-heading);
-    font-size: var(--fh-text-xs);
-    font-weight: var(--fh-weight-bold);
-    letter-spacing: var(--fh-tracking-wide);
-    text-transform: uppercase;
   }
   .col-h {
     font-family: var(--fh-font-heading);
@@ -151,6 +90,24 @@ const year = new Date().getFullYear();
     letter-spacing: var(--fh-tracking-wider);
     opacity: 0.6;
     margin: 0 0 var(--fh-space-3);
+  }
+  .social {
+    display: flex;
+    flex-direction: column;
+    gap: var(--fh-space-2);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .social a {
+    color: inherit;
+    text-decoration: none;
+    font-family: var(--fh-font-heading);
+    font-size: var(--fh-text-sm);
+    font-weight: var(--fh-weight-semibold);
+  }
+  .social a:hover {
+    text-decoration: underline;
   }
   ul {
     list-style: none;
@@ -176,20 +133,10 @@ const year = new Date().getFullYear();
   .legal a {
     color: inherit;
   }
-  /* Tablet */
-  @media (max-width: 1024px) {
-    .footer-row {
-      grid-template-columns: 1fr 1fr;
-    }
-    .ident { grid-column: 1 / -1; }
-    .nav-cols { grid-column: 1 / 2; }
-    .sidebar { grid-column: 2 / 3; }
-  }
-  /* Mobile */
   @media (max-width: 600px) {
     .footer-row {
-      grid-template-columns: 1fr;
+      flex-direction: column;
+      gap: var(--fh-space-8);
     }
-    .ident, .nav-cols, .sidebar { grid-column: 1; }
   }
 </style>
