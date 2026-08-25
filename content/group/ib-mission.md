@@ -2,7 +2,6 @@
 title: IB Mission Statement
 description: The IB mission and Fountainhead's vision and student mission statement.
 order: 18
-draft: true
 ---
 
 ## IB Mission Statement

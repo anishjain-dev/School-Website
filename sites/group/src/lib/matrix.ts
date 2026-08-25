@@ -217,21 +217,91 @@ async function compute(): Promise<SiteContext> {
       label: 'Results & University Destinations',
       path: '/results/',
     },
+    {
+      label: 'Policies',
+      path: '/policies/',
+    },
   ];
 
   // Two-level nav (WA-48). Group site uses the static editorial nav above;
-  // campus pages remain data-driven so they reflect actual published content.
+  // campus pages use a structured template so headers stay clean (≤8 items)
+  // regardless of how many pages a campus publishes.
   const navFor = (campusSlug: string | null): NavItem[] => {
     if (campusSlug === null) return GROUP_NAV;
-    const sources: NavSource[] = result.pages
-      .filter((p) => p.campus === campusSlug && p.id !== 'index')
-      .map((p) => {
-        const e = entryFor(p);
-        return { id: p.id, path: p.path, label: e?.data.title ?? p.id, order: e?.data.order ?? 99 };
-      });
+
+    const campusPages = result.pages.filter((p) => p.campus === campusSlug && p.id !== 'index');
+    const available = new Map(campusPages.map((p) => [p.id, p]));
+
+    const pageLabel = (id: string) => {
+      const e = entryFor(available.get(id)!);
+      return e?.data.title ?? id;
+    };
+
+    const navChild = (id: string): NavItem | null => {
+      const p = available.get(id);
+      return p ? { label: pageLabel(id), path: p.path } : null;
+    };
+
+    const nav: NavItem[] = [];
+
+    // About
+    const aboutPage = available.get('about');
+    if (aboutPage) {
+      const aboutChildren = [
+        navChild('philosophy'),
+        navChild('philosophy/ib-mission') ?? navChild('ib-mission'),
+        navChild('child-protection'),
+      ].filter(Boolean) as NavItem[];
+      nav.push({ label: pageLabel('about'), path: aboutPage.path, ...(aboutChildren.length ? { children: aboutChildren } : {}) });
+    }
+
+    // Academics
+    const academicsChildren = [
+      navChild('learning-model') ?? navChild('academics/learning-model'),
+      navChild('academics/pyp'),
+      navChild('academics/myp'),
+      navChild('academics/dp'),
+      navChild('academics/fhsd'),
+      navChild('academics/btec'),
+      navChild('academics/mlc'),
+      navChild('demystifying-ib-myths'),
+    ].filter(Boolean) as NavItem[];
+    if (available.has('academics') || academicsChildren.length) {
+      const ap = available.get('academics');
+      const fallbackPath = academicsChildren[0]?.path ?? `/${campusSlug}/academics/`;
+      nav.push({ label: 'Academics', path: ap?.path ?? fallbackPath, ...(academicsChildren.length > 1 ? { children: academicsChildren } : {}) });
+    }
+
+    // Admissions
+    const admissionsPage = available.get('admissions');
+    if (admissionsPage) nav.push({ label: pageLabel('admissions'), path: admissionsPage.path });
+
+    // Campus Life
+    const lifeChildren = [
+      navChild('student-life'),
+      navChild('student-support'),
+      navChild('facilities'),
+      navChild('fees'),
+      navChild('transport'),
+      navChild('parent-essentials'),
+    ].filter(Boolean) as NavItem[];
+    if (lifeChildren.length === 1) {
+      nav.push(lifeChildren[0]!);
+    } else if (lifeChildren.length > 1) {
+      nav.push({ label: 'Campus Life', path: lifeChildren[0]!.path, children: lifeChildren });
+    }
+
+    // Testimonials
+    const testimonialsPage = available.get('testimonials');
+    if (testimonialsPage) nav.push({ label: pageLabel('testimonials'), path: testimonialsPage.path });
+
+    // Contact
+    const contactPage = available.get('contact');
+    if (contactPage) nav.push({ label: 'Contact Us', path: contactPage.path });
+
     const system = systemLinks(campusSlug).map((s) => ({ label: s.label, path: s.path }));
     const reference = [{ label: 'Policies', path: '/policies/' }];
-    return [...buildNavTree(sources), ...system, ...reference];
+    return [...nav, ...system, ...reference];
   };
 
   // The campus-home "explore" index. Top-level only, so it expresses the
@@ -240,20 +310,12 @@ async function compute(): Promise<SiteContext> {
   // Admissions. Children stay reachable from the header disclosure and from
   // the hub page itself — listing them flat here contradicted the nav.
   const sectionsFor = (campusSlug: string): RouteProps['sections'] => {
-    const tierA = result.pages
-      .filter((p) => p.campus === campusSlug && p.id !== 'index' && !p.id.includes('/'))
-      .map((p) => {
-        const e = entryFor(p);
-        return {
-          label: e?.data.title ?? p.id,
-          path: p.path,
-          note: SOURCE_NOTE[p.source],
-          order: e?.data.order ?? 99,
-        };
-      })
-      .sort((a, b) => a.order - b.order || a.label.localeCompare(b.label))
-      .map(({ label, path, note }) => ({ label, path, note }));
-    return [...tierA, ...systemLinks(campusSlug)];
+    // Mirror the nav structure so the home index matches the header exactly.
+    const nav = navFor(campusSlug);
+    const mainSections = nav
+      .filter((item) => item.path !== '/policies/')
+      .map((item) => ({ label: item.label, path: item.path, note: '' }));
+    return mainSections;
   };
 
   const admissionsPathFor = (campusSlug: string | null): string => {

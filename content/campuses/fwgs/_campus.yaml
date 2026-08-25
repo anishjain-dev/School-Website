@@ -23,6 +23,8 @@ address:
   pincode: "431154"
 domains:
   - fwgs.in
+phone: "8000-130-031"
+email: info@fwgs.in
 inherit:
   mode: all
   # FHSD is authored at group level because it will expand (WA-48 addendum,

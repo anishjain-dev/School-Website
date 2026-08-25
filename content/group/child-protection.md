@@ -1,15 +1,8 @@
 ---
 title: Child Protection
 description: Safety is non-negotiable — the systems, people and protocols that keep every child secure.
-draft: true
 order: 25
 ---
-
-> **DRAFT — comms to review.** Copy ported verbatim from the live
-> `/child-protection/` page (extraction confidence 1.00). Imagery from the
-> legacy page goes through the media pipeline separately. WA-23 elevates
-> this page's prominence — it is linked from the utility strip on every
-> page.
 
 At Fountainhead School, child safety is our top priority. We are committed
 to creating a nurturing and secure environment where every child can learn,

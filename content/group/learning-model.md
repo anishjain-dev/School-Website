@@ -1,7 +1,6 @@
 ---
 title: The Fountainhead Learning Model
 description: A holistic framework placing the Learner at the centre, surrounded by four interconnected dimensions of growth.
-draft: true
 ---
 
 ![The Fountainhead Learning Model — a concentric circle diagram with the Learner at the centre, surrounded by four dimensions: Physical Fitness, Academic Competencies, Creativity and the Arts, and Socio-Emotional Well-Being, enclosed by values and outcomes including Character, Leadership, Global Citizenship, and 21st Century Skills.](/learning-model.png)

@@ -1,13 +1,8 @@
 ---
 title: Parent Essentials
 description: Uniforms, timings and the practical details FWGS parents need.
-draft: true
 order: 50
 ---
-
-> **DRAFT — admin office to review.** Uniform data ported verbatim from the
-> "Uniform Purchase Details" sheet. Prices are vendor-quoted and dated —
-> keep the disclaimer, refresh when stock changes.
 
 ## Uniforms
 

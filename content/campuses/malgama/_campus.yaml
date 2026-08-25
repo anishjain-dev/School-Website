@@ -12,6 +12,8 @@ address:
   pincode: "395005"
 domains:
   - fsmsurat.in
+phone: "8000-130-031"
+email: surat@fountainheadschools.org
 inherit:
   mode: all
   # FHSD is authored at group level because it will expand (WA-48 addendum,

@@ -29,7 +29,6 @@ const fmt = new Intl.DateTimeFormat('en-IN', { month: 'short', year: 'numeric' }
   canonical={new URL('/policies/', Astro.site)}
   nav={ctx.navFor(null)}
   social={ctx.socialFor(null)}
-  eyebrow="Single source (WA-13)"
   admissionsPath={ctx.admissionsPathFor(null)}
 >
   <div class="container list">
@@ -40,7 +39,6 @@ const fmt = new Intl.DateTimeFormat('en-IN', { month: 'short', year: 'numeric' }
           {g.items.map((p) => (
             <li>
               <a href={`/policies/${p.id}/`}>{p.data.title}</a>
-              <span class="meta">v{p.data.version} · effective {fmt.format(p.data.effectiveDate)}</span>
             </li>
           ))}
         </ul>

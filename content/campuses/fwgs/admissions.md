@@ -2,7 +2,6 @@
 title: Admissions at FWGS
 description: How admission to Fountainhead Wockhardt Global School works — Nursery to Grade 9 & 11.
 template: admissions
-draft: true
 order: 10
 faq:
   - q: Is the orientation mandatory?
@@ -10,10 +9,6 @@ faq:
   - q: Does collecting a form guarantee admission?
     a: Neither collection nor submission of the form guarantees admission. Admissions are offered on seat availability; a waitlist number is assigned otherwise.
 ---
-
-> **DRAFT — comms/admissions to review.** Process and documents ported
-> verbatim from the FWGS Admissions 2026-27 infographic (fully extracted).
-> Verify it stays current for the year shown on the website.
 
 The admission process:
 

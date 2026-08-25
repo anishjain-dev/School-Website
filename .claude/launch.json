@@ -2,7 +2,7 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "School Website",
+      "name": "School Website Dev",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["dev"],
       "port": 4321,
