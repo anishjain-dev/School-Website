@@ -24,7 +24,7 @@ import { config, collection, fields } from '@keystatic/core';
 //            Enabled by the KEYSTATIC_GITHUB=1 build variable; needs the
 //            GitHub App + Worker secrets from docs/Comms Publishing Guide.
 const storage =
-  process.env.KEYSTATIC_GITHUB === '1'
+  import.meta.env.KEYSTATIC_GITHUB === '1'
     ? ({ kind: 'github', repo: { owner: 'vardan-kabra', name: 'fountainhead-web' } } as const)
     : ({ kind: 'local' } as const);
 
@@ -35,8 +35,6 @@ const campusOptions = [
   { label: 'FWGS', value: 'fwgs' },
   { label: 'FALH', value: 'falh' },
   { label: 'FASV', value: 'fasv' },
-  // Preschool estate (WA-47) — without these, Adajan and Vesu cannot be
-  // selected for any CMS-managed content.
   { label: 'Fountainhead Preschool Adajan', value: 'adajan' },
   { label: 'Fountainhead Preschool Vesu', value: 'vesu' },
 ];
@@ -58,10 +56,203 @@ const imageRef = (label: string) =>
     { label },
   );
 
+// ── PAGE CONTENT SCHEMA ──────────────────────────────────────────────────────
+// Shared across all campus content page collections. Mirrors pageSchema from
+// packages/content-schema/src/page.ts — if that schema changes, update here.
+const pageContentSchema = {
+  title: fields.text({ label: 'Page title (H1)', validation: { isRequired: true } }),
+  description: fields.text({ label: 'Meta description / excerpt', multiline: true }),
+  template: fields.select({
+    label: 'Page template',
+    description: 'Controls which layout the page uses.',
+    options: [
+      { label: 'Content — standard rich text page', value: 'content' },
+      { label: 'Admissions — with facts & FAQ panels', value: 'admissions' },
+      { label: 'Contact — address + map + contacts', value: 'contact' },
+      { label: 'Home — campus landing page', value: 'home' },
+      { label: 'Early Years — preschool programme table', value: 'early-years' },
+      { label: 'Programme — single programme detail', value: 'programme' },
+      { label: 'Landing — minimal marketing page', value: 'landing' },
+    ],
+    defaultValue: 'content',
+  }),
+  draft: fields.checkbox({ label: 'Draft — hide from live site', defaultValue: false }),
+  hideFromNav: fields.checkbox({ label: 'Hide from navigation', defaultValue: false }),
+  order: fields.integer({ label: 'Nav order (lower = earlier)' }),
+  facts: fields.array(
+    fields.object({
+      label: fields.text({ label: 'Label (e.g. Founded)', validation: { isRequired: true } }),
+      value: fields.text({ label: 'Value (e.g. 2005)', validation: { isRequired: true } }),
+    }),
+    { label: 'Key facts / stats', itemLabel: (p) => `${p.fields.label.value}: ${p.fields.value.value}` },
+  ),
+  faq: fields.array(
+    fields.object({
+      q: fields.text({ label: 'Question', validation: { isRequired: true } }),
+      a: fields.text({ label: 'Answer', multiline: true, validation: { isRequired: true } }),
+    }),
+    { label: 'FAQ', itemLabel: (p) => p.fields.q.value },
+  ),
+  body: fields.markdoc({
+    label: 'Page body — use headings (##, ###) for sub-sections',
+    description: 'Use ## for section headings, ### for sub-headings inside sections.',
+  }),
+};
+
+// ── CAMPUS CONFIG SCHEMA (mirrors campusConfigSchema) ───────────────────────
+const campusConfigFields = {
+  // slugField points here — must be fields.slug(). Directory name = slug value.
+  slug: fields.slug({ name: { label: 'Campus slug (URL segment, e.g. kunkni, malgama)' } }),
+  name: fields.text({
+    label: 'Full campus name (e.g. Fountainhead School Kunkni)',
+    validation: { isRequired: true },
+  }),
+  shortName: fields.text({ label: 'Short name (e.g. FSK)' }),
+  descriptor: fields.text({ label: 'Descriptor — one line shown on campus cards' }),
+  launched: fields.checkbox({ label: 'Launched — visible on the live site', defaultValue: true }),
+  brand: fields.select({
+    label: 'Brand identity',
+    description: 'Controls the colour palette and logo for this campus.',
+    options: [
+      { label: 'Fountainhead — main schools (blue)', value: 'fountainhead' },
+      { label: 'FWGS — Wockhardt Global School', value: 'fwgs' },
+      { label: 'FALH / Preschool (warm palette)', value: 'falh' },
+      { label: 'FASV — Avadh School Vapi', value: 'fasv' },
+    ],
+    defaultValue: 'fountainhead',
+  }),
+  jurisdiction: fields.select({
+    label: 'Jurisdiction',
+    options: [
+      { label: 'Gujarat', value: 'gujarat' },
+      { label: 'Maharashtra', value: 'maharashtra' },
+    ],
+    defaultValue: 'gujarat',
+  }),
+  address: fields.object(
+    {
+      line1: fields.text({ label: 'Address line 1', validation: { isRequired: true } }),
+      line2: fields.text({ label: 'Address line 2 / area' }),
+      city: fields.text({ label: 'City', validation: { isRequired: true } }),
+      state: fields.text({ label: 'State', validation: { isRequired: true } }),
+      pincode: fields.text({ label: 'Pincode', validation: { isRequired: true } }),
+    },
+    { label: 'Address' },
+  ),
+  phone: fields.text({ label: 'Main phone number (e.g. +91 98765 43210)' }),
+  email: fields.text({ label: 'Main email address' }),
+  contacts: fields.array(
+    fields.object({
+      role: fields.select({
+        label: 'Department',
+        options: [
+          { label: 'Admissions', value: 'admissions' },
+          { label: 'Transport', value: 'transport' },
+          { label: 'Front office', value: 'front-office' },
+        ],
+        defaultValue: 'admissions',
+      }),
+      phone: fields.text({ label: 'Phone' }),
+      email: fields.text({ label: 'Email' }),
+      hours: fields.text({ label: 'Office hours (e.g. Mon–Fri 8 am–4 pm)' }),
+    }),
+    { label: 'Department contacts', itemLabel: (p) => p.fields.role.value },
+  ),
+  social: fields.object(
+    {
+      instagram: fields.text({ label: 'Instagram handle (without @, e.g. fountainheadschools)' }),
+      facebook: fields.text({ label: 'Facebook page handle' }),
+      youtube: fields.text({ label: 'YouTube channel handle' }),
+    },
+    { label: 'Social media' },
+  ),
+  continuesAt: fields.text({
+    label: 'Continues at (campus slug — preschools only)',
+    description: 'Slug of the paired onward school, e.g. kunkni. Leave blank for schools.',
+  }),
+  domains: fields.array(
+    fields.text({ label: 'Domain', validation: { isRequired: true } }),
+    { label: 'Redirect domains (e.g. fsksurat.in)', itemLabel: (p) => p.value },
+  ),
+  inherit: fields.object(
+    {
+      mode: fields.select({
+        label: 'Inherit group pages',
+        options: [
+          { label: 'All — every group page (default for new campuses)', value: 'all' },
+          { label: 'Listed — only pages named in Include list below', value: 'listed' },
+          { label: 'None — campus-specific content only, nothing inherited', value: 'none' },
+        ],
+        defaultValue: 'all',
+      }),
+      exclude: fields.array(
+        fields.text({ label: 'Page ID (e.g. philosophy)', validation: { isRequired: true } }),
+        { label: 'Exclude these group pages', itemLabel: (p) => p.value },
+      ),
+      include: fields.array(
+        fields.text({ label: 'Page ID (e.g. about)', validation: { isRequired: true } }),
+        { label: 'Include these group pages (listed mode only)', itemLabel: (p) => p.value },
+      ),
+    },
+    { label: 'Page inheritance from group' },
+  ),
+};
+
+// Helper: build a campus content-pages collection for one campus
+const campusPageCollection = (campusSlug: string, label: string) =>
+  collection({
+    label,
+    path: `../../content/campuses/${campusSlug}/*`,
+    slugField: 'title',
+    format: { contentField: 'body' },
+    schema: pageContentSchema,
+  });
+
 export default config({
   storage,
-  ui: { brand: { name: 'Fountainhead Web' } },
+  ui: {
+    brand: { name: 'Fountainhead Web CMS' },
+    navigation: {
+      '🏫 Campus Settings': ['campuses'],
+      '📄 Kunkni Pages': ['kunkniPages'],
+      '📄 Malgama Pages': ['malgamaPages'],
+      '📄 FWGS Pages': ['fwgsPages'],
+      '📄 FALH Pages': ['falhPages'],
+      '📄 FASV Pages': ['fasvPages'],
+      '📄 FP Adajan Pages': ['adajanPages'],
+      '📄 FP Vesu Pages': ['vesuPages'],
+      '📰 News & Events': ['news', 'events'],
+      '🎓 Student Voice': ['testimonials'],
+      '🖼️ Galleries': ['galleries'],
+      '📚 FALH Programmes': ['programmes'],
+    },
+  },
   collections: {
+    // ── CAMPUS SETTINGS ────────────────────────────────────────────────────
+    // Writes content/campuses/<slug>/_campus.yaml — read by Astro's campuses
+    // collection at build time. slugField: 'slug' means the directory name
+    // equals the slug value (kunkni, malgama, etc.) matching existing files.
+    campuses: collection({
+      label: 'Campus Settings',
+      path: '../../content/campuses/*/_campus',
+      slugField: 'slug',
+      format: { data: 'yaml' },
+      schema: campusConfigFields,
+    }),
+
+    // ── CAMPUS PAGE CONTENT ────────────────────────────────────────────────
+    // One collection per campus — each manages the markdown pages for that
+    // campus (about, admissions, contact, etc.). Edit title (H1), description,
+    // template, facts, FAQ, and the full body (## for headings, ### for subs).
+    kunkniPages:  campusPageCollection('kunkni',  '📄 Kunkni — Page Content'),
+    malgamaPages: campusPageCollection('malgama', '📄 Malgama — Page Content'),
+    fwgsPages:    campusPageCollection('fwgs',    '📄 FWGS — Page Content'),
+    falhPages:    campusPageCollection('falh',    '📄 FALH — Page Content'),
+    fasvPages:    campusPageCollection('fasv',    '📄 FASV — Page Content'),
+    adajanPages:  campusPageCollection('adajan',  '📄 FP Adajan — Page Content'),
+    vesuPages:    campusPageCollection('vesu',    '📄 FP Vesu — Page Content'),
+
+    // ── TIER B CONTENT ─────────────────────────────────────────────────────
     news: collection({
       label: 'News',
       path: '../../content/news/*',
@@ -99,11 +290,6 @@ export default config({
         quote: fields.text({ label: 'Quote', multiline: true, validation: { isRequired: true } }),
         attribution: fields.slug({ name: { label: 'Attribution' } }),
         role: fields.text({ label: 'Role (e.g. Parent, PYP 4)' }),
-        // WA-49. `type` is REQUIRED by testimonialSchema — without it here,
-        // every CMS-authored testimonial fails content validation and breaks
-        // the build. Student is offered but gated: it needs a logged
-        // consentRef to parse at all, and still does not publish until SHP
-        // exists (isPublishableTestimonial).
         type: fields.select({
           label: 'Who is speaking',
           description: 'Student testimonials need a logged consent reference and do not publish yet (WA-49).',
@@ -135,9 +321,6 @@ export default config({
           fields.object({
             ref: imageRef('Image'),
             caption: fields.text({ label: 'Caption' }),
-            // WA-41: the manual consent check travels WITH the publication.
-            // WA-38: any identifiable child → the upload tool already
-            // refused it; this log records the human check.
             consentCheck: fields.object(
               {
                 checkedBy: fields.text({ label: 'Checked by (staff name)', validation: { isRequired: true } }),

@@ -27,7 +27,10 @@ const IS_DEV = process.env.NODE_ENV !== 'production' && !process.env.CF_PAGES;
 
 export default defineConfig({
   site: 'https://fountainheadschools.org',
-  trailingSlash: 'always',
+  // 'ignore' in Keystatic mode so the admin SPA can handle its own sub-routes
+  // without Astro redirecting /keystatic/collection/news → /keystatic/collection/news/
+  // and breaking the client-side router. Production builds always use 'always'.
+  trailingSlash: KEYSTATIC ? 'ignore' : 'always',
   server: { host: true, allowedHosts: true },
   build: { format: 'directory' },
   adapter: IS_DEV ? undefined : cloudflare({
